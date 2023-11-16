@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent  implements OnInit {
+  miRutaDeImagen: string = 'assets/icon-dash.png';
+
+
 
   constructor() { }
 
