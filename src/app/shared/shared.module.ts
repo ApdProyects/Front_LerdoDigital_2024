@@ -5,12 +5,13 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent,CustomInputComponent,LogoComponent],
-  exports:[HeaderComponent,CustomInputComponent,LogoComponent,ReactiveFormsModule],
+  declarations: [HeaderComponent,CustomInputComponent,LogoComponent,FooterComponent],
+  exports:[HeaderComponent,CustomInputComponent,LogoComponent,ReactiveFormsModule,FooterComponent],
   imports: [
     CommonModule,
     IonicModule,

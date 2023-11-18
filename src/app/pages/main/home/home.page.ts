@@ -6,21 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage  {
-  isAlertOpen = false;
-  alertButtons = ['Cerrar', 'Salir'];
-  router: any;
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
 
-  setOpen(isOpen: boolean) {
-    this.isAlertOpen = isOpen;
-    
-  }
-
-  handleAlertButtonClick(buttonIndex: number) {
-    if (buttonIndex === 0) {
-      // Acción para el botón 'Cerrar' (puedes dejarlo vacío o agregar lógica adicional)
-    } else if (buttonIndex === 1) {
-      // Acción para el botón 'Volver al Login'
-      this.router.navigate(['/auth']); // Ajusta '/login' según la ruta de tu componente Auth
-    }
+  setResult(ev:any) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 }

@@ -1,0 +1,32 @@
+ion-menu::part(backdrop) {
+  background-color: rgba(5, 138, 10, 0.5);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 4px 0px 16px rgba(12, 155, 131, 0.71);
+}
+
+.icon-log-out {
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+ion-item {
+  font-size: 14px;
+  color: var();
+  --background: var(#);
+
+  ion-icon {
+    color: var(--ion-color-success);
+  }
+
+  &.active {
+    color: white;
+    --background: var(--ion-color-success);
+    ion-icon {
+      color: white;
+    }
+  }
+}

@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>main</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu
+  contentId="menu-content"
+  menuId="menu-content"
+  side="start"
+  
+>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+    
+    <ion-title>menu</ion-title>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">main</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+</ion-toolbar>
+</ion-header>
+  <ion-content> 
+    
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+      <ion-item [ngClass]="{'active': currentPath === p.url}"   [routerLink]="p.url" routerDirection="root" >
+        <ion-icon slot="start" [name]="p.icon"></ion-icon>
+        <ion-label>{{p.title}}</ion-label>
+      </ion-item>
+  
+    </ion-menu-toggle>
+  
+  </ion-content>
+
+  <ion-footer>
+    <ion-menu-toggle auto-hide="false" >
+      <ion-item lines="none" >
+        <ion-icon slot="start"name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesion</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-footer>
+</ion-menu>
+
+<ion-router-outlet id="menu-content" main></ion-router-outlet>
+
+
+    
+<!-- <ion-header>
+      <ion-toolbar color="success">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Home</ion-title>
+    <ion-icon
+      name="ellipsis-vertical-outline"
+      slot="end"
+      id="present-alert"
+      class="icon-log-out"
+    ></ion-icon>
+    <ion-alert
+      trigger="present-alert"
+      header="Cerrar Sesion"
+      [buttons]="alertButtons"
+      (didDismiss)="setResult($event)"
+    ></ion-alert>
+  </ion-toolbar>
+</ion-header> -->
