@@ -5,6 +5,10 @@
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div class="ion-padding-horizontal">
     <h1>Bienvenido/a</h1>
     <h4>Pensando en ti</h4>
@@ -14,7 +18,7 @@
   <!--============= Posts =============-->
   <ion-grid *ngIf="posts.length">
     <ion-row>
-      <ion-col (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3" size="6" *ngFor="let p of posts; index as i">
+      <ion-col (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3" size-sm="6" size="6" *ngFor="let p of posts; index as i">
         <ion-avatar>
           <img [src]="p.images[0]" />
         </ion-avatar>
@@ -45,8 +49,8 @@
 
 </ion-content>
 
-<app-footer></app-footer>
-
+<!-- <app-footer></app-footer>
+ -->
 <!-- <ion-app>
   <ion-menu contentId="main-content">
     <ion-header>

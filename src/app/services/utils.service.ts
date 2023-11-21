@@ -11,7 +11,7 @@ export class UtilsService {
   ) { }
 
   async presentModal(opts: ModalOptions){
-    const modal = await this.modalController.create(opts)
+    const modal = await this.modalController.create(opts);
     await modal.present();
   }
 

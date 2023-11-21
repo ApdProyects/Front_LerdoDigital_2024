@@ -1,4 +1,4 @@
-<app-header title="Publicaciones" isModal="true"></app-header>
+<app-header isModal="true" title="Publicaciones" ></app-header>
 
 <ion-content>
   <ion-grid>
@@ -22,7 +22,7 @@
             <ion-col size="12">
               <img [src]="selectedImage" width="100%">
             </ion-col>
-            <ion-col **ngFor="let image of post.images" size="3">
+            <ion-col *ngFor="let image of post.images" size="3">
               <img [src]="image">
             </ion-col>
           </ion-row>
