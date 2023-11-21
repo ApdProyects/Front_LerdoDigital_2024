@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 export class MainPage implements OnInit {
 
   pages = [
-    {title : 'Inicio', url:'/home', icon:'home-outline'},
-    {title : 'Servicios', url:'/servicios', icon:'folder-outline'},
-    {title : 'Facturacion', url:'/facturacion', icon:'cash-outline'},
-    {title : 'Perfil', url:'/profile', icon:'person-outline'},
+    {title : 'Inicio', url:'/main/home', icon:'home-outline'},
+    {title : 'Servicios', url:'/main/servicios', icon:'folder-outline'},
+    {title : 'Facturacion', url:'/main/facturacion', icon:'cash-outline'},
+    {title : 'Perfil', url:'/main/profile', icon:'person-outline'},
   ]
 
   router = inject(Router);

@@ -6,17 +6,19 @@ import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { RouterModule } from '@angular/router';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+ 
 
 
 @NgModule({
-  declarations: [HeaderComponent,CustomInputComponent,LogoComponent,FooterComponent],
-  exports:[HeaderComponent,CustomInputComponent,LogoComponent,ReactiveFormsModule,FooterComponent],
+  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent],
+  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent],
   imports: [
     CommonModule,
     IonicModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule, RouterModule, 
   ]
 })
 export class SharedModule { }

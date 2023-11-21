@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignUpPageRoutingModule } from './sign-up-routing.module';
 
 import { SignUpPage } from './sign-up.page';
-import { SharedModule } from "../../../shared/shared.module";
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
     declarations: [SignUpPage],

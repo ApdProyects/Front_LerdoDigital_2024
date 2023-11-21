@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FacturacionPageRoutingModule } from './facturacion-routing.module';
 
 import { FacturacionPage } from './facturacion.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FacturacionPageRoutingModule
+    FacturacionPageRoutingModule,SharedModule
   ],
   declarations: [FacturacionPage]
 })
