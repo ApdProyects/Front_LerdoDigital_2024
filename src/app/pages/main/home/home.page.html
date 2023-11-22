@@ -1,5 +1,4 @@
-<app-header class="ion-no-border" MenuButton="MenuButton" title="Home">
-
+<app-header class="ion-no-border" MenuButton="MenuButton" title="Inicio">
 </app-header>
 
 
@@ -10,12 +9,12 @@
   </ion-refresher>
 
   <div class="ion-padding-horizontal">
-    <h1>Bienvenido/a</h1>
-    <h4>Pensando en ti</h4>
+    <p style="color: white; font-size: 50px;"><b>Lerdo<br> Digital</b></p>
   </div>
-
-
-  <!--============= Posts =============-->
+  <br>
+  <div class="conoce-mun">
+    <h2 class="heading mb-5 text-center color-title"><b>Conoce nuestro municipio.</b></h2>
+    <!--============= Posts =============-->
   <ion-grid *ngIf="posts.length">
     <ion-row>
       <ion-col (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3" size-sm="6" size="6" *ngFor="let p of posts; index as i">
@@ -46,7 +45,7 @@
       <h4>No hay Publicaciones disponibles</h4>
     </div>
 
-
+  </div>
 </ion-content>
 
 <!-- <app-footer></app-footer>

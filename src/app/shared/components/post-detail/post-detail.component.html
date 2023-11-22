@@ -1,37 +1,36 @@
-<app-header isModal="true" title="Publicaciones" ></app-header>
+<app-header isModal="true" title="Publicaciones"></app-header>
 
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-
         <ion-item>
-          <ion-label>{{post.prompt}}</ion-label>
+          <ion-label>{{ post.prompt }}</ion-label>
           <ion-buttons slot="end">
             <ion-button>
               <ion-icon name="clipboard-outline"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-item>
+        <br />
+        <ion-label
+          style="display: flex; align-items: center; justify-content: center"
+          >{{ post.description }}</ion-label
+        >
       </ion-col>
 
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-
         <ion-grid>
           <ion-row>
             <ion-col size="12">
-              <img [src]="selectedImage" width="100%">
+              <img [src]="selectedImage" width="80%" height="100%" />
             </ion-col>
             <ion-col *ngFor="let image of post.images" size="3">
-              <img [src]="image">
+              <img [src]="image" />
             </ion-col>
           </ion-row>
         </ion-grid>
-
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
 </ion-content>

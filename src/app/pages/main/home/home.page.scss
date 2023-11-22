@@ -1,33 +1,55 @@
-ion-avatar{
-    --border-radius:10px;
-    width: 100%;
-    height: 250px;
+ion-avatar {
+  --border-radius: 10px;
+  width: 100%;
+  height: 250px;
 }
 
-ion-grid{
-    padding-top: 20px;
+ion-grid {
+  padding-top: 20px;
 }
 
-.col-down{
-    margin-top: 30px;
-    padding: 0 10px;;
+.col-down {
+  margin-top: 30px;
+  padding: 0 10px;
 }
 
-h1{
-    font-weight: bold;
-    line-height: 10px;
+h1 {
+  font-weight: bold;
+  line-height: 10px;
 }
 
-h4{
-    line-height: 19px;
+h4 {
+  line-height: 19px;
 }
 
-.empty{
-    text-align: center;
-    margin-top: 17vh;
-    opacity: 30%;
+.empty {
+  text-align: center;
+  margin-top: 17vh;
+  opacity: 30%;
 
-    ion-icon{
-        font-size: 120px;
-    }
+  ion-icon {
+    font-size: 120px;
+  }
+}
+
+.ion-padding-horizontal {
+  display: grid;
+  place-items: center;
+  text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
+  height: 50vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
+
+  background-image: url("/assets/fondo.webp"); /* Reemplaza 'ruta/de/tu/imagen.jpg' con la ruta de tu imagen de fondo */
+  background-size: cover; /* Ajusta según tus preferencias */
+  background-position: center; /* Ajusta según tus preferencias */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  color: white; /* Ajusta el color del texto para que sea legible en la imagen de fondo */
+  text-align: center; /* Ajusta según tus preferencias */
+  padding: 10px; /* Ajusta según tus preferencias */
+}
+
+.conoce-mun{
+  display: grid;
+  place-items: center;
+  text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
+  height: 50vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
 }
