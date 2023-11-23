@@ -13,20 +13,21 @@
           </ion-buttons>
         </ion-item>
         <br />
-        <ion-label
+        <ion-text
           style="display: flex; align-items: center; justify-content: center"
-          >{{ post.description }}</ion-label
+          >{{ post.description }}</ion-text
         >
       </ion-col>
 
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-        <ion-grid>
+
+        <ion-grid class="images-wrapper">
           <ion-row>
             <ion-col size="12">
-              <img [src]="selectedImage" width="80%" height="100%" />
+              <img [src]="selectedImage" width="100%" height="90%" />
             </ion-col>
-            <ion-col *ngFor="let image of post.images" size="3">
-              <img [src]="image" />
+            <ion-col class="click" (click)="selectedImage = image" *ngFor="let image of post.images" size="3"  >
+              <img [ngClass]="{'selected': selectedImage == image}" [src]="image"  width="95%" height="75%" />
             </ion-col>
           </ion-row>
         </ion-grid>

@@ -11,5 +11,22 @@ ion-label{
 
 img{
     border-radius:10px;
+
+    &.selected{
+        border: 3px solid var(--ion-color-success);
+    }
 }
 
+.cropped-image {
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se extienda más allá del contenedor */
+  }
+  
+  .images-wrapper{
+     width: 50vw;
+  }
+
+  @media screen and (max-width: 767px) {
+    .images-wrapper{
+        width: 85vw;
+     }
+  }

@@ -8,12 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
+
  
 
 
 @NgModule({
-  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent],
-  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent],
+  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent, ],
+  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent, ],
   imports: [
     CommonModule,
     IonicModule,

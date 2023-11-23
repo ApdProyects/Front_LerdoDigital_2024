@@ -5,9 +5,9 @@ export const Posts = [
     prompt: 'Iglesia del Sagrado Corazón de Jesús',
     description:'Uno de los atractivos turísticos de la Región Lagunera y especialmente de Ciudad Lerdo, lo constituye la Parroquia del Sagrado Corazón de Jesús, ubicada frente a la plaza principal. Orgullo de los lerdenses por su estilo neoclásico, fue la primera y con mejor arquitectura en toda la Comarca Lagunera, su terminación fue el 12 de diciembre de 1896 gracias al padre Celedonio Valenzuela, autor principal aun cuando en su período eclesiástico no concluyó la obra, le correspondió al padre Francisco Uranga darle los últimos arreglos.',
     images: [
-      'assets/iglesia.jpg',
+        'https://tecolotito.elsiglodetorreon.com.mx/i/2019/12/1264233.jpeg',
       'https://mapio.net/images-p/70031665.jpg',
-      'https://tecolotito.elsiglodetorreon.com.mx/i/2019/12/1264233.jpeg',
+      'assets/iglesia.jpg',
       'https://images.mnstatic.com/3b/17/3b17977927e2c07d4b677f53bb7bd47d.jpg'
     ]
   },

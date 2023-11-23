@@ -9,13 +9,13 @@
       (keypress.enter)="submit()"
     >
       <app-logo></app-logo>
-<!--============= Name ============-->
+      <!--============= Name ============-->
       <app-custom-input
         autocomplete="name"
         icon="person-outline"
         [control]="form.controls.email"
         type="name"
-        label="Nombre"
+        label="Nombre completo"
       ></app-custom-input>
 
       <div
@@ -25,12 +25,14 @@
         <div *ngIf="form.controls.name.errors?.['required']">
           El correo es requerido
         </div>
-        <div *ngIf="form.controls.name.errors?.['minLenght/*============= Name ============*/']">
+        <div
+          *ngIf="form.controls.name.errors?.['minLenght/*============= Name ============*/']"
+        >
           Ingrese un correo valido
         </div>
       </div>
 
-<!--============= email ============-->
+      <!--============= email ============-->
       <app-custom-input
         autocomplete="email"
         icon="mail-outline"
@@ -50,7 +52,29 @@
           Ingrese un correo valido
         </div>
       </div>
-<!--============= Password ============-->
+
+      <!--============= Telefono ============-->
+      <app-custom-input
+        autocomplete="email"
+        icon="call-outline"
+        [control]="form.controls.email"
+        type="email"
+        label="Teléfono"
+      ></app-custom-input>
+
+      <div
+        class="validators"
+        *ngIf="form.controls.email.errors && form.controls.email.touched"
+      >
+        <div *ngIf="form.controls.email.errors?.['required']">
+          El correo es requerido
+        </div>
+        <div *ngIf="form.controls.email.errors?.['email']">
+          Ingrese un correo valido
+        </div>
+      </div>
+
+      <!--============= Password ============-->
       <app-custom-input
         icon="lock-closed-outline"
         [control]="form.controls.password"
@@ -67,7 +91,24 @@
         </div>
       </div>
 
-     
+      <!--============= conf. Password ============-->
+
+      <app-custom-input
+        icon="lock-closed-outline"
+        [control]="form.controls.password"
+        type="password"
+        label="Confirmar contraseña"
+      ></app-custom-input>
+
+      <div
+        class="validators"
+        *ngIf="form.controls.password.errors && form.controls.password.touched"
+      >
+        <div *ngIf="form.controls.password.errors?.['required']">
+          La contraseña es requerida
+        </div>
+      </div>
+
       <ion-button
         expand="block"
         mode="ios"
@@ -76,11 +117,9 @@
         [disabled]="form.invalid"
         color="success"
       >
-      Resgistrar
+        Resgistrar
         <ion-icon slot="end" name="person-add-outline"></ion-icon>
       </ion-button>
-
-   
     </form>
   </div>
 </ion-content>
