@@ -4,7 +4,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-        <ion-item>
+
+        <ion-item class="ion-hide-md-up">
           <ion-label>{{ post.prompt }}</ion-label>
           <ion-buttons slot="end">
             <ion-button>
@@ -12,11 +13,20 @@
             </ion-button>
           </ion-buttons>
         </ion-item>
-        <br />
-        <ion-text
-          style="display: flex; align-items: center; justify-content: center"
-          >{{ post.description }}</ion-text
-        >
+
+        <h1 class="d-flex-center ion-hide-md-down">
+          {{ post.prompt }}
+          <ion-button class="ion-margin" fill="outline" shape="round">
+            <ion-icon name="clipboard-outline"></ion-icon>
+          </ion-button>
+        </h1>
+        <br>
+        <div> <ion-text style="display: flex; align-items: center; justify-content: center">{{ post.description
+            }}</ion-text></div>
+
+
+
+
       </ion-col>
 
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
@@ -26,8 +36,8 @@
             <ion-col size="12">
               <img [src]="selectedImage" width="100%" height="90%" />
             </ion-col>
-            <ion-col class="click" (click)="selectedImage = image" *ngFor="let image of post.images" size="3"  >
-              <img [ngClass]="{'selected': selectedImage == image}" [src]="image"  width="95%" height="75%" />
+            <ion-col class="click" (click)="selectedImage = image" *ngFor="let image of post.images" size="3">
+              <img [ngClass]="{'selected': selectedImage == image}" [src]="image" width="95%" height="75%" />
             </ion-col>
           </ion-row>
         </ion-grid>

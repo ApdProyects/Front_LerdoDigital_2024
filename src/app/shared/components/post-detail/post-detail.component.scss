@@ -1,4 +1,4 @@
-ion-label{
+ion-text{
     text-align: center;
     width: 100%;
 }
@@ -20,13 +20,33 @@ img{
 .cropped-image {
     overflow: hidden; /* Oculta cualquier parte de la imagen que se extienda más allá del contenedor */
   }
-  
-  .images-wrapper{
-     width: 50vw;
+
+   
+  h1{
+    font-size: 5vw;
+    line-height: 4.5vw;
+    padding: 20px;
   }
+
+  .images-wrapper{
+    width: 48vw;
+ }
+
 
   @media screen and (max-width: 767px) {
     .images-wrapper{
-        width: 85vw;
+        width: 100%;
      }
   }
+
+  @media screen and (max-width: 992px) {
+
+        .images-wrapper{
+            width: 85vw;
+        }
+  }
+    
+  
+
+
+  

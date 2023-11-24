@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
   doRefresh(event: any){
     setTimeout(() => {
       this.getPosts();
+        
       event.target.complete()
     }, 2000);
   }
@@ -33,7 +34,7 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.posts = Posts;
-    }, 1000);
+    }, 2000);
     console.log(this.posts);
   }
 
