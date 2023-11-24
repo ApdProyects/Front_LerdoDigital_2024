@@ -1,112 +1,218 @@
 <app-header class="ion-no-border" MenuButton="MenuButton" title="Inicio">
 </app-header>
 
-
 <ion-content>
-
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
   <div class="ion-padding-horizontal">
-    <p style="color: black; font-size: 50px;"><b>Lerdo<br> Digital</b></p>
+    <p style="color: black; font-size: 50px">
+      <b
+        >Lerdo<br />
+        Digital</b
+      >
+    </p>
   </div>
-  <br>
+
+  <br />
+
   <div class="conoce-mun">
-    <h2 class="heading mb-5 text-center color-title"><b>Conoce nuestro municipio.</b></h2>
-    
+    <h2 class="heading  text-center color-title">
+      <b>Conoce nuestro municipio.</b>
+    </h2></div>
+
     <!--============= Posts =============-->
-  <ion-grid *ngIf="posts.length">
-    <ion-row>
-      <ion-col class="click" (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3" size-sm="6" size="6" *ngFor="let p of posts; index as i">
-        <ion-avatar>
-          <img [src]="p.images[0]" />
-        </ion-avatar>
-
-      </ion-col>
-
-    </ion-row>
-  </ion-grid>
-
-    <!--============= loading =============-->
-    <ion-grid *ngIf="loading">
+    <div>
+    <ion-grid *ngIf="posts.length">
       <ion-row>
-        <ion-col [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3" size="6" *ngFor="let p of [1,1,1,1,1]; index as i">
+        <ion-col
+          class="click"
+          (click)="showPostDetail(p)"
+          [ngClass]="{'col-down': i % 2 !== 0}"
+          size-lg="3"
+          size-md="3"
+          size-sm="6"
+          size="6"
+          *ngFor="let p of posts; index as i"
+        >
           <ion-avatar>
-            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+            <img [src]="p.images[0]" />
           </ion-avatar>
-  
         </ion-col>
-  
       </ion-row>
     </ion-grid>
-
-    <div class="empty" *ngIf="!posts.length && !loading">
+  </div>
+  <br/>
+    <!-- <div class="empty" *ngIf="!posts.length && !loading">
       <ion-icon slot="start" name="images-outline"></ion-icon>
       <h4>No hay Publicaciones disponibles</h4>
+    </div> -->
+  
+
+       <!--============= loading =============-->
+     <!--   <ion-grid *ngIf="loading">
+        <ion-row>
+          <ion-col
+            [ngClass]="{'col-down': i % 2 !== 0}"
+            size-lg="3"
+            size-md="3"
+            size="6"
+            *ngFor="let p of [1,1,1,1,1]; index as i"
+          >
+            <ion-avatar>
+              <ion-skeleton-text
+                animated
+                style="width: 100%; height: 100%"
+              ></ion-skeleton-text>
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+  
+      
+  
+     
+    <!--============= Tramites =============-->
+    <div class="tramites-card">
+      <h1 >Trámites</h1>
     </div>
 
-  </div>
-</ion-content>
-
-<!-- <app-footer></app-footer>
- -->
-<!-- <ion-app>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="success">
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="ion-padding">
-      <ion-list>
-        <ion-menu-toggle>
-          <ion-item>
-            <ion-icon slot="start" name="home-outline"></ion-icon>
-            <ion-label>Inicio</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="folder-outline"></ion-icon>
-            <ion-label>Servicios</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-icon slot="start" name="cash-outline"></ion-icon>
-            <ion-label>Facturacion</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-      </ion-list>
-    </ion-content>
-
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar color="success">
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Home</ion-title>
-
-        
-
-        <ion-icon
-          name="ellipsis-vertical-outline"
-          slot="end"
-          id="present-alert"
-          class="icon-log-out"
-        ></ion-icon>
-        <ion-alert
-          trigger="present-alert"
-          header="Cerrar Sesion"
-          [buttons]="alertButtons"
-          (didDismiss)="setResult($event)"
-        ></ion-alert>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding"> </ion-content>
-    <app-footer></app-footer>
-  </div>
+    <div class="tramites-card">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon class="icon" name="car-outline"></ion-icon>
+                </ion-card-title>
+                <ion-card-subtitle><h3>Vialidad.</h3></ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p class="sub-heading mb-5 text-left">
+                  <strong>Teléfono:</strong> <br />
+                  (871) 725 - 1061
+                </p>
+                <p class="sub-heading mb-5 text-left">
+                  <strong>Horarios:</strong> <br />
+                  8:00 a.m. a 4:00 p.m.
+                </p>
+                <p class="sub-heading mb-5 text-left">
+                  <strong>Dirección:</strong> <br />
+                  Prol. Allende  #3  Col. Centro
+                </p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+    
+          <ion-col size="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon class="icon" name="business-outline"></ion-icon>
+                </ion-card-title>
+                <ion-card-subtitle><h3>Catastro</h3></ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <h5>Teléfono:</h5>
+                <p>(871) 175 - 0000 Ext. 224</p>
+                <h5>Horarios:</h5>
+                <p>8:00 a.m. a 4:00 p.m</p>
+                <h5>Dirección:</h5>
+                <p>Prol. Allende s/n Col. Centro</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+    
+          <ion-col size="4">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-icon class="icon" name="reader-outline"></ion-icon>
+                </ion-card-title>
+                <ion-card-subtitle><h3>Parquímetros</h3></ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <h5>Teléfono:</h5>
+                <p>(871) 175 - 0000 Ext. 224</p>
+                <h5>Horarios:</h5>
+                <p>8:00 a.m. a 4:00 p.m</p>
+                <h5>Dirección:</h5>
+                <p>Prol. Allende s/n Col. Centro</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   
-</ion-app>
 
- -->
+    <br />
+    
+  <!-- Sección de Contáctanos -->
+<div class="contacto-section">
+  <h1 class="heading text-center color-title">
+    <b>Contáctanos</b>
+  </h1>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon class="icon" name="mail-outline"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle><h3>Correo Electrónico</h3></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+        
+            <strong>Correo:</strong>
+              <ion-input  
+              type="email"
+              fill="outline"
+              label="Email"
+              labelPlacement="floating"
+              errorText="Invalid email"
+              ngModel
+              email></ion-input>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon class="icon" name="call-outline"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle><h3>Teléfono</h3></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <strong>Teléfono:</strong>
+            <ion-input label="Numero" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon class="icon" name="location-outline"></ion-icon>
+            </ion-card-title>
+            <ion-card-subtitle><h3>Nombre</h3></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+           <strong> Nombre:</strong>
+            <ion-input label-placement="floating" fill="outline" placeholder="Enter text"  ></ion-input>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+
+</ion-content>

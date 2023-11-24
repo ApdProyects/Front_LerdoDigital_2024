@@ -6,19 +6,19 @@
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
 
         <ion-item class="ion-hide-md-up">
-          <ion-label>{{ post.prompt }}</ion-label>
+          <ion-label style="text-align: center;">{{ post.prompt }}</ion-label>
           <ion-buttons slot="end">
-            <ion-button>
+            <!-- <ion-button>
               <ion-icon name="clipboard-outline"></ion-icon>
-            </ion-button>
+            </ion-button> -->
           </ion-buttons>
         </ion-item>
 
         <h1 class="d-flex-center ion-hide-md-down">
           {{ post.prompt }}
-          <ion-button class="ion-margin" fill="outline" shape="round">
+         <!--  <ion-button class="ion-margin" fill="outline" shape="round">
             <ion-icon name="clipboard-outline"></ion-icon>
-          </ion-button>
+          </ion-button> -->
         </h1>
         <br>
         <div> <ion-text style="display: flex; align-items: center; justify-content: center">{{ post.description

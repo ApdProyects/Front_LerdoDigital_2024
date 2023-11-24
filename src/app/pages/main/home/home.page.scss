@@ -43,5 +43,20 @@ h4 {
   display: grid;
   place-items: center;
   text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-  height: 50vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
+  height: 10vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
+}
+
+.tramites-card {
+  place-items: center;
+  text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
+}
+
+.contacto-section{
+  place-items: center;
+  text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
+
+}
+
+.icon {
+  font-size: 100px;
 }

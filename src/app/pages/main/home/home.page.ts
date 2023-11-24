@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
       this.getPosts();
         
       event.target.complete()
-    }, 2000);
+    }, 1000);
   }
 
   getPosts() {
@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.posts = Posts;
-    }, 2000);
+    }, 1000);
     console.log(this.posts);
   }
 
