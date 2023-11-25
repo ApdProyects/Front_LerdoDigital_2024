@@ -3,6 +3,7 @@ import { Post } from 'src/app/models/post.model';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Posts } from 'src/assets/data/images';
 import { PostDetailComponent } from 'src/app/shared/components/post-detail/post-detail.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,18 @@ import { PostDetailComponent } from 'src/app/shared/components/post-detail/post-
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  
+
   posts: Post[] = [];
   loading: boolean = false;
+
+
+  form = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email] ),
+    phone: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.minLength(4)])
+  });
 
   constructor(private utilsSvc: UtilsService) {}
 

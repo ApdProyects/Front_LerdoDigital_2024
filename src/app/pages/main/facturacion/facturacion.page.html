@@ -1,10 +1,67 @@
 <app-header class="ion-no-border" MenuButton="MenuButton" title="Facturacion">
 </app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Facturación</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="contacto-section">
+    <h1 class="heading text-center color-title">
+      <b>FACTURACIÓN DE FOLIOS DEL MUNICIPIO CFDI 4.0</b>
+    </h1>
+  </div>
+  <br />
+
+  <div class="form-container">
+    <form [formGroup]="form" class="auth-form">
+      <ion-label position="stacked"></ion-label>
+      <ion-input
+        type="number"
+        label="Ingrese su folio"
+        label-placement="floating"
+        placeholder="Folio indicado en el Recibo de su Pago"
+        color="success"
+        fill="solid"
+      ></ion-input>
+      <br />
+      <ion-label position="stacked"></ion-label>
+      <ion-input 
+      type="text" 
+      label="Ingrese su RFC"
+      label-placement="floating"
+      placeholder="RFC"
+      color="success" 
+      fill="solid">
+    </ion-input>
+      <br />
+
+      <ion-list>
+        <ion-item>
+          <ion-select aria-label="Fruit" interface="popover" placeholder="Select fruit">
+            <ion-select-option value="apples">ADQUISICIÓN DE MERCANCIAS</ion-select-option>
+            <ion-select-option value="oranges">DEVOLUCIONES, DESCUENTOS O BONIFICACIONES</ion-select-option>
+            <ion-select-option value="bananas">GASTOS EN GENERAL</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+
+
+
+    <div class="d-flex-center">
+      <ion-button
+        class="ion-margin-top"
+        expand="block"
+        mode="ios"
+        color="success"
+      >
+        FACTURAR FOLIO
+      </ion-button>
+      <ion-button
+        class="ion-margin-top"
+        expand="block"
+        mode="ios"
+        color="success"
+      >
+        VALIDAR INFORMACION RFC
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

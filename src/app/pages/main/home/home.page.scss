@@ -29,6 +29,7 @@ h4 {
 
   ion-icon {
     font-size: 120px;
+  
   }
 }
 
@@ -57,6 +58,45 @@ h4 {
 
 }
 
+.card-container{
+  
+  text-align: center;
+}
+
 .icon {
   font-size: 100px;
 }
+
+.custom-input {
+  --border-color: #e0e0e0;
+  --border-radius: 15px;
+  --border-style: solid;
+  --border-width: 1px;
+  margin: 20px 0;
+
+  .custom-input:active{
+    --border-color: green;
+  }
+}
+
+
+
+
+.auth-form {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+
+  .form-container {
+    border: 1px solid #ccc; /* Borde del cuadro */
+    padding: 20px; /* Espaciado interno del cuadro */
+    border-radius: 10px; /* Bordes redondeados del cuadro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del cuadro */
+    max-width: 600px; /* Ancho máximo del cuadro */
+    margin: auto; /* Centrar el cuadro en la página */
+    width: 100%; /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+  }
+  

@@ -18,12 +18,13 @@
   <br />
 
   <div class="conoce-mun">
-    <h2 class="heading  text-center color-title">
+    <h2 class="heading text-center color-title">
       <b>Conoce nuestro municipio.</b>
-    </h2></div>
+    </h2>
+  </div>
 
-    <!--============= Posts =============-->
-    <div>
+  <!--============= Posts =============-->
+  <div>
     <ion-grid *ngIf="posts.length">
       <ion-row>
         <ion-col
@@ -43,15 +44,14 @@
       </ion-row>
     </ion-grid>
   </div>
-  <br/>
-    <!-- <div class="empty" *ngIf="!posts.length && !loading">
+  <br />
+  <!-- <div class="empty" *ngIf="!posts.length && !loading">
       <ion-icon slot="start" name="images-outline"></ion-icon>
       <h4>No hay Publicaciones disponibles</h4>
     </div> -->
-  
 
-       <!--============= loading =============-->
-     <!--   <ion-grid *ngIf="loading">
+  <!--============= loading =============-->
+  <!--   <ion-grid *ngIf="loading">
         <ion-row>
           <ion-col
             [ngClass]="{'col-down': i % 2 !== 0}"
@@ -69,162 +69,144 @@
           </ion-col>
         </ion-row>
       </ion-grid> -->
-  
-      
-  
-     
-    <!--============= Tramites =============-->
-    <div class="tramites-card">
-      <h1 >Trámites</h1>
-    </div>
 
-    <div class="tramites-card">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="car-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle><h3>Vialidad.</h3></ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 725 - 1061
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m.
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Prol. Allende  #3  Col. Centro
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-    
-          <ion-col size="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="business-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle><h3>Catastro</h3></ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 175 - 0000 Ext. 224
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Prol. Allende s/n Col. Centro
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-    
-          <ion-col size="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="reader-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle><h3>Parquímetros</h3></ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 175 - 0000 Ext. 224
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Prol. Allende s/n Col. Centro
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  
+  <!--============= Tramites =============-->
+  <div class="tramites-card">
+    <h1>Trámites</h1>
+  </div>
 
-    <br />
-    
+  <div class="tramites-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="car-outline" color="success"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle><h3>Vialidad.</h3></ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 725 - 1061
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m.
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Prol. Allende #3 Col. Centro
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="business-outline" color="success"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle><h3>Catastro</h3></ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 175 - 0000 Ext. 224
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Prol. Allende s/n Col. Centro
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="reader-outline" color="success"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle><h3>Parquímetros</h3></ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 175 - 0000 Ext. 224
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Prol. Allende s/n Col. Centro
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <br />
+
   <!-- Sección de Contáctanos -->
-<div class="contacto-section">
-  <h1 class="heading text-center color-title">
-    <b>Contáctanos</b>
-  </h1>
+  <div class="contacto-section">
+    <h1 class="heading text-center color-title">
+      <b>Contáctanos</b>
+    </h1>
+  </div>
+<br/>
+  <div class="form-container">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon class="icon" name="mail-outline"></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle><h3>Correo Electrónico</h3></ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form">
+      <app-custom-input
+        autocomplete="email"
+        icon="mail-outline"
+        [control]="form.controls.email"
+        type="email"
+        label="Correo"
+      ></app-custom-input>
+
+      <app-custom-input
+        autocomplete="phone"
+        icon="call-outline"
+        [control]="form.controls.email"
+        type="phone"
+        label="Teléfono"
+      ></app-custom-input>
+
+      <app-custom-input
+        autocomplete="name"
+        icon="person-outline"
+        [control]="form.controls.email"
+        type="name"
+        label="Nombre"
+        color="success"
         
-            <strong>Correo:</strong>
-              <ion-input  
-              type="email"
-              fill="outline"
-              
-              labelPlacement="floating"
-              errorText="Invalid email"
-              ngModel
-              email></ion-input>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
+      ></app-custom-input>
 
-      <ion-col size="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon class="icon" name="call-outline"></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle><h3>Teléfono</h3></ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <strong>Teléfono:</strong>
-            <ion-input  label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
+      <ion-button
+      class="ion-margin-top"
+      
+      expand="block"
+      mode="ios"
+      color="success"
 
-      <ion-col size="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon class="icon" name="person-outline"></ion-icon>
-            </ion-card-title>
-            <ion-card-subtitle><h3>Nombre</h3></ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-           <strong> Nombre:</strong>
-            <ion-input label-placement="floating" fill="outline" placeholder="Enter text"  ></ion-input>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
-
-
+    >
+      Enviar
+      <ion-icon slot="end" name="send-outline"></ion-icon>
+    </ion-button>
+    </form>
+  </div>
+  </div>
 </ion-content>
