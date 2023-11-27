@@ -47,10 +47,34 @@ h4 {
   height: 10vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
 }
 
+/* <=================Tramites=================> */
+
+ion-card {
+  --background: #f4f4f4;
+  --color: #110f0f;
+}
+
+ion-card-title {
+  --color: #110f0f;
+}
+
+ion-card-subtitle {
+  --color: #110f0f;
+}
+
+
 .tramites-card {
   place-items: center;
   text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
 }
+
+.card-container{
+  
+  text-align: center;
+}
+
+/* <================= Contactos =================> */
+
 
 .contacto-section{
   place-items: center;
@@ -58,10 +82,26 @@ h4 {
 
 }
 
-.card-container{
-  
-  text-align: center;
+.custom-divider {
+  background-color: #000; /* Color de fondo de la línea de separación */
+  height: 1px; /* Altura de la línea de separación */
+  margin: 0 16px; /* Márgenes para controlar la longitud de la línea */
 }
+
+.contacto-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
+  margin: 20px auto; 
+}
+
+.contacto-section-left,
+.contacto-section-right {
+  width: 45%; /* Ajusta el ancho según sea necesario */
+}
+
+
+
 
 .icon {
   font-size: 100px;
@@ -89,14 +129,36 @@ h4 {
 }
 
 
-  .form-container {
-    border: 1px solid #ccc; /* Borde del cuadro */
-    padding: 20px; /* Espaciado interno del cuadro */
-    border-radius: 10px; /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del cuadro */
-    max-width: 600px; /* Ancho máximo del cuadro */
-    margin: auto; /* Centrar el cuadro en la página */
-    width: 100%; /* Hacer que el cuadro ocupe el 100% del ancho disponible */
-    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
-  }
+.form-container {
+  border: 1px solid #f4f4f4; /* Borde del cuadro */
+  padding: 20px; /* Ajusta el espaciado interno del cuadro según sea necesario */
+  border-radius: 10px; /* Bordes redondeados del cuadro */
+  box-shadow: 0 0 10px #f4f4f4; /* Sombra del cuadro */
+  max-width: 400px; /* Ajusta el ancho máximo del cuadro según sea necesario */
+  margin: 20px auto; /* Espaciado alrededor del cuadro y centrar en la página */
+  box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+  background-color: #e0e0e0;
+}
+
   
+  
+  @media screen and (max-width: 767px) {
+    @media (max-width: 767px) {
+      .contacto-container {
+        flex-direction: column; /* Apila los elementos uno encima del otro */
+        align-items: center; /* Centra los elementos en el eje horizontal */
+      }
+    
+      .contacto-section-left,
+      .contacto-section-right {
+        width: 100%; /* Ocupa todo el ancho disponible en pantallas más pequeñas */
+      }
+      .form-container {
+       
+        margin: 20px; /* Espaciado alrededor del cuadro y centrar en la página */
+  
+
+    }
+  }
+}
+

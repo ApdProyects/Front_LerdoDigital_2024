@@ -78,11 +78,15 @@
   <div class="tramites-card">
     <ion-grid>
       <ion-row>
-        <ion-col size="4">
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="car-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="car-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle><h3>Vialidad.</h3></ion-card-subtitle>
             </ion-card-header>
@@ -103,11 +107,15 @@
           </ion-card>
         </ion-col>
 
-        <ion-col size="4">
-          <ion-card>
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card color>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="business-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="business-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle><h3>Catastro</h3></ion-card-subtitle>
             </ion-card-header>
@@ -128,11 +136,15 @@
           </ion-card>
         </ion-col>
 
-        <ion-col size="4">
+        <ion-col size="12" size-sm="6" size-md="4">
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="reader-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="reader-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle><h3>Parquímetros</h3></ion-card-subtitle>
             </ion-card-header>
@@ -164,49 +176,116 @@
       <b>Contáctanos</b>
     </h1>
   </div>
-<br/>
-  <div class="form-container">
+  <br />
 
-  <div class="d-flex-center">
-    <form [formGroup]="form" class="auth-form">
-      <app-custom-input
-        autocomplete="email"
-        icon="mail-outline"
-        [control]="form.controls.email"
-        type="email"
-        label="Correo"
-      ></app-custom-input>
 
-      <app-custom-input
-        autocomplete="phone"
-        icon="call-outline"
-        [control]="form.controls.email"
-        type="phone"
-        label="Teléfono"
-      ></app-custom-input>
+  <div>
+    <!-- Primer elemento de la lista -->
+    <div class="contacto-container">
+      <div class="contacto-section-left">
+        <div class="custom-divider">
+          <ion-item>
+            <ion-label>
+              <h4><b>Para dudas y/o aclaraciones</b></h4>
+            </ion-label>
+          </ion-item>
+        </div>
+        <br /><br /><br />
 
-      <app-custom-input
-        autocomplete="name"
-        icon="person-outline"
-        [control]="form.controls.email"
-        type="name"
-        label="Nombre"
-        color="success"
-        
-      ></app-custom-input>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-icon
+              name="calendar-outline"
+              color="success"
+              slot="start"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Horario</h4>
+              </ion-text>
+              <p>De 8:00 a.m. a 16:00 p.m.</p>
+            </ion-label>
+          </ion-item>
 
-      <ion-button
-      class="ion-margin-top"
-      
-      expand="block"
-      mode="ios"
-      color="success"
+          <!-- Segundo párrafo -->
+          <ion-item>
+            <ion-icon
+              name="call-outline"
+              color="success"
+              slot="start"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Teléfono</h4>
+              </ion-text>
+              <p>(871) 465-5498</p>
+            </ion-label>
+          </ion-item>
 
-    >
-      Enviar
-      <ion-icon slot="end" name="send-outline"></ion-icon>
-    </ion-button>
-    </form>
+          <!-- Tercer párrafo -->
+          <ion-item>
+            <ion-icon
+              name="logo-facebook"
+              color="success"
+              slot="start"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Redes Sociales</h4>
+              </ion-text>
+              <p>Facebook</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <br />
+
+      <div class="contacto-section-right">
+        <div class="form-container">
+          <div class="d-flex-center">
+            <form [formGroup]="form" class="auth-form">
+              <p><b>Nosotros nos ponemos en contacto contigo</b></p>
+              <app-custom-input
+                autocomplete="email"
+                icon="mail-outline"
+                [control]="form.controls.email"
+                type="email"
+                label="Correo"
+              ></app-custom-input>
+
+              <app-custom-input
+                autocomplete="phone"
+                icon="call-outline"
+                [control]="form.controls.email"
+                type="phone"
+                label="Teléfono"
+              ></app-custom-input>
+
+              <app-custom-input
+                autocomplete="name"
+                icon="person-outline"
+                [control]="form.controls.email"
+                type="name"
+                label="Nombre"
+                color="success"
+              ></app-custom-input>
+
+              <ion-button
+                class="ion-margin-top"
+                expand="block"
+                mode="ios"
+                color="success"
+              >
+                Enviar
+                <ion-icon slot="end" name="send-outline"></ion-icon>
+              </ion-button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
+  <br>
+  <app-footer></app-footer>
 </ion-content>

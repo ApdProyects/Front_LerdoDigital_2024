@@ -15,7 +15,7 @@ ion-avatar {
   
   h1 {
     font-weight: bold;
-    line-height: 10px;
+    line-height: 25px;
   }
   
   h4 {
@@ -87,15 +87,17 @@ ion-avatar {
   }
   
   
-    .form-container {
   
-      padding: 20px; /* Espaciado interno del cuadro */
-      border-radius: 10px; /* Bordes redondeados del cuadro */
-  
-      max-width: 600px; /* Ancho máximo del cuadro */
-      margin: auto; /* Centrar el cuadro en la página */
-      width: 100%; /* Hacer que el cuadro ocupe el 100% del ancho disponible */
-      box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
-    }
+      .form-container {
+        
+        padding: 10px; /* Espaciado interno del cuadro */
+        border-radius: 10px; /* Bordes redondeados del cuadro */
+    
+        max-width: 600px; /* Ancho máximo del cuadro */
+        margin: auto; /* Centrar el cuadro en la página */
+        width: 100%; /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+        box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+      }
+      
     
   
