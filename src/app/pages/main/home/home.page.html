@@ -8,8 +8,10 @@
 
   <div class="ion-padding-horizontal">
     <p style="color: black; font-size: 50px">
-      <b>Lerdo<br />
-        Digital</b>
+      <b
+        >Lerdo<br />
+        Digital</b
+      >
     </p>
   </div>
 
@@ -17,48 +19,57 @@
 
   <!--============= Pensando en ti =============-->
 
-
   <div class="pensando-en-ti">
     <h1>Pensando en ti</h1>
   </div>
-  <br>
+ 
 
-  <div class="pensando-card-container">
-    <div class="pensando-card">
-      <ion-card color="success">
-        <ion-card-header>
-          <ion-card-title><strong>LERDO INCLUYENTE</strong>L</ion-card-title>
-        </ion-card-header>
-        <ion-card-content><strong> Que comprende varios rubros como equidad de género, personas con discapacidad, adultos mayores grupos vulnerables y madres solteras.</strong></ion-card-content>
-      </ion-card>
-  
-      <br>
-  
-      <ion-card color="success">
-        <ion-card-header>
-          <ion-card-title><strong>LERDO HUMANO</strong></ion-card-title>
-        </ion-card-header>
-        <ion-card-content><b> Comprende temas de oportunidades para todos;
-          educación, salud, cultura, calidad de vivienda, deportes
-          y valores de género, personas con discapacidad,
-          adultos .</b></ion-card-content>
-      </ion-card>
-  
-      <br>
-  
-      <ion-card color="success">
-        <ion-card-header>
-          <ion-card-title><strong>MUNICIPIO SUSTENTABLE</strong></ion-card-title>
-        </ion-card-header>
-        <ion-card-content><b>Se refiere a la conservación del medio ambiente,
-          sustentabilidad ecológica, uso eficiente y eficaz
-          de las energías, uso eficiente del agua, reforestación y
-          mantenimiento de áreas verdes.</b>  </ion-card-content>
-      </ion-card>
-    </div>
+  <div class="pensando-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card color="success">
+            <ion-card-header>
+              <ion-card-title><strong> LERDO INCLUYENTE </strong></ion-card-title>
+            </ion-card-header>
+            <ion-card-content ><b>
+              Que comprende varios rubros como equidad de género, personas con
+              discapacidad, adultos mayores grupos vulnerables y madres
+              solteras.</b>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card >
+            <ion-card-header>
+              <ion-card-title><strong> LERDO HUMANO </strong></ion-card-title>
+            </ion-card-header>
+            <ion-card-content><b>
+              Comprende temas de oportunidades para todos; educación, salud,
+              cultura, calidad de vivienda, deportes y valores de género,
+              personas con discapacidad, adultos .</b>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card color="success">
+            <ion-card-header>
+              <ion-card-title><strong> MUNICIPIO SUSTENTABLE </strong></ion-card-title>
+            </ion-card-header>
+            <ion-card-content><b>
+              Se refiere a la conservación del medio ambiente, sustentabilidad
+              ecológica, uso eficiente y eficaz de las energías, uso eficiente
+              del agua, reforestación y mantenimiento de áreas verdes.</b>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
-
+  <br>
 
   <!--============= Posts =============-->
   <div class="conoce-mun">
@@ -70,8 +81,16 @@
   <div>
     <ion-grid *ngIf="posts.length">
       <ion-row>
-        <ion-col class="click" (click)="showPostDetail(p)" [ngClass]="{'col-down': i % 2 !== 0}" size-lg="3" size-md="3"
-          size-sm="6" size="6" *ngFor="let p of posts; index as i">
+        <ion-col
+          class="click"
+          (click)="showPostDetail(p)"
+          [ngClass]="{'col-down': i % 2 !== 0}"
+          size-lg="3"
+          size-md="3"
+          size-sm="6"
+          size="6"
+          *ngFor="let p of posts; index as i"
+        >
           <ion-avatar>
             <img [src]="p.images[0]" />
           </ion-avatar>
@@ -117,7 +136,11 @@
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="car-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="car-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle>
                 <h3>Vialidad.</h3>
@@ -144,7 +167,11 @@
           <ion-card color>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="business-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="business-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle>
                 <h3>Catastro</h3>
@@ -171,7 +198,11 @@
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <ion-icon class="icon" name="reader-outline" color="success"></ion-icon>
+                <ion-icon
+                  class="icon"
+                  name="reader-outline"
+                  color="success"
+                ></ion-icon>
               </ion-card-title>
               <ion-card-subtitle>
                 <h3>Parquímetros</h3>
@@ -207,7 +238,6 @@
   </div>
   <br />
 
-
   <div>
     <!-- Primer elemento de la lista -->
     <div class="contacto-container">
@@ -223,7 +253,11 @@
 
         <ion-list lines="none">
           <ion-item>
-            <ion-icon name="calendar-outline" color="success" slot="start"></ion-icon>
+            <ion-icon
+              name="calendar-outline"
+              color="success"
+              slot="start"
+            ></ion-icon>
             <ion-label>
               <ion-text>
                 <h4>Horario</h4>
@@ -234,7 +268,11 @@
 
           <!-- Segundo párrafo -->
           <ion-item>
-            <ion-icon name="call-outline" color="success" slot="start"></ion-icon>
+            <ion-icon
+              name="call-outline"
+              color="success"
+              slot="start"
+            ></ion-icon>
             <ion-label>
               <ion-text>
                 <h4>Teléfono</h4>
@@ -245,7 +283,11 @@
 
           <!-- Tercer párrafo -->
           <ion-item>
-            <ion-icon name="logo-facebook" color="success" slot="start"></ion-icon>
+            <ion-icon
+              name="logo-facebook"
+              color="success"
+              slot="start"
+            ></ion-icon>
             <ion-label>
               <ion-text>
                 <h4>Redes Sociales</h4>
@@ -263,16 +305,37 @@
           <div class="d-flex-center">
             <form [formGroup]="form" class="auth-form">
               <p><b>Nosotros nos ponemos en contacto contigo</b></p>
-              <app-custom-input autocomplete="email" icon="mail-outline" [control]="form.controls.email" type="email"
-                label="Correo"></app-custom-input>
+              <app-custom-input
+                autocomplete="email"
+                icon="mail-outline"
+                [control]="form.controls.email"
+                type="email"
+                label="Correo"
+              ></app-custom-input>
 
-              <app-custom-input autocomplete="phone" icon="call-outline" [control]="form.controls.email" type="phone"
-                label="Teléfono"></app-custom-input>
+              <app-custom-input
+                autocomplete="phone"
+                icon="call-outline"
+                [control]="form.controls.email"
+                type="phone"
+                label="Teléfono"
+              ></app-custom-input>
 
-              <app-custom-input autocomplete="name" icon="person-outline" [control]="form.controls.email" type="name"
-                label="Nombre" color="success"></app-custom-input>
+              <app-custom-input
+                autocomplete="name"
+                icon="person-outline"
+                [control]="form.controls.email"
+                type="name"
+                label="Nombre"
+                color="success"
+              ></app-custom-input>
 
-              <ion-button class="ion-margin-top" expand="block" mode="ios" color="success">
+              <ion-button
+                class="ion-margin-top"
+                expand="block"
+                mode="ios"
+                color="success"
+              >
                 Enviar
                 <ion-icon slot="end" name="send-outline"></ion-icon>
               </ion-button>
@@ -282,6 +345,6 @@
       </div>
     </div>
   </div>
-  <br>
+  <br />
   <app-footer></app-footer>
 </ion-content>
