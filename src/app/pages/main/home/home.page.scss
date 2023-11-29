@@ -1,7 +1,7 @@
 /* Estilos generales */
 .pensando-en-ti {
   text-align: center;
-  margin-bottom: 20px;
+  
 }
 
 .pensando-card{
@@ -10,6 +10,9 @@
 }
 
 /* Reglas específicas para cada color */
+
+
+
 /* Lerdo Incluyente */
 
 
@@ -213,6 +216,11 @@ ion-card-subtitle {
   background-color: #e0e0e0;
 }
 
+ion-content {
+  border-top-left-radius: 20px; /* Redondear la esquina superior izquierda */
+  border-top-right-radius: 20px; /* Redondear la esquina superior derecha */
+  background-color: gray;
+}
 
 
 @media screen and (max-width: 767px) {
@@ -234,8 +242,14 @@ ion-card-subtitle {
 
       margin: 20px;
       /* Espaciado alrededor del cuadro y centrar en la página */
-
-
+      
     }
+
+    .home-container{
+      border-radius: 1%;
+     /*  background-color: #000; */
+    }
+ 
   }
 }
+

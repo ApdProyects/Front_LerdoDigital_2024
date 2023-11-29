@@ -6,18 +6,20 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div class="ion-padding-horizontal">
-    <p style="color: black; font-size: 50px">
-      <b
-        >Lerdo<br />
-        Digital</b
-      >
-    </p>
+  <div class="swiper-container" style="text-align: center; background-color: #f2f2f2; border-radius: 0px; overflow: hidden; position: relative;">
+    <swiper-container>
+      <swiper-slide><img src="/assets/LerdoD2-min.png" alt="" style="max-width: 70%; max-height: 70%; width: auto; height: auto;"></swiper-slide>
+      <swiper-slide style="font-size: 24px;">LERDO <br> DIGITAL</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper-container>
+    
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #cacaca 100%);"></div>
   </div>
-
-  <br />
+  <div class="home-container" >
+  
 
   <!--============= Pensando en ti =============-->
+  
 
   <div class="pensando-en-ti">
     <h1>Pensando en ti</h1>
@@ -78,7 +80,7 @@
     </h2>
   </div>
 
-  <div>
+  <div >
     <ion-grid *ngIf="posts.length">
       <ion-row>
         <ion-col
@@ -129,7 +131,7 @@
     <h1>Trámites</h1>
   </div>
 
-  <div class="tramites-card">
+  <div class="tramites-card" >
     <ion-grid>
       <ion-row>
         <ion-col size="4" size="12" size-sm="6" size-md="4">
@@ -238,20 +240,20 @@
   </div>
   <br />
 
-  <div>
+  <div >
     <!-- Primer elemento de la lista -->
     <div class="contacto-container">
-      <div class="contacto-section-left">
-        <div class="custom-divider">
-          <ion-item>
-            <ion-label>
-              <h4><b>Para dudas y/o aclaraciones</b></h4>
+      <div class="contacto-section-left" >
+        <div class="custom-divider" >
+          <ion-item >
+            <ion-label >
+              <h4><b >Para dudas y/o aclaraciones</b></h4>
             </ion-label>
           </ion-item>
         </div>
         <br /><br /><br />
 
-        <ion-list lines="none">
+        <ion-list lines="none" >
           <ion-item>
             <ion-icon
               name="calendar-outline"
@@ -346,5 +348,6 @@
     </div>
   </div>
   <br />
+</div>
   <app-footer></app-footer>
 </ion-content>
