@@ -1,21 +1,23 @@
 <app-header class="ion-no-border" MenuButton="MenuButton" title="Inicio">
 </app-header>
 
-<ion-content>
+<ion-content >
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div class="swiper-container" style="text-align: center; background-color: #f2f2f2; border-radius: 0px; overflow: hidden; position: relative;">
+  <div class="swiper-container" >
     <swiper-container>
-      <swiper-slide><img src="/assets/LerdoD2-min.png" alt="" style="max-width: 70%; max-height: 70%; width: auto; height: auto;"></swiper-slide>
+      <swiper-slide><img src="/assets/LerdoD2-min.png" alt="" class="img-hero" ></swiper-slide>
       <swiper-slide style="font-size: 24px;">LERDO <br> DIGITAL</swiper-slide>
       <swiper-slide>Slide 3</swiper-slide>
     </swiper-container>
-    
     <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #cacaca 100%);"></div>
   </div>
+
   <div class="home-container" >
+
+ 
   
 
   <!--============= Pensando en ti =============-->
@@ -80,7 +82,7 @@
     </h2>
   </div>
 
-  <div >
+  <div class=" conoce-mun-container">
     <ion-grid *ngIf="posts.length">
       <ion-row>
         <ion-col
@@ -101,6 +103,7 @@
     </ion-grid>
   </div>
   <br />
+  </div>
   <!-- <div class="empty" *ngIf="!posts.length && !loading">
       <ion-icon slot="start" name="images-outline"></ion-icon>
       <h4>No hay Publicaciones disponibles</h4>
@@ -348,6 +351,6 @@
     </div>
   </div>
   <br />
-</div>
+
   <app-footer></app-footer>
 </ion-content>

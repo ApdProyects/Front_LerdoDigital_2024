@@ -1,19 +1,20 @@
 ion-title {
-  line-height: 30px;
+    line-height: 30px;
 
-  .app-name {
-    font-size: 20px;
-  }
+    .app-name {
+        font-size: 20px;
+    }
 }
 
 .modal-icon {
-  font-size: 23px;
+    font-size: 23px;
 }
 
 
 
 ion-toolbar {
-    height: 60px; /* Altura predeterminada del ion-toolbar */
+    height: 60px;
+    /* Altura predeterminada del ion-toolbar */
     box-shadow: 4px 0px 16px rgba(2, 154, 88, 0.71);
 
 }
@@ -21,32 +22,38 @@ ion-toolbar {
 /* Estilos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
     ion-header {
-        height: 1%; /* Altura mayor para el ion-header en dispositivos móviles (ajusta según tu diseño) */
-      
+        height: 1%;
+        /* Altura mayor para el ion-header en dispositivos móviles (ajusta según tu diseño) */
+
     }
 
     ion-toolbar {
-        height: 65px; /* Permitir que el ion-toolbar ajuste automáticamente su altura */
-        flex-direction: column; /* Cambiar la dirección del flex container a columna */
-        align-items: flex-start; /* Alinear los elementos del flex container al inicio */
+        height: 65px;
+        /* Permitir que el ion-toolbar ajuste automáticamente su altura */
+        flex-direction: column;
+        /* Cambiar la dirección del flex container a columna */
+        align-items: flex-start;
+        /* Alinear los elementos del flex container al inicio */
         box-shadow: 4px 0px 16px rgba(2, 154, 88, 0.71);
-        
+
     }
+
     .app-name {
-        font-size: 24px; /* Tamaño de fuente más grande para dispositivos móviles */
+        font-size: 24px;
+        /* Tamaño de fuente más grande para dispositivos móviles */
     }
 
-    ion-title{
-        margin-left: 65%;
+    ion-title {
+        margin-left: 69%;
     }
 
-    ion-menu-button{
+    ion-menu-button {
         height: 65px;
     }
 }
 
 ion-toolbar::part(container) {
     border-radius: 0 20px 20px 0;
-  
-   
-  }
+
+
+}

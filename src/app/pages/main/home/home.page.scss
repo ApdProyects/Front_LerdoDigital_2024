@@ -1,39 +1,67 @@
 /* Estilos generales */
+
+.swiper-container {
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-hero {
+  max-width: 60%;
+  max-height: 60%;
+  width: auto;
+  height: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-container {
+    width: 105%;
+    /* Establece el ancho al 100% en dispositivos móviles */
+  }
+
+  .img-hero {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+  }
+
+}
+
 .pensando-en-ti {
   text-align: center;
-  
+
 }
 
-.pensando-card{
- 
+.pensando-card {
+
   text-align: center;
 }
-
-/* Reglas específicas para cada color */
-
-
-
-/* Lerdo Incluyente */
 
 
 .pensando-card ion-card {
-  height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
-  border-radius: 15px; /* Agrega esquinas redondeadas a las tarjetas */
+  height: 100%;
+  /* Hace que todas las tarjetas tengan la misma altura */
+  border-radius: 15px;
+  /* Agrega esquinas redondeadas a las tarjetas */
   overflow: hidden;
-  margin: 10px; /* Ajusta el valor del margen según tus preferencias */
-  transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+  margin: 10px;
+  /* Ajusta el valor del margen según tus preferencias */
+  transition: background-color 0.3s;
+  /* Agrega una transición suave al color de fondo */
 
 }
 
 .pensando-card ion-card-content {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ajusta la altura del contenido de la tarjeta */
-  text-align: justify; /* Alinea el texto justificado */
-
-
+  height: 100%;
+  /* Ajusta la altura del contenido de la tarjeta */
+  text-align: justify;
+  /* Alinea el texto justificado */
 }
-
 
 
 .pensando-card ion-card-title {
@@ -41,18 +69,20 @@
 }
 
 .pensando-card ion-card:hover {
-  background-color: #5ef15e; /* Cambia el color de fondo al pasar el cursor */
+  background-color: #5ef15e;
+  /* Cambia el color de fondo al pasar el cursor */
 }
 
 
 /* Ajustes para pantallas más pequeñas (modo móvil) */
 @media screen and (max-width: 767px) {
   .pensando-card ion-card {
-    margin-bottom: 10px; /* Espacio entre las tarjetas en modo móvil */
-    margin-right: 5px; /* Elimina el margen derecho en modo móvil */
-
-
+    margin-bottom: 10px;
+    /* Espacio entre las tarjetas en modo móvil */
+    margin-right: 5px;
+    /* Elimina el margen derecho en modo móvil */
   }
+
 }
 
 ion-avatar {
@@ -106,6 +136,12 @@ h4 {
   /* Para centrar el texto dentro de los elementos h1 y h3 */
   height: 10vh;
   /* Ajusta esto según tus necesidades, para centrar verticalmente */
+
+}
+
+.conoce-mun-container{
+  background-color: #e0e0e0;
+
 }
 
 /* <=================Tramites=================> */
@@ -129,10 +165,13 @@ ion-card-subtitle {
   text-align: center;
   /* Para centrar el texto dentro de los elementos h1 y h3 */
 }
+
 .tramites-card ion-card {
-  
-  border-radius: 15px; /* Agrega esquinas redondeadas a las tarjetas */
-  overflow: hidden; /* Asegura que las esquinas redondeadas se muestren correctamente */
+
+  border-radius: 15px;
+  /* Agrega esquinas redondeadas a las tarjetas */
+  overflow: hidden;
+  /* Asegura que las esquinas redondeadas se muestren correctamente */
 }
 
 .card-container {
@@ -217,8 +256,10 @@ ion-card-subtitle {
 }
 
 ion-content {
-  border-top-left-radius: 20px; /* Redondear la esquina superior izquierda */
-  border-top-right-radius: 20px; /* Redondear la esquina superior derecha */
+  border-top-left-radius: 20px;
+  /* Redondear la esquina superior izquierda */
+  border-top-right-radius: 20px;
+  /* Redondear la esquina superior derecha */
   background-color: gray;
 }
 
@@ -242,14 +283,11 @@ ion-content {
 
       margin: 20px;
       /* Espaciado alrededor del cuadro y centrar en la página */
-      
+
     }
 
-    .home-container{
-      border-radius: 1%;
-     /*  background-color: #000; */
-    }
- 
+
+
   }
-}
 
+}
