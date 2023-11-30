@@ -3,7 +3,7 @@ export const Posts = [
     _id: '1',
     name: 'Iglesia',
     prompt: 'Iglesia del Sagrado Corazón de Jesús',
-    description:'Uno de los atractivos turísticos de la Región Lagunera y especialmente de Ciudad Lerdo, lo constituye la Parroquia del Sagrado Corazón de Jesús, ubicada frente a la plaza principal. Orgullo de los lerdenses por su estilo neoclásico, fue la primera y con mejor arquitectura en toda la Comarca Lagunera, su terminación fue el 12 de diciembre de 1896 gracias al padre Celedonio Valenzuela, autor principal aun cuando en su período eclesiástico no concluyó la obra, le correspondió al padre Francisco Uranga darle los últimos arreglos.',
+    description:'Uno de los atractivos turísticos de la Región Lagunera y especialmente de Ciudad Lerdo, lo constituye la Parroquia del Sagrado Corazón de Jesús, ubicada frente a la plaza principal.\n\nOrgullo  de los lerdenses por su estilo neoclásico, fue la primera y con mejor arquitectura en toda la Comarca Lagunera, su terminación fue el 12 de diciembre de 1896 gracias al padre Celedonio Valenzuela, autor principal aun cuando en su período eclesiástico no concluyó la obra, le correspondió al padre Francisco Uranga darle los últimos arreglos.',
     images: [
         'https://tecolotito.elsiglodetorreon.com.mx/i/2019/12/1264233.jpeg',
       'https://mapio.net/images-p/70031665.jpg',
@@ -11,6 +11,8 @@ export const Posts = [
       'https://images.mnstatic.com/3b/17/3b17977927e2c07d4b677f53bb7bd47d.jpg'
     ]
   },
+
+  
   {
     _id: '2',
     name: 'Cañon',
@@ -29,7 +31,7 @@ export const Posts = [
     _id: '3',
     name: 'chalet',
     prompt: 'Chalet Tarín',
-    description:'El Chalet Tarín fue el primero en Lerdo, en el que relucía un porche de madera, que hoy en día desapareció. A principios del siglo XX, Don Refugio Tarín, mandó a construir el Chalet en una superficie de 521 metros cuadrados, con arquitectura de tipología Ecléctica Románica, donde resaltaban sus puertas y ventanas de madera, enmarcadas de cantera, con vitrales, el portal techado de madera al frente, y que alrededor se encuentran bellos jardines, así como una enredadera en los barandales de fierro forjado, por la parte principal y la lateral. Su estructura arquitectónica fue diseñada por el arquitecto Channel, destaca en la planta alta por su torreón construido en forma hexagonal que sobre sale de la línea del Chalet, con cuatro ventanillas y seis más circulares en la parte superior, así como el largo cono hacia debajo de seis lados, además del portal con techo de madera.',
+    description:'El Chalet Tarín fue el primero en Lerdo, en el que relucía un porche de madera, que hoy en día desapareció. A principios del siglo XX, Don Refugio Tarín, mandó a construir el Chalet en una superficie de 521 metros cuadrados, con arquitectura de tipología Ecléctica Románica, donde resaltaban sus puertas y ventanas de madera, enmarcadas de cantera, con vitrales, el portal techado de madera al frente, y que alrededor se encuentran bellos jardines, así como una enredadera en los barandales de fierro forjado, por la parte principal y la lateral.\n\nSu estructura arquitectónica fue diseñada por el arquitecto Channel, destaca en la planta alta por su torreón construido en forma hexagonal que sobre sale de la línea del Chalet, con cuatro ventanillas y seis más circulares en la parte superior, así como el largo cono hacia debajo de seis lados, además del portal con techo de madera.',
     images: [
       'assets/chalet-tarin.jpg',
       'https://www.elsoldelalaguna.com.mx/local/cd-lerdo/1sqwxb-belleza-arquitectonica/ALTERNATES/LANDSCAPE_960/belleza%20arquitect%C3%B3nica',

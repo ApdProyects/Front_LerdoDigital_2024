@@ -1,20 +1,41 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="success">
-
+    <!-- Botones de inicio -->
     <ion-buttons slot="start">
-      <ion-back-button *ngIf="backButton" [defaultHref]="backButton"></ion-back-button>
-      <ion-button *ngIf="isModal" >
+      <ion-back-button
+        *ngIf="backButton"
+        [defaultHref]="backButton"
+      ></ion-back-button>
+      <ion-button *ngIf="isModal">
         <ion-icon name="close-circle-outline" class="modal-icon"></ion-icon>
       </ion-button>
-      <ion-menu-button *ngIf="MenuButton" ></ion-menu-button>
     </ion-buttons>
 
-
+    <!-- Título de la aplicación -->
     <ion-title *ngIf="title">
-      <div class="app-name" >
-      <strong>{{ title }}</strong>
-    </div>
+      <div class="app-name">
+        <strong>{{ title }}</strong>
+      </div>
     </ion-title>
 
+    <!-- Título de la aplicación -->
+    <div class="log-img" >
+      <ion-img *ngIf="Logo" src="../assets/logo-L.png"></ion-img>
+    </div>
+
+    <!-- Menú de navegación horizontal en el lado derecho -->
+    <div *ngIf="shouldShowHorizontalMenu" class="horizontal-menu" slot="end">
+      <a [routerLink]="['/main/home']" routerLinkActive="active">Inicio</a>
+      <a [routerLink]="['/main/servicios']" routerLinkActive="active">Servicios</a>
+      <a [routerLink]="['/main/facturacion']" routerLinkActive="active">Facturación</a>
+      <!-- ... más enlaces según sea necesario -->
+    </div>
+
+    <!-- Botón de menú -->
+    <ion-menu-button
+      class="menu-button"
+      *ngIf="MenuButton"
+      slot="end"
+    ></ion-menu-button>
   </ion-toolbar>
 </ion-header>

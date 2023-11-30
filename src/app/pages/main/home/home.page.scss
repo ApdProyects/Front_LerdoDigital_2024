@@ -3,14 +3,14 @@
 .swiper-container {
   text-align: center;
   background-color: #f2f2f2;
-  border-radius: 0px;
+  border-radius: 1%;
   overflow: hidden;
   position: relative;
 }
 
 .img-hero {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 50%;
+  max-height: 50%;
   width: auto;
   height: auto;
 }
@@ -47,10 +47,11 @@
   border-radius: 15px;
   /* Agrega esquinas redondeadas a las tarjetas */
   overflow: hidden;
-  margin: 10px;
+  margin: 1px;
   /* Ajusta el valor del margen según tus preferencias */
   transition: background-color 0.3s;
   /* Agrega una transición suave al color de fondo */
+  color: #000;
 
 }
 
@@ -86,13 +87,13 @@
 }
 
 ion-avatar {
-  --border-radius: 10px;
+  --border-radius: 15px;
   width: 100%;
-  height: 250px;
+  height: 220px;
 }
 
 ion-grid {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .col-down {
@@ -140,7 +141,15 @@ h4 {
 }
 
 .conoce-mun-container{
-  background-color: #e0e0e0;
+  border-radius: 20px; /* Bordes redondeados si lo deseas */
+
+  
+}
+.container-background {
+  background-color: #e0e0e0; /* Color de fondo gris */
+  padding: 25px; /* Ajusta el espaciado interno según sea necesario */
+  border-radius: 25px; /* Bordes redondeados si lo deseas */
+  margin: 15px; /* Agrega margen alrededor del contenedor */
 
 }
 
@@ -159,6 +168,10 @@ ion-card-subtitle {
   --color: #110f0f;
 }
 
+ion-icon{
+  --color: #110f0f;
+}
+
 
 .tramites-card {
   place-items: center;
@@ -173,6 +186,19 @@ ion-card-subtitle {
   overflow: hidden;
   /* Asegura que las esquinas redondeadas se muestren correctamente */
 }
+
+.tramites-card ion-card:hover {
+  background-color: var(--ion-color-success); /* Cambia el color de fondo al pasar el cursor */
+  transition: background-color 0.3s ease; /* Agrega una transición suave */
+  cursor: pointer; /* Cambia el cursor al pasar el cursor sobre la tarjeta */
+  color: #000;
+}
+
+.tramites-card ion-card-title:hover,ion-card-subtitle:hover, ion-card-content:hover{
+  color: #191717;
+}
+
+
 
 .card-container {
 
@@ -255,16 +281,9 @@ ion-card-subtitle {
   background-color: #e0e0e0;
 }
 
-ion-content {
-  border-top-left-radius: 20px;
-  /* Redondear la esquina superior izquierda */
-  border-top-right-radius: 20px;
-  /* Redondear la esquina superior derecha */
-  background-color: gray;
-}
 
 
-@media screen and (max-width: 767px) {
+
   @media (max-width: 767px) {
     .contacto-container {
       flex-direction: column;
@@ -286,8 +305,17 @@ ion-content {
 
     }
 
+    ion-avatar {
+      --border-radius: 15px;
+      width: 100%;
+      height: 220px;
+    }
 
+    .swiper-container {
+    
+      border-radius: 1%;
+      
+    }
 
   }
 
-}

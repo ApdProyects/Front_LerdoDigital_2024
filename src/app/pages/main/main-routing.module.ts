@@ -12,10 +12,7 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
-      {
-        path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-      },
+    
       {
         path: 'servicios',
         loadChildren: () => import('../auth/auth.module').then( m => m.AuthPageModule)
@@ -25,7 +22,11 @@ const routes: Routes = [
         loadChildren: () => import('./facturacion/facturacion.module').then( m => m.FacturacionPageModule)
       },
     ]
+  },  {
+    path: 'folio',
+    loadChildren: () => import('./folio/folio.module').then( m => m.FolioPageModule)
   },
+
 
 
 

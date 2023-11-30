@@ -11,6 +11,8 @@ export class HeaderComponent  implements OnInit {
   @Input() backButton!:string;
   @Input() isModal!:string;
   @Input() MenuButton!:string;
+  @Input() shouldShowHorizontalMenu!:string;
+  @Input() Logo!:string;
   
 
   constructor() { }

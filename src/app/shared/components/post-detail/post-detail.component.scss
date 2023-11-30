@@ -29,20 +29,21 @@ img{
   }
 
   .images-wrapper{
-    width: 48vw;
+    width: 45vw;
+    margin-top: 10%;
  }
 
 
   @media screen and (max-width: 767px) {
     .images-wrapper{
-        width: 100%;
+        width: 200%;
      }
   }
 
   @media screen and (max-width: 992px) {
 
         .images-wrapper{
-            width: 85vw;
+            width: 90vw;
         }
   }
     
