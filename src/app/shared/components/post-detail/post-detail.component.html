@@ -1,39 +1,45 @@
-<app-header backButton="main/home" ></app-header>
+<app-header isModal="isModal"></app-header>
 
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-
         <ion-item class="ion-hide-md-up">
-          <ion-label style="text-align: center;"><strong>{{ post.prompt }}</strong></ion-label>
-          <ion-buttons slot="end">
-            
-          </ion-buttons>
+          <ion-label style="text-align: center"
+            ><strong>{{ post.prompt }}</strong></ion-label
+          >
+          <ion-buttons slot="end"> </ion-buttons>
         </ion-item>
 
-        <h1 class="d-flex-center ion-hide-md-down" >
+        <h1 class="d-flex-center ion-hide-md-down">
           <strong>{{ post.prompt }} </strong>
-         
         </h1>
-        <br>
-        <div style="text-align: justify; "> <ion-text><b>{{ post.description
-            }}</b></ion-text></div>
-
-
-
-
+        <br />
+        <div style="text-align: justify">
+          <ion-text
+            ><b>{{ post.description }}</b></ion-text
+          >
+        </div>
       </ion-col>
 
       <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
-
         <ion-grid class="images-wrapper">
           <ion-row>
             <ion-col size="12">
               <img [src]="selectedImage" width="150%" height="90%" />
             </ion-col>
-            <ion-col class="click" (click)="selectedImage = image" *ngFor="let image of post.images" size="3">
-              <img [ngClass]="{'selected': selectedImage == image}" [src]="image" width="95%" height="75%" />
+            <ion-col
+              class="click"
+              (click)="selectedImage = image"
+              *ngFor="let image of post.images"
+              size="3"
+            >
+              <img
+                [ngClass]="{ selected: selectedImage == image }"
+                [src]="image"
+                width="95%"
+                height="75%"
+              />
             </ion-col>
           </ion-row>
         </ion-grid>

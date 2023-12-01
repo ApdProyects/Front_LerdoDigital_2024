@@ -7,7 +7,9 @@ ion-button {
     
 }
 
-
+ion-content{
+    --keyboard-offset: 0 !important;
+ }
 
 // safe padding for ios
 .safe-p-bottom{

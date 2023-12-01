@@ -1,7 +1,9 @@
 <app-header class="ion-no-border" MenuButton="MenuButton" shouldShowHorizontalMenu="shouldShowHorizontalMenu" Logo="Logo" title="">
 </app-header>
 
+
 <ion-content >
+  <div class="home-container" >
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -15,7 +17,7 @@
     <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #cacaca 100%);"></div>
   </div>
 
-  <div class="home-container" >
+
 
  
   
@@ -348,9 +350,12 @@
           </div>
         </div>
       </div>
+
+      
     </div>
-  </div>
-  <br />
+ 
+  
 
   <app-footer></app-footer>
+</div>
 </ion-content>

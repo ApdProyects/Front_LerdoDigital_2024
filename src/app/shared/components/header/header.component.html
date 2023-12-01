@@ -6,7 +6,7 @@
         *ngIf="backButton"
         [defaultHref]="backButton"
       ></ion-back-button>
-      <ion-button *ngIf="isModal">
+      <ion-button (click)="dismissModal()"  *ngIf="isModal">
         <ion-icon name="close-circle-outline" class="modal-icon"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -20,7 +20,7 @@
 
     <!-- Título de la aplicación -->
     <div class="log-img" >
-      <ion-img *ngIf="Logo" src="../assets/logo-L.png"></ion-img>
+      <ion-img *ngIf="Logo" src="../assets/logo2Lerdo.png"></ion-img>
     </div>
 
     <!-- Menú de navegación horizontal en el lado derecho -->

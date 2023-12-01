@@ -1,5 +1,13 @@
 /* Estilos generales */
 
+.home-container{
+  position: relative;
+}
+
+ion-content{
+  background-color: #5ef15e;
+}
+
 .swiper-container {
   text-align: center;
   background-color: #f2f2f2;
@@ -281,10 +289,12 @@ ion-icon{
   background-color: #e0e0e0;
 }
 
+ion-content{
+  --keyboard-offset: 0 !important;
+}
 
 
-
-  @media (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     .contacto-container {
       flex-direction: column;
       /* Apila los elementos uno encima del otro */

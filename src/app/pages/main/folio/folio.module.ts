@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { FolioPageRoutingModule } from './folio-routing.module';
 
 import { FolioPage } from './folio.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolioPageRoutingModule
+    FolioPageRoutingModule,
+    SharedModule
   ],
   declarations: [FolioPage]
 })

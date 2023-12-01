@@ -1,7 +1,9 @@
 ion-button {
     text-transform: none;
 }
-
+ion-content{
+    --keyboard-offset: 0 !important;
+ }
 
 
 // safe padding for ios
@@ -108,10 +110,10 @@ ion-button {
 
 @media (min-width: 769px) {
     .auth-form {
-        width: 500px;
+        width: 100px;
     }
 
     .add-update-modal {
-        --height: 680px;
+        --height: 100px;
     }
 }
