@@ -7,8 +7,10 @@ ion-title {
 }
 
 .modal-icon {
-  font-size: 23px;
+  font-size: 30px;
 }
+
+
 
 ion-toolbar {
   height: 60px;
@@ -51,6 +53,11 @@ ion-toolbar {
   height: 65px; /* Establece la altura deseada para el botón */
   width: 65px; /* Establece el ancho deseado para el botón */
   margin-top: 1px; /* Ajusta el margen superior según sea necesario */
+  }
+
+  .modal-icon {
+    font-size: 35px;
+    margin-top: 20%;
   }
 }
 

@@ -3,7 +3,8 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
+
+      <ion-col size-lg="6" size-md="12" size-sm="12" size="12" class="ion-col-mobile-reorder">
         <ion-item class="ion-hide-md-up">
           <ion-label style="text-align: center"
             ><strong>{{ post.prompt }}</strong></ion-label
@@ -15,14 +16,15 @@
           <strong>{{ post.prompt }} </strong>
         </h1>
         <br />
-        <div style="text-align: justify">
+        <div style="text-align: justify" class="description">
           <ion-text
             ><b>{{ post.description }}</b></ion-text
           >
         </div>
       </ion-col>
 
-      <ion-col size-lg="6" size-md="12" size-sm="12" size="12">
+
+      <ion-col size-lg="6" size-md="12" size-sm="12" size="12" class="ion-grid-mobile-reorder">
         <ion-grid class="images-wrapper">
           <ion-row>
             <ion-col size="12">

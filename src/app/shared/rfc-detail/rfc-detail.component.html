@@ -1,0 +1,31 @@
+<app-header isModal="true"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    
+      <form [formGroup]="form" class="auth-form">
+        <p><b>Se enviará la información al correo dado de alta en el RFC para su validación</b></p>
+        <ion-input
+        type="text"
+        label="Ingrese su RFC"
+        label-placement="floating"
+        placeholder="RFC"
+        color="success"
+        fill="solid"
+      ></ion-input>
+
+        <ion-button
+          class="ion-margin-top"
+          expand="block"
+          mode="ios"
+          color="success"
+        >
+         ENVIAR INFORMACIÓN
+        </ion-button>
+      </form>
+    </div>
+ 
+  
+</ion-content>
+
+<app-footer></app-footer>

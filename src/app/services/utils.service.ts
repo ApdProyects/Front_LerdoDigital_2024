@@ -19,3 +19,6 @@ dismissModal(){
   return this.modalController.dismiss()
 }
 }
+
+
+
