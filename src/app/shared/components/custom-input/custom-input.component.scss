@@ -5,6 +5,13 @@ ion-content{
     --keyboard-offset: 0 !important;
  }
 
+ ion-button{
+    --color: #0f959c;
+ }
+
+ ion-icon{
+    color: #0f959c;
+ }
 
 // safe padding for ios
 .safe-p-bottom{
@@ -14,6 +21,7 @@ ion-content{
 
 .submit {
     margin-top: 40px;
+    --background-color: #0f959c;
 }
 
 .empty {
@@ -32,16 +40,19 @@ ion-content{
     align-items: center;
 }
 
+ ion-input .custom{
+    --border: 1px solid #f4f4f4;
+    --box-shadow: 0 0 10px #0f959c;
+}
+
 
 .custom-input {
     --border-color: rgb(224, 224, 224);
-    --border-radius: 15px;
-    --border-style: solid;
+    --border-radius: 20px;
     --border-width: 1px;
     margin: 20px 0;
     transition: border-color 0.3s ease; /* Agregamos una transición para suavizar el cambio de color */
-
-
+  
     ion-label {
         position: relative;
         bottom: 2px;

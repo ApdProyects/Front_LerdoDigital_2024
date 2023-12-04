@@ -3,4 +3,16 @@ ion-footer{
     position: sticky;
     z-index: 4;
     top: 0;
+
 }
+
+ .custom-footer{
+ background-color: #0c7075;
+}
+
+ion-toolbar {
+    --background: #0c7075;
+    --color: white;
+    box-shadow: 0 0 50px #0f959c;
+    border-top: 1px solid #f4f4f4;
+   }

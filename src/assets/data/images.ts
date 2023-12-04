@@ -29,7 +29,7 @@ export const Posts = [
   },
   {
     _id: '3',
-    name: 'chalet',
+    name: 'Chalet',
     prompt: 'Chalet Tarín',
     description:'El Chalet Tarín fue el primero en Lerdo, en el que relucía un porche de madera, que hoy en día desapareció. A principios del siglo XX, Don Refugio Tarín, mandó a construir el Chalet en una superficie de 521 metros cuadrados, con arquitectura de tipología Ecléctica Románica, donde resaltaban sus puertas y ventanas de madera, enmarcadas de cantera, con vitrales, el portal techado de madera al frente, y que alrededor se encuentran bellos jardines, así como una enredadera en los barandales de fierro forjado, por la parte principal y la lateral.\n\nSu estructura arquitectónica fue diseñada por el arquitecto Channel, destaca en la planta alta por su torreón construido en forma hexagonal que sobre sale de la línea del Chalet, con cuatro ventanillas y seis más circulares en la parte superior, así como el largo cono hacia debajo de seis lados, además del portal con techo de madera.',
     images: [

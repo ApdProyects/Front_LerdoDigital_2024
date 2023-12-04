@@ -1,10 +1,19 @@
+.auth-container{
+    background-color: #0f959c22;
+}
+
 .hand-cursor{
     cursor: pointer;
 }
 
 ion-button {
     text-transform: none;
+ 
     
+}
+
+ion-button .submit{
+--background-color: #000000;    
 }
 
 ion-content{
@@ -19,6 +28,7 @@ ion-content{
 
 .submit {
     margin-top: 40px;
+
 }
 
 .empty {

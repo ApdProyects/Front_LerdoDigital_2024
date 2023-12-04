@@ -8,6 +8,7 @@ ion-title {
 
 .modal-icon {
   font-size: 30px;
+  color: #e8f7ff;
 }
 
 
@@ -15,7 +16,9 @@ ion-title {
 ion-toolbar {
   height: 60px;
   /* Altura predeterminada del ion-toolbar */
-  box-shadow: 4px 0px 16px rgba(2, 154, 88, 0.71);
+  box-shadow: 4px 0px 16px #072e33;
+  --background: #0c7075;
+
 }
 
 /* Estilos para dispositivos móviles */
@@ -32,7 +35,7 @@ ion-toolbar {
     /* Cambiar la dirección del flex container a columna */
     align-items: flex-start;
     /* Alinear los elementos del flex container al inicio */
-    box-shadow: 4px 0px 16px rgba(2, 154, 88, 0.71);
+    box-shadow: 4px 0px 16px #072e33;
   }
 
   .app-name {
@@ -109,6 +112,7 @@ ion-menu-button {
 
   ion-menu-button {
     display: block;
+    color: #e8f7ff;
   }
 
   .app-name {

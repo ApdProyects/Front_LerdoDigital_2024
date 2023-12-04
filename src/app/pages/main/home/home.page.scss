@@ -4,16 +4,19 @@
   position: relative;
 }
 
-.home-containert{
-  background-color: #5ef15e;
+.home-container{
+  background-color: #0f959c22;
 }
 
 .swiper-container {
   text-align: center;
-  background-color: #f2f2f2;
+  background-color:  #e8f7ff; 
   border-radius: 1%;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0 50px #0f959c;
+  border: 1px solid #f4f4f4;
+
 }
 
 .img-hero {
@@ -36,16 +39,22 @@
     height: auto;
   }
 
+  .home-container{
+    background-color: #0f959c6e;
+   
+  }
+
 }
 
 .pensando-en-ti {
   text-align: center;
-
 }
 
 .pensando-card {
 
   text-align: center;
+  
+
 }
 
 
@@ -60,6 +69,8 @@
   transition: background-color 0.3s;
   /* Agrega una transición suave al color de fondo */
   color: #000;
+  --background: #0c7075;
+
 
 }
 
@@ -78,7 +89,7 @@
 }
 
 .pensando-card ion-card:hover {
-  background-color: #5ef15e;
+  background-color: #6da5c0;
   /* Cambia el color de fondo al pasar el cursor */
 }
 
@@ -97,8 +108,40 @@
 ion-avatar {
   --border-radius: 15px;
   width: 100%;
-  height: 220px;
+  height: 230px;
+  box-shadow: 0 0 70px #0f959c;
 }
+
+.imagen-hover:hover {
+  transform: scale(1.1); /* Cambia el tamaño al 110% en el hover, ajusta según sea necesario */
+  transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+/* Agrega estilos adicionales según tus preferencias */
+.imagen-hover:hover {
+  border: 1px solid #f4f4f4;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0f959c;
+  background-color: #f4f4f4;
+}
+
+.titulo-hover {
+  display: none;
+}
+
+.imagen-hover:hover .titulo-hover {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: #e8f7ff;
+}
+
+
 
 ion-grid {
   padding-top: 30px;
@@ -154,30 +197,39 @@ h4 {
   
 }
 .container-background {
-  background-color: #e0e0e0; /* Color de fondo gris */
+  background-color:  #6da5c0; /* Color de fondo gris */
   padding: 25px; /* Ajusta el espaciado interno según sea necesario */
   border-radius: 25px; /* Bordes redondeados si lo deseas */
   margin: 15px; /* Agrega margen alrededor del contenedor */
+  box-shadow: 0 0 10px #0f959c;
+  border: 1px solid #f4f4f4;
+
+
 
 }
 
 /* <=================Tramites=================> */
 
 ion-card {
-  --background: #f4f4f4;
+  --background: #0c7075;
   --color: #110f0f;
 }
 
 ion-card-title {
-  --color: #110f0f;
+  --color: #e8f7ff;
 }
 
-ion-card-subtitle {
-  --color: #110f0f;
+.tramites-card ion-card-subtitle {
+  color: #e8f7ff;
 }
 
-ion-icon{
-  --color: #110f0f;
+.tramites-card ion-icon{
+  color: #e8f7ff;
+}
+
+.tramites-card ion-card-content{
+  color: #e8f7ff;
+
 }
 
 
@@ -196,7 +248,7 @@ ion-icon{
 }
 
 .tramites-card ion-card:hover {
-  background-color: var(--ion-color-success); /* Cambia el color de fondo al pasar el cursor */
+  background-color:#0f959c; /* Cambia el color de fondo al pasar el cursor */
   transition: background-color 0.3s ease; /* Agrega una transición suave */
   cursor: pointer; /* Cambia el cursor al pasar el cursor sobre la tarjeta */
   color: #000;
@@ -224,12 +276,13 @@ ion-icon{
 }
 
 .custom-divider {
-  background-color: #000;
   /* Color de fondo de la línea de separación */
   height: 1px;
   /* Altura de la línea de separación */
   margin: 0 16px;
   /* Márgenes para controlar la longitud de la línea */
+
+  
 }
 
 .contacto-container {
@@ -240,9 +293,21 @@ ion-icon{
   margin: 20px auto;
 }
 
+
+
+.contacto-section-left {
+text-align: center;
+margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
+}
+
+.contacto-section-right {
+  margin-right: -10%; /* Ajusta el margen izquierdo según sea necesario */
+}
+
+
 .contacto-section-left,
 .contacto-section-right {
-  width: 45%;
+  width:46%;
   /* Ajusta el ancho según sea necesario */
 }
 
@@ -251,17 +316,6 @@ ion-icon{
   font-size: 100px;
 }
 
-.custom-input {
-  --border-color: #e0e0e0;
-  --border-radius: 15px;
-  --border-style: solid;
-  --border-width: 1px;
-  margin: 20px 0;
-
-  .custom-input:active {
-    --border-color: green;
-  }
-}
 
 
 .auth-form {
@@ -271,14 +325,24 @@ ion-icon{
 }
 
 
-.form-container {
+.item-container {
+  text-align: center; /* Centra el contenido dentro de cada item-container */
+  padding: 20px; /* Ajusta el relleno según tus necesidades */
+  border: 1px solid #f4f4f4;
+  box-shadow: 0 0 10px #0f959c;
+  margin: 20px; /* Ajusta el margen entre los elementos según tus necesidades */
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.form-container-dudas {
   border: 1px solid #f4f4f4;
   /* Borde del cuadro */
-  padding: 20px;
+  padding: 30px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 10px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #f4f4f4;
+  box-shadow: 0 0 10px #0f959c;
   /* Sombra del cuadro */
   max-width: 400px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -286,7 +350,26 @@ ion-icon{
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color: #e0e0e0;
+  background-color:  #6da5c0;
+}
+
+
+.form-container-contacto {
+  border: 1px solid #f4f4f4;
+  /* Borde del cuadro */
+  padding: 20px;
+  /* Ajusta el espaciado interno del cuadro según sea necesario */
+  border-radius: 10px;
+  /* Bordes redondeados del cuadro */
+  box-shadow: 0 0 10px #0f959c;
+  /* Sombra del cuadro */
+  max-width: 400px;
+  /* Ajusta el ancho máximo del cuadro según sea necesario */
+  margin: 20px auto;
+  /* Espaciado alrededor del cuadro y centrar en la página */
+  box-sizing: border-box;
+  /* Incluir el padding y el borde en el ancho total */
+  background-color:  #6da5c0;
 }
 
 ion-content{
@@ -304,15 +387,28 @@ ion-content{
 
     .contacto-section-left,
     .contacto-section-right {
-      width: 100%;
+      width: 90%;
       /* Ocupa todo el ancho disponible en pantallas más pequeñas */
     }
 
-    .form-container {
+    .contacto-section-right {
+      margin-right: 1%; /* Ajusta el margen derecho según sea necesario */
+    }
+    
+    .contacto-section-left {
+      margin-left: 1%; /* Ajusta el margen izquierdo según sea necesario */
+    }
+
+    .form-container-contacto {
 
       margin: 20px;
       /* Espaciado alrededor del cuadro y centrar en la página */
+    }
 
+    .form-container-dudas{
+      
+      margin: 20px;
+      /* Espaciado alrededor del cuadro y centrar en la página */
     }
 
     ion-avatar {
@@ -326,6 +422,8 @@ ion-content{
       border-radius: 1%;
       
     }
+
+ 
 
   }
 

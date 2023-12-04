@@ -1,7 +1,10 @@
 ion-content{
   --keyboard-offset: 0 !important;
 }
-
+.fact-container{
+  background-color: #0f959c22;
+  
+}
 
 ion-avatar {
     --border-radius: 10px;
@@ -21,6 +24,8 @@ ion-avatar {
   h1 {
     font-weight: bold;
     line-height: 25px;
+    margin-top: 2%;
+    text-align: center;
   }
   
   h4 {
@@ -60,11 +65,11 @@ ion-avatar {
   .contacto-section{
     place-items: center;
     text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-  
+    margin-top: -2%;
+
   }
   
   .card-container{
-    
     text-align: center;
   }
   

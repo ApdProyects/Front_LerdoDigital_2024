@@ -5,7 +5,7 @@ const routes: Routes = [
  
   {
     path: '',
-    redirectTo: 'shared/post-detail',
+    redirectTo: 'main/home',
     pathMatch: 'full'
   },
   {

@@ -1,3 +1,7 @@
+.post-container{
+  background-color: #0f959c77;
+}
+
 
 img{
     border-radius:10px;
@@ -14,8 +18,8 @@ img{
    
   h1{
     font-size: 5vw;
-    line-height: 4.5vw;
-    padding: 20px;
+    line-height: 5vw;
+    padding: 22px; 
   }
 
   .images-wrapper{
@@ -23,19 +27,34 @@ img{
     margin-top: 1%;
  }
 
+
+.prompt-item{
+  --border-width: 3px;
+  --border-color: var(--ion-color-medium);
+  --border-style: solid;
+  --border-radius: 15px;
+  --box-shadow: 0 0 10px   
+
+  margin: 1px auto;
+  padding: 15px; /* Ajusta este valor según tus necesidades */
+
+
+}
+
+
  .description{
        
     display: flex;
     align-items: center;
     justify-content: center;
   
-    border: 1px solid rgb(221, 217, 217);
+    border: 1px solid #0f959c87;
     /* Borde del cuadro */
     padding: 30px;
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px #f4f4f430;
+    box-shadow: 0 0 10px #0f959c87;
     /* Sombra del cuadro */
     max-width: 500px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -43,7 +62,7 @@ img{
     /* Espaciado alrededor del cuadro y centrar en la página */
     box-sizing: border-box;
     /* Incluir el padding y el borde en el ancho total */
-    background-color: #e0e0e03b;
+    background-color: #e0e0e095;
 
 }
 
@@ -68,24 +87,41 @@ img{
             display: flex;
             align-items: center;
             justify-content: center;
-          
-            border: 1px solid rgb(221, 217, 217);
+
+            border: 3px solid var(--ion-color-success);
             /* Borde del cuadro */
-            padding: 20px;
+            padding: 10x;
             /* Ajusta el espaciado interno del cuadro según sea necesario */
             border-radius: 20px;
             /* Bordes redondeados del cuadro */
-            box-shadow: 0 0 10px #f4f4f430;
+            box-shadow: 0 0 10px #0f959c87;
             /* Sombra del cuadro */
-            max-width: 400px;
+            max-width: 320px;
             /* Ajusta el ancho máximo del cuadro según sea necesario */
-            margin: 30px auto;
+            margin: 1px auto;
+          
             /* Espaciado alrededor del cuadro y centrar en la página */
             box-sizing: border-box;
             /* Incluir el padding y el borde en el ancho total */
-            background-color: #e0e0e03b;
+            background-color: #e0e0e095;
  
       }
+
+      
+.prompt-item{
+  --border-width: 3px;
+  --border-color: var(--ion-color-success);
+  --border-style: solid;
+  --border-radius: 10px;
+  --box-shadow: #0f959c87 
+  --background: #e0e0e095;
+  --color: #0f959c77;
+
+  margin: 1px auto;
+  padding: 15px; /* Ajusta este valor según tus necesidades */
+
+
+}
         
     
   }
@@ -93,7 +129,7 @@ img{
   @media screen and (max-width: 992px) {
 
         .images-wrapper{
-            width: 90vw;
+            width: 120vw;
         }
 
 
