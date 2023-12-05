@@ -14,25 +14,9 @@ ion-content{
  }
 
 // safe padding for ios
-.safe-p-bottom{
-    padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
-    padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
-}
 
-.submit {
-    margin-top: 40px;
-    --background-color: #0f959c;
-}
 
-.empty {
-    text-align: center;
-    padding: 60px;
-    opacity: 30%;
 
-    ion-icon {
-        font-size: 100px;
-    }
-}
 
 .d-flex-center {
     display: flex;
@@ -40,16 +24,27 @@ ion-content{
     align-items: center;
 }
 
- ion-input .custom{
+ion-item.custom-input {
+    --ion-item-background: white;  /* Set the background color for the entire item */
+  }
+  
+
+
+ ion-input.custom{
     --border: 1px solid #f4f4f4;
     --box-shadow: 0 0 10px #0f959c;
+    --background:  white;
+    --border-bottom: 20%;
+    
+
 }
 
 
 .custom-input {
     --border-color: rgb(224, 224, 224);
-    --border-radius: 20px;
+    --border-radius: 50px;
     --border-width: 1px;
+ 
     margin: 20px 0;
     transition: border-color 0.3s ease; /* Agregamos una transición para suavizar el cambio de color */
   

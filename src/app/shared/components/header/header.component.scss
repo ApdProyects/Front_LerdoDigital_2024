@@ -1,5 +1,6 @@
 ion-title {
   line-height: 20px;
+  color: #fff;
 
   .app-name {
     font-size: 20px;
@@ -93,6 +94,12 @@ ion-toolbar::part(container) {
 
 ion-menu-button {
   display: none;
+  color: #fff;
+}
+
+ion-back-button{
+  color: #fff;
+
 }
 
 .log-img {

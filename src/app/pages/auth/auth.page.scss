@@ -1,6 +1,4 @@
-.auth-container{
-    background-color: #0f959c22
-}
+
 
 .hand-cursor{
     cursor: pointer;
@@ -12,9 +10,7 @@ ion-button {
     
 }
 
-ion-button .submit{
---background-color: #000000;    
-}
+
 
 ion-content{
     --keyboard-offset: 0 !important;
@@ -77,46 +73,14 @@ ion-content{
     width: 100%;
     text-align: center;
     padding: 20px;
-    margin-bottom: 5%;
+ 
 }
 
-.product-item {
-    --padding-top: 20px;
-
-    ion-avatar {
-        width: 70px;
-        height: 80px;
-        --border-radius: 15px;
-    }
-
-    .name {
-        font-weight: 600;
-        padding-bottom: 5px;
-    }
-
-    .data {
-        font-size: 13px;
-
-        strong {
-            font-weight: 500;
-        }
-    }
-
-    .option-btn {
-        font-size: 27px;
-    }
-
-    ion-chip {
-        font-size: 14px;
-        border-radius: 10px;
-        margin-left: 0;
-    }
-}
 
 @media (min-width: 769px) {
     .auth-form {
         width: 500px;
-        --background-color: red;
+     
     }
 
     .add-update-modal {

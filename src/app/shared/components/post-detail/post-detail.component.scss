@@ -5,9 +5,11 @@
 
 img {
   border-radius: 10px;
+  border: 3px solid #f3f3f3e4;
+
 
   &.selected {
-    border: 3px solid var(--ion-color-success);
+    border: 5px solid #f3f3f3e4;
   }
 }
 
@@ -29,13 +31,13 @@ h1 {
 }
 
 
-.prompt-item {
-  --border-width: 3px;
-  --border-color: var(--ion-color-medium);
+ion-item.prompt-item {
+  --border-width: 8px;
+  --border-color: white;
   --border-style: solid;
-  --border-radius: 15px;
-  --box-shadow: 0 0 10px margin: 1px auto;
-  padding: 15px;
+  --border-radius: 100px;
+  --box-shadow: 0 0 50px margin: 1px white;
+  --padding: 15px;
   /* Ajusta este valor según tus necesidades */
 
 
@@ -54,7 +56,7 @@ h1 {
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 20px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #0f959c87;
+  box-shadow: 0 0 10px #0f959cc8;
   /* Sombra del cuadro */
   max-width: 500px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -62,7 +64,7 @@ h1 {
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color: #e0e0e095;
+  background-color: #e0e0e0c9;
 
 }
 
@@ -95,7 +97,7 @@ h1 {
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px #0f959c87;
+    box-shadow: 0 0 10px #0f959cc0;
     /* Sombra del cuadro */
     max-width: 320px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -104,25 +106,21 @@ h1 {
     /* Espaciado alrededor del cuadro y centrar en la página */
     box-sizing: border-box;
     /* Incluir el padding y el borde en el ancho total */
-    background-color: #e0e0e095;
+    background-color: #f3f3f3e4
 
+  }
+  img {
+    border-radius: 10px;
+    border: 3px solid #f3f3f3e4;
+  
+  
+    &.selected {
+      border: 5px solid #f3f3f3e4;
+    }
   }
 
 
-  .prompt-item {
-    --border-width: 5px;
-    --border-color: #e0e0e095;
-    --border-style: solid;
-    --border-radius: 10px;
-    --box-shadow: #0f959c87 --background: #e0e0e095;
-    --color: #0f959c77;
 
-    margin: 1px auto;
-    padding: 15px;
-    /* Ajusta este valor según tus necesidades */
-
-
-  }
 
   .images-wrapper {
     width: 90vw;

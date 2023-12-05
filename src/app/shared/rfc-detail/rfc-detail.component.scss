@@ -1,13 +1,22 @@
+.rfc-container{
+  background-color: #0f959c22;
+  margin-top: 5%;
+}
+
+
 ion-content{
     --keyboard-offset: 0 !important;
   }
   
 
 .auth-form {
-  width: 120%;
-  text-align: left;
+  width: 150%;
   padding: 20px;
+
+
 }
+
+
 
 .form-container {
   display: flex;
@@ -22,26 +31,25 @@ ion-content{
   /* Bordes redondeados del cuadro */
   box-shadow: 0 0 10px #f4f4f4;
   /* Sombra del cuadro */
-  max-width: 400px;
+  max-width: 300px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
-  margin: 20px auto;
+  margin: 110px auto;
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
   background-color: #e0e0e0;
-  margin-top: 5%;
+
 }
 
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
-    text-align: left;
+ 
     padding: 20px;
   }
 
   .form-container {
     max-width: 300px;
-    margin: 100px auto;
 
 
   }

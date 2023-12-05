@@ -2,10 +2,6 @@ ion-content {
   --keyboard-offset: 0 !important;
 }
 
-.fact-container {
-  background-color: #0f959c22;
-
-}
 
 
 
@@ -44,7 +40,6 @@ h4 {
 .auth-form {
   width: 100%;
   padding: 20px;
-  margin-bottom: 20%;
 }
 
 
@@ -59,7 +54,6 @@ h4 {
   max-width: 600px;
   /* Ancho máximo del cuadro */
   margin: auto;
-  margin-top: 1%;
   /* Centrar el cuadro en la página */
   width: 100%;
   /* Hacer que el cuadro ocupe el 100% del ancho disponible */
@@ -67,14 +61,13 @@ h4 {
   /* Incluir el padding y el borde en el ancho total */
 }
 
-.buttons-form {}
 
 
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
     padding: 20px;
-    margin-bottom: 20%;
+    
   }
 
 
@@ -98,8 +91,7 @@ h4 {
 
     max-width: 320px;
     /* Ancho máximo del cuadro */
-    margin-top: 5%;
-    margin-bottom: 5%;
+   
 
     /* Centrar el cuadro en la página */
     width: 100%;
@@ -108,5 +100,4 @@ h4 {
     /* Incluir el padding y el borde en el ancho total */
   }
 
-  .buttons-form {}
 }
