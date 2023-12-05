@@ -1,142 +1,134 @@
-.post-container{
+.post-container {
   background-color: #0f959c77;
 }
 
 
-img{
-    border-radius:10px;
+img {
+  border-radius: 10px;
 
-    &.selected{
-        border: 3px solid var(--ion-color-success);
-    }
+  &.selected {
+    border: 3px solid var(--ion-color-success);
+  }
 }
 
 .cropped-image {
-    overflow: hidden; /* Oculta cualquier parte de la imagen que se extienda más allá del contenedor */
-  }
-
-   
-  h1{
-    font-size: 5vw;
-    line-height: 5vw;
-    padding: 22px; 
-  }
-
-  .images-wrapper{
-    width: 45vw;
-    margin-top: 1%;
- }
+  overflow: hidden;
+  /* Oculta cualquier parte de la imagen que se extienda más allá del contenedor */
+}
 
 
-.prompt-item{
+h1 {
+  font-size: 5vw;
+  line-height: 5vw;
+  padding: 22px;
+}
+
+.images-wrapper {
+  width: 45vw;
+  margin-top: 10%;
+}
+
+
+.prompt-item {
   --border-width: 3px;
   --border-color: var(--ion-color-medium);
   --border-style: solid;
   --border-radius: 15px;
-  --box-shadow: 0 0 10px   
-
-  margin: 1px auto;
-  padding: 15px; /* Ajusta este valor según tus necesidades */
+  --box-shadow: 0 0 10px margin: 1px auto;
+  padding: 15px;
+  /* Ajusta este valor según tus necesidades */
 
 
 }
 
 
- .description{
-       
+.description {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #0f959c87;
+  /* Borde del cuadro */
+  padding: 30px;
+  /* Ajusta el espaciado interno del cuadro según sea necesario */
+  border-radius: 20px;
+  /* Bordes redondeados del cuadro */
+  box-shadow: 0 0 10px #0f959c87;
+  /* Sombra del cuadro */
+  max-width: 500px;
+  /* Ajusta el ancho máximo del cuadro según sea necesario */
+  margin: 20px auto;
+  /* Espaciado alrededor del cuadro y centrar en la página */
+  box-sizing: border-box;
+  /* Incluir el padding y el borde en el ancho total */
+  background-color: #e0e0e095;
+
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+  .images-wrapper {
+    width: 200%;
+
+  }
+
+  .ion-col-mobile-reorder {
+    order: 2;
+  }
+
+  .ion-grid-mobile-reorder {
+    order: 3;
+  }
+
+  .description {
+
     display: flex;
     align-items: center;
     justify-content: center;
-  
-    border: 1px solid #0f959c87;
+
+    border: 3px solid var(--ion-color-success);
     /* Borde del cuadro */
-    padding: 30px;
+    padding: 10x;
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
     box-shadow: 0 0 10px #0f959c87;
     /* Sombra del cuadro */
-    max-width: 500px;
+    max-width: 320px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
-    margin: 20px auto;
+    margin: 1px auto;
+
     /* Espaciado alrededor del cuadro y centrar en la página */
     box-sizing: border-box;
     /* Incluir el padding y el borde en el ancho total */
     background-color: #e0e0e095;
 
-}
-
-
-
-
-  @media screen and (max-width: 767px) {
-    .images-wrapper{
-        width: 200%;
-       
-     }
-     .ion-col-mobile-reorder {
-        order: 2;
-      }
-
-      .ion-grid-mobile-reorder {
-        order: 3;
-      }
-
-      .description{
-       
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border: 3px solid var(--ion-color-success);
-            /* Borde del cuadro */
-            padding: 10x;
-            /* Ajusta el espaciado interno del cuadro según sea necesario */
-            border-radius: 20px;
-            /* Bordes redondeados del cuadro */
-            box-shadow: 0 0 10px #0f959c87;
-            /* Sombra del cuadro */
-            max-width: 320px;
-            /* Ajusta el ancho máximo del cuadro según sea necesario */
-            margin: 1px auto;
-          
-            /* Espaciado alrededor del cuadro y centrar en la página */
-            box-sizing: border-box;
-            /* Incluir el padding y el borde en el ancho total */
-            background-color: #e0e0e095;
- 
-      }
-
-      
-.prompt-item{
-  --border-width: 3px;
-  --border-color: var(--ion-color-success);
-  --border-style: solid;
-  --border-radius: 10px;
-  --box-shadow: #0f959c87 
-  --background: #e0e0e095;
-  --color: #0f959c77;
-
-  margin: 1px auto;
-  padding: 15px; /* Ajusta este valor según tus necesidades */
-
-
-}
-        
-    
   }
 
-  @media screen and (max-width: 992px) {
 
-        .images-wrapper{
-            width: 120vw;
-        }
+  .prompt-item {
+    --border-width: 5px;
+    --border-color: #e0e0e095;
+    --border-style: solid;
+    --border-radius: 10px;
+    --box-shadow: #0f959c87 --background: #e0e0e095;
+    --color: #0f959c77;
+
+    margin: 1px auto;
+    padding: 15px;
+    /* Ajusta este valor según tus necesidades */
 
 
-       
   }
-    
-  
 
+  .images-wrapper {
+    width: 90vw;
+    margin-top: 1%;
+  }
 
-  
+}
+
+@media screen and (max-width: 992px) {}

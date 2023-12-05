@@ -1,113 +1,112 @@
-ion-content{
+ion-content {
   --keyboard-offset: 0 !important;
 }
-.fact-container{
+
+.fact-container {
   background-color: #0f959c22;
-  
+
 }
 
-ion-avatar {
-    --border-radius: 10px;
-    width: 100%;
-    height: 250px;
-  }
-  
-  ion-grid {
-    padding-top: 20px;
-  }
-  
-  .col-down {
-    margin-top: 30px;
-    padding: 0 10px;
-  }
-  
-  h1 {
-    font-weight: bold;
-    line-height: 25px;
-    margin-top: 2%;
-    text-align: center;
-  }
-  
-  h4 {
-    line-height: 19px;
-  }
-  
-  .empty {
-    text-align: center;
-    margin-top: 17vh;
-    opacity: 30%;
-  
-    ion-icon {
-      font-size: 120px;
-    
-    }
-  }
-  
-  .ion-padding-horizontal {
-    display: grid;
-    place-items: center;
-    text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-    height: 50vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
-  }
-  
-  .conoce-mun{
-    display: grid;
-    place-items: center;
-    text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-    height: 10vh; /* Ajusta esto según tus necesidades, para centrar verticalmente */
-  }
-  
-  .tramites-card {
-    place-items: center;
-    text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-  }
-  
-  .contacto-section{
-    place-items: center;
-    text-align: center; /* Para centrar el texto dentro de los elementos h1 y h3 */
-    margin-top: -2%;
 
-  }
-  
-  .card-container{
-    text-align: center;
-  }
-  
-  .icon {
-    font-size: 100px;
-  }
-  
-  .custom-input {
-    --border-color: #e0e0e0;
-    --border-radius: 15px;
-    --border-style: solid;
-    --border-width: 1px;
-    margin: 20px 0;
-  
-    .custom-input:active{
-      --border-color: green;
-    }
-  }
 
-  
+h1 {
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+}
+
+h4 {
+  line-height: 19px;
+}
+
+
+.card-container {
+  text-align: center;
+}
+
+.icon {
+  font-size: 100px;
+}
+
+.custom-input {
+  --border-color: #e0e0e0;
+  --border-radius: 15px;
+  --border-style: solid;
+  --border-width: 1px;
+  margin: 20px 0;
+
+  .custom-input:active {
+    --border-color: green;
+  }
+}
+
+
+.auth-form {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20%;
+}
+
+
+
+.form-container {
+
+  padding: 10px;
+  /* Espaciado interno del cuadro */
+  border-radius: 10px;
+  /* Bordes redondeados del cuadro */
+
+  max-width: 600px;
+  /* Ancho máximo del cuadro */
+  margin: auto;
+  margin-top: 1%;
+  /* Centrar el cuadro en la página */
+  width: 100%;
+  /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+  box-sizing: border-box;
+  /* Incluir el padding y el borde en el ancho total */
+}
+
+.buttons-form {}
+
+
+@media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
-    
     padding: 20px;
+    margin-bottom: 20%;
   }
-  
-  
-  
-      .form-container {
-        
-        padding: 10px; /* Espaciado interno del cuadro */
-        border-radius: 10px; /* Bordes redondeados del cuadro */
-    
-        max-width: 600px; /* Ancho máximo del cuadro */
-        margin: auto; /* Centrar el cuadro en la página */
-        width: 100%; /* Hacer que el cuadro ocupe el 100% del ancho disponible */
-        box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
-      }
-      
-    
-  
+
+
+
+  .form-container {
+    border: 1px solid #f4f4f4;
+    /* Borde del cuadro */
+
+    box-shadow: 0 0 10px #0f959c;
+    /* Sombra del cuadro */
+    margin: 2px auto;
+    /* Espaciado alrededor del cuadro y centrar en la página */
+
+    background-color: #6da5c0;
+
+
+    padding: 10px;
+    /* Espaciado interno del cuadro */
+    border-radius: 10px;
+    /* Bordes redondeados del cuadro */
+
+    max-width: 320px;
+    /* Ancho máximo del cuadro */
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    /* Centrar el cuadro en la página */
+    width: 100%;
+    /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+    box-sizing: border-box;
+    /* Incluir el padding y el borde en el ancho total */
+  }
+
+  .buttons-form {}
+}
