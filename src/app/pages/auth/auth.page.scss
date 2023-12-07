@@ -87,3 +87,8 @@ ion-content{
         --height: 680px;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+   p{
+      color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+    }}

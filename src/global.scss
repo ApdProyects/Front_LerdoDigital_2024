@@ -60,3 +60,15 @@ ion-alert.select-alert {
       color: white;
   }
 }
+
+/* Estilos generales que se aplicarán en ambos modos */
+h1, h2, h3, h4{
+  color: black; /* Color por defecto para h1 en modo claro */
+}
+
+/* Media Query para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4{
+    color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+  }
+}
