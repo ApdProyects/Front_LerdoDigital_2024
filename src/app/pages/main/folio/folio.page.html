@@ -1,34 +1,39 @@
 <app-header
-backButton="/main/servicios"
+
+  backButton="/main/servicios"
+  shouldShowHorizontalMenu="shouldShowHorizontalMenu"
+
+  title=""
 >
 </app-header>
 
-
-<ion-content [fullscreen]="true">
-  <div class="form-container">
-    
-      <form [formGroup]="form" class="auth-form">
-        <p><b>Consultar folio de pago o clave catastral</b></p>
-        <ion-input
-        type="text"
-        label="Ingrese su RFC"
-        label-placement="floating"
-        placeholder="RFC"
-        color="success"
+<ion-content>
+  <div class="auth-form">
+    <div class="form-container">
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <h1 position="floating" class="">
+            Consultar folio de pago o clave catastral
+          </h1>
+          <br />
+          <ion-input
+            placeholder="Folio / clave castral"
+            fill="solid"
+            color="success"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+      <br />
+      <ion-button
+        (click)="showFolioInfo()"
+        expand="block"
         fill="solid"
-      ></ion-input>
-
-        <ion-button
-          class="ion-margin-top"
-          expand="block"
-          mode="ios"
-          color="success"
-        >
-         Buscar
-        </ion-button>
-      </form>
+        shape="round"
+        color="success"
+      >
+        Buscar
+      </ion-button>
     </div>
- 
-  
+  </div>
 </ion-content>
 <app-footer></app-footer>

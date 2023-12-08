@@ -21,11 +21,13 @@ const routes: Routes = [
         path: 'facturacion',
         loadChildren: () => import('./facturacion/facturacion.module').then( m => m.FacturacionPageModule)
       },
+      {
+        path: 'folio',
+        loadChildren: () => import('./folio/folio.module').then( m => m.FolioPageModule)
+      },
     ]
-  },  {
-    path: 'folio',
-    loadChildren: () => import('./folio/folio.module').then( m => m.FolioPageModule)
   },
+ 
 
 
 

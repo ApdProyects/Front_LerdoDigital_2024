@@ -1,11 +1,11 @@
 
 .swiper-container {
   text-align: center;
-  background-color:  #e8f7ff; 
+  background-color:  #e0e0e0a5; 
   border-radius: 1%;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 50px #0f959c;
+  box-shadow: 0 0 50px #8cbd62;
   border: 1px solid #f4f4f4;
 
 }
@@ -33,7 +33,7 @@
   }
 
   .home-container{
-    background-color: #0f959c6e;
+    background-color: #8cbd62;
    
   }
 
@@ -62,7 +62,7 @@
   transition: background-color 0.3s;
   /* Agrega una transición suave al color de fondo */
   color: #000;
-  --background: #0c7075;
+  --background: #8cbd62;
 
 
 }
@@ -102,7 +102,7 @@ ion-avatar {
   --border-radius: 15px;
   width: 100%;
   height: 230px;
-  box-shadow: 0 0 70px #0f959c;
+  box-shadow: 0 0 50px #8cbd62ad;
 }
 
 .imagen-hover:hover {
@@ -114,7 +114,7 @@ ion-avatar {
 .imagen-hover:hover {
   border: 1px solid #f4f4f4;
   border-radius: 15px;
-  box-shadow: 0 0 10px #0f959c;
+  box-shadow: 0 0 10px #8cbd62;
   background-color: #f4f4f4;
 }
 
@@ -131,7 +131,7 @@ ion-avatar {
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  color: #e8f7ff;
+  color: #ffffff;
 }
 
 
@@ -190,11 +190,11 @@ h4 {
   
 }
 .container-background {
-  background-color:  #6da5c0; /* Color de fondo gris */
+  background-color:  #e0e0e0a5; /* Color de fondo gris */
   padding: 25px; /* Ajusta el espaciado interno según sea necesario */
   border-radius: 25px; /* Bordes redondeados si lo deseas */
   margin: 15px; /* Agrega margen alrededor del contenedor */
-  box-shadow: 0 0 10px #0f959c;
+  box-shadow: 0 0 10px #8cbd62;
   border: 1px solid #f4f4f4;
 
 
@@ -204,24 +204,24 @@ h4 {
 /* <=================Tramites=================> */
 
 ion-card {
-  --background: #0c7075;
-  --color: #110f0f;
+  --background: #8cbd62;
+  --color: #ffffff;
 }
 
 ion-card-title {
-  --color: #e8f7ff;
+  color: #ffffff;
 }
 
 .tramites-card ion-card-subtitle {
-  color: #e8f7ff;
+  color: #ffffff;
 }
 
 .tramites-card ion-icon{
-  color: #e8f7ff;
+  color: #ffffff;
 }
 
 .tramites-card ion-card-content{
-  color: #e8f7ff;
+  color: #ffffff;
 
 }
 
@@ -233,7 +233,6 @@ ion-card-title {
 }
 
 .tramites-card ion-card {
-
   border-radius: 15px;
   /* Agrega esquinas redondeadas a las tarjetas */
   overflow: hidden;
@@ -241,15 +240,13 @@ ion-card-title {
 }
 
 .tramites-card ion-card:hover {
-  background-color:#0f959c; /* Cambia el color de fondo al pasar el cursor */
+  background-color:#8cbd62ac; /* Cambia el color de fondo al pasar el cursor */
   transition: background-color 0.3s ease; /* Agrega una transición suave */
   cursor: pointer; /* Cambia el cursor al pasar el cursor sobre la tarjeta */
-  color: #000;
+  --color: #000;
 }
 
-.tramites-card ion-card-title:hover,ion-card-subtitle:hover, ion-card-content:hover{
-  color: #191717;
-}
+
 
 
 
@@ -321,21 +318,23 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
 .item-container {
   text-align: center; /* Centra el contenido dentro de cada item-container */
   padding: 20px; /* Ajusta el relleno según tus necesidades */
-  border: 1px solid #f4f4f4;
-  box-shadow: 0 0 10px #0f959c;
   margin: 20px; /* Ajusta el margen entre los elementos según tus necesidades */
   border-radius: 30px;
   background-color: #fff;
 }
 
+.item-container ion-icon{
+  font-size: 22px;
+}
+
 .form-container-dudas {
-  border: 1px solid #f4f4f4;
+  border: 3px solid #e0e0e0;    /* Borde del cuadro */
   /* Borde del cuadro */
   padding: 30px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 10px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #0f959c;
+  box-shadow: 0 0 50px #ffc16a76;
   /* Sombra del cuadro */
   max-width: 400px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -343,18 +342,18 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color:  #6da5c0;
+  background-color:  #e0e0e0a5;
 }
 
 
 .form-container-contacto {
-  border: 1px solid #f4f4f4;
+  border: 3px solid #e0e0e0;    /* Borde del cuadro */
   /* Borde del cuadro */
   padding: 20px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 10px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #0f959c;
+  box-shadow: 0 0 50px #ffc16a76;
   /* Sombra del cuadro */
   max-width: 400px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -362,7 +361,7 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color:  #6da5c0;
+  background-color:  #e0e0e0a5;
 }
 
 ion-content{
@@ -416,7 +415,16 @@ ion-content{
       
     }
 
- 
+    .item-container ion-icon{
+      font-size: 27px;
+    }
+
+    .item-container h4, p{
+      font-size: 20px; 
+    }
 
   }
-
+  @media (prefers-color-scheme: dark) {
+    .item-container h4{
+       color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+     }}

@@ -1,11 +1,11 @@
 ion-menu::part(backdrop) {
-  background-color: #0f959c6e;
+  background-color: #8cbd62;
 }
 
 ion-menu::part(container) {
   border-radius: 0 20px 20px 0;
 
-  box-shadow: 4px 0px 16px #0f959c6e;
+  box-shadow: 4px 0px 16px #8cbd62;
 }
 
 .icon-log-out {
@@ -15,12 +15,12 @@ ion-menu::part(container) {
 
 ion-content{
   --keyboard-offset: 0 !important;
-  --background: #0c7075;
+  --background: #8cbd62;
 
 }
 
 ion-toolbar{
-  --background: #0c7075;
+  --background: #8cbd62;
 
 }
 
@@ -32,7 +32,7 @@ ion-title{
 ion-item {
   font-size: 14px;
   color: #e8f7ff;
-  --background:#0c7075;
+  --background:#8cbd62;
 
   ion-icon {
     color: #e8f7ff;
@@ -40,7 +40,7 @@ ion-item {
 
   &.active {
     color: white;
-    --background: #6da5c0;
+    --background: #e0e0e0a5;
     ion-icon {
       color: white;
     }

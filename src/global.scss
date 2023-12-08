@@ -36,7 +36,7 @@
 
 ion-app {
   --keyboard-offset: 0 !important;
-  --ion-background-color: #0f959c22;
+  --ion-background-color: #fff7ec;
 }
 
 // src/global.scss
@@ -49,7 +49,7 @@ html {
 
 
 ion-alert.select-alert {
-  --background: #0c7075!important;
+  --background: #8cbd62!important;
 
   button {
       color: white !important;
@@ -61,14 +61,11 @@ ion-alert.select-alert {
   }
 }
 
-/* Estilos generales que se aplicarán en ambos modos */
-h1, h2, h3, h4{
-  color: black; /* Color por defecto para h1 en modo claro */
-}
 
 /* Media Query para el modo oscuro */
-@media (prefers-color-scheme: dark) {
+
+/* @media (prefers-color-scheme: dark) {
   h1, h2, h3, h4{
-    color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+    color: white; 
   }
-}
+} */

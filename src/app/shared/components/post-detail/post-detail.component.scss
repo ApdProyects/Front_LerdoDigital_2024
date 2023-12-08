@@ -1,15 +1,12 @@
-.post-container {
-  background-color: #0f959c77;
-}
 
 
 img {
   border-radius: 10px;
-  border: 3px solid #f3f3f3e4;
+  border: 3px solid #8cbd62;
 
 
   &.selected {
-    border: 5px solid #f3f3f3e4;
+    border: 2px solid #8cbd62;
   }
 }
 
@@ -33,7 +30,7 @@ h1 {
 
 ion-item.prompt-item {
   --border-width: 8px;
-  --border-color: white;
+  --border-color: #8cbd62;
   --border-style: solid;
   --border-radius: 100px;
   --box-shadow: 0 0 50px margin: 1px white;
@@ -50,13 +47,13 @@ ion-item.prompt-item {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #0f959c87;
+  border: 3px solid #e0e0e0;    /* Borde del cuadro */
   /* Borde del cuadro */
   padding: 30px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 20px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #0f959cc8;
+  box-shadow: 0 0 10px #8cbd62;
   /* Sombra del cuadro */
   max-width: 500px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -64,7 +61,7 @@ ion-item.prompt-item {
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color: #e0e0e0c9;
+  background-color: #e0e0e0e1;
 
 }
 
@@ -97,7 +94,7 @@ ion-item.prompt-item {
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px #0f959cc0;
+    box-shadow: 0 0 10px #8cbd62;
     /* Sombra del cuadro */
     max-width: 320px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -111,11 +108,11 @@ ion-item.prompt-item {
   }
   img {
     border-radius: 10px;
-    border: 3px solid #f3f3f3e4;
+    border: 3px solid #8cbd62;
   
   
     &.selected {
-      border: 5px solid #f3f3f3e4;
+      border: 5px solid #8cbd62;
     }
   }
 

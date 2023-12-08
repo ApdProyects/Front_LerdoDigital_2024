@@ -1,0 +1,44 @@
+.auth-form {
+    width: 100%;
+    padding: 20px;
+  
+  }
+
+
+.form-container {
+ 
+    align-items: center;
+    justify-content: center;
+  
+    border: 2px solid #fff7ec;
+    /* Borde del cuadro */
+    padding: 20px;
+    /* Ajusta el espaciado interno del cuadro según sea necesario */
+    border-radius: 10px;
+    /* Bordes redondeados del cuadro */
+    box-shadow: 0 0 50px #ffc16a76;
+    /* Sombra del cuadro */
+    max-width: 500px;
+    /* Ajusta el ancho máximo del cuadro según sea necesario */
+    margin: 110px auto;
+    /* Espaciado alrededor del cuadro y centrar en la página */
+    box-sizing: border-box;
+    /* Incluir el padding y el borde en el ancho total */
+    background-color: #e0e0e0;
+  
+  }
+  
+  .linea {
+    text-align: center;
+    font-size: 22px;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .linea {
+        text-align: center;
+        font-size: 13px;
+      }
+
+  }
+  

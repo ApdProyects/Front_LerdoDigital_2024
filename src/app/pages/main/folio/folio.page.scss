@@ -1,48 +1,50 @@
-
-
 .auth-form {
-    width: 120%;
-    text-align: left;
+  width: 100%;
+  padding: 20px;
+
+}
+
+h1{
+  color: #5e5e5e;
+}
+
+
+.form-container {
+ 
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #fff7ec;
+  /* Borde del cuadro */
+  padding: 20px;
+  /* Ajusta el espaciado interno del cuadro según sea necesario */
+  border-radius: 10px;
+  /* Bordes redondeados del cuadro */
+  box-shadow: 0 0 50px #ffc16a76;
+  /* Sombra del cuadro */
+  max-width: 500px;
+  /* Ajusta el ancho máximo del cuadro según sea necesario */
+  margin: 110px auto;
+  /* Espaciado alrededor del cuadro y centrar en la página */
+  box-sizing: border-box;
+  /* Incluir el padding y el borde en el ancho total */
+  background-color: #e0e0e0a5;
+
+}
+
+
+@media screen and (max-width: 767px) {
+  .auth-form {
+    width: 100%;
+ 
     padding: 20px;
   }
-  
-  
+
   .form-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #f4f4f4;
-    /* Borde del cuadro */
-    padding: 20px;
-    /* Ajusta el espaciado interno del cuadro según sea necesario */
-    border-radius: 10px;
-    /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px #f4f4f4;
-    /* Sombra del cuadro */
-    max-width: 400px;
-    /* Ajusta el ancho máximo del cuadro según sea necesario */
-    margin: 20px auto;
-    /* Espaciado alrededor del cuadro y centrar en la página */
-    box-sizing: border-box;
-    /* Incluir el padding y el borde en el ancho total */
-    background-color: #e0e0e0;
-    margin-top: 7%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ffc16a76;
+    border: 2px solid #fff7ec;
 
   }
-
-  @media screen and (max-width: 767px) {
-    .auth-form {
-      width: 100%;
-      text-align: left;
-      padding: 20px;
-    }
-  
-    .form-container {
-      max-width: 300px;
-      margin: 100px auto;
-  
-  
-    }
-  }
-  
+}

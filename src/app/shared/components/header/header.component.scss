@@ -1,5 +1,5 @@
 ion-title {
-  line-height: 20px;
+  line-height: 30px;
   color: #fff;
 
   .app-name {
@@ -17,8 +17,8 @@ ion-title {
 ion-toolbar {
   height: 60px;
   /* Altura predeterminada del ion-toolbar */
-  box-shadow: 4px 0px 16px #072e33;
-  --background: #0c7075;
+  box-shadow: 4px 0px 16px #8cbd62;
+  --background: #8cbd62;
 
 }
 
@@ -36,7 +36,7 @@ ion-toolbar {
     /* Cambiar la dirección del flex container a columna */
     align-items: flex-start;
     /* Alinear los elementos del flex container al inicio */
-    box-shadow: 4px 0px 16px #072e33;
+    box-shadow: 4px 0px 16px #8cbd62;
   }
 
   .app-name {
