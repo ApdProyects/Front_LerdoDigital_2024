@@ -1,4 +1,4 @@
-<app-header backButton="/main/servicios" title="Registro"></app-header>
+<app-header backButton="/main/home" title="Registro"></app-header>
 
 <ion-content>
   <div class="d-flex-center">
@@ -13,22 +13,20 @@
       <app-custom-input
         autocomplete="name"
         icon="person-outline"
-        [control]="form.controls.email"
-        type="name"
+        [control]="form.controls.usuario"
+        type="text"
         label="Nombre completo"
       ></app-custom-input>
 
       <div
         class="validators"
-        *ngIf="form.controls.name.errors && form.controls.name.touched"
+        *ngIf="form.controls.usuario.errors && form.controls.usuario"
       >
-        <div *ngIf="form.controls.name.errors?.['required']">
-          El correo es requerido
+        <div *ngIf="form.controls.usuario.errors?.['required']">
+          El nombre es requerido
         </div>
-        <div
-          *ngIf="form.controls.name.errors?.['minLenght/*============= Name ============*/']"
-        >
-          Ingrese un correo valido
+        <div *ngIf="form.controls.usuario.errors?.['minLenght']">
+          El nombre debe tener al menos 4 caracteres
         </div>
       </div>
 
@@ -36,57 +34,57 @@
       <app-custom-input
         autocomplete="email"
         icon="mail-outline"
-        [control]="form.controls.email"
+        [control]="form.controls.correo"
         type="email"
         label="Correo"
       ></app-custom-input>
 
       <div
         class="validators"
-        *ngIf="form.controls.email.errors && form.controls.email.touched"
+        *ngIf="form.controls.correo.errors && form.controls.correo.touched"
       >
-        <div *ngIf="form.controls.email.errors?.['required']">
+        <div *ngIf="form.controls.correo.errors?.['required']">
           El correo es requerido
         </div>
-        <div *ngIf="form.controls.email.errors?.['email']">
+        <div *ngIf="form.controls.correo.errors?.['email']">
           Ingrese un correo valido
         </div>
       </div>
 
       <!--============= Telefono ============-->
       <app-custom-input
-        autocomplete="email"
+        autocomplete="phone"
         icon="call-outline"
-        [control]="form.controls.email"
-        type="email"
+        [control]="form.controls.telefono"
+        type="phone"
         label="Teléfono"
       ></app-custom-input>
 
       <div
         class="validators"
-        *ngIf="form.controls.email.errors && form.controls.email.touched"
+        *ngIf="form.controls.telefono.errors && form.controls.telefono.touched"
       >
-        <div *ngIf="form.controls.email.errors?.['required']">
-          El correo es requerido
+        <div *ngIf="form.controls.telefono.errors?.['required']">
+          El numero es requerido
         </div>
-        <div *ngIf="form.controls.email.errors?.['email']">
-          Ingrese un correo valido
+        <div *ngIf="form.controls.telefono.errors?.['required']">
+          Ingrese un numero valido
         </div>
       </div>
 
       <!--============= Password ============-->
       <app-custom-input
         icon="lock-closed-outline"
-        [control]="form.controls.password"
+        [control]="form.controls.contrasena"
         type="password"
         label="Contraseña"
       ></app-custom-input>
 
       <div
         class="validators"
-        *ngIf="form.controls.password.errors && form.controls.password.touched"
+        *ngIf="form.controls.contrasena.errors && form.controls.contrasena.touched"
       >
-        <div *ngIf="form.controls.password.errors?.['required']">
+        <div *ngIf="form.controls.contrasena.errors?.['required']">
           La contraseña es requerida
         </div>
       </div>
@@ -95,16 +93,16 @@
 
       <app-custom-input
         icon="lock-closed-outline"
-        [control]="form.controls.password"
+        [control]="form.controls.confirmarContrasena"
         type="password"
         label="Confirmar contraseña"
       ></app-custom-input>
 
       <div
         class="validators"
-        *ngIf="form.controls.password.errors && form.controls.password.touched"
+        *ngIf="form.controls.confirmarContrasena.errors && form.controls.confirmarContrasena.touched"
       >
-        <div *ngIf="form.controls.password.errors?.['required']">
+        <div *ngIf="form.controls.confirmarContrasena.errors?.['required']">
           La contraseña es requerida
         </div>
       </div>

@@ -5,7 +5,7 @@ const routes: Routes = [
  
   {
     path: '',
-    redirectTo: 'main/home',
+    redirectTo: 'main/folio',
     pathMatch: 'full'
   },
   {

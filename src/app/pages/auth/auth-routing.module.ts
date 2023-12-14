@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AuthPage } from './auth.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthPage
+    component: AuthPage,
   },
   {
     path: 'sign-up',
@@ -16,11 +15,12 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
- /*  {
-    path: 'servicios',
-    loadChildren: () => import('../main/servicios/servicios.module').then( m => m.ServiciosPageModule)
-  } */
+  {
+    path: 'folio',
+    loadChildren: () => import('../main/folio/folio.module').then( m => m.FolioPageModule)
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
