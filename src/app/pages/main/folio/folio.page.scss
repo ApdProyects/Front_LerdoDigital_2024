@@ -1,13 +1,15 @@
-/* .auth-form {
+.auth-form {
   width: 100%;
   padding: 20px;
+  text-align: center; 
+
 
 }
 
 h1{
   color: #5e5e5e;
 }
- */
+
 
 .form-container {
  
@@ -19,9 +21,10 @@ h1{
   border-radius: 10px;
   box-shadow: 0 0 50px #ffc16a76;
   max-width: 500px;
-  margin: 110px auto;
-  box-sizing: border-box;
+  margin: 0 auto; 
+   box-sizing: border-box;
   background-color: #e0e0e0a5;
+
 
 }
 
@@ -29,11 +32,14 @@ h1{
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
- 
+    text-align: center; 
+
     padding: 20px;
   }
 
   .form-container {
+    align-items: center; /* Alinear contenido al centro verticalmente */
+  justify-content: center;
     max-width: 500px;
     border-radius: 15px;
     box-shadow: 0 0 20px #ffc16a76;

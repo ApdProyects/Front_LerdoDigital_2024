@@ -11,11 +11,31 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { InfoFolioComponent } from 'src/app/shared/components/info-folio/info-folio.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import * as moment from 'moment';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-folio',
   templateUrl: './folio.page.html',
   styleUrls: ['./folio.page.scss'],
+  animations: [
+    trigger('openClose', [
+        state('open', style({
+            opacity: 1,
+            backgroundColor: '#efee6ba6'
+        })),
+        state('closed', style({
+            height: '0px',
+            opacity: 0.5,
+            backgroundColor: 'green'
+        })),
+        transition('open => closed', [
+            animate('.2s')
+        ]),
+        transition('closed => open', [
+            animate('.2s')
+        ]),
+    ]),
+],
 })
 export class FolioPage implements OnInit {
   Noticias: any;
