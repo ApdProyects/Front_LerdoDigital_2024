@@ -219,7 +219,6 @@ export class FolioPage implements OnInit {
     }
     this.reference = this.folio;
 
-    // tslint:disable-next-line: max-line-length  this.info.importe.replace('$', '')
     var URL =
       'https://webhooks.lerdodigital.mx/form.php?TOTAL=' +
       this.info.importe.replace('$', '') +
@@ -242,26 +241,6 @@ export class FolioPage implements OnInit {
     loading.dismiss();
   }
   async pagar() {
-    /*setTimeout(function(){ console.log(""); }, 5000);
-
-    const alert = await this.alertController.create({
-        cssClass: 'not_found_alert',
-        header: 'LERDO DIGITAL',
-        message: 'El servicio BANORTE se encuentra en mantenimiento, favor de intentarlo mas tarde.',
-        buttons: [
-            {
-                text: 'Aceptar',
-                handler: () => {
-                    console.log('Confirm Okay');
-                }
-            }
-        ]
-    });
-
-    await alert.present();
-
-    return;*/
-
     this.searchv = false;
     this.isOpen = false;
     this.isOpenfolio = false;
@@ -280,7 +259,6 @@ export class FolioPage implements OnInit {
   async search() {
     this.searchv = true;
     this.getInfoFolio();
-    // await this.NavCtrl.navigateForward('/login');
   }
 
   // CATASTRO --------------------------------------------------------------------------------
@@ -402,7 +380,6 @@ export class FolioPage implements OnInit {
         }
       );
 
-      // tslint:disable-next-line: max-line-length      '1.00' this.infoCatastro.Total.replace('$', '')
       var URL =
         'https://webhooks.lerdodigital.mx/form.php?TOTAL=' +
         this.infoCatastro.Total.replace('$', '') +
@@ -426,26 +403,6 @@ export class FolioPage implements OnInit {
   }
 
   async pagarCatastro() {
-    /*setTimeout(function(){ console.log(""); }, 5000);
-    
-    const alert = await this.alertController.create({
-        cssClass: 'not_found_alert',
-        header: 'LERDO DIGITAL',
-        message: 'El servicio BANORTE se encuentra en mantenimiento, favor de intentarlo mas tarde.',
-        buttons: [
-            {
-                text: 'Aceptar',
-                handler: () => {
-                    console.log('Confirm Okay');
-                }
-            }
-        
-    });
-
-    await alert.present();
-
-    return;*/
-
     this.searchv = false;
     this.isOpen = false;
     this.isOpenfolio = false;
