@@ -20,13 +20,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('openClose', [
         state('open', style({
-            opacity: 1,
-            backgroundColor: '#efee6ba6'
+           /*  opacity: 1,
+            backgroundColor: '#efee6ba6' */
         })),
         state('closed', style({
             height: '0px',
             opacity: 0.5,
-            backgroundColor: 'green'
+            /* backgroundColor: 'green' */
         })),
         transition('open => closed', [
             animate('.2s')

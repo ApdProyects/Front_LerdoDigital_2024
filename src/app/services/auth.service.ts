@@ -80,4 +80,55 @@ export class AuthService {
 
   }
 
+  async sendemail( html, correo, folio) {
+    let url: string;
+    url =  'https://pdf.grupoapd.mx/index.php';
+    const formData = new FormData();
+    if ( correo === 'homeromc' ) {
+        correo = 'ricardo_apd@outlook.com';
+    }
+    formData.append('html', html);
+    formData.append('email', correo);
+    formData.append('folio', folio);
+    const miInit = { method: 'POST', body: formData};
+
+    try {
+        const responsed = await fetch(url , miInit)
+            .then(response => {
+                return   response;
+                // return response.blob();
+            })
+            .catch(error => {
+                return null;
+            });
+        const data = await responsed.json();
+
+        return data;
+    } catch ( error) {
+        return null;
+    }
+} 
+
+async verificaemail(email) { 
+  let url: string;
+
+  url =  'https://api.debounce.io/v1/?api=' + '5ef6538234f5c' + '&email=' + email ;
+  const miInit = { method: 'GET'}; 
+  try {
+      const responsed = await fetch(url , miInit)
+          .then(response => {
+              return   response;
+              // return response.blob();
+          })
+          .catch(error => {
+              return null;
+          });
+      const data = await responsed.json();
+
+      return data;
+  } catch ( error) {
+      return true;
+  } 
+} 
+
 }
