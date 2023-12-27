@@ -31,6 +31,7 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/share": "^5.0.6",
     "@capacitor/status-bar": "5.0.6",
+    "@emailjs/browser": "^3.11.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic/angular": "^7.0.0",
     "@types/file-saver": "^2.0.7",
@@ -38,6 +39,7 @@
     "ionicons": "^7.0.0",
     "moment": "^2.29.4",
     "rxjs": "^6.6.7",
+    "sweetalert2": "^11.10.1",
     "swiper": "^11.0.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

@@ -19,7 +19,7 @@
               </h1>
               <br />
               <ion-input
-                placeholder="Folio / clave castral"
+                placeholder="0200 - XXXX / 131 - XXX - XXX"
                 fill="solid"
                 color="success"
                 type="text"
@@ -250,8 +250,8 @@
 
           <ion-grid fixed>
             <ion-row>
-              <ion-col size="6">
-                <ion-button
+              <!-- <ion-col size="6">
+                    <ion-button
                   (click)="sendmail()"
                   data-desc="Reenviar recibo de pago"
                   class="ion-text-center"
@@ -265,11 +265,25 @@
                   ></ion-icon
                   >&nbsp;<b>Enviar Recibo</b></ion-button
                 ></ion-col
-              >
+              >  -->
 
-              <ion-col size="6"
-                ><ion-button
-                  
+              <ion-col size="6">
+                <ion-button
+                  (click)="close()"
+                  class="ion-text-center"
+                  expand="block"
+                  fill="solid"
+                  shape="round"
+                  color="success"
+                  ><ion-icon name="reader-outline"></ion-icon> &nbsp;<b
+                    >Buscar Folio</b
+                  ></ion-button
+                >
+              </ion-col>
+
+              <ion-col size="6">
+                <ion-button
+                  *ngIf="info.estatus !== 'COBRADA'"
                   (click)="pagar()"
                   class="ion-text-center"
                   expand="block"
@@ -278,76 +292,68 @@
                   color="success"
                   ><ion-icon name="cash-outline" style="color: white"></ion-icon
                   >&nbsp;<b>pagar</b></ion-button
-                ></ion-col
-              >
+                >
+
+                <h2
+                  *ngIf="info.estatus == 'COBRADA'"
+                  color="primary"
+                  style="
+                    padding-left: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: block;
+                  "
+                >
+                  <b>ESTE FOLIO YA SE ENCUENTRA PAGADO.</b>
+                </h2>
+              </ion-col>
             </ion-row>
           </ion-grid>
-
-          <!-- 
-          <ion-row>
-            <ion-item style="text-align: center" lines="none"> </ion-item>
-            <br />
-            <br />
-            <ion-col >
-              <ion-item
-                
-                lines="none"
-              >
-              <ion-button
-              (click)="close()"
-              expand="block"
-              color="success"
-              style="height: 50px"
-              ><ion-icon
-                color="primary"
-                name="arrow-back-circle-outline"
-                style="height: 50px; width: 50px"
-              ></ion-icon
-              >&nbsp;<b>Regresar</b></ion-button
-            >
-            <ion-button
-              (click)="sendmail()"
-              expand="block"
-              data-desc="Reenviar recibo de pago"
-              style="height: 50px"
-              color="success"
-              ><ion-icon
-                color="primary"
-                name="paper-plane-outline"
-                style="height: 50px; width: 50px"
-              ></ion-icon
-              >&nbsp;<b>Enviar Recibo</b></ion-button
-            >
-            <ion-button
-              slot="end"
-              (click)="pagar()"
-              color="success"
-              expand="block"
-              *ngIf="info.estatus == 'NO COBRADA'"
-              style="padding-left: 50px; height: 50px"
-              ><ion-icon
-                name="cash-outline"
-                style="color: white"
-                style="height: 50px; width: 50px"
-              ></ion-icon
-              >&nbsp;<b>Pagar</b></ion-button
-            >
-          </ion-item>
-          <ion-item
-            ><br />
-            <h2
-              slot="end"
-              *ngIf="info.estatus == 'COBRADA'"
-              color="primary"
-              style="padding-left: 10px"
-            >
-              <b>ESTE FOLIO YA SE ENCUENTRA PAGADO.</b>
-            </h2></ion-item
-          >
-        </ion-col>
-      </ion-row> -->
           <ion-text color="primary"> </ion-text>
         </div>
+      </div>
+
+      <!-- ============ pago ==============  -->
+      <div class="form-container-pago" *ngIf="isOpenPago">
+        <h1 class="ion-text-center">
+          <b>INGRESAR FORMA DE PAGO</b>
+        </h1>
+        <ion-text color="primary"></ion-text>
+
+        <div [ngStyle]="miEstilo">
+          <iframe [src]="url" class="mi-iframe"  frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button
+                *ngIf="searchv==false"
+                class="ion-text-center"
+                expand="block"
+                fill="solid"
+                shape="round"
+                color="success"
+                (click)="confirmarpago()"
+                >Finalizar pago</ion-button
+              >
+            </ion-col>
+
+            <ion-col size="6">
+              <ion-button
+                *ngIf="searchv==false"
+                class="ion-text-center"
+                expand="block"
+                fill="solid"
+                shape="round"
+                color="success"
+                [routerLink]="['/main/facturacion']"
+                >Facturar pago</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
 
       <!-- <ion-card
@@ -859,4 +865,5 @@
     </ion-col>
   </ion-row>
 </ion-content>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer>
+ -->

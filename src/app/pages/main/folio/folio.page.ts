@@ -12,6 +12,8 @@ import { InfoFolioComponent } from 'src/app/shared/components/info-folio/info-fo
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import * as moment from 'moment';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-folio',
@@ -38,6 +40,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 ],
 })
 export class FolioPage implements OnInit {
+
+
+  miEstilo = { background: 'transparent' };
+
+
+
+
   Noticias: any;
   respuesta: any;
   data: any;
@@ -260,26 +269,116 @@ export class FolioPage implements OnInit {
 
     loading.dismiss();
   }
-  async pagar() {
-    this.searchv = false;
-    this.isOpen = false;
-    this.isOpenfolio = false;
-    this.isOpenCatastro = false;
-    this.isOpenPago = true;
+
+  async back() {
+    await this.NavCtrl.navigateRoot('/element?type=' + this.type_code);
+}
+async sendmail() {
+    const loading = await this.loadingController.create({
+        cssClass: 'my-custom-class',
+        message: 'Enviando recibo...'
+    });
+    await loading.present();
+
+    this.type_code = this.folio.substr(0, 2);
+    this.element = this.folio.substr(2, 4);
+    this.type = this.folio.substr(0, 2);
+
+    let resp: any;
+    let data: any;
+
+    
+    data = await this.authService.getformat(this.folio, this.type_code, this.element, localStorage.getItem('LUS_CORREO') );
+
+    await data.forEach(element => {
+        resp = element;
+    });
+
+    if ( resp.codigo > 0) { 
+        var pdfAsDataUri = "data:application/pdf;base64,"+resp.PDF;
+        window.open(pdfAsDataUri);
+
+        const alert = await this.alertController.create({
+            cssClass: 'not_found_alert',
+            header: 'LERDO DIGITAL',
+            message: 'El formato se envió de manera exitosa.',
+            buttons: [
+                {
+                    text: 'Aceptar',
+                    handler: () => {
+                        console.log('Confirm Okay');
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
+    } else {
+        const alert = await this.alertController.create({
+            cssClass: 'not_found_alert',
+            header: 'LERDO DIGITAL',
+            message: 'No se pudo mandar el formato, favor de intentarlo nuevamente.',
+            buttons: [
+                {
+                    text: 'Aceptar',
+                    handler: () => {
+                        console.log('Confirm Okay');
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
+    }
+    loading.dismiss();
+}
+  
+ 
+
+
+
+async alert(title: string, msg: string) {
+    const alert = this.alertController.create({
+        header: title,
+        message: msg,
+        buttons: ['Aceptar'],
+    });
+    (await alert).present();
+}
+
+async search() {
+  if (!this.folio || this.folio.trim().length === 0) {
+      this.alert('Error', 'Ingrese datos para continuar');
+      return; 
   }
-  async confirmarpago() {
+
+  this.searchv = true;
+  this.getInfoFolio();
+}
+
+async pagar() {
+  this.searchv = false;
+  this.isOpen = false;
+  this.isOpenfolio = false;
+  this.isOpenCatastro = false;
+  this.isOpenPago = true;
+}
+async confirmarpago() {
+  this.searchv = false;
+  this.isOpen = false;
+  this.isOpenfolio = true;
+  this.isOpenPago = false;
+  this.folio = '';
+  this.foliosubs = '';
+}
+  async close(){
     this.searchv = false;
     this.isOpen = false;
     this.isOpenfolio = true;
     this.isOpenPago = false;
-    this.folio = '';
-    this.foliosubs = '';
-  }
-
-  async search() {
-    this.searchv = true;
-    this.getInfoFolio();
-  }
+    this.isOpenConfirmacion = false;
+    this.isOpenCatastro = false;
+}
 
   // CATASTRO --------------------------------------------------------------------------------
   async getfoliocatastro() {
@@ -417,6 +516,8 @@ export class FolioPage implements OnInit {
         localStorage.getItem('LUS_CORREO');
 
       this.url = this.domsanitizer.bypassSecurityTrustResourceUrl(URL);
+      console.log(this.url);
+
 
       await loading.dismiss();
     }

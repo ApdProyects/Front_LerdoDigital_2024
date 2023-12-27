@@ -8,143 +8,141 @@
 </app-header>
 
 <ion-content>
-  
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-    <div class="swiper-container">
-      <swiper-container>
-        <swiper-slide
-          ><img src="/assets/LerdoD2-min.png" alt="" class="img-hero"
-        /></swiper-slide>
-        <swiper-slide style="font-size: 24px"
-          >LERDO <br />
-          DIGITAL</swiper-slide
-        >
-        <swiper-slide>Slide 3</swiper-slide>
-      </swiper-container>
-      <div
-        style="
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 20px;
-          background: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0) 0%,
-            #cacaca 100%
-          );
-        "
-      ></div>
-    </div>
-    <br />
+  <div class="swiper-container">
+    <swiper-container>
+      <swiper-slide
+        ><img src="/assets/LerdoD2-min.png" alt="" class="img-hero"
+      /></swiper-slide>
+      <swiper-slide style="font-size: 24px"
+        >LERDO <br />
+        DIGITAL</swiper-slide
+      >
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper-container>
+    <div
+      style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          #cacaca 100%
+        );
+      "
+    ></div>
+  </div>
+  <br />
 
-    <!--============= Pensando en ti =============-->
+  <!--============= Pensando en ti =============-->
 
-    <div class="pensando-en-ti">
-      <h1>Pensando en ti</h1>
-    </div>
-    <div class="pensando-card">
-      <ion-grid>
+  <div class="pensando-en-ti">
+    <h1>Pensando en ti</h1>
+  </div>
+  <div class="pensando-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title
+                ><strong> LERDO INCLUYENTE </strong></ion-card-title
+              >
+            </ion-card-header>
+            <ion-card-content
+              ><b>
+                Que comprende varios rubros como equidad de género, personas con
+                discapacidad, adultos mayores grupos vulnerables y madres
+                solteras.</b
+              >
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><strong> LERDO HUMANO </strong></ion-card-title>
+            </ion-card-header>
+            <ion-card-content
+              ><b>
+                Comprende temas de oportunidades para todos; educación, salud,
+                cultura, calidad de vivienda, deportes y valores de género,
+                personas con discapacidad, adultos .</b
+              >
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4" size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title
+                ><strong> MUNICIPIO SUSTENTABLE </strong></ion-card-title
+              >
+            </ion-card-header>
+            <ion-card-content
+              ><b>
+                Se refiere a la conservación del medio ambiente, sustentabilidad
+                ecológica, uso eficiente y eficaz de las energías, uso eficiente
+                del agua, reforestación y mantenimiento de áreas verdes.</b
+              >
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <br />
+
+  <!--============= Posts =============-->
+  <div class="conoce-mun">
+    <h2 class="heading text-center color-title">
+      <b>Conoce nuestro municipio.</b>
+    </h2>
+  </div>
+
+  <div class="conoce-mun-container">
+    <div class="container-background">
+      <ion-grid *ngIf="posts.length">
         <ion-row>
-          <ion-col size="4" size="12" size-sm="6" size-md="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title
-                  ><strong> LERDO INCLUYENTE </strong></ion-card-title
-                >
-              </ion-card-header>
-              <ion-card-content
-                ><b>
-                  Que comprende varios rubros como equidad de género, personas
-                  con discapacidad, adultos mayores grupos vulnerables y madres
-                  solteras.</b
-                >
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-
-          <ion-col size="4" size="12" size-sm="6" size-md="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title><strong> LERDO HUMANO </strong></ion-card-title>
-              </ion-card-header>
-              <ion-card-content
-                ><b>
-                  Comprende temas de oportunidades para todos; educación, salud,
-                  cultura, calidad de vivienda, deportes y valores de género,
-                  personas con discapacidad, adultos .</b
-                >
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-
-          <ion-col size="4" size="12" size-sm="6" size-md="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title
-                  ><strong> MUNICIPIO SUSTENTABLE </strong></ion-card-title
-                >
-              </ion-card-header>
-              <ion-card-content
-                ><b>
-                  Se refiere a la conservación del medio ambiente,
-                  sustentabilidad ecológica, uso eficiente y eficaz de las
-                  energías, uso eficiente del agua, reforestación y
-                  mantenimiento de áreas verdes.</b
-                >
-              </ion-card-content>
-            </ion-card>
+          <ion-col
+            class="click"
+            (click)="showPostDetail(p)"
+            [ngClass]="{'col-down': i % 2 !== 0}"
+            size-lg="2"
+            size-md="3"
+            size-sm="3"
+            size="6"
+            *ngFor="let p of posts; index as i"
+          >
+            <ion-avatar class="imagen-hover">
+              <img [src]="p.images[0]" />
+              <div class="titulo-hover">
+                <h3><b>{{ p.prompt }}</b></h3>
+              </div>
+            </ion-avatar>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-
     <br />
+  </div>
 
-    <!--============= Posts =============-->
-    <div class="conoce-mun">
-      <h2 class="heading text-center color-title">
-        <b>Conoce nuestro municipio.</b>
-      </h2>
-    </div>
-
-    <div class="conoce-mun-container">
-      <div class="container-background">
-        <ion-grid *ngIf="posts.length">
-          <ion-row>
-            <ion-col
-              class="click"
-              (click)="showPostDetail(p)"
-              [ngClass]="{'col-down': i % 2 !== 0}"
-              size-lg="2"
-              size-md="3"
-              size-sm="3"
-              size="6"
-              *ngFor="let p of posts; index as i"
-            >
-              <ion-avatar class="imagen-hover">
-                <img [src]="p.images[0]" />
-                <div class="titulo-hover">
-                  <h3><b>{{ p.prompt }}</b></h3>
-                </div>
-              </ion-avatar>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <br />
-    </div>
-
-    <!-- <div class="empty" *ngIf="!posts.length && !loading">
+  <!-- <div class="empty" *ngIf="!posts.length && !loading">
       <ion-icon slot="start" name="images-outline"></ion-icon>
       <h4>No hay Publicaciones disponibles</h4>
     </div> -->
 
-    <!--============= loading =============-->
-    <!--   <ion-grid *ngIf="loading">
+  <!--============= loading =============-->
+  <!--   <ion-grid *ngIf="loading">
         <ion-row>
           <ion-col
             [ngClass]="{'col-down': i % 2 !== 0}"
@@ -163,209 +161,237 @@
         </ion-row>
       </ion-grid> -->
 
-    <!--============= Tramites =============-->
-    <div class="tramites-card">
-      <h1>Trámites</h1>
-    </div>
+  <!--============= Tramites =============-->
+  <div class="tramites-card">
+    <h1>Trámites</h1>
+  </div>
 
-    <div class="tramites-card">
-      <ion-grid>
-        <ion-row>
+  <div class="tramites-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="car-outline"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle>
+                <h3>Vialidad.</h3>
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 725 - 1061
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m.
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Periférico Ejército Mexicano, a un costado del edificio de <br>
+                Seguridad Pública
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
 
-          <ion-col size="12" size-sm="6" size-md="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="car-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle>
-                  <h3>Vialidad.</h3>
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 725 - 1061
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m.
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Periférico Ejército Mexicano, a un costado del edificio de Seguridad Pública
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="business-outline"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle>
+                <h3>Catastro</h3>
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 175 - 0000 <br />
+                Ext. 224
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Prol. Allende s/n Col. Centro
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
 
-          <ion-col size="12" size-sm="6" size-md="4">
-            <ion-card >
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="business-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle>
-                  <h3>Catastro</h3>
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 175 - 0000  <br> Ext. 224
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Prol. Allende s/n Col. Centro
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
+        <ion-col size="12" size-sm="6" size-md="4">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-icon class="icon" name="reader-outline"></ion-icon>
+              </ion-card-title>
+              <ion-card-subtitle>
+                <h3>Parquímetros</h3>
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Teléfono:</strong> <br />
+                (871) 175 - 0000 <br />
+                Ext. 224
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Horarios:</strong> <br />
+                8:00 a.m. a 4:00 p.m
+              </p>
+              <p class="sub-heading mb-5 text-left">
+                <strong>Dirección:</strong> <br />
+                Prol. Allende s/n Col. Centro
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-          <ion-col size="12" size-sm="6" size-md="4">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>
-                  <ion-icon class="icon" name="reader-outline"></ion-icon>
-                </ion-card-title>
-                <ion-card-subtitle>
-                  <h3>Parquímetros</h3>
-                </ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Teléfono:</strong> <br />
-                  (871) 175 - 0000 <br> Ext. 224
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Horarios:</strong> <br />
-                  8:00 a.m. a 4:00 p.m
-                </p>
-                <p class="sub-heading mb-5 text-left">
-                  <strong>Dirección:</strong> <br />
-                  Prol. Allende s/n Col. Centro
-                </p>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
+  <br />
 
-    <br />
+  <!-- Sección de Contáctanos -->
+  <div class="contacto-section">
+    <h1 class="heading text-center color-title">
+      <b>Contáctanos</b>
+    </h1>
+  </div>
+  <br />
 
-    <!-- Sección de Contáctanos -->
-    <div class="contacto-section">
-      <h1 class="heading text-center color-title">
-        <b>Contáctanos</b>
-      </h1>
-    </div>
-    <br />
+  <!-- Primer elemento de la lista -->
+  <div class="contacto-container">
+    <div class="contacto-section-left">
+      <div class="form-container-dudas">
+        <div class="d-flex-center">
+          <p><strong> Para dudas y/o aclaraciones</strong></p>
 
-    <!-- Primer elemento de la lista -->
-    <div class="contacto-container">
-      <div class="contacto-section-left">
-        <div class="form-container-dudas">
-          <div class="d-flex-center">
-            <p><strong> Para dudas y/o aclaraciones</strong></p>
-
-            <div class="item-container">
-              <ion-icon
-                name="calendar-outline"
-                color="success"
-                slot="start"
-                size= 100
-              ></ion-icon>
-              <ion-label>
-                <ion-text>
-                  <h4>Horario</h4>
-                </ion-text>
-                <p>De 8:00 a.m. a 16:00 p.m.</p>
-              </ion-label>
-            </div>
-
-            <!-- Segundo párrafo -->
-            <div class="item-container">
-              <ion-icon
-                name="call-outline"
-                color="success"
-                slot="start"
-              ></ion-icon>
-              <ion-label>
-                <ion-text>
-                  <h4>Teléfono</h4>
-                </ion-text>
-                <p>(871) 465-5498</p>
-              </ion-label>
-            </div>
-
-            <!-- Tercer párrafo -->
-            <div class="item-container">
-              <ion-icon
-                name="logo-facebook"
+          <div class="item-container">
+            <ion-icon
+              name="calendar-outline"
               color="success"
-                slot="start"
-              ></ion-icon>
-              <ion-label>
-                <ion-text>
-                  <h4>Redes Sociales</h4>
-                </ion-text>
-                <p>Facebook</p>
-              </ion-label>
-            </div>
+              slot="start"
+              size="100"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Horario</h4>
+              </ion-text>
+              <p>De 8:00 a.m. a 16:00 p.m.</p>
+            </ion-label>
           </div>
-        </div>
-      </div>
 
-      <br />
+          <!-- Segundo párrafo -->
+          <div class="item-container">
+            <ion-icon
+              name="call-outline"
+              color="success"
+              slot="start"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Teléfono</h4>
+              </ion-text>
+              <p>(871) 465-5498</p>
+            </ion-label>
+          </div>
 
-      <div class="contacto-section-right">
-        <div class="form-container-contacto">
-          <div class="d-flex-center">
-            <form [formGroup]="form" class="auth-form">
-              <p><b>Nosotros nos ponemos en contacto contigo</b></p>
-              <app-custom-input
-                autocomplete="email"
-                icon="mail-outline"
-                [control]="form.controls.email"
-                type="email"
-                label="Correo"
-              ></app-custom-input>
-
-              <app-custom-input
-                autocomplete="phone"
-                icon="call-outline"
-                [control]="form.controls.email"
-                type="phone"
-                label="Teléfono"
-              ></app-custom-input>
-
-              <app-custom-input
-                autocomplete="name"
-                icon="person-outline"
-                [control]="form.controls.email"
-                type="name"
-                label="Nombre"
-              ></app-custom-input>
-
-              <ion-button
-                class="ion-margin-top"
-                expand="block"
-                mode="ios"
-                color="success"
-              >
-                Enviar
-                <ion-icon slot="end" name="send-outline"></ion-icon>
-              </ion-button>
-            </form>
+          <!-- Tercer párrafo -->
+          <div class="item-container">
+            <ion-icon
+              name="logo-facebook"
+              color="success"
+              slot="start"
+            ></ion-icon>
+            <ion-label>
+              <ion-text>
+                <h4>Redes Sociales</h4>
+              </ion-text>
+              <p>Facebook</p>
+            </ion-label>
           </div>
         </div>
       </div>
     </div>
-<br>
-    <app-footer></app-footer>
+
+    <br />
+
+    <div class="contacto-section-right">
+      <div class="form-container-contacto">
+        <div class="d-flex-center">
+          <p class="titulo"><b>Nosotros nos ponemos en contacto contigo</b></p>
+         
+          <ion-item lines="none"  class="custom-input">
+            <ion-icon slot="start"   name="person-outline" color="success"></ion-icon>
+            <ion-input
+              label="Nombre"
+              label-placement="floating"
+              class="form-control"
+              name="nombre"
+              type="text"
+              [(ngModel)]="form.nombre"
+              required
+              minlength="9"
+            ></ion-input>
+          </ion-item>
+
+
+          <ion-item lines="none"  class="custom-input">
+            <ion-icon slot="start"   name="mail-outline" color="success"></ion-icon>
+            <ion-input
+              label="Email"
+              label-placement="floating"
+              class="form-control"
+              name="correo"
+              type="email"
+              [(ngModel)]="form.correo"
+              required
+              onkeyup="this.value = this.value.toLowerCase();"
+            ></ion-input>
+          </ion-item>
+
+
+
+            <ion-item lines="none"  class="custom-input">
+              <ion-icon slot="start"   name="call-outline" color="success"></ion-icon>
+            <ion-input
+              label="Teléfono"
+              label-placement="floating"
+              class="form-control"
+              name="telefono"
+              type="tel"
+              pattern="[0-9]{10}"
+              [(ngModel)]="form.telefono"
+              required
+              (keyup)="validateTelefono()"
+            ></ion-input>
+          </ion-item>
+
+            <!--     <div>{{form | json}}</div> -->
+
+            <div class="button-c"></div>
+         
+          <ion-button
+            class="button-contacto"
+            expand="block"
+            mode="ios"
+            color="success"
+            (click)="sendemail()"
+          >
+            Enviar
+            <ion-icon slot="end" name="send-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <app-footer></app-footer>
 </ion-content>

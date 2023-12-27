@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController, LoadingController,  } from '@ionic/angular';
+import {
+  AlertController,
+  IonicSafeString,
+  LoadingController,
+} from '@ionic/angular';
 import { Router } from '@angular/router';
-
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +19,6 @@ export class AuthPage implements OnInit {
     usuario: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
-
 
   constructor(
     private authService: AuthService,
@@ -32,34 +34,45 @@ export class AuthPage implements OnInit {
     if (this.form.valid) {
       const usuario = this.form.get('usuario').value;
       const password = this.form.get('password').value;
-  
-      const loading = await this.LoadingController.create({
-        message: 'Cargando',
-      });
-      await loading.present();
-  
+
       this.authService.login(usuario, password).subscribe(
         async (res: any) => {
           console.log('Respuesta del servicio:', res);
-  
+
           if (res === null) {
             console.log('Respuesta nula');
-            this.mostrarAlerta('Inténtalo de nuevo', 'Usuario o contraseña incorrectos.');
+            this.mostrarAlerta(
+              'Inténtalo de nuevo',
+              'Usuario o contraseña incorrectos.'
+            );
           } else if (res.codigo === -1) {
             console.log('Usuario no registrado');
-            this.mostrarAlerta('Usuario no registrado', 'El usuario no existe en el sistema.');
+
+            this.mostrarAlerta(
+              'Usuario no registrado',
+              'El usuario no existe en el sistema.'
+            );
           } else if (res.LRO_CLAVE === 2) {
             console.log('Respuesta exitosa');
+            localStorage.setItem('LRO_CLAVE', res.LRO_CLAVE);
+            localStorage.setItem('LUS_CORREO', res.LUS_CORREO);
+            localStorage.setItem('LUS_CLAVE', res.LUS_CLAVE);
+
+            console.log('LRO_CLAVE almacenado:', localStorage.getItem('LRO_CLAVE'));
+            console.log('LUS_CORREO almacenado:', localStorage.getItem('LUS_CORREO'));
+            console.log('LUS_CLAVE almacenado:', localStorage.getItem('LUS_CLAVE'));
+
             this.mostrarMensajeBienvenida();
             this.redirigirASiguientePagina();
           }
-  
-          await loading.dismiss();
         },
         (error) => {
           console.error('Error en el inicio de sesión:', error);
-          loading.dismiss();
-          this.mostrarAlerta('Inténtalo de nuevo', 'Se produjo un error en el inicio de sesión.');
+
+          this.mostrarAlerta(
+            'Inténtalo de nuevo',
+            'Se produjo un error en el inicio de sesión.'
+          );
         }
       );
     } else {
@@ -69,32 +82,30 @@ export class AuthPage implements OnInit {
       );
     }
   }
-  
-  
-  async mostrarMensajeBienvenida() {
-    const alert = await this.alertController.create({
-      header: '¡Bienvenido!',
-      message: 'Inicio de sesión exitoso.',
-      buttons: ['OK']
-    });
-  
-    await alert.present();
-  }
-  
-  async mostrarAlerta(titulo: string, mensaje: string) {
-    const alert = await this.alertController.create({
-      header: 'Error',
-      message: 'No esta registrado',
-      buttons: ['OK']
-    });
-  
-    await alert.present();
-  }
-  
-  redirigirASiguientePagina() {
-    
-    console.log('Redirigiendo a la siguiente página...');
-    this.router.navigate(['/main/folio']); 
 
+  async mostrarMensajeBienvenida() {
+    Swal.fire({
+      title: 'Bienvenido',
+      icon: 'success',
+      timer: 1000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
   }
-}  
+
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    Swal.fire({
+      title: titulo,
+      text: mensaje,
+      icon: 'error',
+      timer: 2000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
+  }
+
+  redirigirASiguientePagina() {
+    console.log('Redirigiendo a la siguiente página...');
+    this.router.navigate(['/main/folio']);
+  }
+}

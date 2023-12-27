@@ -35,7 +35,6 @@
 }
 
 ion-app {
-  --keyboard-offset: 0 !important;
   --ion-background-color: #fff7ec;
 }
 
@@ -48,7 +47,7 @@ html {
 }
 
 
-ion-alert.select-alert {
+/* ion-alert.select-alert {
   --background: #8cbd62!important;
 
   button {
@@ -59,7 +58,40 @@ ion-alert.select-alert {
   .sc-ion-alert-md {
       color: white;
   }
+} */
+
+:root {
+  --button-width: 150px; /* Ancho personalizado para el botón */
+  --button-border-radius: 100px; /* Radio de borde personalizado para el botón */
 }
+
+
+/* Alerta auth*/
+/* .custom-alert {
+  --background: #fddede
+  ;    
+  
+
+  .alert-wrapper.sc-ion-alert-md{
+  border-radius: 20px; 
+  width: 100%; 
+  left: 10%;
+  }
+
+  
+  .alert-title.sc-ion-alert-md{
+    color: #a82424;
+    font-weight: bold;
+  }
+
+  .alert-message.sc-ion-alert-md, .alert-input-group.sc-ion-alert-md{
+    color: #d22e2e;
+  }
+
+}
+ */
+
+
 
 
 /* Media Query para el modo oscuro */

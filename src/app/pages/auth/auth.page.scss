@@ -12,9 +12,6 @@ ion-button {
 
 
 
-ion-content{
-    --keyboard-offset: 0 !important;
- }
 
 // safe padding for ios
 .safe-p-bottom{
@@ -75,6 +72,8 @@ ion-content{
     padding: 20px;
  
 }
+
+
 
 
 @media (min-width: 769px) {

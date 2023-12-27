@@ -18,7 +18,10 @@ export class SignUpPage implements OnInit {
     contrasena: new FormControl('', [Validators.required]),
     confirmarContrasena: new FormControl('', [Validators.required]),
     usuario: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    telefono: new FormControl('', [Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(10), Validators.maxLength(10)])
+    telefono: new FormControl('',[
+      Validators.minLength(10), Validators.maxLength(14)
+    ]), 
+
   });
 
   constructor(private authService: AuthService,
@@ -38,13 +41,14 @@ export class SignUpPage implements OnInit {
         this.contrasenaAlert('Error', 'La contraseña y la confirmación de contraseña no coinciden');
         return;
       }
-
+      
+   
       this.authService.registerUser(
         formData.contrasena,
         formData.correo,
         formData.usuario,
-        formData.telefono
-      ).subscribe(
+        formData.telefono = this.formatoCelularContacto(formData.telefono)
+        ).subscribe(
         (res) => {
           console.log('Usuario registrado con éxito', res);
           this.registerAlert('Éxito', 'Usuario registrado con éxito');
@@ -59,6 +63,16 @@ export class SignUpPage implements OnInit {
         }
       );
     }
+  }
+
+  formatoCelularContacto(telefono: string) {
+    telefono = telefono.replace(/[^\d\s]/g, '');
+    telefono = telefono.replace(/\s/g, '').substring(0, 10);
+    if (telefono.length === 10) {
+      telefono = `${telefono.slice(0, 3)} ${telefono.slice(3, 6)} ${telefono.slice(6)}`;
+    }
+  
+    return telefono;
   }
 
   async registerAlert(title: string, message: string) {

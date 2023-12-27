@@ -364,6 +364,49 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   background-color:  #e0e0e0a5;
 }
 
+.form-control {
+  background: white;
+  border-radius: 50px;
+}
+
+ion-item.custom-input {
+  --ion-item-background: white;  /* Set the background color for the entire item */
+}
+
+
+.custom-input {
+  --border-color: rgb(224, 224, 224);
+  --border-radius: 50px;
+  --border-width: 1px;
+
+  margin: 20px 0;
+  transition: border-color 0.3s ease; /* Agregamos una transición para suavizar el cambio de color */
+
+  ion-label {
+      position: relative;
+      bottom: 2px;
+  }
+
+
+  &:valid,
+  &:valid:focus {
+    --border-color: #28a745; /* Cambiar el color del borde cuando el input es válido (success) */
+  }
+}
+
+.button-contacto{
+  width: var(--button-width); 
+  --border-radius: 25px;
+}
+
+.button-c{
+  align-items: center;
+}
+
+.titulo{
+  text-align: center;
+}
+
 ion-content{
   --keyboard-offset: 0 !important;
 }
