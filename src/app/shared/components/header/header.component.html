@@ -23,6 +23,11 @@
       <ion-img *ngIf="Logo" src="../assets/logo2Lerdo.png"></ion-img>
     </div>
 
+    <ion-button *ngIf="Manual" (click)="ayuda()" expand="block" fill="clear" shape="round" slot="end" size="20" title="MANUAL AYUDA" class="button">
+      <ion-icon slot="end" name="help-circle-outline" size="large" color="light" hover=""></ion-icon>
+    </ion-button>
+
+
     <!-- Menú de navegación horizontal en el lado derecho -->
     <div *ngIf="shouldShowHorizontalMenu" class="horizontal-menu" slot="end">
       <a [routerLink]="['/main/home']" routerLinkActive="active">Inicio</a>
@@ -31,6 +36,7 @@
       <!-- ... más enlaces según sea necesario -->
     </div>
 
+   
     <!-- Botón de menú -->
     <ion-menu-button
       class="menu-button"

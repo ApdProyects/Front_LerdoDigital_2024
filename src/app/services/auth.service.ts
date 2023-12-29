@@ -67,8 +67,6 @@ export class AuthService {
     return this.http.get(url);
   }
 
-  
-
   getGeneraCodigo(clave) {
     let url: string;
     url = this.dominio + 'api/Catastro/GeneraCodigoAleatorio?clave=' + clave;
@@ -157,7 +155,6 @@ export class AuthService {
     return this.http.get(url);
   }
 
-  
   async consulta_qr(inn_clave) {
     const url = (await this.dominio) + 'api/verifica/Qr?iin_clave=' + inn_clave;
     try {
@@ -167,13 +164,185 @@ export class AuthService {
     }
   }
 
-  getseguridad(opcion,fechainicio,fechafin,estatus) { 
+  getseguridad(opcion, fechainicio, fechafin, estatus) {
     let url: string;
-    url =  this.dominio + 'api/RptDeptos/RptSeguridad?opcion=' + opcion +
-                                                '&fechainicio=' + moment(fechainicio).format("yyyy/MM/DD") +
-                                                '&fechafin=' + moment(fechafin).format("yyyy/MM/DD") +
-                                                '&estatus=' + estatus ;
-                                                
-                                                return this.http.get(url);
+    url =
+      this.dominio +
+      'api/RptDeptos/RptSeguridad?opcion=' +
+      opcion +
+      '&fechainicio=' +
+      moment(fechainicio).format('yyyy/MM/DD') +
+      '&fechafin=' +
+      moment(fechafin).format('yyyy/MM/DD') +
+      '&estatus=' +
+      estatus;
+
+    return this.http.get(url);
   }
+
+
+  // FACTURACION
+  getClienteFacturado(RFC) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/Recuperacliente?RFC=' + RFC;
+                        
+    return this.http.get(url);
+  }
+  getFolioFacturado(folio) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/Recuperafolio?Folio=' + folio;
+                        
+    return this.http.get(url);
+  }
+
+
+  getClienteregimen(rfc) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/Recupera_regimen_cliente?RFC=' + rfc;
+                        
+    return this.http.get(url);
+  }
+  async postGuardaCliente(rrfc,rnombre,rtipo_persona,rdireccion,rcolonia,rCP,remail,rcelular) { 
+    debugger;
+    const data = {
+      RFC: rrfc, 
+      nombre: rnombre,
+      tipo_persona: rtipo_persona,
+      direccion: rdireccion,
+      colonia: rcolonia,
+      CP: rCP,
+      email: remail,
+      celular: rcelular
+    };
+ 
+    const url = this.dominio + 'api/Facturacion/guardacliente';
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+          // 'Authorization': token
+        }
+        )// application/x-www-form-urlencoded
+    }; 
+
+    try {
+      console.log(url);
+      console.log(data);
+      return await this.http.post(url, await data, await httpOptions).pipe();
+    } catch (error) {
+      throw await error;
+    }
+  }
+  async getGuardaCliente(rrfc,rnombre,rtipo_persona,rdireccion,rcolonia,rCP,remail,rcelular,restado,rmunicipio,regimen) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/guardacliente?RFC=' + rrfc +
+                                                    '&nombre=' + rnombre + 
+                                                    '&tipopersona=' + rtipo_persona +
+                                                    '&direccion=' + rdireccion +
+                                                    '&colonia=' + rcolonia +
+                                                    '&CP=' + rCP +
+                                                    '&email=' + remail +
+                                                    '&celular=' + rcelular +
+                                                    '&estado=' + restado +
+                                                    '&municipio=' + rmunicipio+
+                                                    '&regimen=' + regimen;
+                         
+    return this.http.get(url);
+  }
+  async getGuardaCliente_regimen(rrfc,regimen) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/guardacliente_regimen?RFC=' + rrfc +
+                                                    '&regimen=' + regimen;
+                         
+    return this.http.get(url);
+  }
+  async getFacturar(rfc,folio) { 
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/facturar?RFC=' + rfc +
+                                                    '&folio=' + folio;
+                       
+    return this.http.get(url);
+  }
+  async recuperaestados() {
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/RecuperaEstados';
+                       
+    return this.http.get(url);
+  }
+  async recuperamunicipios() {
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/RecuperaMunicipios';
+                       
+    return this.http.get(url);
+  }
+  async getEnvioInfoRFC(RFC) {
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/ConfirmacionCliente?RFC=' + RFC;
+                       
+    return this.http.get(url);
+  }
+
+  async get_regimen_fiscal() {
+
+    const url = this.dominio + 'api/Facturacion/recupera_regimen';
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      )};
+
+    try {
+      return await this.http.get(url).pipe();
+    } catch (error) {
+      throw await error;
+    }
+    
+  }
+  // FIN FACTURACION
+  async getFacturarFolio(rfc,folio,UsoCFDI) { 
+    debugger
+    let url: string;
+    url =  this.dominio + 'api/Facturacion/facturar?RFC=' + rfc +
+                                            '&folio=' + folio + 
+                                            '&UsoCFDI=' + UsoCFDI;
+                                           
+                       console.log(url);
+    return this.http.get(url);
+  }
+
+  // CATASTRO --------------------------------------------------------------------------------
+/*   getGeneraCodigo(clave) { 
+    let url: string;
+    url =  this.dominio + 'api/Catastro/GeneraCodigoAleatorio?clave='+ clave ;
+                                                
+ 
+    return this.http.get(url);
+  }
+  getValidaCodigo(clave,codigo) { 
+    let url: string;
+    url =  this.dominio + 'api/Catastro/ValidaCodigoAleatorio?clave='+ clave +
+                                                '&codigo=' + codigo;
+                                                
+ 
+    return this.http.get(url);
+  } */
+  getmanual() {
+    let url: string;
+
+    url =  this.dominio + 'api/Ciudadanos/RecuperaManual';
+ 
+    return this.http.get(url);
+  }
+  getmanualfacturacion() {
+    let url: string;
+
+    url =  this.dominio + 'api/Ciudadanos/RecuperaManualfacturacion';
+ 
+    return this.http.get(url);
+  }
+
+
 }

@@ -61,6 +61,13 @@ h4 {
   /* Incluir el padding y el borde en el ancho total */
 }
 
+ ion-button.buttons-form{
+  --border-radius: 30px;
+  --cursor: pointer;
+
+
+}
+
 
 
 @media screen and (max-width: 767px) {
