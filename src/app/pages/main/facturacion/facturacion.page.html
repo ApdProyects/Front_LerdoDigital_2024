@@ -8,25 +8,22 @@
 </app-header>
 
 <ion-content>
-   <ion-grid >
-    
   <br />
-
-  <div class="form-container">
+  <div class="auth-form">
     <h1>
       <b
         >FACTURACIÓN DE FOLIOS <br />
         DEL MUNICIPIO CFDI 4.0</b
       >
     </h1>
+    <br>
 
-    <div class="auth-form">
+    <div class="form-container">
       <ion-item *ngIf="isOpenfolio">
         <ion-label position="stacked"></ion-label>
         <ion-input
           label="Ingrese su folio"
           label-placement="floating"
-          placeholder="Folio indicado en el Recibo de su Pago"
           color="success"
           fill="solid"
           [(ngModel)]="folio"
@@ -47,7 +44,6 @@
           type="text"
           label="Ingrese su RFC"
           label-placement="floating"
-          placeholder="RFC"
           color="success"
           fill="solid"
           [(ngModel)]="rfc"
@@ -60,98 +56,20 @@
       <br />
 
       <ion-item *ngIf="isOpenfolio">
-        <ion-select label="uso CFDI" label-placement="floating" fill="solid" expandedIcon="remove" color="success">
-          <ion-select-option *ngFor="let descripcion of folioDescription" [value]="descripcion">{{ descripcion }}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      
-      
-
-      <!-- <ion-item *ngIf="isOpenfolio">
         <ion-select
-          label="uso CFDI"
+          label="Uso CFDI"
           label-placement="floating"
           fill="solid"
           expandedIcon="remove"
           color="success"
         >
           <ion-select-option
-            class="custom-select"
-            value="ADQUISICIÓN DE MERCANCIAS"
-            >ADQUISICIÓN DE MERCANCIAS</ion-select-option
+            *ngFor="let descripcion of folioDescription"
+            [value]="descripcion"
+            >{{ descripcion }}</ion-select-option
           >
-          <ion-select-option value="DEVOLUCIONES, DESCUENTOS O BONIFICACIONES"
-            >DEVOLUCIONES, DESCUENTOS O BONIFICACIONES</ion-select-option
-          >
-          <ion-select-option value="GASTOS EN GENERA"
-            >GASTOS EN GENERAL</ion-select-option
-          >
-          <ion-select-option value="CONSTRUCCIONES"
-            >CONSTRUCCIONES</ion-select-option
-          >
-          <ion-select-option
-            value="MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES"
-            >MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES</ion-select-option
-          >
-          <ion-select-option value="EQUIPO DE TRANSPORTE"
-            >EQUIPO DE TRANSPORTE</ion-select-option
-          >
-          <ion-select-option value="EQUIPO DE COMPUTO Y ACCESORIOS"
-            >EQUIPO DE COMPUTO Y ACCESORIOS</ion-select-option
-          >
-          <ion-select-option
-            value="DADOS, TROQUELES, MOLDES, MATRICES Y HERRAMENTAL"
-            >DADOS, TROQUELES, MOLDES, MATRICES Y HERRAMENTAL</ion-select-option
-          >
-          <ion-select-option value="COMUNICACIONES SATELITALES"
-            >COMUNICACIONES SATELITALES</ion-select-option
-          >
-          <ion-select-option value="OTRA MAQUINARIA Y EQUIPO"
-            >OTRA MAQUINARIA Y EQUIPO</ion-select-option
-          >
-          <ion-select-option
-            value="HONORARIOS MÉDICOS, DENTALES Y GASTOS HOSPITALARIOS"
-            >HONORARIOS MÉDICOS, DENTALES Y GASTOS
-            HOSPITALARIOS</ion-select-option
-          >
-          <ion-select-option
-            value="GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD"
-            >GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD</ion-select-option
-          >
-          <ion-select-option value="GASTOS FUNERALES"
-            >GASTOS FUNERALES</ion-select-option
-          >
-          <ion-select-option value="banana"
-            >INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS
-            (CASA HABITACIÓN)</ion-select-option
-          >
-          <ion-select-option value="orange"
-            >INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS
-            (CASA HABITACIÓN)</ion-select-option
-          >
-          <ion-select-option value="PRIMAS POR SEGUROS DE GASTOS MÉDICOS"
-            >PRIMAS POR SEGUROS DE GASTOS MÉDICOS</ion-select-option
-          >
-
-          <ion-select-option
-            value="GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA"
-            >GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA</ion-select-option
-          >
-          <ion-select-option
-            value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
-            >DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE
-            PLANES DE PENSIONES</ion-select-option
-          >
-          <ion-select-option
-            value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
-            >PAGOS POR SERVICIOS EDUCATIVOS (COLEGIATURAS)</ion-select-option
-          >
-          <ion-select-option value="SIN EFECTOS FISCALES"
-            >SIN EFECTOS FISCALES</ion-select-option
-          >
-          <ion-select-option value="POR DEFINIR">POR DEFINIR</ion-select-option>
         </ion-select>
-      </ion-item> -->
+      </ion-item>
 
       <br *ngIf="isOpencaptura" />
       <ion-title
@@ -211,7 +129,7 @@
         <ion-label position="stacked">Colonia</ion-label>
         <ion-input
           Nombre=""
-          placeholder="Colonia segun su Constancia Físcal"
+          placeholder="Colonia según su Constancia Físcal"
           [(ngModel)]="colonia"
           onkeyup="this.value = this.value.toUpperCase();"
         ></ion-input>
@@ -478,7 +396,6 @@
     </div>
   </div>
 
-</ion-grid>
   <br />
 </ion-content>
 <app-footer></app-footer>
