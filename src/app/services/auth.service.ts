@@ -137,6 +137,13 @@ export class AuthService {
     }
   }
 
+  getecupera(telefono) { 
+    let url: string; 
+    url =  this.dominio + 'api/Ciudadanos/Recuperapassword?telefono=' + telefono;
+ 
+    return this.http.get(url);
+  } 
+
   async getformat(idFolio, idConcepto, idDepto, correo) {
     let url: string;
 

@@ -39,7 +39,7 @@ h4 {
 
 .auth-form {
   width: 100%;
-  padding: 20px;
+  padding: 100px;
 }
 
 
@@ -73,7 +73,7 @@ h4 {
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
-    padding: 20px;
+    padding: 35px;
     
   }
 
@@ -104,6 +104,11 @@ h4 {
     /* Hacer que el cuadro ocupe el 100% del ancho disponible */
     box-sizing: border-box;
     /* Incluir el padding y el borde en el ancho total */
+  }
+
+
+  .buttons-movil ion-button{
+    --border-radius: 30px;
   }
 
 }

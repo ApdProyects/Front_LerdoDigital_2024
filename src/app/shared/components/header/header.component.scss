@@ -12,17 +12,23 @@ ion-title {
   color: #e8f7ff;
 }
 
+/* ion-list.hide-on-mobile {
+  display: none;
+} */
 
+ion-list {
+  display: block;
+  padding: 0;
+}
 
 ion-toolbar {
   height: 60px;
   /* Altura predeterminada del ion-toolbar */
   box-shadow: 4px 0px 16px #8cbd62;
   --background: #8cbd62;
-
 }
 
-ion-button.button{
+ion-button.button {
   --cursor: pointer;
 }
 
@@ -30,7 +36,16 @@ ion-button.button{
 @media only screen and (max-width: 767px) {
   ion-header {
     height: 1%;
-    /* Altura mayor para el ion-header en dispositivos móviles (ajusta según tu diseño) */
+    /* ion-list {
+      background: var(--ion-color-success);
+      border-radius: 0 0 25px 25px;
+      padding-bottom: 7vh;
+      ion-item {
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+      }
+    } */
   }
 
   ion-toolbar {
@@ -49,18 +64,16 @@ ion-button.button{
     text-align: center; /* Centrar el texto por defecto */
   }
 
- 
-
   ion-title {
     margin-left: 1%;
     font-size: 10%;
   }
 
   ion-menu-button {
-  font-size: 32px; /* Ajusta el tamaño de la fuente según tus preferencias */
-  height: 65px; /* Establece la altura deseada para el botón */
-  width: 65px; /* Establece el ancho deseado para el botón */
-  margin-top: 1px; /* Ajusta el margen superior según sea necesario */
+    font-size: 32px; /* Ajusta el tamaño de la fuente según tus preferencias */
+    height: 65px; /* Establece la altura deseada para el botón */
+    width: 65px; /* Establece el ancho deseado para el botón */
+    margin-top: 1px; /* Ajusta el margen superior según sea necesario */
   }
 
   .modal-icon {
@@ -87,13 +100,11 @@ ion-toolbar::part(container) {
   transition: background-color 0.3s ease; /* Agregar una transición suave para el cambio de color */
   font-weight: bold; /* Agregar negrita al texto */
   margin-right: 10px; /* Agrega un espacio a la derecha de cada botón */
-
 }
-
 
 .horizontal-menu a:hover,
 .horizontal-menu a.active {
-  background-color:  #ddd; /* Define el color de fondo para el hover y cuando está activo */
+  background-color: #ddd; /* Define el color de fondo para el hover y cuando está activo */
 }
 
 ion-menu-button {
@@ -101,9 +112,8 @@ ion-menu-button {
   color: #fff;
 }
 
-ion-back-button{
+ion-back-button {
   color: #fff;
-
 }
 
 .log-img {
@@ -111,8 +121,6 @@ ion-back-button{
   height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
   display: block; /* Asegura que la imagen sea un bloque para poder centrarla */
   margin-left: 5%;
-
-
 }
 
 /* Media query para mostrar el menú solo en pantallas grandes (computadoras) */
@@ -134,7 +142,10 @@ ion-back-button{
     text-align: right; /* Alinear el texto a la derecha en pantallas pequeñas */
     margin-left: 35%;
     width: 150px; /* Ajusta el ancho de la imagen según tus preferencias */
+  }
 
-   
+  ion-list {
+    display: block;
+    padding: 0;
   }
 }

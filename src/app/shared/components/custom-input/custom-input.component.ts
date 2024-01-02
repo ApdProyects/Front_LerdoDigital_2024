@@ -8,11 +8,12 @@ import { Form, FormControl } from '@angular/forms';
 })
 export class CustomInputComponent implements OnInit {
 
-  @Input() control!: FormControl;
+  @Input() control!: string;
   @Input() type!: string;
   @Input() label!: string;
   @Input() autocomplete!: string;
   @Input() icon!: string;
+  
 
   isPassword!: boolean;
   hide: boolean = true

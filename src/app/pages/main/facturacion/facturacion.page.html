@@ -19,7 +19,7 @@
     <br>
 
     <div class="form-container">
-      <ion-item *ngIf="isOpenfolio">
+      <div *ngIf="isOpenfolio">
         <ion-label position="stacked"></ion-label>
         <ion-input
           label="Ingrese su folio"
@@ -30,11 +30,11 @@
           maxlength="17"
           onkeyup="this.value = this.value.toUpperCase()"
         ></ion-input
-      ></ion-item>
+      ></div>
 
       <br />
 
-      <ion-item *ngIf="isOpenfolio || isOpencaptura || isOpenInfoRFC">
+      <div *ngIf="isOpenfolio || isOpencaptura || isOpenInfoRFC">
         <p *ngIf="isOpenInfoRFC">
           Se enviará la información al correo dado de alta en el RFC para su
           validación.
@@ -51,11 +51,11 @@
           onkeyup="this.value = this.value.toUpperCase();"
         >
         </ion-input>
-      </ion-item>
+      </div>
 
       <br />
 
-      <ion-item *ngIf="isOpenfolio">
+      <div *ngIf="isOpenfolio">
         <ion-select
           label="Uso CFDI"
           label-placement="floating"
@@ -69,7 +69,7 @@
             >{{ descripcion }}</ion-select-option
           >
         </ion-select>
-      </ion-item>
+      </div>
 
       <br *ngIf="isOpencaptura" />
       <ion-title
@@ -210,9 +210,9 @@
         >Guardar Regimen Físcal</ion-button
       >
 
-      <ion-grid fixed>
+      <ion-grid fixed  class="buttons-movil">
         <ion-row>
-          <ion-col size="6"
+          <ion-col size="12" size-md="6"
             ><ion-button
               size="medium"
               block
@@ -225,7 +225,7 @@
               >Facturar Folio</ion-button
             >
           </ion-col>
-          <ion-col size="6"
+          <ion-col size="12" size-md="6"
             ><ion-button
               size="medium"
               (click)="EnviarInfoRFC()"
@@ -263,12 +263,12 @@
         >Cancelar</ion-button
       >
 
-      <ion-grid fixed>
+      <ion-grid fixed class="buttons-movil">
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="12" size-md="6">
             <ion-button
               *ngIf="isOpenInfoRFC"
-              size="small"
+              
               block
               (click)="enviaInformacion()"
               expand="block"
@@ -277,10 +277,10 @@
               >Enviar información</ion-button
             ></ion-col
           >
-          <ion-col size="6">
+          <ion-col size="12" size-md="6" >
             <ion-button
               *ngIf="isOpenInfoRFC"
-              size="small"
+            
               block
               (click)="cancelar()"
               expand="block"

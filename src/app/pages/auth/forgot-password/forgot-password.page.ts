@@ -12,13 +12,21 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ForgotPasswordPage implements OnInit {
 
   form = new FormGroup({
-    telefono: new FormControl('', [
+    telRecupera: new FormControl('', [
       Validators.required,
       Validators.pattern(/^\d+$/),
       Validators.minLength(10),
-      Validators.maxLength(10)
+      Validators.maxLength(10),
+      
+    
+
     ])
   });
+
+  valid: any;
+  respuesta: any;
+  ban = false;
+
 
   constructor(
     private authService: AuthService,
@@ -30,30 +38,52 @@ export class ForgotPasswordPage implements OnInit {
   ngOnInit() {
   }
 
-  async submit() {
-    console.log('Submit button clicked');
-  
-    const loading = await this.loadingController.create({
-      message: 'Cargando',
-    });
-  
-    await loading.present();
-  
-    console.log('Telefono:', this.form.value.telefono);
-  
-    this.authService.forgotPass(this.form.value.telefono).subscribe(
-      (res) => {
-        console.log('Contraseña restablecida con éxito', res);
-        this.showAlert('Éxito', 'Contraseña restablecida con éxito');
-      },
-      (error) => {
-        console.error('Error al restablecer la contraseña', error);
-        this.showAlert('Error', 'Hubo un error al restablecer la contraseña');
-      }
+  async recupera() {
+
+    if (this.form.get('telRecupera').value
+    === '' || this.form.get('telRecupera').value
+    === undefined) {
+        this.alert('Agrega un telefono validar para recuperar la contraseña.');
+        return;
+    }
+
+    this.respuesta =  await this.authService.getecupera( this.form.get('telRecupera').value
     );
-  
-    await loading.dismiss();
-  }
+    console.log(this.respuesta);
+    await this.respuesta.forEach(async element => {
+        this.ban = false;
+        if (element.codigo < 0) {
+            const alert = this.alertController.create({
+                header: 'LERDO DIGITAL', /*+ element.codigoError,*/
+                cssClass: 'alertDanger',
+                message: element.mensaje + ' Inténtelo nuevamente.',
+                buttons: ['Aceptar']
+            });
+            (await alert).present();
+        } else {
+            console.log(element);
+            const alert = this.alertController.create({
+                header: 'LERDO DIGITAL',
+                cssClass: 'alertDanger',
+                message: element.mensaje,
+                buttons: ['Aceptar']
+            });
+            (await alert).present();
+        }
+    });
+
+ 
+}
+
+async alert(msg) {
+  const alert = this.alertController.create({
+      header: 'LERDO DIGITAL',
+      cssClass: 'alertDanger',
+      message: msg,
+      buttons: ['Aceptar']
+  });
+  (await alert).present();
+} 
 
   async showAlert(title: string, message: string) {
     const alert = await this.alertController.create({

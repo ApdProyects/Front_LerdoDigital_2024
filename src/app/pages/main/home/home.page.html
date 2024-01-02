@@ -13,9 +13,12 @@
   </ion-refresher>
 
   <div class="swiper-container">
-    <swiper-container>
+    <swiper-container class="hide-on-mobile">
       <swiper-slide
-        ><img src="/assets/LerdoD2-min.png" alt="" class="img-hero"
+        ><img
+          src="/assets/LerdoD2-min.png"
+          alt=""
+          class="img-hero hide-on-mobile"
       /></swiper-slide>
       <swiper-slide style="font-size: 24px"
         >LERDO <br />
@@ -190,7 +193,8 @@
               </p>
               <p class="sub-heading mb-5 text-left">
                 <strong>Dirección:</strong> <br />
-                Periférico Ejército Mexicano, a un costado del edificio de <br>
+                Periférico Ejército Mexicano, a un costado del edificio de
+                <br />
                 Seguridad Pública
               </p>
             </ion-card-content>
@@ -327,9 +331,13 @@
       <div class="form-container-contacto">
         <div class="d-flex-center">
           <p class="titulo"><b>Nosotros nos ponemos en contacto contigo</b></p>
-         
-          <ion-item lines="none"  class="custom-input">
-            <ion-icon slot="start"   name="person-outline" color="success"></ion-icon>
+
+          <ion-item lines="none" class="custom-input">
+            <ion-icon
+              slot="start"
+              name="person-outline"
+              color="success"
+            ></ion-icon>
             <ion-input
               label="Nombre"
               label-placement="floating"
@@ -342,9 +350,12 @@
             ></ion-input>
           </ion-item>
 
-
-          <ion-item lines="none"  class="custom-input">
-            <ion-icon slot="start"   name="mail-outline" color="success"></ion-icon>
+          <ion-item lines="none" class="custom-input">
+            <ion-icon
+              slot="start"
+              name="mail-outline"
+              color="success"
+            ></ion-icon>
             <ion-input
               label="Email"
               label-placement="floating"
@@ -357,10 +368,12 @@
             ></ion-input>
           </ion-item>
 
-
-
-            <ion-item lines="none"  class="custom-input">
-              <ion-icon slot="start"   name="call-outline" color="success"></ion-icon>
+          <ion-item lines="none" class="custom-input">
+            <ion-icon
+              slot="start"
+              name="call-outline"
+              color="success"
+            ></ion-icon>
             <ion-input
               label="Teléfono"
               label-placement="floating"
@@ -374,10 +387,10 @@
             ></ion-input>
           </ion-item>
 
-            <!--     <div>{{form | json}}</div> -->
+          <!--     <div>{{form | json}}</div> -->
 
-            <div class="button-c"></div>
-         
+          <div class="button-c"></div>
+
           <ion-button
             class="button-contacto"
             expand="block"

@@ -413,6 +413,15 @@ ion-content{
 
 
   @media screen and (max-width: 767px) {
+
+    .hide-on-mobile {
+      display: none;
+    }
+
+.hide-on-desktop {
+    display: none;
+  }
+
     .contacto-container {
       flex-direction: column;
       /* Apila los elementos uno encima del otro */
