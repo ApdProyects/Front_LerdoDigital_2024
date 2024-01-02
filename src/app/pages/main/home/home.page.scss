@@ -1,16 +1,12 @@
-
 .swiper-container {
   text-align: center;
-  background-color:  #e0e0e0a5; 
+  background-color: #e0e0e0a5;
   border-radius: 1%;
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 50px #8cbd62;
   border: 1px solid #f4f4f4;
-
 }
-
-
 
 .img-hero {
   max-width: 50%;
@@ -19,37 +15,17 @@
   height: auto;
 }
 
-@media screen and (max-width: 767px) {
-  .swiper-container {
-    width: 105%;
-    /* Establece el ancho al 100% en dispositivos móviles */
-  }
 
-  .img-hero {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-  }
 
-  .home-container{
-    background-color: #8cbd62;
-   
-  }
-
-}
+/* ================ pensando en ti =============== */
 
 .pensando-en-ti {
   text-align: center;
 }
 
 .pensando-card {
-
   text-align: center;
-  
-
 }
-
 
 .pensando-card ion-card {
   height: 100%;
@@ -63,8 +39,6 @@
   /* Agrega una transición suave al color de fondo */
   color: #000;
   --background: #8cbd62;
-
-
 }
 
 .pensando-card ion-card-content {
@@ -76,7 +50,6 @@
   /* Alinea el texto justificado */
 }
 
-
 .pensando-card ion-card-title {
   text-align: center;
 }
@@ -86,7 +59,6 @@
   /* Cambia el color de fondo al pasar el cursor */
 }
 
-
 /* Ajustes para pantallas más pequeñas (modo móvil) */
 @media screen and (max-width: 767px) {
   .pensando-card ion-card {
@@ -95,8 +67,11 @@
     margin-right: 5px;
     /* Elimina el margen derecho en modo móvil */
   }
-
 }
+
+
+/* ============= Posts ============= */
+
 
 ion-avatar {
   --border-radius: 15px;
@@ -106,7 +81,9 @@ ion-avatar {
 }
 
 .imagen-hover:hover {
-  transform: scale(1.1); /* Cambia el tamaño al 110% en el hover, ajusta según sea necesario */
+  transform: scale(
+    1.1
+  ); /* Cambia el tamaño al 110% en el hover, ajusta según sea necesario */
   transition: transform 0.3s ease; /* Agrega una transición suave */
 }
 
@@ -134,8 +111,6 @@ ion-avatar {
   color: #ffffff;
 }
 
-
-
 ion-grid {
   padding-top: 30px;
 }
@@ -150,20 +125,7 @@ h1 {
   line-height: 10px;
 }
 
-h4 {
-  line-height: 19px;
-}
 
-.empty {
-  text-align: center;
-  margin-top: 17vh;
-  opacity: 30%;
-
-  ion-icon {
-    font-size: 120px;
-
-  }
-}
 
 .ion-padding-horizontal {
   display: grid;
@@ -181,24 +143,18 @@ h4 {
   /* Para centrar el texto dentro de los elementos h1 y h3 */
   height: 10vh;
   /* Ajusta esto según tus necesidades, para centrar verticalmente */
-
 }
 
-.conoce-mun-container{
+.conoce-mun-container {
   border-radius: 20px; /* Bordes redondeados si lo deseas */
-
-  
 }
 .container-background {
-  background-color:  #e0e0e0a5; /* Color de fondo gris */
+  background-color: #e0e0e0a5; /* Color de fondo gris */
   padding: 25px; /* Ajusta el espaciado interno según sea necesario */
   border-radius: 25px; /* Bordes redondeados si lo deseas */
   margin: 15px; /* Agrega margen alrededor del contenedor */
   box-shadow: 0 0 10px #8cbd62;
   border: 1px solid #f4f4f4;
-
-
-
 }
 
 /* <=================Tramites=================> */
@@ -216,53 +172,41 @@ ion-card-title {
   color: #ffffff;
 }
 
-.tramites-card ion-icon{
+.tramites-card ion-icon {
   color: #ffffff;
 }
 
-.tramites-card ion-card-content{
+.tramites-card ion-card-content {
   color: #ffffff;
-
 }
-
 
 .tramites-card {
   place-items: center;
   text-align: center;
-  /* Para centrar el texto dentro de los elementos h1 y h3 */
 }
 
 .tramites-card ion-card {
   border-radius: 15px;
-  /* Agrega esquinas redondeadas a las tarjetas */
   overflow: hidden;
-  /* Asegura que las esquinas redondeadas se muestren correctamente */
 }
 
 .tramites-card ion-card:hover {
-  background-color:#8cbd62ac; /* Cambia el color de fondo al pasar el cursor */
-  transition: background-color 0.3s ease; /* Agrega una transición suave */
+  background-color: #8cbd62ac;
+  transition: background-color 0.3s ease;
   cursor: pointer; /* Cambia el cursor al pasar el cursor sobre la tarjeta */
   --color: #000;
 }
 
-
-
-
-
 .card-container {
-
   text-align: center;
 }
 
 /* <================= Contactos =================> */
 
-
 .contacto-section {
   place-items: center;
   text-align: center;
   /* Para centrar el texto dentro de los elementos h1 y h3 */
-
 }
 
 .custom-divider {
@@ -271,8 +215,6 @@ ion-card-title {
   /* Altura de la línea de separación */
   margin: 0 16px;
   /* Márgenes para controlar la longitud de la línea */
-
-  
 }
 
 .contacto-container {
@@ -283,37 +225,30 @@ ion-card-title {
   margin: 20px auto;
 }
 
-
-
 .contacto-section-left {
-text-align: center;
-margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
+  text-align: center;
+  margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
 }
 
 .contacto-section-right {
   margin-right: -10%; /* Ajusta el margen izquierdo según sea necesario */
 }
 
-
 .contacto-section-left,
 .contacto-section-right {
-  width:46%;
+  width: 46%;
   /* Ajusta el ancho según sea necesario */
 }
-
 
 .icon {
   font-size: 100px;
 }
-
-
 
 .auth-form {
   width: 100%;
   text-align: center;
   padding: 20px;
 }
-
 
 .item-container {
   text-align: center; /* Centra el contenido dentro de cada item-container */
@@ -323,12 +258,12 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   background-color: #fff;
 }
 
-.item-container ion-icon{
+.item-container ion-icon {
   font-size: 22px;
 }
 
 .form-container-dudas {
-  border: 3px solid #e0e0e0;    /* Borde del cuadro */
+  border: 3px solid #e0e0e0; /* Borde del cuadro */
   /* Borde del cuadro */
   padding: 30px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
@@ -342,12 +277,11 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color:  #e0e0e0a5;
+  background-color: #e0e0e0a5;
 }
 
-
 .form-container-contacto {
-  border: 3px solid #e0e0e0;    /* Borde del cuadro */
+  border: 3px solid #e0e0e0; /* Borde del cuadro */
   /* Borde del cuadro */
   padding: 20px;
   /* Ajusta el espaciado interno del cuadro según sea necesario */
@@ -361,7 +295,7 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color:  #e0e0e0a5;
+  background-color: #e0e0e0a5;
 }
 
 .form-control {
@@ -370,9 +304,8 @@ margin-left: -10%; /* Ajusta el margen izquierdo según sea necesario */
 }
 
 ion-item.custom-input {
-  --ion-item-background: white;  /* Set the background color for the entire item */
+  --ion-item-background: white; /* Set the background color for the entire item */
 }
-
 
 .custom-input {
   --border-color: rgb(224, 224, 224);
@@ -383,10 +316,9 @@ ion-item.custom-input {
   transition: border-color 0.3s ease; /* Agregamos una transición para suavizar el cambio de color */
 
   ion-label {
-      position: relative;
-      bottom: 2px;
+    position: relative;
+    bottom: 2px;
   }
-
 
   &:valid,
   &:valid:focus {
@@ -394,89 +326,79 @@ ion-item.custom-input {
   }
 }
 
-.button-contacto{
-  width: var(--button-width); 
+.button-contacto {
+  width: var(--button-width);
   --border-radius: 25px;
 }
 
-.button-c{
-  align-items: center;
-}
 
-.titulo{
-  text-align: center;
-}
 
-ion-content{
+
+ion-content {
   --keyboard-offset: 0 !important;
 }
 
-
-  @media screen and (max-width: 767px) {
-
-    .hide-on-mobile {
-      display: none;
-    }
-
-.hide-on-desktop {
+@media screen and (max-width: 767px) {
+  .hide-on-mobile {
     display: none;
   }
 
-    .contacto-container {
-      flex-direction: column;
-      /* Apila los elementos uno encima del otro */
-      align-items: center;
-      /* Centra los elementos en el eje horizontal */
-    }
-
-    .contacto-section-left,
-    .contacto-section-right {
-      width: 90%;
-      /* Ocupa todo el ancho disponible en pantallas más pequeñas */
-    }
-
-    .contacto-section-right {
-      margin-right: 1%; /* Ajusta el margen derecho según sea necesario */
-    }
-    
-    .contacto-section-left {
-      margin-left: 1%; /* Ajusta el margen izquierdo según sea necesario */
-    }
-
-    .form-container-contacto {
-
-      margin: 20px;
-      /* Espaciado alrededor del cuadro y centrar en la página */
-    }
-
-    .form-container-dudas{
-      
-      margin: 20px;
-      /* Espaciado alrededor del cuadro y centrar en la página */
-    }
-
-    ion-avatar {
-      --border-radius: 15px;
-      width: 100%;
-      height: 220px;
-    }
-
-    .swiper-container {
-    
-      border-radius: 1%;
-      
-    }
-
-    .item-container ion-icon{
-      font-size: 27px;
-    }
-
-    .item-container h4, p{
-      font-size: 20px; 
-    }
-
+  .hide-on-desktop {
+    display: none;
   }
-  @media (prefers-color-scheme: dark) {
-    .item-container h4{
-       color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
-     }}
+
+  .contacto-container {
+    flex-direction: column;
+    /* Apila los elementos uno encima del otro */
+    align-items: center;
+    /* Centra los elementos en el eje horizontal */
+  }
+
+  .contacto-section-left,
+  .contacto-section-right {
+    width: 90%;
+    /* Ocupa todo el ancho disponible en pantallas más pequeñas */
+  }
+
+  .contacto-section-right {
+    margin-right: 1%; /* Ajusta el margen derecho según sea necesario */
+  }
+
+  .contacto-section-left {
+    margin-left: 1%; /* Ajusta el margen izquierdo según sea necesario */
+  }
+
+  .form-container-contacto {
+    margin: 20px;
+    /* Espaciado alrededor del cuadro y centrar en la página */
+  }
+
+  .form-container-dudas {
+    margin: 20px;
+    /* Espaciado alrededor del cuadro y centrar en la página */
+  }
+
+  ion-avatar {
+    --border-radius: 15px;
+    width: 100%;
+    height: 220px;
+  }
+
+  .swiper-container {
+    border-radius: 1%;
+  }
+
+  .item-container ion-icon {
+    font-size: 27px;
+  }
+
+  .item-container h4,
+  p {
+    font-size: 20px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .item-container h4 {
+    color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+  }
+}

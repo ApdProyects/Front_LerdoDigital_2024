@@ -38,15 +38,16 @@ ion-app {
   --ion-background-color: #fff7ec;
 }
 
-// src/global.scss
 
+
+// src/global.scss
 
 html {
   --ion-dynamic-font: var(--ion-default-dynamic-font);
-  --ion-font-family: 'Montserrat', sans-serif;;
+  --ion-font-family: "Montserrat", sans-serif;
 }
 
-
+/*  */
 /* ion-alert.select-alert {
   --background: #8cbd62!important;
 
@@ -64,7 +65,6 @@ html {
   --button-width: 150px; /* Ancho personalizado para el botón */
   --button-border-radius: 100px; /* Radio de borde personalizado para el botón */
 }
-
 
 /* Alerta auth*/
 /* .custom-alert {
@@ -90,9 +90,6 @@ html {
 
 }
  */
-
-
-
 
 /* Media Query para el modo oscuro */
 

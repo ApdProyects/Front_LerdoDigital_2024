@@ -106,7 +106,7 @@ this._route.params.subscribe(params=> {
       this.folio ="";
     }
 })
-    debugger;
+    /* debugger; */
     this.respuesta = await this.authService.recuperaestados();
     
     await this.respuesta.forEach(element => {
@@ -122,14 +122,14 @@ this._route.params.subscribe(params=> {
     this.respuesta = await this.authService.get_regimen_fiscal(); 
     await this.respuesta.forEach(element => {
       
-      debugger;
+      /* debugger; */
       this.Regimen_fiscal = element;
       console.log(this.Regimen_fiscal);
     }); 
   }
   async searchfolio() {
 
-    debugger;
+    /* debugger; */
     var cliente: any;
     var folio_resp: any;
     this.res = [];
@@ -193,7 +193,7 @@ this._route.params.subscribe(params=> {
     }
 
     this.respuesta = await this.authService.getClienteFacturado(this.rfc);
-debugger;
+/* debugger; */
     await this.respuesta.forEach(element => {
       cliente = element;
     });  
@@ -203,7 +203,7 @@ debugger;
       folio_resp = element;
     });
     this.respuesta = await this.authService.getClienteregimen(this.rfc);
-debugger;
+/* debugger; */
     await this.respuesta.forEach(element => {
       regimen_cliente = element;
     });  
@@ -252,7 +252,7 @@ debugger;
       this.isRegimen = await true;
       return;
     } 
-    debugger;
+   /*  debugger; */
     // this.respuesta = await this.DataService.getFacturar(this.rfc,this.folio);
     this.respuesta = await this.authService.getFacturarFolio(this.rfc,this.folio, this.UsoCFDI);
 
@@ -286,7 +286,7 @@ debugger;
     loading.dismiss(); 
   }
   async guardarcliente() {
-    debugger;
+    /* debugger; */
     var respuesta: any;
     const loading = await this.LoadingController.create({
       message: 'Cargando...',
@@ -425,7 +425,7 @@ debugger;
 
       return
     } else if (respuesta.codigo <= 0) {
-      debugger;
+      /* debugger; */
       console.log(respuesta.objetoError)
       if (respuesta.codigoError == 500) {
         const alert = this.AlertController.create({
@@ -509,7 +509,7 @@ debugger;
     });
     await loading.present();
 
-    debugger;
+   /*  debugger; */
     if (this.rfc === '')
     {
       const alert = this.AlertController.create({
@@ -644,7 +644,7 @@ debugger;
     });
     await loading.present();
     this.respuesta = await this.authService.getGuardaCliente_regimen(this.rfc,this.regimen);
-debugger;
+/* debugger; */
     await this.respuesta.forEach(element => {
       respuesta = element;
     });
@@ -658,7 +658,7 @@ debugger;
       this.email = '';
       this.celular = '';
       this.regimen = '';
-      debugger;
+      /* debugger; */
       this.isOpen = await false;
       this.isOpenfolio = await true;
       this.isOpencaptura = await false;
