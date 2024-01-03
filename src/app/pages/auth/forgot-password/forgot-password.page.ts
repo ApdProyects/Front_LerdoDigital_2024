@@ -37,8 +37,15 @@ export class ForgotPasswordPage implements OnInit {
 
   ngOnInit() {
   }
+  handleRefresh(event) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  }
 
   async recupera() {
+
 
     if (this.form.get('telRecupera').value
     === '' || this.form.get('telRecupera').value

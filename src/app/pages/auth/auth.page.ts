@@ -5,6 +5,8 @@ import {
   AlertController,
   IonicSafeString,
   LoadingController,
+  Platform,
+  ToastController,
 } from '@ionic/angular';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -24,7 +26,9 @@ export class AuthPage implements OnInit {
     private authService: AuthService,
     private alertController: AlertController,
     public LoadingController: LoadingController,
-    public router: Router
+    public router: Router,
+    private platform: Platform,
+    public toastController: ToastController
   ) {}
 
   ngOnInit() {}
@@ -58,9 +62,18 @@ export class AuthPage implements OnInit {
             localStorage.setItem('LUS_CORREO', res.LUS_CORREO);
             localStorage.setItem('LUS_CLAVE', res.LUS_CLAVE);
 
-            console.log('LRO_CLAVE almacenado:', localStorage.getItem('LRO_CLAVE'));
-            console.log('LUS_CORREO almacenado:', localStorage.getItem('LUS_CORREO'));
-            console.log('LUS_CLAVE almacenado:', localStorage.getItem('LUS_CLAVE'));
+            console.log(
+              'LRO_CLAVE almacenado:',
+              localStorage.getItem('LRO_CLAVE')
+            );
+            console.log(
+              'LUS_CORREO almacenado:',
+              localStorage.getItem('LUS_CORREO')
+            );
+            console.log(
+              'LUS_CLAVE almacenado:',
+              localStorage.getItem('LUS_CLAVE')
+            );
 
             this.mostrarMensajeBienvenida();
             this.redirigirASiguientePagina();
@@ -107,5 +120,26 @@ export class AuthPage implements OnInit {
   redirigirASiguientePagina() {
     console.log('Redirigiendo a la siguiente página...');
     this.router.navigate(['/main/folio']);
+  }
+
+  async doRefresh(event: any) {
+    if (this.platform.is('mobile')) {
+      setTimeout(async () => {
+        // ...
+        this.form.reset();
+
+        event.target.complete();
+
+        const toast = await this.toastController.create({
+          message: 'Los datos han sido reiniciados.',
+          duration: 2000,
+          position: 'bottom', 
+        });
+        toast.present();
+      }, 2000);
+    } else {
+     
+      event.target.complete();
+    }
   }
 }

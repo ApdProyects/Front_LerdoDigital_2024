@@ -1,0 +1,246 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-grid
+    class="employee-card"
+  
+  >
+    <ion-row>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <img
+            class="ion-text-center image_ezeq"
+            alt="200*200"
+            height="210"
+            width="230"
+            src="assets/LerdoD2-min.png"
+          />
+        </div>
+      </ion-col>
+      <ion-col style="text-align: center">
+        <h2 class="info">CÓDIGO QR :</h2>
+        <img
+          src="data:image/jpg;base64,{{Qr_imagen}}"
+          alt=""
+          width="150px"
+          height="130px"
+        />
+        <br />
+        <div class="box" data-aos-delay="100">
+          <p class="info"><b>VALIDACIÓN</b></p>
+          <p class="info paragraph">
+            <u>FOLIO:</u> <br />
+            {{Qr_folio}}<br />
+          </p>
+          <p class="info paragraph" style="color: aquamarine">¡VÁLIDO!</p>
+          <p class="info paragraph"><u>CONCEPTO:</u><br />{{Qr_concepto}}</p>
+          <p class="info paragraph">
+            <u>CIUDADANO:</u><br /><b>{{Qr_nombre}}</b>
+          </p>
+
+          <strong
+            ><p class="info paragraph">
+              <u>ESTATUS:</u> <br />{{Qr_estatus}}
+            </p></strong
+          >
+
+          <!--   <strong><p class="info paragraph" *ngIf="apps && Qr_estatus==='COBRADA'"><u>ESTATUS PRESIDENCIA:</u> <br>DEPOSITADO EN PRESIDENCIA</p></strong>
+                  <strong><p class="info paragraph" *ngIf="apps && Qr_estatus==='NO COBRADA'"><u>ESTATUS PRESIDENCIA:</u> <br>SIN DEPOSITAR EN PRESIDENCIA</p></strong>-->
+          <!-- <a href="https://apir.grupoapd.mx/Recibos/{{archivo}}.pdf" Target="_blank" *ngIf="is_recibo"><ion-button expand="block">VER/DESCARGAR RECIBO</ion-button></a>
+                 <a href="https://apir.grupoapd.mx/documentacion/QR/{{archivo}}.pdf" Target="_blank" *ngIf="is_recibo"><ion-button expand="block">VER/DESCARGAR RECIBO</ion-button></a>-->
+
+          <ion-button
+            expand="block"
+            (click)="login()"
+            *ngIf="is_orden && apps==false"
+            >IR A PAGAR</ion-button
+          >
+          <a
+            *ngIf="apps==false"
+            href="https://apir.grupoapd.mx/documentacion/QR/{{archivo}}.pdf"
+            target="_blank"
+            ><ion-button expand="block" color="tertiary"
+              >DESCARGAR PDF</ion-button
+            ></a
+          >
+          <img
+            src="assets/apd_reducida.png"
+            alt=""
+            width="150px"
+            height="80px"
+            class="image_ezeq"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="error">
+  <ion-grid
+    
+  >
+    <ion-row>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <img
+            class="ion-text-center image_ezeq"
+            alt="200*200"
+            height="210"
+            width="230"
+            src="assets/LerdoD2-min.png"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center">
+        <h1 class="info-error paragraph-error">ERROR :</h1>
+        <!--<img src="{{Qr_imagen}}" alt="" width="300px" height="250px">-->
+        <img src="assets/error_qr.png" alt="" width="200px" height="150px" />
+        <br />
+        <div class="box" data-aos-delay="100">
+          <h3 class="info-error paragraph-error">VALIDACIÓN</h3>
+          <br />
+          <p class="info-error paragraph-error">
+            El QR INGRESADO ES <br />
+            <strong
+              ><h2 class="info-error" style="color: red">¡INVALIDO!</h2></strong
+            >
+          </p>
+          <img
+            src="assets/apd_reducida.png"
+            alt=""
+            width="150px"
+            height="80px"
+            class="image_ezeq"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content
+  class=""
+  style="background: url(../assets/fondo-gris.jpg) 0 0/100% 100% no-repeat"
+  *ngIf="corralon"
+>
+  <ion-grid
+    class="employee-card"
+    style="background: url(../assets/lerdo.png) 0 0/100% 100% no-repeat"
+  >
+    <ion-row>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <img
+            class="ion-text-center image_ezeq"
+            alt="200*200"
+            height="230"
+            width="250"
+            src="assets/web/images/LerdoD2.png"
+          />
+        </div>
+      </ion-col>
+      <ion-col style="text-align: center">
+        <h2 class="info">CÓDIGO QR :</h2>
+        <!--<img src="{{Qr_imagen}}" alt="" width="300px" height="250px">-->
+        <img
+          src="data:image/jpg;base64,{{Qr_imagen}}"
+          alt=""
+          width="170px"
+          height="150px"
+        />
+        <br />
+        <div class="box" data-aos-delay="100">
+          <p class="info"><b>VALIDACIÓN</b></p>
+          <p class="info paragraph"><u>CONCEPTO:</u> <br />{{Qr_concepto}}</p>
+          <p class="info paragraph">
+            <u>CIUDADANO:</u><br />
+            <b>{{Qr_nombre}}</b>
+          </p>
+          <p class="info paragraph"><u>FOLIO :</u><br />{{Qr_folio}}</p>
+          <p class="info paragraph">¡VALIDADO!</p>
+          <strong
+            ><p class="info paragraph">
+              DATOS DEL VEHÍCULO: <br />{{Qr_estatus}}
+            </p></strong
+          >
+          <p class="info paragraph">
+            COLOR:<strong><p>{{recibo}}</p></strong>
+          </p>
+          <img
+            src="assets/apd_reducida.png"
+            alt=""
+            width="150px"
+            height="80px"
+            class="image_ezeq"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content
+  class=""
+  style="background: url(../assets/fondo-gris.jpg) 0 0/100% 100% no-repeat"
+  *ngIf="pendiente"
+>
+  <ion-grid
+    class="employee-card"
+    style="background: url(../assets/lerdo.png) 0 0/100% 100% no-repeat"
+  >
+    <ion-row>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <img
+            class="ion-text-center image_ezeq"
+            alt="200*200"
+            height="210"
+            width="230"
+            src="assets/web/images/LerdoD2.png"
+          />
+        </div>
+      </ion-col>
+      <ion-col style="text-align: center">
+        <h2 class="info">CÓDIGO QR :</h2>
+        <img
+          src="data:image/jpg;base64,{{Qr_imagen}}"
+          alt=""
+          width="150px"
+          height="130px"
+        />
+        <br />
+        <div class="box" data-aos-delay="100">
+          <p class="info"><b>VALIDACIÓN</b></p>
+          <p class="info paragraph"><u>ESTE CODIGO QR ES:</u></p>
+          <p class="info paragraph" style="color: aquamarine">¡VÁLIDO!</p>
+
+          <p class="info paragraph">
+            <u>DATOS:</u><br /><b
+              >LOS DATOS AUN SE ENCUENTRAN EN PROCESO,CONSULTELO NUEVAMENTE EN
+              OTRO MOMENTO</b
+            >
+          </p>
+
+          <strong
+            ><p class="info paragraph">
+              <u>ESTATUS:</u> <br />{{Qr_estatus}}
+            </p></strong
+          >
+
+          <img
+            src="assets/apd_reducida.png"
+            alt=""
+            width="150px"
+            height="80px"
+            class="image_ezeq"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-footer></app-footer>

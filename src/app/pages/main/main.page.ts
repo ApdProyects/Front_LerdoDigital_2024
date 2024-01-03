@@ -12,7 +12,7 @@ export class MainPage implements OnInit {
     {title : 'Inicio', url:'/main/home', icon:'home-outline'},
     {title : 'Servicios', url:'/main/servicios', icon:'folder-outline'},
     {title : 'Facturacion', url:'/main/facturacion', icon:'cash-outline'},
-    {title : 'Perfil', url:'/main/profile', icon:'person-outline'},
+    /* {title : 'Perfil', url:'/main/profile', icon:'person-outline'} */
   ]
 
   router = inject(Router);

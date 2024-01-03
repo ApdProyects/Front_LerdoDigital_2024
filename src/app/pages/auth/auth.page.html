@@ -5,6 +5,9 @@
 ></app-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="d-flex-center">
     <form
       [formGroup]="form"
@@ -52,7 +55,7 @@
           La contraseña es requerida
         </div>
       </div>
-
+      
       <p routerLink="forgot-password" class="ion-text-end hand-cursor">
         ¿Olvidaste tu contraseña?
       </p>
