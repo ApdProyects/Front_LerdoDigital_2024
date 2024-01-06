@@ -1,11 +1,9 @@
 <app-header></app-header>
 
-<ion-content>
-  <ion-grid
-    class="employee-card"
-  
+<ion-content *ngIf="correcto" >
+  <ion-grid  class="employee-card" 
   >
-    <ion-row>
+    <ion-row  style="background: url(../assets/fondo-gris.jpg) 0 0/100% 100% no-repeat;" >
       <ion-col size="12">
         <div class="ion-text-center">
           <img
@@ -32,7 +30,7 @@
             <u>FOLIO:</u> <br />
             {{Qr_folio}}<br />
           </p>
-          <p class="info paragraph" style="color: aquamarine">¡VÁLIDO!</p>
+          <p class="info paragraph" style="color: #8cbd62">¡VÁLIDO!</p>
           <p class="info paragraph"><u>CONCEPTO:</u><br />{{Qr_concepto}}</p>
           <p class="info paragraph">
             <u>CIUDADANO:</u><br /><b>{{Qr_nombre}}</b>
@@ -77,10 +75,9 @@
 </ion-content>
 
 <ion-content *ngIf="error">
-  <ion-grid
-    
+  <ion-grid class="employee-card"  style="background: url(../assets/fondo-gris.jpg) 0 0/100% 100% no-repeat;"
   >
-    <ion-row>
+    <ion-row >
       <ion-col size="12">
         <div class="ion-text-center">
           <img
@@ -189,7 +186,7 @@
 >
   <ion-grid
     class="employee-card"
-    style="background: url(../assets/lerdo.png) 0 0/100% 100% no-repeat"
+    style="background: url(../assets/fondo-gris.jpg) 0 0/100% 100% no-repeat"
   >
     <ion-row>
       <ion-col size="12">
@@ -199,7 +196,7 @@
             alt="200*200"
             height="210"
             width="230"
-            src="assets/web/images/LerdoD2.png"
+            src="assets/LerdoD2.png"
           />
         </div>
       </ion-col>
@@ -215,7 +212,7 @@
         <div class="box" data-aos-delay="100">
           <p class="info"><b>VALIDACIÓN</b></p>
           <p class="info paragraph"><u>ESTE CODIGO QR ES:</u></p>
-          <p class="info paragraph" style="color: aquamarine">¡VÁLIDO!</p>
+          <p class="info paragraph" style="color: #8cbd62">¡VÁLIDO!</p>
 
           <p class="info paragraph">
             <u>DATOS:</u><br /><b

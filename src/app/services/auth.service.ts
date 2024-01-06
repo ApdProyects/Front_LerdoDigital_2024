@@ -320,7 +320,22 @@ export class AuthService {
     return this.http.get(url);
   }
 
-  // CATASTRO --------------------------------------------------------------------------------
+ 
+  getmanual() {
+    let url: string;
+
+    url =  this.dominio + 'api/Ciudadanos/RecuperaManual';
+ 
+    return this.http.get(url);
+  }
+  getmanualfacturacion() {
+    let url: string;
+
+    url =  this.dominio + 'api/Ciudadanos/RecuperaManualfacturacion';
+ 
+    return this.http.get(url);
+  }
+ // CATASTRO --------------------------------------------------------------------------------
 /*   getGeneraCodigo(clave) { 
     let url: string;
     url =  this.dominio + 'api/Catastro/GeneraCodigoAleatorio?clave='+ clave ;
@@ -336,20 +351,5 @@ export class AuthService {
  
     return this.http.get(url);
   } */
-  getmanual() {
-    let url: string;
-
-    url =  this.dominio + 'api/Ciudadanos/RecuperaManual';
- 
-    return this.http.get(url);
-  }
-  getmanualfacturacion() {
-    let url: string;
-
-    url =  this.dominio + 'api/Ciudadanos/RecuperaManualfacturacion';
- 
-    return this.http.get(url);
-  }
-
 
 }

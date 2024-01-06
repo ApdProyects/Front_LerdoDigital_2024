@@ -5,7 +5,7 @@ const routes: Routes = [
  
   {
     path: '',
-    redirectTo: 'main/documentacion/QR/orden-pago',
+    redirectTo: 'main/home',
     pathMatch: 'full'
   },
   {

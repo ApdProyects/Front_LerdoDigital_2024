@@ -38,7 +38,7 @@
   transition: background-color 0.3s;
   /* Agrega una transición suave al color de fondo */
   color: #000;
-  --background: #8cbd62;
+  --background: linear-gradient(0deg, #8cbd6275, #8cbd62);
 }
 
 .pensando-card ion-card-content {
@@ -160,7 +160,7 @@ h1 {
 /* <=================Tramites=================> */
 
 ion-card {
-  --background: #8cbd62;
+  --background: linear-gradient(0deg, #8cbd6275, #8cbd62);
   --color: #ffffff;
 }
 
@@ -346,6 +346,11 @@ ion-content {
   .hide-on-desktop {
     display: none;
   }
+  .swiper-container {
+   
+    border: none;
+  }
+
 
   .contacto-container {
     flex-direction: column;

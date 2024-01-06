@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./documentacion/QR/multas/multas.module').then( m => m.MultasPageModule)
   },
   {
-    path: 'documentacion/QR/orden-pago',
+    path: 'documentacion/QR/:IIN_CLAVE',
     loadChildren: () => import('./documentacion/QR/orden-pago/orden-pago.module').then( m => m.OrdenPagoPageModule)
   },
   {

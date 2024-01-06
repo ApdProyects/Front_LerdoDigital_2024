@@ -67,7 +67,7 @@ export class OrdenPagoPage implements OnInit {
     await loading.present();
     debugger;
     this.respuesta = await this.authService.consulta_qr(iin_clave);
-    await this.respuesta.forEach(async (element) => {
+    await this.respuesta.forEach(async element => {
       if (element.codigo == 200 && element.QR_FOLIO != '') {
         this.Qr_nombre = element.QR_NOMBRE;
         this.Qr_mensaje_valido = element.QR_MENSAJE_VALIDO;
