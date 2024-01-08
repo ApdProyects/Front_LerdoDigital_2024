@@ -96,6 +96,22 @@ export class AuthPage implements OnInit {
     }
   }
 
+  async validatePasswordcaracteres(password: FormControl) {
+    const re = /^[a-zA-Z0-9]+$/;
+
+    console.log(re.test(String(password)));
+    return re.test(String(password));
+  }
+
+  ConvertirenMinusculas(control : FormControl){
+
+    if (control.value.length < 120) {
+      control.setValue(control.value.toLowerCase());
+    }
+    control.setValue(control.value.toLowerCase().substring(0, 120));
+  }
+
+
   async mostrarMensajeBienvenida() {
     Swal.fire({
       title: 'Bienvenido',
@@ -133,12 +149,11 @@ export class AuthPage implements OnInit {
         const toast = await this.toastController.create({
           message: 'Los datos han sido reiniciados.',
           duration: 2000,
-          position: 'bottom', 
+          position: 'bottom',
         });
         toast.present();
       }, 2000);
     } else {
-     
       event.target.complete();
     }
   }

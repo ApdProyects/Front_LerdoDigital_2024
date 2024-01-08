@@ -404,7 +404,7 @@ async confirmarpago() {
       this.folio,
       this.codigoVerificacion
     );
-    await this.respuesta.forEach(async (array) => {
+    await this.respuesta.forEach(async array => {
       data = await array;
     });
 

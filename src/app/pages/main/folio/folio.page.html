@@ -15,7 +15,7 @@
           <ion-row class="ion-align-items-center">
             <ion-col>
               <h1 position="floating" class="">
-                 CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
+                CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
               </h1>
               <br />
               <ion-input
@@ -26,6 +26,7 @@
                 [(ngModel)]="folio"
                 required
                 [disabled]="searchv==true"
+                maxlength="14"
               ></ion-input>
             </ion-col>
           </ion-row>
@@ -215,36 +216,34 @@
             *ngIf="detalle!=null"
           >
           </ion-row>
+          
           <ion-row class="ion-align-items-center mt-4">
-            <ion-col> </ion-col>
-
-            <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >SUBTOTAL : {{info.subtotal}}</ion-label
-              >
+            <ion-col></ion-col>
+            <ion-col style="display: flex; justify-content: flex-end;">
+              <ion-label position="floating" style="font-weight: bold">
+                SUBTOTAL : {{info.subtotal}}
+              </ion-label>
             </ion-col>
           </ion-row>
-
-          <ion-row
-            class="ion-align-items-center mt-4"
-            *ngIf="info.descuento!=''"
-          >
-            <ion-col> </ion-col>
-
-            <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >DESCUENTO : {{info.descuento}}</ion-label
-              >
+          
+          <ion-row class="ion-align-items-center mt-4" *ngIf="info.descuento!=''">
+            <ion-col></ion-col>
+            <ion-col style="display: flex; justify-content: flex-end;">
+              <ion-label position="floating" style="font-weight: bold">
+                DESCUENTO : {{info.descuento}}
+              </ion-label>
             </ion-col>
           </ion-row>
+          
           <ion-row class="ion-align-items-center">
-            <ion-col> </ion-col>
-            <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >IMPORTE :&nbsp;&nbsp;&nbsp; {{info.importe}}</ion-label
-              >
+            <ion-col></ion-col>
+            <ion-col style="display: flex; justify-content: flex-end;">
+              <ion-label position="floating" style="font-weight: bold">
+                IMPORTE : {{info.importe}}
+              </ion-label>
             </ion-col>
           </ion-row>
+          
 
           <br />
 
@@ -324,12 +323,9 @@
           <iframe
             [src]="url"
             class="mi-iframe"
-          
             frameborder="0"
             allowfullscreen
           ></iframe>
-
-       
         </div>
 
         <ion-grid fixed>
@@ -363,301 +359,128 @@
         </ion-grid>
       </div>
 
-      <!-- <ion-card
-        class="card_apd brd_apd crd_h"
-      >
-        <ion-card-content style="padding-top: 20px; padding-bottom: 20px">
-          <br />
-          <ion-card-content class="in brd_apd" mode="md" *ngIf="isOpen">
-            <ion-row class="ion-align-items-center" *ngIf="info.fecha!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  class=""
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >FOLIO :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{folio}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.fecha!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  class=""
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >FECHA :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{info.fecha}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.nombre!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  class=""
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >NOMBRE :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{info.nombre}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.garantia!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >GARANTÍA :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{ info.garantia }}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.municipio!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >MUNICIPIO :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{ info.municipio }}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.estado!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >ESTADO :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{ info.estado }}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.direccion!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >DIRECCIÓN :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{ info.direccion }}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.colonia!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >COLONIA :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{info.colonia}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngIf="info.municipio!=''">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >MUNICIPIO :</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{info.municipio}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row
-              class="ion-align-items-center mt-3 mb-3"
-              style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
-                                                                     p.dashed {border-style: dashed;"
-            >
-              <ion-col> </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >DETALLE:</ion-label
-                >
-              </ion-col>
-              <ion-col> </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center" *ngFor="let item of data">
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  *ngIf="item[16] > 0"
-                  >{{item[16]}}</ion-label
-                >
-              </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark)"
-                  >{{item[18]}}
-                </ion-label>
-              </ion-col>
-            </ion-row>
-            <ion-row
-              class="ion-align-items-center mt-3 mb-3"
-              style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
-                                                                      p.dashed {border-style: dashed;"
-              *ngIf="detalle!=null"
-            >
-            </ion-row>
-            <ion-row class="ion-align-items-center mt-4">
-              <ion-col> </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >SUBTOTAL : {{info.subtotal}}</ion-label
-                >
-              </ion-col>
-            </ion-row>
-            <ion-row
-              class="ion-align-items-center mt-4"
-              *ngIf="info.descuento!=''"
-            >
-              <ion-col> </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >DESCUENTO : {{info.descuento}}</ion-label
-                >
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center">
-              <ion-col> </ion-col>
-              <ion-col>
-                <ion-label
-                  position="floating"
-                  style="color: var(--ion-apd-grendark); font-weight: bold"
-                  >IMPORTE :&nbsp;&nbsp;&nbsp; {{info.importe}}</ion-label
-                >
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-item style="text-align: center" lines="none"> </ion-item>
-              <br />
-              <br />
-              <ion-col style="background: rgba(0, 0, 0, 0) !important">
-                <ion-item
-                  style="background: rgba(0, 0, 0, 0) !important"
-                  lines="none"
-                >
-                  <ion-button
-                    (click)="close()"
-                    expand="block"
-                    color="secondary"
-                    style="height: 50px"
-                    ><ion-icon
-                      color="primary"
-                      name="arrow-back-circle-outline"
-                      style="height: 50px; width: 50px"
-                    ></ion-icon
-                    >&nbsp;<b>Regresar</b></ion-button
-                  >
-                  <ion-button
-                    (click)="sendmail()"
-                    expand="block"
-                    data-desc="Reenviar recibo de pago"
-                    style="height: 50px"
-                    color="secondary"
-                    ><ion-icon
-                      color="primary"
-                      name="paper-plane-outline"
-                      style="height: 50px; width: 50px"
-                    ></ion-icon
-                    >&nbsp;<b>Enviar Recibo</b></ion-button
-                  >
-                  <ion-button
-                    slot="end"
-                    (click)="pagar()"
-                    color="primary"
-                    expand="block"
-                    *ngIf="info.estatus == 'NO COBRADA'"
-                    style="padding-left: 50px; height: 50px"
-                    ><ion-icon
-                      name="cash-outline"
-                      style="color: white"
-                      style="height: 50px; width: 50px"
-                    ></ion-icon
-                    >&nbsp;<b>Pagar</b></ion-button
-                  >
-                </ion-item>
-                <ion-item
-                  ><br />
-                  <h2
-                    slot="end"
-                    *ngIf="info.estatus == 'COBRADA'"
-                    color="primary"
-                    style="padding-left: 10px"
-                  >
-                    <b>ESTE FOLIO YA SE ENCUENTRA PAGADO.</b>
-                  </h2></ion-item
-                >
-              </ion-col>
-            </ion-row>
-            <ion-text color="primary"> </ion-text>
-          </ion-card-content>
-        </ion-card-content>
-      </ion-card> -->
-
+     
       <!-- ============================================= catastro  ============================================================ -->
+
+      <div [@openClose]="isOpenCatastro ? 'open' : 'closed'">
+        <div class="form-container-folio" mode="md" *ngIf="isOpenCatastro">
+
+          <ion-row class="ion-align-items-center">
+            <ion-col>
+              <ion-label position="floating" class="bold-label">CLAVE CATASTRAL:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="floating">{{ folio }}</ion-label>
+            </ion-col>
+          </ion-row>
+
+     
+        
+          <ion-row class="ion-align-items-center custom-row">
+           
+            <ion-col>
+              <ion-label position="floating" class="label-title">NOMBRE DEL CONTRIBUYENTE:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="floating" class="label-content">{{ infoCatastro.contribuyente }} </ion-label> <br>
+            </ion-col>
+            <br>
+          </ion-row>
+          
+          <br>
+         
+
+          <ion-row class="ion-align-items-center mt-4">
+            <ion-col
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              "
+            >
+            <div style="
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+          ">
+              <ion-label style="font-weight: bold">SUBTOTAL:&nbsp;&nbsp;</ion-label>
+              <ion-label style="font-weight: bold">{{ infoCatastro.Subtotal }}</ion-label>
+            </div>
+              
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row class="ion-align-items-center mt-4">
+            <ion-col
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              "
+            >
+              <ion-label style="font-weight: bold">{{ textDescuento }}:&nbsp;&nbsp;</ion-label>
+              <ion-label style="font-weight: bold">{{ infoCatastro.Descuentos }}</ion-label>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row class="ion-align-items-center">
+            <ion-col
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+              "
+            >
+              <ion-label style="font-weight: bold">IMPORTE:&nbsp;&nbsp;</ion-label>
+              <ion-label style="font-weight: bold">{{ infoCatastro.Total }}</ion-label>
+            </ion-col>
+          </ion-row>
+          
+
+          <br>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button
+                  (click)="close()"
+                  class="ion-text-center"
+                  expand="block"
+                  fill="solid"
+                  shape="round"
+                  color="success"
+                  ><ion-icon name="reader-outline"></ion-icon> &nbsp;<b
+                    >Buscar Folio</b
+                  ></ion-button
+                >
+              </ion-col>
+
+              <ion-col size="6">
+                <ion-button
+                  *ngIf="importepredial > 0"
+                  (click)="pagar()"
+                  color="success"
+                  expand="block"
+                  shape="round"
+                  ><ion-icon name="cash-outline" style="color: white"></ion-icon
+                  >&nbsp;<b>Pagar</b></ion-button
+                >
+
+                <h2
+                  *ngIf="importepredial < 1"
+                  color="primary"
+                  style="padding-left: 10px"
+                >
+                  <b>ESTA CLAVE CATASTRAL YA SE ENCUENTRA PAGADA.</b>
+                </h2>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-text color="primary"> </ion-text>
+        </div>
+      </div>
+
       <!--   <ion-card
         class="card_apd brd_apd crd_h"
       >

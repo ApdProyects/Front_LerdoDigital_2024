@@ -4,31 +4,68 @@
   margin-top: 100px;
 }
 
-h1{
-  color: #5e5e5e;
-  margin-top:0%;
-  font-size: 2rem;
+
+.receipt-card {
+  max-width: 500px;
+  margin: auto;
+  background-color: white;
+  color: white;
+}
+
+.receipt-title {
+
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+ion-note.total {
+  font-weight: bold;
+  color: var(--ion-color-primary);
+}
+
+.thank-you {
+  text-align: center;
+  margin-top: 2em;
+  font-style: italic;
 }
 
 
+h1 {
+  color: #5e5e5e;
+  margin-top: 0%;
+  font-size: 1.7rem;
+  align-items: center;
+}
+
 .form-container {
- 
+  align-items: center;
+  justify-content: center;
+  padding: 106px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 193, 106, 0.462745098);
+  max-width: 643px;
+  height: 500px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  background-color: #e0e0e0a5;
+}
+.form-container-folio {
   align-items: center;
   justify-content: center;
 
   border: 1px solid #fff7ec;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ffc16a76;
-  max-width: 500px;
-  margin: 0 auto; 
-   box-sizing: border-box;
+  padding: 55px;
+  border-radius: 85px;
+  box-shadow: 0 0 20px rgba(255, 193, 106, 0.462745098);
+  max-width: 940px;
+  height: 518px;
+  margin: 140px auto;
+  box-sizing: border-box;
   background-color: #e0e0e0a5;
- 
-
 }
-.form-container-folio{
- 
+
+.form-container-pago {
   align-items: center;
   justify-content: center;
 
@@ -37,47 +74,53 @@ h1{
   border-radius: 10px;
   box-shadow: 0 0 50px #ffc16a76;
   max-width: 900px;
-  margin: 40px auto; 
-   box-sizing: border-box;
+  margin: 0 auto;
+  box-sizing: border-box;
   background-color: #e0e0e0a5;
- 
-
 }
 
-.form-container-pago{
- 
-  align-items: center;
-  justify-content: center;
-
-  border: 2px solid #fff7ec;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 50px #ffc16a76;
-  max-width: 900px;
-  margin: 0 auto; 
-   box-sizing: border-box;
-  background-color: #e0e0e0a5;
- 
-
-}
-
- .mi-iframe {
+.mi-iframe {
   height: 480px;
   width: 100%;
   border-radius: 5px;
   padding-right: 0px;
   padding-left: 0px;
   margin: 7px auto;
-
 }
- 
+
+
+.bold-label {
+  color: black;
+  font-weight: bold;
+}
+
+.custom-row {
+  border-bottom: 3px dotted black;
+}
+
+/* Asegúrate de que este estilo solo se aplique donde es relevante */
+.custom-row[ngIf="detalle!=null"] {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.label-title {
+  color: var(--ion-apd-grendark);
+  font-weight: bold;
+}
+
+.label-content {
+  color: var(--ion-apd-grendark);
+}
+
+
 
 
 
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
-    text-align: center; 
+    text-align: center;
     padding: 15px;
   }
 
@@ -89,10 +132,5 @@ h1{
     box-shadow: 0 0 10px #ffc16a76;
     border: 1px solid #fff7ec;
     border-top: 5px;
-
   }
-
-
-
-
 }

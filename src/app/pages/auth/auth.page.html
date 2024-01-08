@@ -25,6 +25,7 @@
         [control]="form.controls.usuario"
         type="email"
         label="Correo"
+        (input)="ConvertirenMinusculas(form.controls.usuario)"
       ></app-custom-input>
 
       <div
@@ -45,6 +46,7 @@
         [control]="form.controls.password"
         type="password"
         label="Contraseña"
+        
       ></app-custom-input>
 
       <div
