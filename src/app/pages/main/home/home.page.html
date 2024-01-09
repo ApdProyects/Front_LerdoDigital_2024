@@ -12,39 +12,24 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div class="swiper-container">
-    <swiper-container class="hide-on-mobile">
-      <swiper-slide
-        ><img
-          src="/assets/LerdoD2-min.png"
-          alt=""
-          class="img-hero hide-on-mobile"
-      /></swiper-slide>
-      <swiper-slide style="font-size: 24px"
-        >LERDO <br />
-        DIGITAL</swiper-slide
-      >
-      <swiper-slide>Slide 3</swiper-slide>
-    </swiper-container>
-    <div
-      style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 20px;
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0) 0%,
-          #cacaca 100%
-        );
-      "
-    ></div>
+  <div class="container hide-on-mobile">
+    <ion-slides pager="true">
+      <ion-slide>
+        <img src="/assets/fondo.webp" alt="" class="full-width-image " />
+      </ion-slide>
+      <ion-slide>
+        <img src="/assets/image2.webp" class="slide-image" />
+      </ion-slide>
+      <ion-slide>
+        <img src="/assets/image3.webp" class="slide-image" />
+      </ion-slide>
+      <!-- Añade más slides según sea necesario -->
+    </ion-slides>
   </div>
   <br />
 
   <!--============= Pensando en ti =============-->
-
+<div class="contendido"></div>
   <div class="pensando-en-ti">
     <h1>Pensando en ti</h1>
   </div>
@@ -138,9 +123,6 @@
     </div>
     <br />
   </div>
-
-
-
 
   <!--============= Tramites =============-->
   <div class="tramites-card">
@@ -360,13 +342,13 @@
               type="tel"
               pattern="[0-9]{10}"
               [(ngModel)]="form.telefono"
+              maxlength="14"
               required
-              (keyup)="validateTelefono()"
+              (ngModelChange)="form.telefono = formatoCelularContacto(form.telefono)"
             ></ion-input>
           </ion-item>
 
           <!--     <div>{{form | json}}</div> -->
-
 
           <ion-button
             class="button-contacto"

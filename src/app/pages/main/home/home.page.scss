@@ -1,21 +1,14 @@
-.swiper-container {
-  text-align: center;
-  background-color: #e0e0e0a5;
-  border-radius: 1%;
-  overflow: hidden;
+.container {
+  width: 100%; /* Ajusta el ancho del div al 100% del contenedor padre */
+  height: auto; /* Ajusta la altura automáticamente */
   position: relative;
-  box-shadow: 0 0 50px #8cbd62;
-  border: 1px solid #f4f4f4;
 }
 
-.img-hero {
-  max-width: 50%;
-  max-height: 50%;
-  width: auto;
-  height: auto;
+.full-width-image {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del div */
+  height: 94vh;
+  display: block; /* Evita cualquier margen extra alrededor de la imagen */
 }
-
-
 
 /* ================ pensando en ti =============== */
 
@@ -69,9 +62,7 @@
   }
 }
 
-
 /* ============= Posts ============= */
-
 
 ion-avatar {
   --border-radius: 15px;
@@ -124,8 +115,6 @@ h1 {
   font-weight: bold;
   line-height: 10px;
 }
-
-
 
 .ion-padding-horizontal {
   display: grid;
@@ -331,9 +320,6 @@ ion-item.custom-input {
   --border-radius: 25px;
 }
 
-
-
-
 ion-content {
   --keyboard-offset: 0 !important;
 }
@@ -347,10 +333,8 @@ ion-content {
     display: none;
   }
   .swiper-container {
-   
     border: none;
   }
-
 
   .contacto-container {
     flex-direction: column;

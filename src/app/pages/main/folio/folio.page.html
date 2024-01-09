@@ -11,13 +11,15 @@
   <ion-row class="ion-justify-content-center" style="width: 100%">
     <ion-col size-md="8" size-lg="8" size-sm="8">
       <div class="auth-form" *ngIf="isOpenfolio">
-        <div class="form-container">
+        
+        <div class="form-container" >
+          <h1  class="ion-justify-content-center">
+            CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
+          </h1>
           <ion-row class="ion-align-items-center">
             <ion-col>
-              <h1 position="floating" class="">
-                CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
-              </h1>
-              <br />
+              
+        
               <ion-input
                 placeholder="0200 - XXXX / 131 - XXX - XXX"
                 fill="solid"
@@ -26,7 +28,9 @@
                 [(ngModel)]="folio"
                 required
                 [disabled]="searchv==true"
+                (ngModelChange)="handleModelChange($event)"
                 maxlength="14"
+
               ></ion-input>
             </ion-col>
           </ion-row>

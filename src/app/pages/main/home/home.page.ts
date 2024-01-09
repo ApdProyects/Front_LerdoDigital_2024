@@ -65,15 +65,20 @@ export class HomePage implements OnInit {
     });
   }
 
-  validateTelefono() {
-    if (String(this.form.telefono).length < 9) {
-
-    } else if (String(this.form.telefono).length > 9) {
-      this.form.telefono =   (String(this.form.telefono)).slice(0, 10);
-      return false;
+  formatoCelularContacto(phoneNumber: string): string {
+    // Remover cualquier caracter que no sea un número
+    phoneNumber = phoneNumber.replace(/[^\d]/g, '');
+  
+    if (phoneNumber.length >= 10) {
+      phoneNumber = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
     }
+  
+    if (phoneNumber.length >= 14) {
+      phoneNumber = phoneNumber.slice(0, 14);
+    }
+  
+    return phoneNumber;
   }
-
   validateEmail(email) {
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -2,6 +2,8 @@
   width: 100%;
   padding: 15px;
   margin-top: 100px;
+  text-align: center;
+
 }
 
 
@@ -13,7 +15,6 @@
 }
 
 .receipt-title {
-
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
@@ -26,7 +27,6 @@ ion-note.total {
 
 .thank-you {
   text-align: center;
-  margin-top: 2em;
   font-style: italic;
 }
 
@@ -35,25 +35,24 @@ h1 {
   color: #5e5e5e;
   margin-top: 0%;
   font-size: 1.7rem;
-  align-items: center;
 }
 
 .form-container {
   align-items: center;
   justify-content: center;
-  padding: 106px;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 193, 106, 0.462745098);
   max-width: 643px;
-  height: 500px;
-  margin: 40px auto;
+  height: 385px;
+  margin: 0px auto;
   box-sizing: border-box;
   background-color: #e0e0e0a5;
 }
+
 .form-container-folio {
   align-items: center;
   justify-content: center;
-
   border: 1px solid #fff7ec;
   padding: 55px;
   border-radius: 85px;
@@ -68,7 +67,6 @@ h1 {
 .form-container-pago {
   align-items: center;
   justify-content: center;
-
   border: 2px solid #fff7ec;
   padding: 20px;
   border-radius: 10px;
@@ -132,5 +130,6 @@ h1 {
     box-shadow: 0 0 10px #ffc16a76;
     border: 1px solid #fff7ec;
     border-top: 5px;
+    padding: 24px;
   }
 }

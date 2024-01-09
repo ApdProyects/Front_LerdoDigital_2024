@@ -37,7 +37,7 @@
         [control]="form.controls.correo"
         type="email"
         label="Correo"
-
+        (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
 
       <div
@@ -59,6 +59,7 @@
         [control]="form.controls.telefono"
         type="phone"
         label="Teléfono"
+        (input)="formatoCelularContacto(form.controls.telefono)" 
       ></app-custom-input>
 
       <div

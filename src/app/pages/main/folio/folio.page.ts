@@ -11,9 +11,14 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { InfoFolioComponent } from 'src/app/shared/components/info-folio/info-folio.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import * as moment from 'moment';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import Swal from 'sweetalert2'
-
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-folio',
@@ -21,31 +26,28 @@ import Swal from 'sweetalert2'
   styleUrls: ['./folio.page.scss'],
   animations: [
     trigger('openClose', [
-        state('open', style({
-           /*  opacity: 1,
+      state(
+        'open',
+        style({
+          /*  opacity: 1,
             backgroundColor: '#efee6ba6' */
-        })),
-        state('closed', style({
-            height: '0px',
-            opacity: 0.5,
-            /* backgroundColor: 'green' */
-        })),
-        transition('open => closed', [
-            animate('.2s')
-        ]),
-        transition('closed => open', [
-            animate('.2s')
-        ]),
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.5,
+          /* backgroundColor: 'green' */
+        })
+      ),
+      transition('open => closed', [animate('.2s')]),
+      transition('closed => open', [animate('.2s')]),
     ]),
-],
+  ],
 })
 export class FolioPage implements OnInit {
-
-
   miEstilo = { background: 'transparent' };
-
-
-
 
   Noticias: any;
   respuesta: any;
@@ -272,11 +274,11 @@ export class FolioPage implements OnInit {
 
   async back() {
     await this.NavCtrl.navigateRoot('/element?type=' + this.type_code);
-}
-async sendmail() {
+  }
+  async sendmail() {
     const loading = await this.loadingController.create({
-        cssClass: 'my-custom-class',
-        message: 'Enviando recibo...'
+      cssClass: 'my-custom-class',
+      message: 'Enviando recibo...',
     });
     await loading.present();
 
@@ -287,98 +289,99 @@ async sendmail() {
     let resp: any;
     let data: any;
 
-    
-    data = await this.authService.getformat(this.folio, this.type_code, this.element, localStorage.getItem('LUS_CORREO') );
+    data = await this.authService.getformat(
+      this.folio,
+      this.type_code,
+      this.element,
+      localStorage.getItem('LUS_CORREO')
+    );
 
-    await data.forEach(element => {
-        resp = element;
+    await data.forEach((element) => {
+      resp = element;
     });
 
-    if ( resp.codigo > 0) { 
-        var pdfAsDataUri = "data:application/pdf;base64,"+resp.PDF;
-        window.open(pdfAsDataUri);
+    if (resp.codigo > 0) {
+      var pdfAsDataUri = 'data:application/pdf;base64,' + resp.PDF;
+      window.open(pdfAsDataUri);
 
-        const alert = await this.alertController.create({
-            cssClass: 'not_found_alert',
-            header: 'LERDO DIGITAL',
-            message: 'El formato se envió de manera exitosa.',
-            buttons: [
-                {
-                    text: 'Aceptar',
-                    handler: () => {
-                        console.log('Confirm Okay');
-                    }
-                }
-            ]
-        });
+      const alert = await this.alertController.create({
+        cssClass: 'not_found_alert',
+        header: 'LERDO DIGITAL',
+        message: 'El formato se envió de manera exitosa.',
+        buttons: [
+          {
+            text: 'Aceptar',
+            handler: () => {
+              console.log('Confirm Okay');
+            },
+          },
+        ],
+      });
 
-        await alert.present();
+      await alert.present();
     } else {
-        const alert = await this.alertController.create({
-            cssClass: 'not_found_alert',
-            header: 'LERDO DIGITAL',
-            message: 'No se pudo mandar el formato, favor de intentarlo nuevamente.',
-            buttons: [
-                {
-                    text: 'Aceptar',
-                    handler: () => {
-                        console.log('Confirm Okay');
-                    }
-                }
-            ]
-        });
+      const alert = await this.alertController.create({
+        cssClass: 'not_found_alert',
+        header: 'LERDO DIGITAL',
+        message:
+          'No se pudo mandar el formato, favor de intentarlo nuevamente.',
+        buttons: [
+          {
+            text: 'Aceptar',
+            handler: () => {
+              console.log('Confirm Okay');
+            },
+          },
+        ],
+      });
 
-        await alert.present();
+      await alert.present();
     }
     loading.dismiss();
-}
-  
- 
-
-
-
-async alert(title: string, msg: string) {
-    const alert = this.alertController.create({
-        header: title,
-        message: msg,
-        buttons: ['Aceptar'],
-    });
-    (await alert).present();
-}
-
-async search() {
-  if (!this.folio || this.folio.trim().length === 0) {
-      this.alert('Error', 'Ingrese datos para continuar');
-      return; 
   }
 
-  this.searchv = true;
-  this.getInfoFolio();
-}
+  async alert(title: string, msg: string) {
+    const alert = this.alertController.create({
+      header: title,
+      message: msg,
+      buttons: ['Aceptar'],
+    });
+    (await alert).present();
+  }
 
-async pagar() {
-  this.searchv = false;
-  this.isOpen = false;
-  this.isOpenfolio = false;
-  this.isOpenCatastro = false;
-  this.isOpenPago = true;
-}
-async confirmarpago() {
-  this.searchv = false;
-  this.isOpen = false;
-  this.isOpenfolio = true;
-  this.isOpenPago = false;
-  this.folio = '';
-  this.foliosubs = '';
-}
-  async close(){
+  async search() {
+    if (!this.folio || this.folio.trim().length === 0) {
+      this.alert('Error', 'Ingrese datos para continuar');
+      return;
+    }
+
+    this.searchv = true;
+    this.getInfoFolio();
+  }
+
+  async pagar() {
+    this.searchv = false;
+    this.isOpen = false;
+    this.isOpenfolio = false;
+    this.isOpenCatastro = false;
+    this.isOpenPago = true;
+  }
+  async confirmarpago() {
+    this.searchv = false;
+    this.isOpen = false;
+    this.isOpenfolio = true;
+    this.isOpenPago = false;
+    this.folio = '';
+    this.foliosubs = '';
+  }
+  async close() {
     this.searchv = false;
     this.isOpen = false;
     this.isOpenfolio = true;
     this.isOpenPago = false;
     this.isOpenConfirmacion = false;
     this.isOpenCatastro = false;
-}
+  }
 
   // CATASTRO --------------------------------------------------------------------------------
   async getfoliocatastro() {
@@ -404,7 +407,7 @@ async confirmarpago() {
       this.folio,
       this.codigoVerificacion
     );
-    await this.respuesta.forEach(async array => {
+    await this.respuesta.forEach(async (array) => {
       data = await array;
     });
 
@@ -518,7 +521,6 @@ async confirmarpago() {
       this.url = this.domsanitizer.bypassSecurityTrustResourceUrl(URL);
       console.log(this.url);
 
-
       await loading.dismiss();
     }
   }
@@ -528,5 +530,28 @@ async confirmarpago() {
     this.isOpen = false;
     this.isOpenfolio = false;
     this.isOpenPago = true;
+  }
+
+  formatoCatastro(folioCatas: string): string {
+    // Remover cualquier caracter que no sea un número
+    folioCatas = folioCatas.replace(/[^\d]/g, '');
+
+    // Si la longitud es de exactamente 9, aplicar formato con guiones
+    if (folioCatas.length === 9) {
+      folioCatas = `${folioCatas.slice(0, 3)}-${folioCatas.slice(
+        3,
+        6
+      )}-${folioCatas.slice(6)}`;
+    }
+    // Si la longitud es mayor a 9, mostrar todos los números seguidos
+    else if (folioCatas.length > 9) {
+      folioCatas = folioCatas;
+    }
+
+    return folioCatas;
+  }
+
+  handleModelChange(value: string) {
+    this.folio = this.formatoCatastro(value);
   }
 }
