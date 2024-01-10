@@ -48,7 +48,7 @@ import Swal from 'sweetalert2';
 })
 export class FolioPage implements OnInit {
   miEstilo = { background: 'transparent' };
-
+  consultaFolio: any;
   Noticias: any;
   respuesta: any;
   data: any;
@@ -165,8 +165,8 @@ export class FolioPage implements OnInit {
     public domsanitizer: DomSanitizer
   ) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {this.clearInput()}
+  
   async AlertP() {
     const alert = await this.alertController.create({
       cssClass: 'not_found_alert',
@@ -185,6 +185,7 @@ export class FolioPage implements OnInit {
   }
 
   async getInfoFolio() {
+    this.consultaFolio = this.folio
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Buscando...',
@@ -197,10 +198,10 @@ export class FolioPage implements OnInit {
       return;
     }
 
-    this.foliosubs = this.folio;
-    this.type_code = this.folio.substr(0, 2);
-    this.element = this.folio.substr(2, 4);
-    this.type = this.folio.substr(0, 2);
+    this.foliosubs = this.consultaFolio;
+    this.type_code = this.consultaFolio.substr(0, 2);
+    this.element = this.consultaFolio.substr(2, 4);
+    this.type = this.consultaFolio.substr(0, 2);
 
     this.data = [];
     this.respuesta = await this.authService.getInfoFolio(
@@ -238,7 +239,7 @@ export class FolioPage implements OnInit {
       this.isOpen = true;
       this.isOpenfolio = false;
       this.isOpenPago = false;
-
+      this.folio=''
       if (this.type_code == 2 && this.element == 2) {
         this.detalle = this.data;
       } else {
@@ -248,7 +249,7 @@ export class FolioPage implements OnInit {
       this.searchv = false;
       this.AlertP();
     }
-    this.reference = this.folio;
+    this.reference = this.consultaFolio;
 
     var URL =
       'https://webhooks.lerdodigital.mx/form.php?TOTAL=' +
@@ -273,8 +274,10 @@ export class FolioPage implements OnInit {
   }
 
   async back() {
+    
     await this.NavCtrl.navigateRoot('/element?type=' + this.type_code);
   }
+
   async sendmail() {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -356,7 +359,12 @@ export class FolioPage implements OnInit {
     }
 
     this.searchv = true;
+
     this.getInfoFolio();
+  }
+
+  clearInput() {
+    this.folio = '';
   }
 
   async pagar() {

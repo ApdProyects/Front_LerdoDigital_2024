@@ -120,7 +120,7 @@ export class SignUpPage implements OnInit {
   async contrasenaAlert(title: string, message: string) {
     const alert = await this.alertController.create({
       header: 'Error',
-      message: 'Hubo un error al registrar el usuario',
+      message: 'Hubo un error al registrar el usuario, contraseña no coincide',
       buttons: ['OK']
     });
   

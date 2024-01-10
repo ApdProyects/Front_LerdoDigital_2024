@@ -16,6 +16,7 @@
         [control]="form.controls.usuario"
         type="text"
         label="Nombre completo"
+        maxlength="14"
       ></app-custom-input>
 
       <div
@@ -114,6 +115,7 @@
         type="submit"
         [disabled]="form.invalid"
         color="success"
+
       >
         Resgistrar
         <ion-icon slot="end" name="person-add-outline"></ion-icon>
