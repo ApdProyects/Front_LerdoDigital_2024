@@ -10,13 +10,14 @@
   
 }
 
-.swiper-slade{
+.swiper-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+/* 
 .swiper-navigation-container {
   position: relative;
 }
@@ -26,7 +27,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #fff; /* O cualquier color de fondo */
+  background-color: #fff; 
   border: none;
   cursor: pointer;
 }
@@ -38,11 +39,11 @@
 .swiper-button-next {
   right: 10px;
 }
-
+ */
 
 .full-width-image {
   width: 100%; /* Ajusta el ancho de la imagen al 100% del div */
-  height: 100vh;
+  height: 101vh;
   display: block; /* Evita cualquier margen extra alrededor de la imagen */
 }
 

@@ -8,7 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertController } from '@ionic/angular';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { register } from 'swiper/element';
-import { Swiper } from 'swiper/types';
+import { Swiper  } from 'swiper/types';
+
 
 register();
 
@@ -35,7 +36,7 @@ export class HomePage implements OnInit {
   swiperRef: ElementRef | undefined;
   swiper?: Swiper;
 
-  images2 = ['assets/fondo.webp', 'assets/Lerdop2.jpg', 'assets/Lerdop3.jpg'];
+  images2 = ['assets/fondo.webp', 'assets/Lerdop2.jpg', 'assets/Lerdop3.jpg', 'assets/Lerdop4.jpg'];
 
   constructor(
     private utilsSvc: UtilsService,
@@ -47,9 +48,29 @@ export class HomePage implements OnInit {
     this.swiper = this.swiperRef?.nativeElement.swiper;
   }
 
-  swiperSlideChanged(e: any) {
-    console.log('changed: ', e);
+  goNext() {
+    this.swiper?.slideNext();
+    console.log("Avanzando a la siguiente diapositiva");
   }
+  
+  goPrev() {
+    if (!this.swiper) {
+      console.log("Swiper no está definido");
+      return;
+    }
+  
+    this.swiper.slidePrev();
+    console.log("Regresando a la diapositiva anterior");
+  }
+  
+
+  swiperSlideChanged(e: any) {
+    console.log('Diapositiva cambiada: ', e);
+    let currentIndex = e.activeIndex;
+    console.log('Índice actual de la diapositiva: ', currentIndex);
+  
+  }
+  
 
   ngOnInit() {}
 

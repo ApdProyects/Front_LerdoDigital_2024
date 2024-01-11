@@ -1,38 +1,37 @@
-
-
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+  <div class="container">
+    <swiper-container
+      #swiper
+      (afterinit)="SwiperReady()"
+      (slidechange)="swiperSlideChanged($event)"
+      [loop]="false"
+      [pagination]="true"
+      [autoplay]="{ delay: 4000 }"
+    >
+      <swiper-slide *ngFor="let image of images2">
+        <img [src]="image" class="full-width-image" />
+      </swiper-slide>
+    </swiper-container>
+    
+    
+  </div>
 
-  <div class="container ">
-  <swiper-container #swiper (afterinit)="SwiperReady()" (slidechange)="swiperSlideChanged($event)"
-    [loop]="true"
-    [pagination]="true">
-    <swiper-slide *ngFor="let image of images2">
-      <img [src]="image" class="full-width-image"/>
-     </swiper-slide>
-
-  </swiper-container>
-  <button class="swiper-button-prev"><ion-icon name="chevron-back-outline"></ion-icon></button>
-  <button class="swiper-button-next"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-</div>
-  
-
- 
-<app-header
-  class="ion-no-border"
-  MenuButton="MenuButton"
-  shouldShowHorizontalMenu="shouldShowHorizontalMenu"
-  Logo="Logo"
-  title=""
->
-</app-header>
+  <app-header
+    class="ion-no-border"
+    MenuButton="MenuButton"
+    shouldShowHorizontalMenu="shouldShowHorizontalMenu"
+    Logo="Logo"
+    title=""
+  >
+  </app-header>
 
   <!--============= Pensando en ti =============-->
-  <br>
-<div class="contendido"></div>
+  <br />
+  <div class="contendido"></div>
   <div class="pensando-en-ti">
     <h1>Pensando en ti</h1>
   </div>
