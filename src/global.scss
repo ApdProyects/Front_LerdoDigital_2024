@@ -25,6 +25,15 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+swiper-container {
+  --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #b3d6a3);
+  --swiper-pagination-color: var(--ion-color-success, #38ff42);
+  --swiper-pagination-bullet-width: var(--swiper-pagination-bullet-size,20px);
+  --swiper-pagination-bullet-height: var(--swiper-pagination-bullet-size,20px);
+}
+
+
+
 .modal-full-size {
   --width: 100%;
   --height: 100%;
@@ -37,8 +46,6 @@
 ion-app {
   --ion-background-color: linear-gradient(to top, #f7f4ef, #8cbd62);
 }
-
-
 
 // src/global.scss
 
