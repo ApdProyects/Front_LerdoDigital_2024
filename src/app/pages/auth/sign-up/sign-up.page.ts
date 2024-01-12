@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { PhoneCleanupService } from 'src/app/services/phone-cleanup.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -54,14 +55,14 @@ export class SignUpPage implements OnInit {
         ).subscribe(
         (res) => {
           console.log('Usuario registrado con éxito', res);
-          this.registerAlert('Éxito', 'Usuario registrado con éxito');
+          this.mostrarMensajeBienvenida();
           this.redirigirASiguientePagina();
 
 
         },
         (error) => {
           console.error('Error al registrar usuario', error);
-          this.errorAlert('Éxito', 'Usuario registrado con éxito');
+          this.mostrarAlerta('Érror', 'Usuario no pudo ser registrado ');
 
         }
       );
@@ -107,6 +108,17 @@ export class SignUpPage implements OnInit {
     await alert.present();
   }
 
+  async mostrarMensajeBienvenida() {
+    Swal.fire({
+      title: 'Bienvenido',
+      text: 'Usuario registrado con exito',
+      icon: 'success',
+      timer: 3000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
+  }
+
   async errorAlert(title: string, message: string) {
     const alert = await this.alertController.create({
       header: 'Error',
@@ -116,6 +128,19 @@ export class SignUpPage implements OnInit {
   
     await alert.present();
   }
+
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    Swal.fire({
+      title: titulo,
+      text: mensaje,
+      icon: 'error',
+      timer: 3000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
+  }
+
+  
   
   async contrasenaAlert(title: string, message: string) {
     const alert = await this.alertController.create({

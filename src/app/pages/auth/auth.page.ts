@@ -38,23 +38,20 @@ export class AuthPage implements OnInit {
     if (this.form.valid) {
       const usuario = this.form.get('usuario').value;
       const password = this.form.get('password').value;
+      
 
       this.authService.login(usuario, password).subscribe(
         async (res: any) => {
-          console.log('Respuesta del servicio:', res);
-
           if (res === null) {
-            console.log('Respuesta nula');
-            this.mostrarAlerta(
-              'Inténtalo de nuevo',
-              'Usuario o contraseña incorrectos.'
-            );
+            // Manejar caso de respuesta nula del servidor
+            console.log('Respuesta nula del servidor');
+            // Aquí puedes mostrar una alerta o manejar de otra manera
           } else if (res.codigo === -1) {
+            // Usuario no registrado
             console.log('Usuario no registrado');
-
-            this.mostrarAlerta(
+            this.mostrarAlertaNoRegistro(
               'Usuario no registrado',
-              'El usuario no existe en el sistema.'
+              'No se encontró una cuenta con estas credenciales. Por favor, verifica tus datos o regístrate.'
             );
           } else if (res.LRO_CLAVE === 2) {
             console.log('Respuesta exitosa');
@@ -127,7 +124,29 @@ export class AuthPage implements OnInit {
       title: titulo,
       text: mensaje,
       icon: 'error',
-      timer: 2000,
+      timer: 3000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
+  }
+
+  async mostrarAlertaIncorrecto(titulo: string, mensaje: string) {
+    Swal.fire({
+      title: titulo,
+      text: mensaje,
+      icon: 'error',
+      timer: 3000,
+      showConfirmButton: false,
+    });
+    document.body.classList.remove('swal2-height-auto');
+  }
+
+  async mostrarAlertaNoRegistro(titulo: string, mensaje: string) {
+    Swal.fire({
+      title: titulo,
+      text: mensaje,
+      icon: 'error',
+      timer: 3000,
       showConfirmButton: false,
     });
     document.body.classList.remove('swal2-height-auto');

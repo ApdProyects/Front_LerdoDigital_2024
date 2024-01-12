@@ -3,6 +3,8 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+  <div class="main-container">
+
   <div class="container">
     <swiper-container
       #swiper
@@ -12,12 +14,11 @@
       [pagination]="true"
       [autoplay]="{ delay: 4000 }"
     >
-      <swiper-slide *ngFor="let image of images2">
-        <img [src]="image" class="full-width-image" />
+      <swiper-slide *ngFor="let item of images2">
+        <img [src]="item.image" class="full-width-image" />
+        <div class="slide-text"><h1>{{ item.text }}</h1></div>
       </swiper-slide>
     </swiper-container>
-    
-    
   </div>
 
   <app-header
@@ -28,12 +29,15 @@
     title=""
   >
   </app-header>
+</div>
+
 
   <!--============= Pensando en ti =============-->
   <br />
   <div class="contendido"></div>
   <div class="pensando-en-ti">
-    <h1>Pensando en ti</h1>
+    <h1 class="rotate-in-2-cw" >Pensando en ti</h1>
+   
   </div>
   <div class="pensando-card">
     <ion-grid>

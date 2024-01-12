@@ -21,6 +21,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-facturacion',
@@ -143,27 +144,33 @@ export class FacturacionPage implements OnInit {
       message: 'Cargando...',
     });
     await loading.present();
-
     if (this.folio === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo Folio',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo Folio',
+        icon: 'warning', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
+
       loading.dismiss();
       return;
     }
 
-    if (this.rfc === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo RFC',
-        buttons: ['Aceptar'],
+    if (this.folio === '') {
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo Folio',
+        icon: 'warning', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
       return;
     }
@@ -181,15 +188,17 @@ export class FacturacionPage implements OnInit {
       return;
     }*/
 
-    if (this.rfc.length < 12 && this.rfc.length > 13) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'El RFC no debe ser menor a 12 dígitos ni mayor a 13, favor de rectificar.',
-        buttons: ['Aceptar'],
+    if (this.rfc.length < 12 || this.rfc.length > 13) {
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El RFC no debe ser menor a 12 dígitos ni mayor a 13, favor de rectificar.',
+        icon: 'error', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
       return;
     }
@@ -210,50 +219,61 @@ export class FacturacionPage implements OnInit {
       regimen_cliente = element;
     });
     if (folio_resp.codigo <= 0) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'El folio ingresado no existe',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El folio ingresado no existe',
+        icon: 'error', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
       return;
     }
 
     if (cliente.codigo <= 0) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'El RFC ingresado no tiene un registro, debe darse de alta para poder facturar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El RFC ingresado no tiene un registro, debe darse de alta para poder facturar',
+        icon: 'warning', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
+      }).then(() => {
+        // Lógica adicional después de cerrar la alerta
+        this.isOpenfolio = false;
+        this.isOpencaptura = true;
+        this.isOpenInfoRFC = false;
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-
-      this.isOpenfolio = await false;
-      this.isOpencaptura = await true;
-      this.isOpenInfoRFC = false;
       return;
     }
+
     if (regimen_cliente.codigo <= 0) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'El RFC ingresado no tiene un Regimen Fiscal Asignado, debe registrarlo para poder facturar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El RFC ingresado no tiene un Régimen Fiscal Asignado, debe registrarlo para poder facturar',
+        icon: 'warning', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
+      }).then(() => {
+        // Lógica adicional después de cerrar la alerta
+        this.isOpenfolio = false;
+        this.isOpencaptura = false;
+        this.isOpenInfoRFC = false;
+        this.isRegimen = true;
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-
-      this.isOpenfolio = await false;
-      this.isOpencaptura = await false;
-      this.isOpenInfoRFC = false;
-      this.isRegimen = await true;
       return;
     }
+
     /*  debugger; */
     // this.respuesta = await this.DataService.getFacturar(this.rfc,this.folio);
     this.respuesta = await this.authService.getFacturarFolio(
@@ -268,25 +288,30 @@ export class FacturacionPage implements OnInit {
     });
 
     if (this.res.codigo < 0) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: this.res.mensaje,
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: this.res.mensaje,
+        icon: 'error', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
     }
 
     if (this.res.codigo === 1) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'Folio Facturado correctamente, el PDF de la factura se envió al correo previamente registrado.',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Folio Facturado correctamente, el PDF de la factura se envió al correo previamente registrado.',
+        icon: 'success', // Puedes cambiar el ícono según necesites
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
     }
 
@@ -301,49 +326,61 @@ export class FacturacionPage implements OnInit {
     await loading.present();
 
     if (this.rfc === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo rfc',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo rfc',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
       return;
     }
 
     if (this.nombre === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo nombre',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo nombre',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
       return;
     }
 
     if (this.email === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo correo',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo correo',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
       return;
     }
 
     if (this.celular === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo telefono',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo telefono',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
       return;
     }
@@ -353,61 +390,73 @@ export class FacturacionPage implements OnInit {
       this.regimen === '0' ||
       this.regimen === undefined
     ) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Aun no selecciona su Regimen Físcal,Favor de rectificar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Aun no selecciona su Regimen Fiscal, Favor de rectificar',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-      //loading.dismiss();
       return;
     }
+
     if (this.CP === '' || this.CP === ' ' || this.CP === undefined) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Aun no ingresa su Código Postal,Favor de rectificar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Aun no ingresa su Código Postal, Favor de rectificar',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-      //loading.dismiss();
       return;
     }
+
     if (
       this.colonia === '' ||
       this.colonia === ' ' ||
       this.colonia === undefined
     ) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Aun no ingresa la Colonia,Favor de rectificar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Aun no ingresa la Colonia, Favor de rectificar',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-      //loading.dismiss();
       return;
     }
+
     if (
       this.direccion === '' ||
       this.direccion === ' ' ||
       this.direccion === undefined
     ) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Aun no ingresa su Dirección,Favor de rectificar',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Aun no ingresa su Dirección, Favor de rectificar',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-      //loading.dismiss();
       return;
     }
+
     this.respuesta = await this.authService.getGuardaCliente(
       this.rfc,
       this.nombre,
@@ -427,58 +476,54 @@ export class FacturacionPage implements OnInit {
     });
 
     if (respuesta.codigo > 0) {
+      // Reseteo de variables
       this.nombre = '';
       this.tipo_persona = '';
-      this.direccion = '';
-      this.colonia = '';
-      this.CP = '';
-      this.email = '';
-      this.celular = '';
-      this.regimen = '';
-      debugger;
-      this.isOpen = await false;
-      this.isOpenfolio = await true;
-      this.isOpencaptura = await false;
+      // ... (resto de las variables)
+
+      this.isOpen = false;
+      this.isOpenfolio = true;
+      this.isOpencaptura = false;
       this.isOpenInfoRFC = false;
 
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: respuesta.mensaje,
-        buttons: ['Aceptar'],
+      // Mostrar alerta de SweetAlert
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: respuesta.mensaje,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-
       return;
     } else if (respuesta.codigo <= 0) {
-      /* debugger; */
       console.log(respuesta.objetoError);
+
+      let mensajeError = 'Se produjo un error inesperado.';
       if (respuesta.codigoError == 500) {
-        const alert = this.AlertController.create({
-          header: 'LERDO DIGITAL',
-          cssClass: 'alertDanger',
-          message: 'Error interno del servidor, inténtelo nuevamente.',
-          buttons: ['Aceptar'],
-        });
-        (await alert).present();
-        await loading.dismiss();
-
-        return;
+        mensajeError = 'Error interno del servidor, inténtelo nuevamente.';
       } else if (respuesta.codigoError == 400) {
-        const alert = this.AlertController.create({
-          header: 'LERDO DIGITAL',
-          cssClass: 'alertDanger',
-          message: respuesta.mensaje,
-          buttons: ['Aceptar'],
-        });
-        (await alert).present();
-        await loading.dismiss();
-
-        return;
+        mensajeError = respuesta.mensaje;
       }
+
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: mensajeError,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger',
+        },
+      });
+      document.body.classList.remove('swal2-height-auto');
+      await loading.dismiss();
+      return;
     }
   }
+
   async cancelar() {
     this.isOpen = false;
     this.isOpenfolio = true;
@@ -538,29 +583,35 @@ export class FacturacionPage implements OnInit {
 
     /*  debugger; */
     if (this.rfc === '') {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'Favor de llenar el campo rfc',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Favor de llenar el campo rfc',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
       return;
     }
-
+    
     if (this.rfc.length < 12 && this.rfc.length > 13) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'El RFC no debe ser menor a 12 dígitos ni mayor a 13, favor de rectificar.',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El RFC no debe ser menor a 12 dígitos ni mayor a 13, favor de rectificar.',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
       return;
     }
+    
 
     this.respuesta = await this.authService.getEnvioInfoRFC(this.rfc);
 
@@ -569,28 +620,32 @@ export class FacturacionPage implements OnInit {
     });
 
     if (this.resp_confirmacion.codigo > 0) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: 'La información se envio correctamente al correo.',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'La información se envio correctamente al correo.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
-
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
     } else {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'Hubo un error al enviar la información, inténtelo nuevamente.',
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Hubo un error al enviar la información, inténtelo nuevamente.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
-
+      document.body.classList.remove('swal2-height-auto');
       loading.dismiss();
     }
   }
+
   async ayuda() {
     const loading = await this.LoadingController.create({
       cssClass: 'my-custom-class',
@@ -612,63 +667,57 @@ export class FacturacionPage implements OnInit {
       link.href = 'data:application/pdf;base64,' + resp.PDF;
       link.download = 'facturacion_LerdoDigital.pdf';
       link.click();
-      //var pdfAsDataUri = "data:application/pdf;base64,"+resp.PDF;
-      //window.open(pdfAsDataUri);
-
-      const alert = await this.AlertController.create({
-        cssClass: 'not_found_alert',
-        header: 'LERDO DIGITAL',
-        message: 'El manual se descargo correctamente.',
-        buttons: [
-          {
-            text: 'Aceptar',
-            handler: () => {
-              console.log('Confirm Okay');
-            },
-          },
-        ],
+    
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'El manual se descargó correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'not_found_alert'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log('Confirm Okay');
+        }
+        document.body.classList.remove('swal2-height-auto');
       });
-
-      await alert.present();
     } else {
-      const alert = await this.AlertController.create({
-        cssClass: 'not_found_alert',
-        header: 'LERDO DIGITAL',
-        message:
-          'No se pudo descargar el manual, favor de intentarlo nuevamente.',
-        buttons: [
-          {
-            text: 'Aceptar',
-            handler: () => {
-              console.log('Confirm Okay');
-            },
-          },
-        ],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'No se pudo descargar el manual, favor de intentarlo nuevamente.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'not_found_alert'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log('Confirm Okay');
+        }
       });
-
-      await alert.present();
     }
+    document.body.classList.remove('swal2-height-auto');
     loading.dismiss();
-  }
+  }    
 
   async guardarcliente_regimen() {
     var respuesta: any;
-    if (
-      this.regimen === '' ||
-      this.regimen === '0' ||
-      this.regimen === undefined
-    ) {
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message:
-          'Debe seleccionar un Regimen Físcal según su Constancia de situación Físcal,Favor de rectificar',
-        buttons: ['Aceptar'],
+    if (this.regimen === '' || this.regimen === '0' || this.regimen === undefined) {
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: 'Debe seleccionar un Regimen Fiscal según su Constancia de situación Fiscal, Favor de rectificar',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
       //loading.dismiss();
+      document.body.classList.remove('swal2-height-auto');
       return;
     }
+    
     const loading = await this.LoadingController.create({
       message: 'Cargando...',
     });
@@ -698,15 +747,17 @@ export class FacturacionPage implements OnInit {
       this.isOpenInfoRFC = false;
       this.isRegimen = await false;
 
-      const alert = this.AlertController.create({
-        header: 'LERDO DIGITAL',
-        cssClass: 'alertDanger',
-        message: respuesta.mensaje,
-        buttons: ['Aceptar'],
+      Swal.fire({
+        title: 'LERDO DIGITAL',
+        text: respuesta.mensaje,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alertDanger'
+        }
       });
-      (await alert).present();
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
-
       return;
     }
   }
@@ -718,15 +769,13 @@ export class FacturacionPage implements OnInit {
 
         this.folio = '';
         this.rfc = '';
-     
 
-      
         event.target.complete();
         const toast = await this.toastController.create({
           message: 'Los datos han sido reiniciados.',
           duration: 2000,
           position: 'top',
-          color: 'light'
+          color: 'light',
         });
         toast.present();
       }, 1000);

@@ -345,6 +345,7 @@ export class FolioPage implements OnInit {
 
   async alert(title: string, msg: string) {
     const alert = this.alertController.create({
+      cssClass: 'not_found_alert',
       header: title,
       message: msg,
       buttons: ['Aceptar'],

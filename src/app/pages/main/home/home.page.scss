@@ -1,3 +1,8 @@
+/* .main-container {
+  display: flex;
+  flex-direction: column;
+}
+ */
 .container {
   width: 100%; /* Ajusta el ancho del div al 100% del contenedor padre */
   height: auto; /* Ajusta la altura automáticamente */
@@ -7,14 +12,56 @@
 .swiper-container{
   width: 100%;
   height: 100%;
-  
 }
 
 .swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  
+}
+
+.slide-text{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  color: white;
+
+  padding: 5px
+}
+
+
+.full-width-image {
+  width: 100%; 
+  height: 101vh;
+  filter: blur(3px);
+  
+}
+
+
+@media (max-width: 600px) {
+  .main-container {
+    flex-direction: column-reverse; 
+  }
+
+  .container {
+    width: 100%; 
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    /* Cambios en el estilo de las diapositivas para móviles */
+  }
+
+  .full-width-image {
+    width: 100%; 
+    height: 100vh;
+    object-fit: cover;
+  }
+
 }
 
 /* 
@@ -41,11 +88,6 @@
 }
  */
 
-.full-width-image {
-  width: 100%; /* Ajusta el ancho de la imagen al 100% del div */
-  height: 101vh;
-  display: block; /* Evita cualquier margen extra alrededor de la imagen */
-}
 
 /* ================ pensando en ti =============== */
 
@@ -151,7 +193,7 @@ ion-grid {
 h1 {
   font-weight: bold;
   line-height: 10px;
-  margin-top: 70px
+  margin-top: 40px;
 }
 
 .ion-padding-horizontal {

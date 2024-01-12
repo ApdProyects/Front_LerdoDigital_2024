@@ -36,8 +36,13 @@ export class HomePage implements OnInit {
   swiperRef: ElementRef | undefined;
   swiper?: Swiper;
 
-  images2 = ['assets/fondo.webp', 'assets/Lerdop2.jpg', 'assets/Lerdop3.jpg', 'assets/Lerdop4.jpg'];
-
+  images2 = [
+    { image: 'assets/fondo.webp', text: 'LERDO DIGITAL' },
+    { image: 'assets/Lerdop2.jpg', text: 'Texto para la imagen 2' },
+    { image: 'assets/Lerdop3.jpg', text: 'Texto para la imagen 3' },
+    { image: 'assets/Lerdop4.jpg', text: 'Texto para la imagen 4' }
+  ];
+  
   constructor(
     private utilsSvc: UtilsService,
     private AuthService: AuthService,
