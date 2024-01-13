@@ -38,10 +38,21 @@ h1 {
   text-align: center;
 }
 
+
+
+h3{
+  font-size: 1.5rem;
+  padding-left: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 0px;
+}
+
 .form-container {
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 68px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 193, 106, 0.462745098);
   max-width: 643px;
@@ -55,16 +66,41 @@ h1 {
   align-items: center;
   justify-content: center;
   border: 1px solid #fff7ec;
-  padding: 20px;
+  padding: 40px;
   border-radius: 50px;
   box-shadow: 0 0 20px rgba(255, 193, 106, 0.462745098);
   max-width: 940px;
-  min-height: 518px; /* Esto permite que el contenedor crezca con el contenido */
+  min-height: 460px;
   margin: 10px auto;
   box-sizing: border-box;
   background-color: #e0e0e0a5;
 }
 
+.cantidad-container{
+  width: 100%; display: flex; text-align: end
+}
+
+.label-container{
+  width: 90%
+}
+
+.resultado{
+  width: 10%
+}
+
+.form-container-folio-catastro {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff7ec;
+  padding: 68px;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(255, 193, 106, 0.462745098);
+  max-width: 940px;
+  min-height: 400px;
+  margin: 125px auto;
+  box-sizing: border-box;
+  background-color: #e0e0e0a5;
+}
 
 
 .form-container-pago {
@@ -79,6 +115,7 @@ h1 {
   box-sizing: border-box;
   background-color: #e0e0e0a5;
 }
+
 
 .mi-iframe {
   height: 480px;
@@ -115,9 +152,6 @@ h1 {
 }
 
 
-.not_found_alert {
-  --background: #FFD700; /* Cambia #FFD700 al color que desees */
-}
 
 
 
@@ -139,8 +173,37 @@ h1 {
     padding: 24px;
   }
 
+  .form-container-folio-catastro {
+    
+    border: 1px solid #fff7ec;
+    padding: 15px;
+    border-radius: 13px;
+    max-width: 371px;
+    min-height: 300px;
+    margin: 60px auto;
+  }
+
   .form-container-folio {
-    padding: 20px;
-    border-radius: 30px
+    padding: 10px;
+    border-radius: 30px;
+    max-width: 370px;
+  }
+
+
+  .cantidad-container{
+    width: 100%; display: flex; text-align: end
+  }
+
+  .label-container{
+    width: 75%
+  }
+  
+  .resultado{
+    width: 25%
+  }
+
+  h3{
+    font-size: 1rem;
+    padding-left: 20px
   }
 }

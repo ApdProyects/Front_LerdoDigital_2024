@@ -24,7 +24,7 @@ export class HeaderComponent  implements OnInit {
 
 
   constructor( private utilsSvc: UtilsService,private authService: AuthService, private AlertController: AlertController,
-    public LoadingController: LoadingController,) { }
+    public LoadingController: LoadingController,private NavCtrl: NavController) { }
 
   async  ngOnInit() {
     
@@ -90,6 +90,9 @@ export class HeaderComponent  implements OnInit {
     loading.dismiss();
 }
 
+async salir() {
+    await this.NavCtrl.navigateRoot('/main/home');
+}
 
     dismissModal(){
     this.utilsSvc.dismissModal()

@@ -11,6 +11,10 @@
       </ion-button>
     </ion-buttons>
 
+    <ion-button (click)="salir()" expand="block" fill="clear" shape="round">
+      Salir 
+    </ion-button>
+
     <!-- Título de la aplicación -->
     <ion-title *ngIf="title">
       <div class="app-name">
@@ -26,6 +30,8 @@
     <ion-button *ngIf="Manual" (click)="ayuda()" expand="block" fill="clear" shape="round" slot="end" size="20" title="MANUAL AYUDA" class="button">
       <ion-icon slot="end" name="help-circle-outline" size="large" color="light" hover=""></ion-icon>
     </ion-button>
+
+
 
 
     <!-- Menú de navegación horizontal en el lado derecho -->
