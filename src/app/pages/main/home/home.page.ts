@@ -5,11 +5,10 @@ import { Posts } from 'src/assets/data/images';
 import { PostDetailComponent } from 'src/app/shared/components/post-detail/post-detail.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { register } from 'swiper/element';
-import { Swiper  } from 'swiper/types';
-
+import { Swiper } from 'swiper/types';
 
 register();
 
@@ -37,45 +36,70 @@ export class HomePage implements OnInit {
   swiper?: Swiper;
 
   images2 = [
-    { image: 'assets/fondo.webp', text: 'LERDO DIGITAL' },
-    { image: 'assets/Lerdop2.jpg', text: 'Texto para la imagen 2' },
-    { image: 'assets/Lerdop3.jpg', text: 'Texto para la imagen 3' },
-    { image: 'assets/Lerdop4.jpg', text: 'Texto para la imagen 4' }
+    {
+      image: 'assets/fondoLerdo1.jpg',
+      text: 'LERDO\n\n\n\n\n\n\n\n\n\n\nDIGITAL',
+      buttonText: ' Conoce más',
+      buttonAction: 'goConocenos',
+    },
+    {
+      image: 'assets/fondoLerdo2.jpg',
+      text: 'PAGA TUS SERVICIOS',
+      subtitles: ['Predial', 'Vialidad'],
+    },
+    {
+      image: 'assets/fondoLerdo3.jpg',
+      ImageSlide: 'assets/movil.png',
+      buttonText: ' Conoce más',
+      buttonAction: 'goConocenos',
+      secondButtonText: 'Otro Botón',
+      secondButtonAction: 'otraAccion'
+      
+    },
+    {
+      image: 'assets/fondoLerdo4.jpg',
+      text: 'Contactanos',
+      buttonText: ' Conoce más',
+      buttonAction: 'goContactanos',
+    },
   ];
-  
+
   constructor(
     private utilsSvc: UtilsService,
     private AuthService: AuthService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private NavCtrl: NavController
   ) {}
+
+  //Variable para poder saltar en el componente hijo a diferentes secciones
+  passto: string | undefined;
+
+  //Clase que se manda al hijo para saltar entre sus diferentes apartados
+  public salida(className: string): void {
+    const elementList = document.querySelectorAll('.' + className);
+    const element = elementList[0] as HTMLElement;
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
   SwiperReady() {
     this.swiper = this.swiperRef?.nativeElement.swiper;
   }
 
-  goNext() {
-    this.swiper?.slideNext();
-    console.log("Avanzando a la siguiente diapositiva");
+  async goConocenos() {
+    this.passto = 'conoce-mun';
+    this.salida(this.passto);
   }
-  
-  goPrev() {
-    if (!this.swiper) {
-      console.log("Swiper no está definido");
-      return;
-    }
-  
-    this.swiper.slidePrev();
-    console.log("Regresando a la diapositiva anterior");
+
+  async goContactanos() {
+    this.passto = 'form-container-contacto';
+    this.salida(this.passto);
   }
-  
 
   swiperSlideChanged(e: any) {
     console.log('Diapositiva cambiada: ', e);
     let currentIndex = e.activeIndex;
     console.log('Índice actual de la diapositiva: ', currentIndex);
-  
   }
-  
 
   ngOnInit() {}
 

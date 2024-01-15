@@ -12,13 +12,35 @@
       (slidechange)="swiperSlideChanged($event)"
       [loop]="false"
       [pagination]="true"
-      [autoplay]="{ delay: 4000 }"
+      [autoplay]= false
     >
-      <swiper-slide *ngFor="let item of images2">
-        <img [src]="item.image" class="full-width-image" />
-        <div class="slide-text"><h1>{{ item.text }}</h1></div>
-      </swiper-slide>
-    </swiper-container>
+    <swiper-slide *ngFor="let item of images2; let i = index" >
+      <img [src]="item.image"    class="full-width-image"/>
+   
+        <div class="slide-text" [ngClass]="{'second-text': i === 1} "><h1>{{ item.text }}</h1>
+         
+        </div>
+        <div class="slide-subtitles">
+          <ul>
+            <li *ngFor="let subtitle of item.subtitles">
+              <a href="tu-enlace-aqui">{{ subtitle }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="slide-img">
+          <img [src]="item.ImageSlide" class="ImageSlide">
+        </div>
+      
+        <ion-button  *ngIf="i !== 1 && i !== 2" (click)="thisitem.buttonAction" (click)="this[item.buttonAction]()" fill="outline" class="slide-button first-button">
+          {{ item.buttonText }}
+        </ion-button>
+
+        <ion-button *ngIf="item.secondButtonText" (click)="this[item.secondButtonAction]()" fill="outline"  class="slide-button second-button">
+          {{ item.secondButtonText }}
+        </ion-button>
+ 
+    </swiper-slide>
+  </swiper-container>
   </div>
 
   <app-header
@@ -97,7 +119,7 @@
   <br />
 
   <!--============= Posts =============-->
-  <div class="conoce-mun">
+  <div class="conoce-mun" >
     <h2 class="heading text-center color-title">
       <b>Conoce nuestro municipio.</b>
     </h2>

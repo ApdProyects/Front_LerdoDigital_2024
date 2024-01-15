@@ -9,42 +9,135 @@
   position: relative;
 }
 
-.swiper-container{
+.swiper-container {
   width: 100%;
   height: 100%;
 }
 
 .swiper-slide {
   position: relative;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 38%;
+  left: 3%;
+  color: white;
   
 }
 
-.slide-text{
+.slide-button {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-
+  bottom: 23%;
+  left: 50px;
   color: white;
-
-  padding: 5px
+  padding: 0px;
 }
 
+ion-button.slide-button {
+  --border-color: white;
+  --background-hover: white;
+
+}
+
+ion-button.slide-button:hover {
+  background-color: #ffffff; 
+  color: #333333; 
+}
 
 .full-width-image {
-  width: 100%; 
+  width: 100%;
   height: 100vh;
-  filter: blur(3px);
-  
+  filter: brightness(0.8);
 }
+
+.slide-text h1 {
+  font-weight: bold;
+  font-size: 7rem;
+  font-family: "Open Sans", sans-serif;
+  filter: drop-shadow(12px 10px 4px black);
+  white-space: pre-line; /* Esto asegura que los saltos de línea se representen */
+}
+
+ul li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+ul li::before {
+  content: '→';
+  padding-right: 10px;
+  color: white;
+}
+
+
+.slide-subtitles {
+  position: absolute;
+    bottom: 47%;
+    left: -3%;
+    font-weight: bold;
+    font-size: 4rem;
+    font-family: "Open Sans", sans-serif;
+    white-space: pre-line;
+    filter: drop-shadow(10px 8px 3px black);
+
+
+a {
+    color: white; 
+    text-decoration: none;
+    transition: all .3s;
+  }
+}
+.slide-subtitles a:hover {
+  color: #8cbd62; /* Color al pasar el mouse por encima del enlace */
+  font-size: 2.5rem;
+}
+
+.slide-img{
+  font-size: 5rem;
+}
+
+.ImageSlide{
+  position: absolute;
+  bottom: 9%;
+  left: 38%;
+}
+
+.second-text {
+
+  bottom: 82%;
+  left: 3%;
+}
+
+.second-text h1{
+  font-size: 5rem;
+}
+
+
+
+.first-button {
+
+}
+
+.second-button {
+  position: absolute;
+  bottom: 20px; /* Ajusta según necesites */
+  right: 20px;  /* Ajusta según necesites */
+}
+
+
+
+
 
 
 @media (max-width: 600px) {
   .main-container {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
   }
 
   .container {
-    width: 100%; 
+    width: 100%;
   }
 
   .swiper-container {
@@ -57,11 +150,10 @@
   }
 
   .full-width-image {
-    width: 100%; 
+    width: 100%;
     height: 100vh;
     object-fit: cover;
   }
-
 }
 
 /* 
@@ -88,9 +180,13 @@
 }
  */
 
-
 /* ================ pensando en ti =============== */
 
+h1 {
+  font-weight: bold;
+  line-height: 10px;
+  margin-top: 40px;
+}
 .pensando-en-ti {
   text-align: center;
 }
@@ -188,12 +284,6 @@ ion-grid {
 .col-down {
   margin-top: 30px;
   padding: 0 10px;
-}
-
-h1 {
-  font-weight: bold;
-  line-height: 10px;
-  margin-top: 40px;
 }
 
 .ion-padding-horizontal {

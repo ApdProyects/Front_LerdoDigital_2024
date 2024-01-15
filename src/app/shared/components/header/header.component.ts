@@ -21,6 +21,7 @@ export class HeaderComponent  implements OnInit {
   @Input() shouldShowHorizontalMenu!:string;
   @Input() Logo!:string;
   @Input() Manual!:string;
+  @Input() Salir!:string;
 
 
   constructor( private utilsSvc: UtilsService,private authService: AuthService, private AlertController: AlertController,

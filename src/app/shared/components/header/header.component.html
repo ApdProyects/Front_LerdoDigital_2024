@@ -11,9 +11,11 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-button (click)="salir()" expand="block" fill="clear" shape="round">
-      Salir 
-    </ion-button>
+    <ion-button (click)="salir()"  *ngIf="Salir" shape="round" color="light">
+      Salir
+    </ion-button> 
+
+  
 
     <!-- Título de la aplicación -->
     <ion-title *ngIf="title">
