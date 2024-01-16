@@ -38,27 +38,31 @@ export class HomePage implements OnInit {
   images2 = [
     {
       image: 'assets/fondoLerdo1.jpg',
-      text: 'LERDO\n\n\n\n\n\n\n\n\n\n\nDIGITAL',
+      text: 'Lerdo\n\n\n\n\n\n\n\n\n\n\nDigital',
       buttonText: ' Conoce más',
       buttonAction: 'goConocenos',
     },
     {
       image: 'assets/fondoLerdo2.jpg',
-      text: 'PAGA TUS SERVICIOS',
-      subtitles: ['Predial', 'Vialidad'],
+      text: 'Paga tus servicios',
+      subtitles: ['Predial', 'Vialidad', 'Parquímetros'],
     },
     {
       image: 'assets/fondoLerdo3.jpg',
       ImageSlide: 'assets/movil.png',
+      text: 'Descargue Aquí',
+      text2: 'Disponilble en',
       buttonText: ' Conoce más',
       buttonAction: 'goConocenos',
-      secondButtonText: 'Otro Botón',
-      secondButtonAction: 'otraAccion'
+      secondButtonText: 'Descargar IOS',
+      secondButtonAction: 'IOS',
+      thirdButtonText: 'Descargar Android',
+      thirdButtonAction: 'Android'
       
     },
     {
       image: 'assets/fondoLerdo4.jpg',
-      text: 'Contactanos',
+      text: 'Contáctanos',
       buttonText: ' Conoce más',
       buttonAction: 'goContactanos',
     },
@@ -71,10 +75,8 @@ export class HomePage implements OnInit {
     private NavCtrl: NavController
   ) {}
 
-  //Variable para poder saltar en el componente hijo a diferentes secciones
   passto: string | undefined;
 
-  //Clase que se manda al hijo para saltar entre sus diferentes apartados
   public salida(className: string): void {
     const elementList = document.querySelectorAll('.' + className);
     const element = elementList[0] as HTMLElement;

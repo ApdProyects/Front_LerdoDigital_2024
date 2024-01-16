@@ -23,7 +23,6 @@
   bottom: 38%;
   left: 3%;
   color: white;
-  
 }
 
 .slide-button {
@@ -35,14 +34,16 @@
 }
 
 ion-button.slide-button {
-  --border-color: white;
+  --border-color: transparent;
   --background-hover: white;
-
+  border-radius: 42px;
 }
 
 ion-button.slide-button:hover {
-  background-color: #ffffff; 
-  color: #333333; 
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0 0 25px white;
+  transition: all 0.4s;
 }
 
 .full-width-image {
@@ -66,72 +67,98 @@ ul li {
 }
 
 ul li::before {
-  content: '→';
+  content: "→";
   padding-right: 10px;
   color: white;
 }
 
-
 .slide-subtitles {
   position: absolute;
-    bottom: 47%;
-    left: -3%;
-    font-weight: bold;
-    font-size: 4rem;
-    font-family: "Open Sans", sans-serif;
-    white-space: pre-line;
-    filter: drop-shadow(10px 8px 3px black);
+  bottom: 53%;
+  left: 0%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  white-space: pre-line;
+  filter: drop-shadow(10px 8px 3px black);
 
-
-a {
-    color: white; 
+  a {
+    color: white;
     text-decoration: none;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 }
 .slide-subtitles a:hover {
   color: #8cbd62; /* Color al pasar el mouse por encima del enlace */
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
-.slide-img{
+.slide-img {
   font-size: 5rem;
 }
 
-.ImageSlide{
+.ImageSlide {
   position: absolute;
-  bottom: 9%;
-  left: 38%;
-}
-
-.second-text {
-
-  bottom: 82%;
+  bottom: 7%;
   left: 3%;
 }
 
-.second-text h1{
+.second-text {
+  bottom: 80%;
+  left: 3%;
+}
+
+.second-text h1 {
   font-size: 5rem;
 }
 
+.third-text {
+  bottom: 83%;
+  left: 38%;
+}
 
+.third-text h1 {
+  /* Tus estilos personalizados para el texto de la tercera diapositiva */
+  color: #fff; /* Ejemplo: cambiar el color del texto */
+  font-style: italic; /* Ejemplo: cambiar a cursiva */
+  /* Otros estilos que necesites */
+}
 
 .first-button {
-
 }
 
 .second-button {
   position: absolute;
-  bottom: 20px; /* Ajusta según necesites */
-  right: 20px;  /* Ajusta según necesites */
+  bottom: 55%;
+  left: 70%;
+  color: white;
+  padding: 0px;
+  width: 24%;
 }
 
+.third-button {
+  position: absolute;
+  bottom: 35%;
+  left: 70%;
+  color: white;
+  padding: 0px;
+  width: 24%;
+}
 
+.button-image {
+  height: 107px;
+  width: auto;
+  margin-right: 0px;
+  vertical-align: middle;
+  transition: all 0.3s;
+}
 
+.button-image:hover {
+  height: 118px;
+  width: 330px;
+}
 
-
-
-@media (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .main-container {
     flex-direction: column-reverse;
   }
@@ -154,31 +181,145 @@ a {
     height: 100vh;
     object-fit: cover;
   }
-}
 
-/* 
-.swiper-navigation-container {
-  position: relative;
-}
+  .slide-text {
+    bottom: 55%;
+    left: 3%;
+    white-space: pre-line;
 
-.swiper-button-prev, .swiper-button-next {
+    .slide-text h1 {
+      font-size: 7rem;
+    }
+  }
+
+  ion-button.slide-button {
+    border-radius: 42px;
+    background-color: #ffffff;
+    color: #000;
+    box-shadow: 0 0 25px white;
+  }
+
+  .slide-button {
+    position: absolute;
+    bottom: 26%;
+    left: 33%;
+    width: 50%;
+    height: 5%;
+  }
+
+  .first-button {
+    bottom: 37%;
+    left: 25%;
+    width: 50%;
+    height: 5%;
+  }
+
+  .second-text {
+    bottom: 73%;
+    left: 3%;
+  }
+
+  .second-text h1 {
+    font-size: 2.6rem;
+    white-space: pre-line;
+  }
+
+  .slide-subtitles {
+    position: absolute;
+    bottom: 36%;
+    left: -20%;
+    right: -14%;
+    font-weight: bold;
+    font-size: 2.8rem;
+    font-family: "Open Sans", sans-serif;
+    white-space: pre-line;
+    filter: drop-shadow(10px 8px 3px black);
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+  }
+
+  .slide-img {
+    font-size: 5rem;
+  }
+
+  .ImageSlide {
+    display: none;
+  }
+
+  .third-text {
+    bottom: 63%;
+    left: 9%;
+  }
+
+  .third-text h1 {
+    /* Tus estilos personalizados para el texto de la tercera diapositiva */
+    color: #fff; /* Ejemplo: cambiar el color del texto */
+    font-style: italic; /* Ejemplo: cambiar a cursiva */
+    /* Otros estilos que necesites */
+    font-size: 2.5rem;
+  }
+
+  
+.second-button {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background-color: #fff; 
-  border: none;
-  cursor: pointer;
+  bottom: 49%;
+  left: 22%;
+  color: white;
+  padding: 0px;
+  width: 56%;
+  height: 11%;
 }
 
-.swiper-button-prev {
-  left: 10px;
-}
+  .third-button {
+    position: absolute;
+    bottom: 36%;
+    left: 23%;
+    color: white;
+    padding: 0px;
+    width: 54%;
+    height: 11%;
+  }
 
-.swiper-button-next {
-  right: 10px;
+  .four-button {
+    position: absolute;
+    bottom: 44%;
+    left: 11%;
+    color: white;
+    padding: 0px;
+    width: 24%;
+  }
+
+  .third-text h1 {
+    bottom: 59%;
+    left: 4%;
+    white-space: pre-line;
+  }
+
+  .four-text {
+    bottom: 53%;
+
+    left: 3%;
+  }
+
+  .four-text h1 {
+    color: #fff;
+    font-size: 3.6rem;
+  }
+
+  .button-image {
+    height: 107px;
+    width: auto;
+    margin-right: 0px;
+    vertical-align: middle;
+    transition: all 0.3s;
+  }
+
+ 
 }
- */
 
 /* ================ pensando en ti =============== */
 
@@ -488,6 +629,7 @@ ion-item.custom-input {
 .button-contacto {
   width: var(--button-width);
   --border-radius: 25px;
+  margin-left: 85px;
 }
 
 ion-content {
@@ -555,7 +697,14 @@ ion-content {
   p {
     font-size: 20px;
   }
+
+  .button-contacto {
+    width: var(--button-width);
+    --border-radius: 25px;
+    margin-left: 43px;
+  }
 }
+
 @media (prefers-color-scheme: dark) {
   .item-container h4 {
     color: white; /* Cambiar el color de h1 en modo oscuro a blanco */

@@ -28,11 +28,15 @@
 
 
 swiper-container {
-  --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #a0e9a6);
-  --swiper-pagination-color: var(--ion-color-primary-contrast, #a0e9a6);
-  --swiper-pagination-bullet-width: var(--swiper-pagination-bullet-size,20px);
-  --swiper-pagination-bullet-height: var(--swiper-pagination-bullet-size,20px);
+  --swiper-pagination-bullet-inactive-color: var(--ion-color-step-500, #ffffff);
+  --swiper-pagination-color: var(--ion-color-primary-contrast, #ffffff);
+  --swiper-pagination-bullet-width: var(--swiper-pagination-bullet-size,25px);
+  --swiper-pagination-bullet-height: var(--swiper-pagination-bullet-size,23px);
+  --swiper-pagination-bullet :var(#e02222);
 }
+
+
+
 
 
 /* Css animations */
