@@ -20,9 +20,9 @@
           <div >
           <img [src]="item.image" class="full-width-image "/>
         </div>
-          <div class="slide-text" [ngClass]="{'second-text': i === 1, 'third-text': i === 2, 'four-text': i == 3} ">
+          <div class="slide-text slide-in-fwd-top" [ngClass]="{'second-text': i === 1, 'third-text': i === 2, 'four-text': i == 3} ">
             <h1>{{ item.text }}</h1>
-            <h1>{{ item.text2 }}</h1>
+            
           </div>
           <div class="slide-subtitles">
             <ul>
@@ -85,7 +85,7 @@
   <br />
   <div class="contendido"></div>
   <div class="pensando-en-ti">
-    <h1 class="rotate-in-2-cw">Pensando en ti</h1>
+    <h1 class="rotate-in-2-cw"><b>Pensando en ti</b></h1>
   </div>
   <div class="pensando-card">
     <ion-grid>
@@ -100,7 +100,7 @@
             <ion-card-content
               ><b>
                 Que comprende varios rubros como equidad de género, personas con
-                discapacidad, adultos mayores grupos vulnerables y madres
+                discapacidad, adultos mayores, grupos vulnerables y madres
                 solteras.</b
               >
             </ion-card-content>
@@ -115,8 +115,8 @@
             <ion-card-content
               ><b>
                 Comprende temas de oportunidades para todos; educación, salud,
-                cultura, calidad de vivienda, deportes y valores de género,
-                personas con discapacidad, adultos .</b
+                cultura, calidad de vivienda, deportes, valores de género,
+                personas con discapacidad y adultos .</b
               >
             </ion-card-content>
           </ion-card>
@@ -146,7 +146,7 @@
 
   <!--============= Posts =============-->
   <div class="conoce-mun">
-    <h2 class="heading text-center color-title">
+    <h2 class="heading text-center color-title rotate-in-2-cw">
       <b>Conoce nuestro municipio.</b>
     </h2>
   </div>
@@ -180,7 +180,7 @@
 
   <!--============= Tramites =============-->
   <div class="tramites-card">
-    <h1>Trámites</h1>
+    <h1 class="rotate-in-2-cw">Trámites</h1>
   </div>
 
   <div class="tramites-card">
@@ -278,7 +278,7 @@
 
   <!-- Sección de Contáctanos -->
   <div class="contacto-section">
-    <h1 class="heading text-center color-title">
+    <h1 class="heading text-center color-title rotate-in-2-cw">
       <b>Contáctanos</b>
     </h1>
   </div>
@@ -332,7 +332,7 @@
               <ion-text>
                 <h4>Redes Sociales</h4>
               </ion-text>
-              <p>Facebook</p>
+              <a style="text-decoration: none; color: grey;" target="_blank" href="https://www.facebook.com/pages/Presidencia-de-Lerdo/172878689438259">Facebook</a>
             </ion-label>
           </div>
         </div>
@@ -360,7 +360,7 @@
               type="text"
               [(ngModel)]="form.nombre"
               required
-              maxlength="9"
+              maxlength="14"
             ></ion-input>
           </ion-item>
 

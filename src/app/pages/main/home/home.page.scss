@@ -31,6 +31,9 @@
   left: 50px;
   color: white;
   padding: 0px;
+  height: 6%;
+  width: 15%;
+  font-size: 26px;
 }
 
 ion-button.slide-button {
@@ -74,10 +77,10 @@ ul li::before {
 
 .slide-subtitles {
   position: absolute;
-  bottom: 53%;
+  bottom: 28%;
   left: 0%;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 5rem;
   font-family: "Open Sans", sans-serif;
   white-space: pre-line;
   filter: drop-shadow(10px 8px 3px black);
@@ -90,7 +93,7 @@ ul li::before {
 }
 .slide-subtitles a:hover {
   color: #8cbd62; /* Color al pasar el mouse por encima del enlace */
-  font-size: 4rem;
+  font-size: 6rem;
 }
 
 .slide-img {
@@ -99,7 +102,7 @@ ul li::before {
 
 .ImageSlide {
   position: absolute;
-  bottom: 7%;
+  bottom: 14%;
   left: 3%;
 }
 
@@ -113,8 +116,8 @@ ul li::before {
 }
 
 .third-text {
-  bottom: 83%;
-  left: 38%;
+  bottom: 76%;
+  left: 45%;
 }
 
 .third-text h1 {
@@ -122,6 +125,12 @@ ul li::before {
   color: #fff; /* Ejemplo: cambiar el color del texto */
   font-style: italic; /* Ejemplo: cambiar a cursiva */
   /* Otros estilos que necesites */
+}
+.mobile-only {
+  display: block;
+}
+.desktop-only {
+  display: none;
 }
 
 .first-button {
@@ -133,7 +142,8 @@ ul li::before {
   left: 70%;
   color: white;
   padding: 0px;
-  width: 24%;
+  width: 20%;
+  height: 13%;
 }
 
 .third-button {
@@ -142,7 +152,8 @@ ul li::before {
   left: 70%;
   color: white;
   padding: 0px;
-  width: 24%;
+  width: 20%;
+  height: 13%;
 }
 
 .button-image {
@@ -191,12 +202,15 @@ ul li::before {
       font-size: 7rem;
     }
   }
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
 
   ion-button.slide-button {
     border-radius: 42px;
-    background-color: #ffffff;
-    color: #000;
-    box-shadow: 0 0 25px white;
   }
 
   .slide-button {
@@ -205,6 +219,7 @@ ul li::before {
     left: 33%;
     width: 50%;
     height: 5%;
+    font-size: 16px;
   }
 
   .first-button {
@@ -251,8 +266,8 @@ ul li::before {
   }
 
   .third-text {
-    bottom: 63%;
-    left: 9%;
+    bottom: 72%;
+    left: 13%;
   }
 
   .third-text h1 {
@@ -263,25 +278,24 @@ ul li::before {
     font-size: 2.5rem;
   }
 
-  
-.second-button {
-  position: absolute;
-  bottom: 49%;
-  left: 22%;
-  color: white;
-  padding: 0px;
-  width: 56%;
-  height: 11%;
-}
+  .second-button {
+    position: absolute;
+    bottom: 55%;
+    left: 15%;
+    color: white;
+    padding: 0px;
+    width: 71%;
+    height: 14%;
+  }
 
   .third-button {
     position: absolute;
-    bottom: 36%;
-    left: 23%;
+    bottom: 35%;
+    left: 15%;
     color: white;
     padding: 0px;
-    width: 54%;
-    height: 11%;
+    width: 71%;
+    height: 14%;
   }
 
   .four-button {
@@ -317,8 +331,6 @@ ul li::before {
     vertical-align: middle;
     transition: all 0.3s;
   }
-
- 
 }
 
 /* ================ pensando en ti =============== */
@@ -398,7 +410,7 @@ ion-avatar {
 .imagen-hover:hover {
   border: 1px solid #f4f4f4;
   border-radius: 15px;
-  box-shadow: 0 0 10px #8cbd62;
+  box-shadow: 0 0 10px #000000;
   background-color: #f4f4f4;
 }
 
@@ -622,7 +634,7 @@ ion-item.custom-input {
 
   &:valid,
   &:valid:focus {
-    --border-color: #28a745; /* Cambiar el color del borde cuando el input es válido (success) */
+    --border-color: #8a8d8b; /* Cambiar el color del borde cuando el input es válido (success) */
   }
 }
 

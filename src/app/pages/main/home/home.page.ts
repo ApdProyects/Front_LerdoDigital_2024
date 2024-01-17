@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Posts } from 'src/assets/data/images';
@@ -20,6 +20,8 @@ declare var Email: any;
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  public isMobile: boolean;
+
   posts: Post[] = [];
   loading: boolean = false;
 
@@ -50,8 +52,7 @@ export class HomePage implements OnInit {
     {
       image: 'assets/fondoLerdo3.jpg',
       ImageSlide: 'assets/movil.png',
-      text: 'Descargue Aquí',
-      text2: 'Disponilble en',
+      text: 'Disponilble en:',
       buttonText: ' Conoce más',
       buttonAction: 'goConocenos',
       secondButtonText: 'Descargar IOS',
@@ -72,8 +73,13 @@ export class HomePage implements OnInit {
     private utilsSvc: UtilsService,
     private AuthService: AuthService,
     private alertController: AlertController,
-    private NavCtrl: NavController
-  ) {}
+    private NavCtrl: NavController,
+    
+  ) {
+
+  }
+
+
 
   passto: string | undefined;
 
@@ -208,6 +214,13 @@ export class HomePage implements OnInit {
         (res: EmailJSResponseStatus) => {
           console.log('SUCCESS!', res.status, res.text);
           this.alert('Éxito', 'Mensaje enviado correctamente');
+          this.form = {
+            nombre: '',
+            correo: '',
+            telefono: '',
+            to_name: '', // Asegúrate de incluir todos los campos necesarios
+            message: ''
+          };
         },
         (error) => {
           console.error('FAILED...', error);
