@@ -15,7 +15,7 @@
         icon="person-outline"
         [control]="form.controls.usuario"
         type="text"
-        label="Nombre completo"
+        label="Nombre completo: "
         maxlength="14"
       ></app-custom-input>
 
@@ -37,7 +37,7 @@
         icon="mail-outline"
         [control]="form.controls.correo"
         type="email"
-        label="Correo"
+        label="Correo: "
         (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
 
@@ -59,7 +59,7 @@
         icon="call-outline"
         [control]="form.controls.telefono"
         type="phone"
-        label="Teléfono"
+        label="Teléfono: "
         (input)="formatoCelularContacto(form.controls.telefono)" 
       ></app-custom-input>
 
@@ -77,7 +77,7 @@
         icon="lock-closed-outline"
         [control]="form.controls.contrasena"
         type="password"
-        label="Contraseña"
+        label="Contraseña: "
 
       ></app-custom-input>
 
@@ -96,7 +96,7 @@
         icon="lock-closed-outline"
         [control]="form.controls.confirmarContrasena"
         type="password"
-        label="Confirmar contraseña"
+        label="Confirmar contraseña: "
       ></app-custom-input>
 
       <div

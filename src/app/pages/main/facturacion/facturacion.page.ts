@@ -773,8 +773,8 @@ export class FacturacionPage implements OnInit {
         event.target.complete();
         const toast = await this.toastController.create({
           message: 'Los datos han sido reiniciados.',
-          duration: 2000,
-          position: 'top',
+          duration: 1500,
+          position: 'bottom',
           color: 'light',
         });
         toast.present();

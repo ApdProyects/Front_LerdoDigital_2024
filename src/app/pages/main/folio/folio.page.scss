@@ -5,6 +5,11 @@
 
 
 }
+.ion-text-center{
+  width: 92%;
+  height: 53px;
+  font-size: 28px;
+}
 
 
 .receipt-card {
@@ -81,11 +86,11 @@ h3{
 }
 
 .label-container{
-  width: 90%
+  width: 85%
 }
 
 .resultado{
-  width: 10%
+  width: 15%
 }
 
 .form-container-folio-catastro {
@@ -189,6 +194,11 @@ h3{
     max-width: 370px;
   }
 
+  .ion-text-center{
+    width: 92%;
+    height: 53px;
+    font-size: 17px;
+  }
 
   .cantidad-container{
     width: 100%; display: flex; text-align: end

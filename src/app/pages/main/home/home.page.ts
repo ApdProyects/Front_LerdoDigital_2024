@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
     {
       image: 'assets/fondoLerdo3.jpg',
       ImageSlide: 'assets/movil.png',
-      text: 'Disponilble en:',
+      text: 'Disponible en:',
       buttonText: ' Conoce más',
       buttonAction: 'goConocenos',
       secondButtonText: 'Descargar IOS',
@@ -117,9 +117,9 @@ export class HomePage implements OnInit {
 
   doRefresh(event: any) {
     setTimeout(() => {
-      this.getPosts();
-
-      event.target.complete();
+      // Recargar la página completamente
+      window.location.reload();
+  
     }, 1000);
   }
 

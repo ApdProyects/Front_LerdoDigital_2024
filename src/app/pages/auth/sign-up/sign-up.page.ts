@@ -20,7 +20,7 @@ export class SignUpPage implements OnInit {
     contrasena: new FormControl('', [Validators.required]),
     confirmarContrasena: new FormControl('', [Validators.required]),
     usuario: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    telefono: new FormControl('',[
+    telefono: new FormControl('',[Validators.required,
       Validators.minLength(10), Validators.maxLength(14)
     ]), 
 

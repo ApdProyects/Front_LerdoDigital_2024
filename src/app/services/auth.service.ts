@@ -9,8 +9,8 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  //dominio = 'https://localhost:44334/';
- dominio = 'https://apir.grupoapd.mx/';
+  dominio = 'https://localhost:44334/';
+ //dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 

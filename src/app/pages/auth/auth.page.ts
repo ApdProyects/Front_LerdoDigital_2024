@@ -167,8 +167,9 @@ export class AuthPage implements OnInit {
 
         const toast = await this.toastController.create({
           message: 'Los datos han sido reiniciados.',
-          duration: 2000,
+          duration: 1500,
           position: 'bottom',
+          color: 'light'
         });
         toast.present();
       }, 2000);

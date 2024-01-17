@@ -112,7 +112,8 @@ ul li::before {
 }
 
 .second-text h1 {
-  font-size: 5rem;
+  font-size: 8rem;
+  font-style: italic; 
 }
 
 .third-text {
@@ -121,10 +122,9 @@ ul li::before {
 }
 
 .third-text h1 {
-  /* Tus estilos personalizados para el texto de la tercera diapositiva */
-  color: #fff; /* Ejemplo: cambiar el color del texto */
-  font-style: italic; /* Ejemplo: cambiar a cursiva */
-  /* Otros estilos que necesites */
+ 
+  font-style: italic; 
+ 
 }
 .mobile-only {
   display: block;
@@ -139,7 +139,7 @@ ul li::before {
 .second-button {
   position: absolute;
   bottom: 55%;
-  left: 70%;
+  left: 64%;
   color: white;
   padding: 0px;
   width: 20%;
@@ -149,7 +149,7 @@ ul li::before {
 .third-button {
   position: absolute;
   bottom: 35%;
-  left: 70%;
+  left: 64%;
   color: white;
   padding: 0px;
   width: 20%;
@@ -230,8 +230,8 @@ ul li::before {
   }
 
   .second-text {
-    bottom: 73%;
-    left: 3%;
+    bottom: 68%;
+    left: 2%;
   }
 
   .second-text h1 {
