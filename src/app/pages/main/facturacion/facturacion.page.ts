@@ -59,6 +59,7 @@ export class FacturacionPage implements OnInit {
   isOpen = false;
   isOpenfolio = true;
   isOpencaptura = false;
+  accesoDirecto: boolean = false;
   isOpenInfoRFC = false;
   info = {
     subtotal: 300,
@@ -237,10 +238,10 @@ export class FacturacionPage implements OnInit {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'El RFC ingresado no tiene un registro, debe darse de alta para poder facturar',
-        icon: 'warning', // Puedes cambiar el ícono según necesites
+        icon: 'warning', 
         confirmButtonText: 'Aceptar',
         customClass: {
-          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+          popup: 'alertDanger', 
         },
       }).then(() => {
         // Lógica adicional después de cerrar la alerta
@@ -317,6 +318,12 @@ export class FacturacionPage implements OnInit {
 
     loading.dismiss();
   }
+  async accesoDirectoAlFormulario() {
+    this.isOpenfolio = false;
+    this.isOpencaptura = true;
+    this.isOpenInfoRFC = false;
+  }
+
   async guardarcliente() {
     /* debugger; */
     var respuesta: any;

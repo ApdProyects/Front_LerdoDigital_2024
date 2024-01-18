@@ -140,6 +140,16 @@ ion-alert .alert-wrapper {
   --background: white; /* Cambia #FFD700 al color que desees */
 }
 
+.action-sheet-container.sc-ion-action-sheet-md{
+  --background: white;
+}
+
+@media (min-width: 768px) {
+  ion-menu {
+    display: none;
+  }
+}
+
 
 // src/global.scss
 

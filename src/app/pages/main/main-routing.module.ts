@@ -22,6 +22,11 @@ const routes: Routes = [
         loadChildren: () => import('./facturacion/facturacion.module').then( m => m.FacturacionPageModule)
       },
       {
+        path: 'facturacion/:IIN_CLAVE',
+        loadChildren: () => import('./facturacion/facturacion.module').then( m => m.FacturacionPageModule)
+      },
+      
+      {
         path: 'folio',
         loadChildren: () => import('./folio/folio.module').then( m => m.FolioPageModule)
       },

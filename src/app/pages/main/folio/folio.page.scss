@@ -195,9 +195,9 @@ h3{
   }
 
   .ion-text-center{
-    width: 92%;
-    height: 53px;
-    font-size: 17px;
+    width: 99%;
+    height: 52px;
+    font-size: 14px;
   }
 
   .cantidad-container{
@@ -215,5 +215,9 @@ h3{
   h3{
     font-size: 1rem;
     padding-left: 20px
+  }
+
+  ion-menu {
+    display: block;
   }
 }

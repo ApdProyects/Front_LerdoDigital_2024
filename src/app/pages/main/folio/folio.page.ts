@@ -47,6 +47,10 @@ import Swal from 'sweetalert2';
   ],
 })
 export class FolioPage implements OnInit {
+
+
+
+
   miEstilo = { background: 'transparent' };
   consultaFolio: any;
   Noticias: any;
@@ -155,6 +159,12 @@ export class FolioPage implements OnInit {
   totalpredial: any;
 
   textDescuento: any = '';
+  pages = [
+    {title : 'Inicio', url:'/main/folio', icon:'home-outline'},
+    {title : 'Facturación', url:'/main/facturacion', icon:'folder-outline'},
+    {title : 'Perfil', url:'', icon:'person-outline'},
+    /* {title : 'Perfil', url:'/main/profile', icon:'person-outline'} */
+  ]
 
   constructor(
     private utilsSvc: UtilsService,

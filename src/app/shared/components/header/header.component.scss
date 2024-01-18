@@ -32,7 +32,9 @@ ion-button.button {
   --cursor: pointer;
 }
 .salir{
-  font-size: 20px;
+  font-size: 42px;
+    cursor: pointer;
+    transform: scale(-1);
 }
 
 /* Estilos para dispositivos móviles */

@@ -39,9 +39,14 @@ h4 {
 
 .auth-form {
   width: 100%;
-  padding: 100px;
+  padding: 25px;
 }
 
+
+
+.altaRFC{
+  text-align: center;
+}
 
 
 .form-container {
@@ -68,12 +73,26 @@ h4 {
 
 }
 
+ion-item {
+  --background: var(--ion-color-step-50, #ffffff);
+  --border-color: var(--ion-color-step-500, rgb(207, 207, 207));
+  --border-radius: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  min-height: 56px;
+}
+ion-select{
+  --background: white;
+}
 
+.action-sheet-container.sc-ion-action-sheet-md{
+  --background: white;
+}
 
 @media screen and (max-width: 767px) {
   .auth-form {
     width: 100%;
-    padding: 35px;
+    padding: 10px;
     
   }
 

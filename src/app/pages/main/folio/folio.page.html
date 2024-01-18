@@ -1,5 +1,8 @@
-<app-header Salir="true" title="" >
+<app-header Salir="true" title="" shouldShowHorizontalMenu2="true">
 </app-header>
+
+
+
 
 <!-- ============================================= Consultar folio de pago o clave catastral   ============================================= -->
 
@@ -512,7 +515,7 @@
                   shape="round"
                   color="success"
                   ><ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
-                  &nbsp;<b>Regresar</b></ion-button
+                  <b>Regresar</b></ion-button
                 >
               </ion-col>
 
@@ -520,6 +523,7 @@
                 <ion-button
                   *ngIf="importepredial > 0"
                   (click)="pagar()"
+                  class="ion-text-center"
                   color="success"
                   expand="block"
                   shape="round"

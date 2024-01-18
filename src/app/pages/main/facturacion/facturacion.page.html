@@ -1,7 +1,7 @@
 <app-header
   class="ion-no-border"
   MenuButton="MenuButton"
-  shouldShowHorizontalMenu="shouldShowHorizontalMenu"
+  shouldShowHorizontalMenu2="true"
   Logo="Logo"
   Manual="Manual"
 >
@@ -19,7 +19,7 @@
         DEL MUNICIPIO CFDI 4.0</b
       >
     </h1>
-    <br>
+    <br />
 
     <div class="form-container">
       <div *ngIf="isOpenfolio">
@@ -32,10 +32,10 @@
           [(ngModel)]="folio"
           maxlength="17"
           onkeyup="this.value = this.value.toUpperCase()"
-        ></ion-input
-      ></div>
+        ></ion-input>
+      </div>
 
-      <br />
+  
 
       <div *ngIf="isOpenfolio || isOpencaptura || isOpenInfoRFC">
         <p *ngIf="isOpenInfoRFC">
@@ -46,6 +46,7 @@
         <ion-input
           type="text"
           label="Ingrese su RFC"
+          *ngIf="isOpenInfoRFC"
           label-placement="floating"
           color="success"
           fill="solid"
@@ -74,137 +75,160 @@
         </ion-select>
       </div>
 
-      <br *ngIf="isOpencaptura" />
-      <ion-title
-        *ngIf="isOpencaptura"
-        size="small"
-        color="primary"
-        class="text-center"
-        >ALTA DE RFC</ion-title
-      >
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Nombre</ion-label>
-        <ion-input
-          Nombre=""
-          placeholder="Nombre,denominación ó Razón Social"
-          [(ngModel)]="nombre"
-          required
-          onkeyup="this.value = this.value.toUpperCase();"
-        ></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Tipo persona</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          interface="action-sheet"
-          [(ngModel)]="tipo_persona"
-          cancelText="Cancelar"
-        >
-          <ion-select-option value="F">Fisica</ion-select-option>
-          <ion-select-option value="M">Moral</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <div *ngIf="isOpencaptura" >
+        <div class="form_container">
+          <ion-title
+            *ngIf="isOpencaptura"
+            size="large"
+            color=""
+            class="altaRFC"
+            ><b>ALTA DE RFC</b></ion-title
+          >
+          <br>
 
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          interface="action-sheet"
-          [(ngModel)]="regimen"
-          cancelText="Cancelar"
-        >
-          <ion-select-option *ngFor="let r of Regimen_fiscal" value="{{r[0]}}"
-            >{{r[2]}}</ion-select-option
-          >
-        </ion-select>
-      </ion-item>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input
+              Nombre=""
+              label-placement="floating"
+              fill="solid"
+              placeholder="Nombre,denominación ó Razón Social"
+              [(ngModel)]="nombre"
+              required
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Tipo persona</ion-label>
+            <ion-select
+              placeholder="Seleccione"
 
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Dirección</ion-label>
-        <ion-input
-          Nombre=""
-          placeholder="Dirección segun su Constancia Físcal"
-          [(ngModel)]="direccion"
-          onkeyup="this.value = this.value.toUpperCase();"
-        ></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Colonia</ion-label>
-        <ion-input
-          Nombre=""
-          placeholder="Colonia según su Constancia Físcal"
-          [(ngModel)]="colonia"
-          onkeyup="this.value = this.value.toUpperCase();"
-        ></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Estado</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          interface="action-sheet"
-          [(ngModel)]="estado"
-          okText="Seleccionar"
-          cancelText="Cancelar"
-          (ngModelChange)="cambioestado()"
-        >
-          <ion-select-option *ngFor="let r of respestado" value="{{r[1]}}"
-            >{{ r[2] }}</ion-select-option
+              [(ngModel)]="tipo_persona"
+              label-placement="floating"
+              cancelText="Cancelar"
+              fill="solid"
+              expandedIcon="remove"
+              color="success"
+              
+            >
+              <ion-select-option value="F">Fisica</ion-select-option>
+              <ion-select-option value="M">Moral</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+              
+              [(ngModel)]="regimen"
+              cancelText="Cancelar"
+            >
+              <ion-select-option
+                *ngFor="let r of Regimen_fiscal"
+                value="{{r[0]}}"
+                >{{r[2]}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Dirección</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Dirección segun su Constancia Físcal"
+              [(ngModel)]="direccion"
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Colonia</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Colonia según su Constancia Físcal"
+              [(ngModel)]="colonia"
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Estado</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+            
+              [(ngModel)]="estado"
+              okText="Seleccionar"
+              cancelText="Cancelar"
+              (ngModelChange)="cambioestado()"
+            >
+              <ion-select-option *ngFor="let r of respestado" value="{{r[1]}}"
+                >{{ r[2] }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Municipio</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+              interface="action-sheet"
+              [(ngModel)]="municipio"
+              okText="Seleccionar"
+              cancelText="Cancelar"
+            >
+              <ion-select-option
+                *ngFor="let r of modmunicipios"
+                value="{{r[2]}}"
+                >{{ r[3] }}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Codigo Postal</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Código Postal segun su Constancia Físcal"
+              [(ngModel)]="CP"
+              maxlength="6"
+            ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Correo</ion-label>
+            <ion-input Nombre="" [(ngModel)]="email" required></ion-input>
+          </ion-item>
+          <br>
+          <ion-item *ngIf="isOpencaptura">
+            <ion-label position="stacked">Celular</ion-label>
+            <ion-input
+              Nombre=""
+              [(ngModel)]="celular"
+              required
+              maxlength="10"
+            ></ion-input>
+          </ion-item>
+          <br>
+        </div>
+        <ion-item *ngIf="isRegimen">
+          <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
+          <ion-select
+            placeholder="Seleccione"
+            
+            [(ngModel)]="regimen"
+            cancelText="Cancelar"
           >
-        </ion-select>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Municipio</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          interface="action-sheet"
-          [(ngModel)]="municipio"
-          okText="Seleccionar"
-          cancelText="Cancelar"
-        >
-          <ion-select-option *ngFor="let r of modmunicipios" value="{{r[2]}}"
-            >{{ r[3] }}</ion-select-option
-          >
-        </ion-select>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Codigo Postal</ion-label>
-        <ion-input
-          Nombre=""
-          placeholder="Código Postal segun su Constancia Físcal"
-          [(ngModel)]="CP"
-          maxlength="6"
-        ></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Correo</ion-label>
-        <ion-input Nombre="" [(ngModel)]="email" required></ion-input>
-      </ion-item>
-      <ion-item *ngIf="isOpencaptura">
-        <ion-label position="stacked">Celular</ion-label>
-        <ion-input
-          Nombre=""
-          [(ngModel)]="celular"
-          required
-          maxlength="10"
-        ></ion-input>
-      </ion-item>
-      <br />
+            <!-- <ion-select-option value="" style="color: gray;">RÉGIMEN FISCAL</ion-select-option>-->
+            <ion-select-option *ngFor="let r of Regimen_fiscal" value="{{r[0]}}"
+              >{{r[2]}}</ion-select-option
+            >
+          </ion-select>
+          <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
+        </ion-item>
+      </div>
 
-      <ion-item *ngIf="isRegimen">
-        <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          interface="action-sheet"
-          [(ngModel)]="regimen"
-          cancelText="Cancelar"
-        >
-          <!-- <ion-select-option value="" style="color: gray;">RÉGIMEN FISCAL</ion-select-option>-->
-          <ion-select-option *ngFor="let r of Regimen_fiscal" value="{{r[0]}}"
-            >{{r[2]}}</ion-select-option
-          >
-        </ion-select>
-        <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
-      </ion-item>
       <ion-button
         *ngIf="isRegimen"
         size="small"
@@ -213,7 +237,7 @@
         >Guardar Regimen Físcal</ion-button
       >
 
-      <ion-grid fixed  class="buttons-movil">
+      <ion-grid fixed class="buttons-movil">
         <ion-row>
           <ion-col size="12" size-md="6"
             ><ion-button
@@ -240,38 +264,60 @@
               ><b>Validar Información RFC</b></ion-button
             >
           </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-button
+              (click)="accesoDirectoAlFormulario()"
+              *ngIf="isOpenfolio"
+              size="medium"
+              expand="block"
+              mode="ios"
+              color="success"
+              class="buttons-form"
+              ><b>Datos Fiscales</b></ion-button
+            >
+          </ion-col>
         </ion-row>
       </ion-grid>
 
+      <ion-row>
+        <ion-col size="12" size-md="6"
+          >
+
       <ion-button
         *ngIf="isOpencaptura"
-        size="small"
+        size="medium"
         block
         (click)="guardarcliente()"
-        class="ion-margin-top"
+      
+        class="buttons-form"
         expand="block"
         mode="ios"
         color="success"
-        >Guardar</ion-button
+        ><b>Guardar</b></ion-button
+      >
+    </ion-col>
+      <ion-col size="12" size-md="6"
       >
       <ion-button
         *ngIf="isOpencaptura"
-        size="small"
+        size="medium"
         block
         (click)="cancelar()"
-        class="ion-margin-top"
+       
+        class="buttons-form"
         expand="block"
         mode="ios"
         color="success"
-        >Cancelar</ion-button
+        ><b>Cancelar</b></ion-button
       >
+    </ion-col>
+  </ion-row>
 
       <ion-grid fixed class="buttons-movil">
         <ion-row>
           <ion-col size="12" size-md="6">
             <ion-button
               *ngIf="isOpenInfoRFC"
-              
               block
               (click)="enviaInformacion()"
               expand="block"
@@ -280,10 +326,9 @@
               ><b>Enviar Información</b></ion-button
             ></ion-col
           >
-          <ion-col size="12" size-md="6" >
+          <ion-col size="12" size-md="6">
             <ion-button
               *ngIf="isOpenInfoRFC"
-            
               block
               (click)="cancelar()"
               expand="block"
@@ -401,4 +446,4 @@
 
   <br />
 </ion-content>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
