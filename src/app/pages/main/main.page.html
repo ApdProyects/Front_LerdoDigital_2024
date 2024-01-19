@@ -12,7 +12,7 @@
 </ion-header>
   <ion-content> 
     
-    <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of (menuService.activeMenu === 'folio' ? pagesServicios : pages)">
       <ion-item [ngClass]="{'active': currentPath === p.url}" (click)="p.title === 'Contáctanos' ? goContactanos() : navigateTo(p.url)" routerDirection="root">
         <ion-icon slot="start" [name]="p.icon"></ion-icon>
         <ion-label>{{ p.title }}</ion-label>
@@ -21,14 +21,14 @@
   
   </ion-content>
 
-  <!-- <ion-footer>
+   <ion-footer *ngIf="menuService.activeMenu === 'folio'">
     <ion-menu-toggle auto-hide="false" >
       <ion-item lines="none" routerLink="/main/home">
         <ion-icon slot="start"name="log-out-outline"></ion-icon>
         <ion-label>Cerrar Sesión</ion-label>
       </ion-item>
     </ion-menu-toggle>
-  </ion-footer> -->
+  </ion-footer> 
 </ion-menu>
 
 <ion-router-outlet id="menu-content" main></ion-router-outlet>

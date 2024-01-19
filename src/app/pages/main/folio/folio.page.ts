@@ -19,6 +19,7 @@ import {
   trigger,
 } from '@angular/animations';
 import Swal from 'sweetalert2';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-folio',
@@ -172,10 +173,12 @@ export class FolioPage implements OnInit {
     private authService: AuthService,
     private NavCtrl: NavController,
     public loadingController: LoadingController,
-    public domsanitizer: DomSanitizer
+    public domsanitizer: DomSanitizer,
+     private menuService: MenuService
   ) {}
 
-  ngOnInit() {this.clearInput()}
+  ngOnInit() {this.clearInput(),  this.menuService.changeMenu('folio');;
+}
   
   async AlertP() {
     const alert = await this.alertController.create({

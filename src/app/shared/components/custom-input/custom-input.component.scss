@@ -10,11 +10,11 @@ ion-content {
 
 
 ion-item.custom-input {
-  --ion-item-background: white; /* Set the background color for the entire item */
+  --ion-item-background: rgb(255, 255, 255); /* Set the background color for the entire item */
   /*  --display: flex;
   --flex-wrap: wrap; */
-  --padding-start: 10px; /* Ajusta el padding interior del ion-item */
-  --padding-end: 1px;
+  --padding-start: 4px;
+  --padding-end: 10px;
   --inner-padding-top: 4px;
   --inner-padding-bottom: 4px;
   min-height: 10px;
@@ -24,11 +24,11 @@ ion-item.custom-input {
 ion-input.custom {
   --border: 1px solid #f4f4f4;
   --box-shadow: 0 0 10px #0f959c;
-  --background: white;
+  --background: rgb(255, 255, 255);
   --border-bottom: 20%;
   font-size: 14px; /* Reduce el tamaño del texto del input */
-  --padding-start: 20px; /* Ajusta el padding interior del input */
-  --padding-end: 4px;
+  --padding-start: 10px; /* Ajusta el padding interior del input */
+  --padding-end: 1px;
 }
 
 .custom-input {
@@ -58,6 +58,7 @@ ion-input.custom {
   font-size: 13px;
   text-align: center;
 }
+
 
 @media (min-width: 769px) {
   .auth-form {

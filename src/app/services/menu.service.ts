@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MenuService {
+  activeMenu: string = 'default';
+
+  changeMenu(menu: string) {
+    
+    this.activeMenu = menu;}
+  constructor() { }
+}

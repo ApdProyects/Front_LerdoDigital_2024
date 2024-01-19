@@ -12,7 +12,8 @@ class="custom"
 >
 </ion-input>
 
-<ion-button *ngIf="isPassword" (click)="showOrHidePassword()" slot="end" fill="clear" shape="round" >
+<ion-button *ngIf="isPassword" (click)="showOrHidePassword()" slot="end" fill="clear" 
+mode="ios"    shape="round">
 
   <ion-icon slot="icon-only" [name]="hide ? 'eye-outline': 'eye-off-outline'" color="success" class=""></ion-icon>
 </ion-button>

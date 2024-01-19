@@ -53,6 +53,10 @@ ion-button.button {
     } */
   }
 
+  .salir{
+   display: none;
+  }
+
   ion-toolbar {
     height: 65px;
     /* Permitir que el ion-toolbar ajuste automáticamente su altura */

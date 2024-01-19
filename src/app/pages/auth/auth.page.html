@@ -1,6 +1,5 @@
 <app-header
-
-  
+  MenuButton="true"
 Salir="true"
 ></app-header>
 
@@ -15,7 +14,7 @@ Salir="true"
       (ngSubmit)="submit()"
       (keypress.enter)="submit()"
     >
-      <app-logo></app-logo>
+      <app-logo Logo="true"></app-logo>
 
       <!--============= email ============-->
 
@@ -69,6 +68,7 @@ Salir="true"
         type="submit"
         [disabled]="form.invalid"
         color="success"
+        shape="round"
       >
         Ingresar
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
@@ -81,6 +81,7 @@ Salir="true"
         mode="ios"
         fill="outline"
         color="success"
+        shape="round"
       >
         Resgistrar
         <ion-icon slot="end" name="person-add-outline"></ion-icon>
@@ -88,4 +89,4 @@ Salir="true"
     </form>
   </div>
 </ion-content>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

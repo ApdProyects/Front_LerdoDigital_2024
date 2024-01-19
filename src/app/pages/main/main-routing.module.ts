@@ -30,6 +30,10 @@ const routes: Routes = [
         path: 'folio',
         loadChildren: () => import('./folio/folio.module').then( m => m.FolioPageModule)
       },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
     ]
   },
   {
@@ -68,6 +72,11 @@ const routes: Routes = [
     path: 'documentacion/QR/salida-para-corralon',
     loadChildren: () => import('./documentacion/QR/salida-para-corralon/salida-para-corralon.module').then( m => m.SalidaParaCorralonPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+
 
  
 

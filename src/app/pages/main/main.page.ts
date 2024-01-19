@@ -1,5 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,  NavigationEnd } from '@angular/router';
+import { MenuService } from 'src/app/services/menu.service';
+
+
 
 @Component({
   selector: 'app-main',
@@ -7,14 +10,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.page.scss'],
 })
 export class MainPage implements OnInit {
-
   pages = [
-    {title : 'Inicio', url:'/main/home', icon:'home-outline'},
-    {title : 'Servicios', url:'/main/servicios', icon:'folder-outline'},
-    {title : 'Contáctanos', url:'', icon:'mail-outline'},
-    /* {title : 'Perfil', url:'/main/profile', icon:'person-outline'} */
-  ]
+    { title: 'Inicio', url: '/main/home', icon: 'home-outline' },
+    { title: 'Servicios', url: '/main/servicios', icon: 'folder-outline' },
+    { title: 'Contáctanos', url: '', icon: 'mail-outline' },
+  ];
 
+  pagesServicios = [
+    { title: 'Inicio', url: '/main/folio', icon: 'home-outline' },
+    {
+      title: 'Facturación',
+      url: '/main/facturacion',
+      icon: 'document-text-outline',
+    },
+    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' },
+  ];
+
+  activePages: Array<any>;
+
+  changeMenu(page: string) {
+    if (page === 'folio' || 'facturacion' || 'perfil') {
+      this.activePages = this.pagesServicios;
+      console.log(this.pagesServicios);
+    } else {
+      this.activePages = this.pages;
+      console.log(this.pages);
+    }
+    console.log('Menú cambiado a: ', page);
+  }
+
+  constructor(private router: Router, public menuService: MenuService,) {}
 
   passto: string | undefined;
   public salida(className: string): void {
@@ -31,14 +56,22 @@ export class MainPage implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  router = inject(Router);
   currentPath: string = '';
 
-
   ngOnInit() {
-    this.router.events.subscribe((event: any)=>{
-      if(event?.url) this.currentPath = event.url;
-    })
+    this.menuService.changeMenu('default'); // Establecer menú por defecto
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        // Cambia el menú basado en la ruta
+        if (event.url.includes('/folio') || event.url.includes('/facturacion')  || event.url.includes('/perfil')) {
+          this.menuService.changeMenu('folio');
+        } else {
+          this.menuService.changeMenu('default');
+        }
+      }
+    });
   }
 
+
 }
+

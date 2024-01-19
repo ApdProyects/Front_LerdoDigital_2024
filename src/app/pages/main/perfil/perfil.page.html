@@ -1,15 +1,18 @@
-<app-header backButton="/main/home" title="Registro"></app-header>
-
+<app-header
+  Salir="true"
+  title=""
+  shouldShowHorizontalMenu2="true"
+  MenuButton="true"
+>
+</app-header>
 <ion-content>
-  <div class="d-flex-center">
-    <form
-      [formGroup]="form"
-      class="auth-form"
-      (ngSubmit)="submit()"
-      (keypress.enter)="submit()"
-    >
-      <app-logo></app-logo>
-      <!--============= Name ============-->
+  <form [formGroup]="form" class="auth-form">
+    <app-logo User="true"></app-logo>
+    <h1>
+      <b>Datos del Usuario</b>
+    </h1>
+
+    <div class="form-container">
       <app-custom-input
         autocomplete="name"
         icon="person-outline"
@@ -31,7 +34,6 @@
         </div>
       </div>
 
-      <!--============= email ============-->
       <app-custom-input
         autocomplete="email"
         icon="mail-outline"
@@ -53,32 +55,29 @@
         </div>
       </div>
 
-      <!--============= Telefono ============-->
       <app-custom-input
         autocomplete="phone"
         icon="call-outline"
         [control]="form.controls.telefono"
         type="phone"
         label="Teléfono: "
-        (input)="formatoCelularContacto(form.controls.telefono)" 
+        (input)="formatoCelularContacto(form.controls.telefono)"
       ></app-custom-input>
 
       <div
-      class="validators"
-      *ngIf="form.controls.telefono.errors && form.controls.telefono.touched"
-    >
-      <div *ngIf="form.controls.telefono.errors?.['required']">
-        El número es requerido
-      </div>
+        class="validators"
+        *ngIf="form.controls.telefono.errors && form.controls.telefono.touched"
+      >
+        <div *ngIf="form.controls.telefono.errors?.['required']">
+          El número es requerido
+        </div>
       </div>
 
-      <!--============= Password ============-->
       <app-custom-input
         icon="lock-closed-outline"
         [control]="form.controls.contrasena"
         type="password"
         label="Contraseña: "
-
       ></app-custom-input>
 
       <div
@@ -89,8 +88,6 @@
           La contraseña es requerida
         </div>
       </div>
-
-      <!--============= conf. Password ============-->
 
       <app-custom-input
         icon="lock-closed-outline"
@@ -108,19 +105,40 @@
         </div>
       </div>
 
-      <ion-button
-        expand="block"
-        mode="ios"
-        class="submit"
-        type="submit"
-        [disabled]="form.invalid"
-        color="success"
-        shape="round"
-      >
-        Resgistrar
-        <ion-icon slot="end" name="person-add-outline"></ion-icon>
-      </ion-button>
-    </form>
-  </div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-button
+              expand="block"
+              mode="ios"
+              class="submit"
+              type="submit"
+              [disabled]="form.invalid"
+              color="success"
+              shape="round"
+            >
+              Guardar
+              <ion-icon slot="end" name="person-add-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-button
+              expand="block"
+              mode="ios"
+              class="submit"
+              type="submit"
+              shape="round"
+              [disabled]="form.invalid"
+              color="success"
+            >
+              Cancelar
+              <ion-icon
+                slot="end"
+                name="close-circle-outline"
+              ></ion-icon> </ion-button
+          ></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </form>
 </ion-content>
-<app-footer></app-footer>

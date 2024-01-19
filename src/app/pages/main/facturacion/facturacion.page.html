@@ -23,8 +23,7 @@
 
     <div class="form-container">
       <div *ngIf="isOpenfolio">
-        <ion-label position="stacked"></ion-label>
-        <ion-input
+         <ion-input
           label="Ingrese su folio"
           label-placement="floating"
           color="success"
@@ -34,8 +33,6 @@
           onkeyup="this.value = this.value.toUpperCase()"
         ></ion-input>
       </div>
-
-  
 
       <div *ngIf="isOpenfolio || isOpencaptura || isOpenInfoRFC">
         <p *ngIf="isOpenInfoRFC">
@@ -74,7 +71,7 @@
           >
         </ion-select>
       </div>
-
+<br>
       <div *ngIf="isOpencaptura" >
         <div class="form_container">
           <ion-title

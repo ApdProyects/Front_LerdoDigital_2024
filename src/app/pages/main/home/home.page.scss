@@ -57,7 +57,7 @@ ion-button.slide-button:hover {
 
 .slide-text h1 {
   font-weight: bold;
-  font-size: 7rem;
+  font-size: 6rem;
   font-family: "Open Sans", sans-serif;
   filter: drop-shadow(12px 10px 4px black);
   white-space: pre-line; /* Esto asegura que los saltos de línea se representen */
@@ -77,7 +77,7 @@ ul li::before {
 
 .slide-subtitles {
   position: absolute;
-  bottom: 28%;
+  bottom: 10%;
   left: 0%;
   font-weight: bold;
   font-size: 5rem;
@@ -107,7 +107,7 @@ ul li::before {
 }
 
 .second-text {
-  bottom: 80%;
+  bottom: 85%;
   left: 3%;
 }
 
