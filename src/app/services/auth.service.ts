@@ -9,8 +9,8 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  dominio = 'https://localhost:44334/';
- //dominio = 'https://apir.grupoapd.mx/';
+  //dominio = 'https://localhost:44334/';
+  dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 
@@ -138,12 +138,12 @@ export class AuthService {
     }
   }
 
-  getecupera(telefono) { 
-    let url: string; 
-    url =  this.dominio + 'api/Ciudadanos/Recuperapassword?telefono=' + telefono;
- 
+  getecupera(telefono) {
+    let url: string;
+    url = this.dominio + 'api/Ciudadanos/Recuperapassword?telefono=' + telefono;
+
     return this.http.get(url);
-  } 
+  }
 
   async getformat(idFolio, idConcepto, idDepto, correo) {
     let url: string;
@@ -188,51 +188,56 @@ export class AuthService {
     return this.http.get(url);
   }
 
-
   // FACTURACION
-  getClienteFacturado(RFC) { 
+  getClienteFacturado(RFC) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/Recuperacliente?RFC=' + RFC;
-                        
+    url = this.dominio + 'api/Facturacion/Recuperacliente?RFC=' + RFC;
+
     return this.http.get(url);
   }
-  getFolioFacturado(folio) { 
+  getFolioFacturado(folio) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/Recuperafolio?Folio=' + folio;
-                        
+    url = this.dominio + 'api/Facturacion/Recuperafolio?Folio=' + folio;
+
     return this.http.get(url);
   }
 
-
-  getClienteregimen(rfc) { 
+  getClienteregimen(rfc) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/Recupera_regimen_cliente?RFC=' + rfc;
-                        
+    url = this.dominio + 'api/Facturacion/Recupera_regimen_cliente?RFC=' + rfc;
+
     return this.http.get(url);
   }
-  async postGuardaCliente(rrfc,rnombre,rtipo_persona,rdireccion,rcolonia,rCP,remail,rcelular) { 
+  async postGuardaCliente(
+    rrfc,
+    rnombre,
+    rtipo_persona,
+    rdireccion,
+    rcolonia,
+    rCP,
+    remail,
+    rcelular
+  ) {
     debugger;
     const data = {
-      RFC: rrfc, 
+      RFC: rrfc,
       nombre: rnombre,
       tipo_persona: rtipo_persona,
       direccion: rdireccion,
       colonia: rcolonia,
       CP: rCP,
       email: remail,
-      celular: rcelular
+      celular: rcelular,
     };
- 
+
     const url = this.dominio + 'api/Facturacion/guardacliente';
     const httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-          // 'Authorization': token
-        }
-        )// application/x-www-form-urlencoded
-    }; 
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        // 'Authorization': token
+      }), // application/x-www-form-urlencoded
+    };
 
     try {
       console.log(url);
@@ -242,102 +247,132 @@ export class AuthService {
       throw await error;
     }
   }
-  async getGuardaCliente(rrfc,rnombre,rtipo_persona,rdireccion,rcolonia,rCP,remail,rcelular,restado,rmunicipio,regimen) { 
+  async getGuardaCliente(
+    rrfc,
+    rnombre,
+    rtipo_persona,
+    rdireccion,
+    rcolonia,
+    rCP,
+    remail,
+    rcelular,
+    restado,
+    rmunicipio,
+    regimen
+  ) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/guardacliente?RFC=' + rrfc +
-                                                    '&nombre=' + rnombre + 
-                                                    '&tipopersona=' + rtipo_persona +
-                                                    '&direccion=' + rdireccion +
-                                                    '&colonia=' + rcolonia +
-                                                    '&CP=' + rCP +
-                                                    '&email=' + remail +
-                                                    '&celular=' + rcelular +
-                                                    '&estado=' + restado +
-                                                    '&municipio=' + rmunicipio+
-                                                    '&regimen=' + regimen;
-                         
+    url =
+      this.dominio +
+      'api/Facturacion/guardacliente?RFC=' +
+      rrfc +
+      '&nombre=' +
+      rnombre +
+      '&tipopersona=' +
+      rtipo_persona +
+      '&direccion=' +
+      rdireccion +
+      '&colonia=' +
+      rcolonia +
+      '&CP=' +
+      rCP +
+      '&email=' +
+      remail +
+      '&celular=' +
+      rcelular +
+      '&estado=' +
+      restado +
+      '&municipio=' +
+      rmunicipio +
+      '&regimen=' +
+      regimen;
+
     return this.http.get(url);
   }
-  async getGuardaCliente_regimen(rrfc,regimen) { 
+  async getGuardaCliente_regimen(rrfc, regimen) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/guardacliente_regimen?RFC=' + rrfc +
-                                                    '&regimen=' + regimen;
-                         
+    url =
+      this.dominio +
+      'api/Facturacion/guardacliente_regimen?RFC=' +
+      rrfc +
+      '&regimen=' +
+      regimen;
+
     return this.http.get(url);
   }
-  async getFacturar(rfc,folio) { 
+  async getFacturar(rfc, folio) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/facturar?RFC=' + rfc +
-                                                    '&folio=' + folio;
-                       
+    url =
+      this.dominio + 'api/Facturacion/facturar?RFC=' + rfc + '&folio=' + folio;
+
     return this.http.get(url);
   }
   async recuperaestados() {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/RecuperaEstados';
-                       
+    url = this.dominio + 'api/Facturacion/RecuperaEstados';
+
     return this.http.get(url);
   }
   async recuperamunicipios() {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/RecuperaMunicipios';
-                       
+    url = this.dominio + 'api/Facturacion/RecuperaMunicipios';
+
     return this.http.get(url);
   }
   async getEnvioInfoRFC(RFC) {
     let url: string;
-    url =  this.dominio + 'api/Facturacion/ConfirmacionCliente?RFC=' + RFC;
-                       
+    url = this.dominio + 'api/Facturacion/ConfirmacionCliente?RFC=' + RFC;
+
     return this.http.get(url);
   }
 
   async get_regimen_fiscal() {
-
     const url = this.dominio + 'api/Facturacion/recupera_regimen';
     const httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      )};
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    };
 
     try {
       return await this.http.get(url).pipe();
     } catch (error) {
       throw await error;
     }
-    
   }
   // FIN FACTURACION
-  async getFacturarFolio(rfc,folio,UsoCFDI) { 
-    debugger
+  async getFacturarFolio(rfc, folio, UsoCFDI) {
+    debugger;
     let url: string;
-    url =  this.dominio + 'api/Facturacion/facturar?RFC=' + rfc +
-                                            '&folio=' + folio + 
-                                            '&UsoCFDI=' + UsoCFDI;
-                                           
-                       console.log(url);
+    url =
+      this.dominio +
+      'api/Facturacion/facturar?RFC=' +
+      rfc +
+      '&folio=' +
+      folio +
+      '&UsoCFDI=' +
+      UsoCFDI;
+
+    console.log(url);
     return this.http.get(url);
   }
 
- 
   getmanual() {
     let url: string;
 
-    url =  this.dominio + 'api/Ciudadanos/RecuperaManual';
- 
+    url = this.dominio + 'api/Ciudadanos/RecuperaManual';
+
     return this.http.get(url);
   }
   getmanualfacturacion() {
     let url: string;
 
-    url =  this.dominio + 'api/Ciudadanos/RecuperaManualfacturacion';
- 
+    url = this.dominio + 'api/Ciudadanos/RecuperaManualfacturacion';
+
     return this.http.get(url);
   }
- // CATASTRO --------------------------------------------------------------------------------
-/*   getGeneraCodigo(clave) { 
+  // CATASTRO --------------------------------------------------------------------------------
+  /*   getGeneraCodigo(clave) { 
     let url: string;
     url =  this.dominio + 'api/Catastro/GeneraCodigoAleatorio?clave='+ clave ;
                                                 
@@ -352,5 +387,4 @@ export class AuthService {
  
     return this.http.get(url);
   } */
-
 }

@@ -9,6 +9,7 @@ h1 {
   font-weight: bold;
   line-height: 25px;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 h4 {
@@ -59,6 +60,8 @@ h4 {
   max-width: 600px;
   /* Ancho máximo del cuadro */
   margin: auto;
+
+  margin-top: -60px;
   /* Centrar el cuadro en la página */
   width: 100%;
   /* Hacer que el cuadro ocupe el 100% del ancho disponible */
@@ -67,9 +70,21 @@ h4 {
 }
 
  ion-button.buttons-form{
-  --border-radius: 30px;
+  border-radius: 35px;
   --cursor: pointer;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 1em;
+  transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la transición del efecto hover */
 
+
+}
+
+ion-button.buttons-form:hover {
+  transform: translateY(-2px); /* Eleva ligeramente el botón */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
 
 }
 

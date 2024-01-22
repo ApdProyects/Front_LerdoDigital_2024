@@ -1,11 +1,11 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild,  ChangeDetectorRef } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Posts } from 'src/assets/data/images';
 import { PostDetailComponent } from 'src/app/shared/components/post-detail/post-detail.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, IonContent } from '@ionic/angular';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { register } from 'swiper/element';
 import { Swiper } from 'swiper/types';
@@ -21,9 +21,14 @@ declare var Email: any;
 })
 export class HomePage implements OnInit {
   public isMobile: boolean;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
 
   posts: Post[] = [];
   loading: boolean = false;
+  
+  showScrollButton: boolean = false;
+
 
   form = {
     nombre: '',
@@ -69,17 +74,31 @@ export class HomePage implements OnInit {
     },
   ];
 
+  
+  
+
   constructor(
     private utilsSvc: UtilsService,
     private AuthService: AuthService,
     private alertController: AlertController,
     private NavCtrl: NavController,
+    private cdRef: ChangeDetectorRef
     
   ) {
 
   }
 
+  scrollToTop() {
+    this.content.scrollToTop(1500); // El número representa la duración en milisegundos.
+  }
 
+  logScrolling(e) {
+    if (e.detail.scrollTop > 150) {
+      this.showScrollButton = true;
+    } else {
+      this.showScrollButton = false;
+    }
+  }
 
   passto: string | undefined;
 

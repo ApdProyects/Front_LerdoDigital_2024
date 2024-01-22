@@ -20,8 +20,8 @@
 
 .slide-text {
   position: absolute;
-  bottom: 38%;
-  left: 3%;
+  bottom: 40%;
+  left: 2%;
   color: white;
 }
 
@@ -37,7 +37,7 @@
 }
 
 ion-button.slide-button {
-  --border-color: transparent;
+  --border-color: white;
   --background-hover: white;
   border-radius: 42px;
 }
@@ -57,7 +57,7 @@ ion-button.slide-button:hover {
 
 .slide-text h1 {
   font-weight: bold;
-  font-size: 6rem;
+  font-size: 8rem;
   font-family: "Open Sans", sans-serif;
   filter: drop-shadow(12px 10px 4px black);
   white-space: pre-line; /* Esto asegura que los saltos de línea se representen */
@@ -113,7 +113,7 @@ ul li::before {
 
 .second-text h1 {
   font-size: 8rem;
-  font-style: italic; 
+  font-style: italic;
 }
 
 .third-text {
@@ -122,9 +122,7 @@ ul li::before {
 }
 
 .third-text h1 {
- 
-  font-style: italic; 
- 
+  font-style: italic;
 }
 .mobile-only {
   display: block;
@@ -136,8 +134,9 @@ ul li::before {
 .first-button {
 }
 
-.second-button {
+ion-button.second-button {
   position: absolute;
+  --border-color: transparent;
   bottom: 55%;
   left: 64%;
   color: white;
@@ -146,8 +145,9 @@ ul li::before {
   height: 13%;
 }
 
-.third-button {
+ion-button.third-button {
   position: absolute;
+  --border-color: transparent;
   bottom: 35%;
   left: 64%;
   color: white;
@@ -197,10 +197,10 @@ ul li::before {
     bottom: 55%;
     left: 3%;
     white-space: pre-line;
+  }
 
-    .slide-text h1 {
-      font-size: 7rem;
-    }
+  .slide-text h1 {
+    font-size: 6.5rem;
   }
   .mobile-only {
     display: none;
@@ -235,17 +235,17 @@ ul li::before {
   }
 
   .second-text h1 {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     white-space: pre-line;
   }
 
   .slide-subtitles {
     position: absolute;
     bottom: 36%;
-    left: -20%;
+    left: -22%;
     right: -14%;
     font-weight: bold;
-    font-size: 2.8rem;
+    font-size: 2.7rem;
     font-family: "Open Sans", sans-serif;
     white-space: pre-line;
     filter: drop-shadow(10px 8px 3px black);
@@ -267,7 +267,7 @@ ul li::before {
 
   .third-text {
     bottom: 72%;
-    left: 13%;
+    left: 7%;
   }
 
   .third-text h1 {
@@ -275,27 +275,30 @@ ul li::before {
     color: #fff; /* Ejemplo: cambiar el color del texto */
     font-style: italic; /* Ejemplo: cambiar a cursiva */
     /* Otros estilos que necesites */
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
-  .second-button {
+  ion-button.second-button {
     position: absolute;
+    --border-color: transparent;
     bottom: 55%;
-    left: 15%;
+    left: 18%;
     color: white;
     padding: 0px;
-    width: 71%;
-    height: 14%;
+    width: 69%;
+    height: 13%;
   }
 
-  .third-button {
+  ion-button.third-button {
     position: absolute;
+    --border-color: transparent;
     bottom: 35%;
-    left: 15%;
+    left: 18%;
     color: white;
     padding: 0px;
-    width: 71%;
-    height: 14%;
+    width: 65%;
+    height: 13%;
+
   }
 
   .four-button {
@@ -309,19 +312,18 @@ ul li::before {
 
   .third-text h1 {
     bottom: 59%;
-    left: 4%;
+    left: 12%;
     white-space: pre-line;
   }
 
   .four-text {
     bottom: 53%;
-
-    left: 3%;
+    left: 6%;
   }
 
   .four-text h1 {
     color: #fff;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
 
   .button-image {
@@ -644,6 +646,20 @@ ion-item.custom-input {
   margin-left: 85px;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: block;
+  transition: opacity 0.5s ease;
+  z-index: 1000; /* Asegúrate de que el botón está sobre otros elementos */
+}
+
+
+
+
+
+
 ion-content {
   --keyboard-offset: 0 !important;
 }
@@ -713,7 +729,7 @@ ion-content {
   .button-contacto {
     width: var(--button-width);
     --border-radius: 25px;
-    margin-left: 43px;
+    margin-left: 60px;
   }
 }
 

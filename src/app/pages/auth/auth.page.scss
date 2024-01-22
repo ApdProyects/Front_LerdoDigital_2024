@@ -1,73 +1,76 @@
-
-
-.hand-cursor{
-    cursor: pointer;
+.hand-cursor {
+  cursor: pointer;
 }
 
 ion-button {
-    text-transform: none;
- 
-    
+  text-transform: none;
 }
 
-
-
-
 // safe padding for ios
-.safe-p-bottom{
-    padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
-    padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
+.safe-p-bottom {
+  padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
+  padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
 }
 
 .submit {
-    margin-top: 40px;
-
+  margin-top: 15px;
 }
 
 .empty {
-    text-align: center;
-    padding: 60px;
-    opacity: 30%;
+  text-align: center;
+  padding: 60px;
+  opacity: 30%;
 
-    ion-icon {
-        font-size: 100px;
-    }
+  ion-icon {
+    font-size: 100px;
+  }
 }
 
 .d-flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
 
 .validators {
-    color: var(--ion-color-danger);
-    font-size: 13px;
-    text-align: center;
+  color: var(--ion-color-danger);
+  font-size: 13px;
+  text-align: center;
 }
-
 
 .auth-form {
-    width: 600px;
-    text-align: center;
-    margin: 3%;
-
+  width: 600px;
+  text-align: center;
+  margin: 1%;
 }
 
+ion-button.buttons-form {
+  border-radius: 35px;
+  width: 100%;
 
+  --cursor: pointer;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 1.1em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
+ion-button.buttons-form:hover {
+  transform: translateY(-2px); /* Eleva ligeramente el botón */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
+}
 
 @media screen and (max-width: 768px) {
-    .auth-form {
-        width: 600px;
-        padding: 3%;
-    }
-
+  .auth-form {
+    width: 600px;
+    padding: 3%;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-   p{
-      color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
-    }}
+  p {
+    color: white; /* Cambiar el color de h1 en modo oscuro a blanco */
+  }
+}

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content  (ionScroll)="logScrolling($event)">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -37,7 +37,7 @@
 
           <ion-button
             *ngIf="i !== 1 && i !== 2"
-         
+            shape="round"
             (click)="this[item.buttonAction]()"
             fill="outline"
             class="slide-button first-button"
@@ -49,7 +49,8 @@
             *ngIf="item.secondButtonText"
             (click)="this[item.secondButtonAction]()"
             fill="outline"
-            class="slide-button second-button"
+            class="slide-button second-button "
+           
           >
             <img src="assets/IOS.png" class="button-image" />
            
@@ -60,6 +61,7 @@
             (click)="this[item.thirdButtonAction]()"
             fill="outline"
             class="slide-button third-button"
+          
           >
             <img
               src="assets/Android.png"
@@ -276,6 +278,13 @@
 
   <br />
 
+  <div>
+    <ion-button  *ngIf="showScrollButton" class="scroll-to-top" (click)="scrollToTop()" expand="block" fill="clear" shape="round">
+      ↑ Arriba
+    </ion-button>
+  </div>
+  
+
   <!-- Sección de Contáctanos -->
   <div class="contacto-section">
     <h1 class="heading text-center color-title rotate-in-2-cw">
@@ -418,6 +427,8 @@
       </div>
     </div>
   </div>
+ 
+  
   <br />
   <app-footer></app-footer>
 </ion-content>

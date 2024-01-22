@@ -23,7 +23,7 @@
 
     <div class="form-container">
       <div *ngIf="isOpenfolio">
-         <ion-input
+        <ion-input
           label="Ingrese su folio"
           label-placement="floating"
           color="success"
@@ -34,7 +34,9 @@
         ></ion-input>
       </div>
 
-      <div *ngIf="isOpenfolio || isOpencaptura || isOpenInfoRFC">
+      <br />
+
+      <div *ngIf="isOpenfolio || isOpenInfoRFC">
         <p *ngIf="isOpenInfoRFC">
           Se enviará la información al correo dado de alta en el RFC para su
           validación.
@@ -43,8 +45,8 @@
         <ion-input
           type="text"
           label="Ingrese su RFC"
-          *ngIf="isOpenInfoRFC"
           label-placement="floating"
+          
           color="success"
           fill="solid"
           [(ngModel)]="rfc"
@@ -71,19 +73,16 @@
           >
         </ion-select>
       </div>
-<br>
-      <div *ngIf="isOpencaptura" >
-        <div class="form_container">
-          <ion-title
-            *ngIf="isOpencaptura"
-            size="large"
-            color=""
-            class="altaRFC"
+      <br />
+      <div *ngIf="isOpencaptura">
+        <div class="form_container" >
+          <ion-title *ngIf="isOpencaptura" size="large" color="" class="altaRFC"
             ><b>ALTA DE RFC</b></ion-title
           >
+
           <br>
 
-          <ion-item *ngIf="isOpencaptura">
+          <ion-item *ngIf="isOpencaptura"  >
             <ion-label position="stacked">Nombre</ion-label>
             <ion-input
               Nombre=""
@@ -95,30 +94,27 @@
               onkeyup="this.value = this.value.toUpperCase();"
             ></ion-input>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Tipo persona</ion-label>
             <ion-select
               placeholder="Seleccione"
-
               [(ngModel)]="tipo_persona"
               label-placement="floating"
               cancelText="Cancelar"
               fill="solid"
               expandedIcon="remove"
               color="success"
-              
             >
               <ion-select-option value="F">Fisica</ion-select-option>
               <ion-select-option value="M">Moral</ion-select-option>
             </ion-select>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
             <ion-select
               placeholder="Seleccione"
-              
               [(ngModel)]="regimen"
               cancelText="Cancelar"
             >
@@ -129,7 +125,7 @@
               >
             </ion-select>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Dirección</ion-label>
             <ion-input
@@ -139,7 +135,7 @@
               onkeyup="this.value = this.value.toUpperCase();"
             ></ion-input>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Colonia</ion-label>
             <ion-input
@@ -149,12 +145,11 @@
               onkeyup="this.value = this.value.toUpperCase();"
             ></ion-input>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Estado</ion-label>
             <ion-select
               placeholder="Seleccione"
-            
               [(ngModel)]="estado"
               okText="Seleccionar"
               cancelText="Cancelar"
@@ -165,7 +160,7 @@
               >
             </ion-select>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Municipio</ion-label>
             <ion-select
@@ -182,7 +177,7 @@
               >
             </ion-select>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Codigo Postal</ion-label>
             <ion-input
@@ -192,12 +187,12 @@
               maxlength="6"
             ></ion-input>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Correo</ion-label>
             <ion-input Nombre="" [(ngModel)]="email" required></ion-input>
           </ion-item>
-          <br>
+          <br />
           <ion-item *ngIf="isOpencaptura">
             <ion-label position="stacked">Celular</ion-label>
             <ion-input
@@ -207,13 +202,12 @@
               maxlength="10"
             ></ion-input>
           </ion-item>
-          <br>
+          <br />
         </div>
         <ion-item *ngIf="isRegimen">
           <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
           <ion-select
             placeholder="Seleccione"
-            
             [(ngModel)]="regimen"
             cancelText="Cancelar"
           >
@@ -246,6 +240,7 @@
               expand="block"
               mode="ios"
               color="success"
+              shape="round"
               ><b>Facturar Folio</b></ion-button
             >
           </ion-col>
@@ -258,10 +253,11 @@
               expand="block"
               mode="ios"
               color="success"
+              shape="round"
               ><b>Validar Información RFC</b></ion-button
             >
           </ion-col>
-          <ion-col size="12" size-md="6">
+           <ion-col size="12" size-md="6">
             <ion-button
               (click)="accesoDirectoAlFormulario()"
               *ngIf="isOpenfolio"
@@ -270,6 +266,7 @@
               mode="ios"
               color="success"
               class="buttons-form"
+              shape="round"
               ><b>Datos Fiscales</b></ion-button
             >
           </ion-col>
@@ -277,38 +274,37 @@
       </ion-grid>
 
       <ion-row>
-        <ion-col size="12" size-md="6"
-          >
-
-      <ion-button
-        *ngIf="isOpencaptura"
-        size="medium"
-        block
-        (click)="guardarcliente()"
-      
-        class="buttons-form"
-        expand="block"
-        mode="ios"
-        color="success"
-        ><b>Guardar</b></ion-button
-      >
-    </ion-col>
-      <ion-col size="12" size-md="6"
-      >
-      <ion-button
-        *ngIf="isOpencaptura"
-        size="medium"
-        block
-        (click)="cancelar()"
-       
-        class="buttons-form"
-        expand="block"
-        mode="ios"
-        color="success"
-        ><b>Cancelar</b></ion-button
-      >
-    </ion-col>
-  </ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-button
+            *ngIf="isOpencaptura"
+            size="medium"
+            block
+            (click)="guardarcliente()"
+            class="buttons-form"
+            expand="block"
+            mode="ios"
+            color="success"
+            shape="round"
+            ><ion-icon slot="start" name="person-add-outline"></ion-icon
+            ><b>Guardar</b>
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-button
+            *ngIf="isOpencaptura"
+            size="medium"
+            block
+            (click)="cancelar()"
+            class="buttons-form"
+            expand="block"
+            mode="ios"
+            color="success"
+            shape="round"
+            ><ion-icon slot="start" name="close-circle-outline"></ion-icon
+            ><b> Cancelar</b>
+          </ion-button>
+        </ion-col>
+      </ion-row>
 
       <ion-grid fixed class="buttons-movil">
         <ion-row>
@@ -319,7 +315,10 @@
               (click)="enviaInformacion()"
               expand="block"
               mode="ios"
+              class="buttons-form"
               color="success"
+              shape="round"
+              ><ion-icon slot="start" name="send-outline"></ion-icon
               ><b>Enviar Información</b></ion-button
             ></ion-col
           >
@@ -330,7 +329,10 @@
               (click)="cancelar()"
               expand="block"
               mode="ios"
+              class="buttons-form"
               color="success"
+              shape="round"
+              ><ion-icon slot="start" name="close-circle-outline"></ion-icon
               ><b>Cancelar</b></ion-button
             ></ion-col
           >
