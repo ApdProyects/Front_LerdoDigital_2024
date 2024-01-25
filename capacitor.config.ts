@@ -2,16 +2,16 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'lerdoDig',
+  appName: 'Lerdo Digtal',
   webDir: 'www',
   server: {
     androidScheme: 'https'
   },
   plugins: {
     SplashScreen: {
-      launchShowDuration: 3000,
+      launchShowDuration: 2000,
       //launchAutoHide: true,
-      launchFadeOutDuration: 3000,
+      launchFadeOutDuration: 2000,
       backgroundColor: "#ffffffff",
       //androidSplashResourceName: "splash",
       //androidScaleType: "CENTER_CROP",
