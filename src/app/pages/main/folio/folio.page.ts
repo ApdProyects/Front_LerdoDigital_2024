@@ -290,29 +290,43 @@ export class FolioPage implements OnInit {
     
     await this.NavCtrl.navigateRoot('/element?type=' + this.type_code);
   }
-
+////////////////////
   async sendmail() {
+    debugger;
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Enviando recibo...',
     });
-    await loading.present();
+    await loading.present();         
+    await this.respuesta.forEach(async (array) => {
+      this.data = await array;
+    });
+    let detalle = this.data[0][11]; 
+    console.table(this.data)
 
-    this.type_code = this.folio.substr(0, 2);
-    this.element = this.folio.substr(2, 4);
-    this.type = this.folio.substr(0, 2);
+    this.type_code = this.consultaFolio.substr(0, 2);
+    this.element = this.consultaFolio.substr(2, 4);
+    this.type = this.consultaFolio.substr(0, 2);
 
     let resp: any;
-    let data: any;
+    let data1: any;
 
-    data = await this.authService.getformat(
-      this.folio,
+    this.type_code = this.consultaFolio.substr(0, 2);
+    this.element = this.consultaFolio.substr(2, 4);
+
+
+    data1 = await this.authService.getformat(
+      this.consultaFolio,
       this.type_code,
       this.element,
-      localStorage.getItem('LUS_CORREO')
+      localStorage.getItem('LUS_CORREO'),
+      this.info.subtotal,
+      this.info.descuento,
+      this.info.importe, 
+      detalle
     );
 
-    await data.forEach((element) => {
+    await data1.forEach((element) => {
       resp = element;
     });
 
@@ -355,7 +369,7 @@ export class FolioPage implements OnInit {
     }
     loading.dismiss();
   }
-
+/////////////
   async alert(title: string, msg: string) {
     const alert = this.alertController.create({
       cssClass: 'not_found_alert',

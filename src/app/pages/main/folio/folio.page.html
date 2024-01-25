@@ -344,6 +344,8 @@
                   >&nbsp;<b>pagar</b></ion-button
                 >
 
+                <ion-button (click)="sendmail()" expand="block" data-desc="Reenviar recibo de pago" style="height: 50px;" color="secondary"><ion-icon color="primary" name="paper-plane-outline" style="height: 50px; width: 50px;"></ion-icon>&nbsp;<b>Enviar Recibo</b></ion-button>
+
                 <h3
                   *ngIf="info.estatus == 'COBRADA'"
                   color="primary"
@@ -514,7 +516,7 @@
                   fill="solid"
                   shape="round"
                   color="success"
-                  ><ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
+                  ><ion-icon name="arrow-back-outline"></ion-icon>
                   <b>Regresar</b></ion-button
                 >
               </ion-col>
@@ -527,9 +529,11 @@
                   color="success"
                   expand="block"
                   shape="round"
-                  ><ion-icon name="cash-outline" style="color: white"></ion-icon
+                  ><ion-icon name="cash-outline"></ion-icon
                   >&nbsp;<b>Pagar</b></ion-button
                 >
+
+                 <ion-button (click)="sendmail()" expand="block" data-desc="Reenviar recibo de pago" style="height: 50px;" color="secondary"><ion-icon color="primary" name="paper-plane-outline" style="height: 50px; width: 50px;"></ion-icon>&nbsp;<b>Enviar Recibo</b></ion-button>
 
                 <h3
                   *ngIf="importepredial < 1"

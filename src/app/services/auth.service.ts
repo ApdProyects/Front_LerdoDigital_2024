@@ -9,8 +9,8 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  //dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/';
+  dominio = 'https://localhost:44334/';
+  //dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 
@@ -145,7 +145,7 @@ export class AuthService {
     return this.http.get(url);
   }
 
-  async getformat(idFolio, idConcepto, idDepto, correo) {
+  async getformat(idFolio, idConcepto, idDepto, correo, subTotal, descuento, importe, detalle) {
     let url: string;
 
     url =
@@ -158,7 +158,15 @@ export class AuthService {
       '&id_depto=' +
       idDepto +
       '&correo=' +
-      correo;
+      correo + 
+      '&subtotal=' +
+      subTotal + 
+      '&descuento=' +
+      descuento + 
+      '&importe=' +
+      importe + 
+      '&detalle=' +
+      detalle
 
     return this.http.get(url);
   }
@@ -371,6 +379,11 @@ export class AuthService {
 
     return this.http.get(url);
   }
+
+
+
+
+  
   // CATASTRO --------------------------------------------------------------------------------
   /*   getGeneraCodigo(clave) { 
     let url: string;
