@@ -98,12 +98,12 @@ export class FacturacionPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.respuesta = await this.authService.get_regimen_fiscal();
+   /*  this.respuesta = await this.authService.get_regimen_fiscal();
     await this.respuesta.forEach((element) => {
       console.table(element);
       this.folioDescription = element.map((element: { 2: any }) => element[2]);
     });
-    console.log(this.folioDescription);
+    console.log(this.folioDescription); */
 
     //this.isOpencaptura = true;
     this._route.params.subscribe((params) => {
@@ -114,7 +114,7 @@ export class FacturacionPage implements OnInit {
         this.folio = '';
       }
     });
-    /* debugger; */
+     debugger; 
     this.respuesta = await this.authService.recuperaestados();
 
     await this.respuesta.forEach((element) => {
@@ -129,10 +129,13 @@ export class FacturacionPage implements OnInit {
 
     this.respuesta = await this.authService.get_regimen_fiscal();
     await this.respuesta.forEach((element) => {
-      /* debugger; */
+       debugger; 
       this.Regimen_fiscal = element;
       console.log(this.Regimen_fiscal);
     });
+
+
+  
   }
   async searchfolio() {
     /* debugger; */
@@ -145,6 +148,7 @@ export class FacturacionPage implements OnInit {
       message: 'Cargando...',
     });
     await loading.present();
+    
     if (this.folio === '') {
       Swal.fire({
         title: 'LERDO DIGITAL',
@@ -282,6 +286,7 @@ export class FacturacionPage implements OnInit {
       this.folio,
       this.UsoCFDI
     );
+    console.table(this.respuesta)
 
     await this.respuesta.forEach(async (element) => {
       console.log(element.objetoError);

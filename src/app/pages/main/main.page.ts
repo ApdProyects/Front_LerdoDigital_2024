@@ -17,13 +17,13 @@ export class MainPage implements OnInit {
   ];
 
   pagesServicios = [
-    { title: 'Inicio', url: '/main/folio', icon: 'home-outline' },
+    { title: 'Pagos', url: '/main/folio', icon: 'cash-outline' },
     {
       title: 'Facturación',
       url: '/main/facturacion',
       icon: 'document-text-outline',
-    },
-    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' },
+    }/* ,
+    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' }, */
   ];
 
   activePages: Array<any>;
