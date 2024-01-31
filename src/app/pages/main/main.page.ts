@@ -22,8 +22,8 @@ export class MainPage implements OnInit {
       title: 'Facturación',
       url: '/main/facturacion',
       icon: 'document-text-outline',
-    }/* ,
-    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' }, */
+    },
+    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' },
   ];
 
   activePages: Array<any>;
