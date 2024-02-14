@@ -22,6 +22,8 @@ export class HeaderComponent implements OnInit {
   @Input() Logo!: string;
   @Input() Manual!: string;
   @Input() Salir!: string;
+  nombreUsuario: string = '';
+
 
   constructor(
     private utilsSvc: UtilsService,
@@ -31,7 +33,12 @@ export class HeaderComponent implements OnInit {
     private NavCtrl: NavController
   ) {}
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    this.cargarDatosUsuario();
+
+  }
+
+
 
   passto: string | undefined;
 
@@ -45,6 +52,27 @@ export class HeaderComponent implements OnInit {
     this.passto = 'form-container-contacto';
     this.salida(this.passto);
   }
+
+  cargarDatosUsuario() {
+    const correoUsuario = localStorage.getItem('LUS_CORREO');
+
+    if(correoUsuario){
+      console.log('Correo obtenido desde localStorage:', correoUsuario);
+
+    this.authService.getDatosUsuario(correoUsuario).subscribe({
+      next: (datos) => {
+        console.log('Datos del usuario recibidos desde la API:', datos);
+        this.nombreUsuario = datos.Usuario; // Asumiendo que 'Usuario' es la propiedad que contiene el nombre
+        ({
+          usuario: datos.Usuario,
+        });
+      },
+      error: (error) => console.error(error),
+
+    });
+  } else {
+    console.log('No se encontró el correo del usuario en localStorage.');
+  }}
 
   async ayuda() {
     const loading = await this.LoadingController.create({

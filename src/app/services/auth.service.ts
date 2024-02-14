@@ -9,8 +9,8 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-//dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/';
+  dominio = 'https://localhost:44334/';
+  //dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 
@@ -50,6 +50,20 @@ export class AuthService {
 
     // Utilizando el método get para enviar los parámetros
     return this.http.get(url, { params });
+  }
+
+  getDatosUsuario(correo: string): Observable<any> {
+    const url = `${this.dominio}api/Ciudadanos/obtenerUsuario?correo=${correo}`;
+    return this.http.get(url);
+  }
+
+  actualizarDatosUsuario(datosUsuario: any): Observable<any> {
+    const url = `${this.dominio}api/Ciudadanos/actualizaUsuario`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+      }),
+    };
+    return this.http.put(url, datosUsuario, httpOptions);
   }
 
   forgotPass(telefono: string) {
@@ -145,7 +159,16 @@ export class AuthService {
     return this.http.get(url);
   }
 
-  async getformat(idFolio, idConcepto, idDepto, correo, subTotal, descuento, importe, detalle) {
+  async getformat(
+    idFolio,
+    idConcepto,
+    idDepto,
+    correo,
+    subTotal,
+    descuento,
+    importe,
+    detalle
+  ) {
     let url: string;
 
     url =
@@ -158,15 +181,15 @@ export class AuthService {
       '&id_depto=' +
       idDepto +
       '&correo=' +
-      correo + 
+      correo +
       '&subtotal=' +
-      subTotal + 
+      subTotal +
       '&descuento=' +
-      descuento + 
+      descuento +
       '&importe=' +
-      importe + 
+      importe +
       '&detalle=' +
-      detalle
+      detalle;
 
     return this.http.get(url);
   }
@@ -380,10 +403,6 @@ export class AuthService {
     return this.http.get(url);
   }
 
-
-
-
-  
   // CATASTRO --------------------------------------------------------------------------------
   /*   getGeneraCodigo(clave) { 
     let url: string;

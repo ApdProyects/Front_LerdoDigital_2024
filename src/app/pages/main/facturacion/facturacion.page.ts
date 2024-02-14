@@ -10,8 +10,6 @@ import {
 } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { FacturaFolioRfcComponent } from 'src/app/shared/factura-folio-rfc/factura-folio-rfc.component';
-import { RfcDetailComponent } from 'src/app/shared/rfc-detail/rfc-detail.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   animate,
@@ -536,11 +534,13 @@ export class FacturacionPage implements OnInit {
     }
   }
 
+
   async cancelar() {
     this.isOpen = false;
     this.isOpenfolio = true;
     this.isOpencaptura = false;
     this.isOpenInfoRFC = false;
+    this.isRegimen = false;
     this.folio = '';
     this.rfc = '';
 
@@ -552,6 +552,8 @@ export class FacturacionPage implements OnInit {
     this.email = '';
     this.celular = '';
     this.regimen = '';
+
+  
   }
   async close() {
     this.isOpen = false;

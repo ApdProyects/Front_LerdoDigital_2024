@@ -10,6 +10,7 @@ import {
 } from '@ionic/angular';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { SessionService } from 'src/app/services/session-service.service';
 
 @Component({
   selector: 'app-auth',
@@ -28,7 +29,8 @@ export class AuthPage implements OnInit {
     public LoadingController: LoadingController,
     public router: Router,
     private platform: Platform,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private sessionService: SessionService
   ) {}
 
   ngOnInit() {}
@@ -58,6 +60,7 @@ export class AuthPage implements OnInit {
             localStorage.setItem('LRO_CLAVE', res.LRO_CLAVE);
             localStorage.setItem('LUS_CORREO', res.LUS_CORREO);
             localStorage.setItem('LUS_CLAVE', res.LUS_CLAVE);
+            this.sessionService.cargarNombreUsuario(res.LUS_CORREO);
 
             console.log(
               'LRO_CLAVE almacenado:',
@@ -71,8 +74,10 @@ export class AuthPage implements OnInit {
               'LUS_CLAVE almacenado:',
               localStorage.getItem('LUS_CLAVE')
             );
+            
 
             this.mostrarMensajeBienvenida();
+           
             this.redirigirASiguientePagina();
           }
         },
@@ -155,6 +160,7 @@ export class AuthPage implements OnInit {
   redirigirASiguientePagina() {
     console.log('Redirigiendo a la siguiente página...');
     this.router.navigate(['/main/folio']);
+    
   }
 
   async doRefresh(event: any) {

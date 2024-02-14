@@ -117,8 +117,8 @@ ul li::before {
 }
 
 .third-text {
-  bottom: 76%;
-  left: 45%;
+  bottom: 43%;
+  left: 1%;
 }
 
 .third-text h1 {
@@ -266,8 +266,8 @@ ion-button.third-button {
   }
 
   .third-text {
-    bottom: 72%;
-    left: 7%;
+    bottom: 49%;
+    left: 12%;
   }
 
   .third-text h1 {
@@ -298,7 +298,6 @@ ion-button.third-button {
     padding: 0px;
     width: 65%;
     height: 13%;
-
   }
 
   .four-button {
@@ -654,11 +653,6 @@ ion-item.custom-input {
   transition: opacity 0.5s ease;
   z-index: 1000; /* Asegúrate de que el botón está sobre otros elementos */
 }
-
-
-
-
-
 
 ion-content {
   --keyboard-offset: 0 !important;

@@ -54,7 +54,7 @@ export class HomePage implements OnInit {
       text: 'Paga tus servicios',
       subtitles: ['Predial', 'Vialidad', 'Parquímetros'],
     },
-    {
+    /*  {
       image: 'assets/fondoLerdo3.jpg',
       ImageSlide: 'assets/movil.png',
       text: 'Disponible en:',
@@ -65,7 +65,7 @@ export class HomePage implements OnInit {
       thirdButtonText: 'Descargar Android',
       thirdButtonAction: 'Android'
       
-    },
+    },  */
     {
       image: 'assets/fondoLerdo4.jpg',
       text: 'Contáctanos',

@@ -6,7 +6,7 @@
 >
 </app-header>
 <ion-content>
-  <form [formGroup]="form" class="auth-form">
+  <form [formGroup]="form"  class="auth-form">
     <app-logo User="true"></app-logo>
     <h1>
       <b>Datos del Usuario</b>
@@ -14,11 +14,12 @@
 
     <div class="form-container">
       <app-custom-input
+      
         autocomplete="name"
         icon="person-outline"
         [control]="form.controls.usuario"
         type="text"
-        label="Nombre completo: "
+        label="Nombre usuario "
         maxlength="14"
       ></app-custom-input>
 
@@ -40,6 +41,7 @@
         [control]="form.controls.correo"
         type="email"
         label="Correo: "
+        [readonly]="true"
         (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
 
@@ -73,7 +75,7 @@
         </div>
       </div>
 
-      <app-custom-input
+     <!--  <app-custom-input
         icon="lock-closed-outline"
         [control]="form.controls.contrasena"
         type="password"
@@ -87,23 +89,9 @@
         <div *ngIf="form.controls.contrasena.errors?.['required']">
           La contraseña es requerida
         </div>
-      </div>
+      </div> -->
 
-      <app-custom-input
-        icon="lock-closed-outline"
-        [control]="form.controls.confirmarContrasena"
-        type="password"
-        label="Confirmar contraseña: "
-      ></app-custom-input>
-
-      <div
-        class="validators"
-        *ngIf="form.controls.confirmarContrasena.errors && form.controls.confirmarContrasena.touched"
-      >
-        <div *ngIf="form.controls.confirmarContrasena.errors?.['required']">
-          La contraseña es requerida
-        </div>
-      </div>
+      
 
       <ion-grid fixed>
         <ion-row>
@@ -113,9 +101,10 @@
               mode="ios"
               class="submit buttons-form"
               type="submit"
-              [disabled]="form.invalid"
+              (click)="actualizarDatosUsuario()"
               color="success"
               shape="round"
+              
             >
               Guardar
               <ion-icon slot="end" name="person-add-outline"></ion-icon>
@@ -129,6 +118,7 @@
               type="submit"
               shape="round"
               color="success"
+            
             >
               Cancelar
               <ion-icon
