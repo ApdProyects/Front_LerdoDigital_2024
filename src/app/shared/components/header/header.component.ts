@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
 
     this.authService.getDatosUsuario(correoUsuario).subscribe({
       next: (datos) => {
-        console.log('Datos del usuario recibidos desde la API:', datos);
+        /* console.log('Datos del usuario recibidos desde la API:', datos); */
         this.nombreUsuario = datos.Usuario; // Asumiendo que 'Usuario' es la propiedad que contiene el nombre
         ({
           usuario: datos.Usuario,

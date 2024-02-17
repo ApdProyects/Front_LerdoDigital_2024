@@ -1,4 +1,4 @@
-<ion-content  (ionScroll)="logScrolling($event)">
+<ion-content (ionScroll)="logScrolling($event)">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -9,25 +9,29 @@
         #swiper
         (afterinit)="SwiperReady()"
         (slidechange)="swiperSlideChanged($event)"
-        [loop]="false"
+        [loop]="true"
         [pagination]="{
           clickable: true,
           dynamicBullets: true
         }"
-        [autoplay]="{delay: 6000}"
+        [autoplay]="{delay: 5000}"
       >
-        <swiper-slide *ngFor="let item of images2; let i = index" >
-          <div >
-          <img [src]="item.image" class="full-width-image "/>
-        </div>
-          <div class="slide-text slide-in-fwd-top" [ngClass]="{'second-text': i === 1, 'third-text': i === 2, 'four-text': i == 3} ">
+        <swiper-slide *ngFor="let item of images2; let i = index">
+          <div>
+            <img [src]="item.image" class="full-width-image" />
+          </div>
+          <div
+            class="slide-text slide-in-fwd-top"
+            [ngClass]="{'second-text': i === 1, 'third-text': i === 2, 'four-text': i == 3} "
+          >
             <h1>{{ item.text }}</h1>
-            
           </div>
           <div class="slide-subtitles">
             <ul>
               <li *ngFor="let subtitle of item.subtitles">
-                <a [routerLink]="['/main/servicios']" routerLinkActive="active">{{ subtitle }}</a>
+                <a [routerLink]="['/main/servicios']" routerLinkActive="active"
+                  >{{ subtitle }}</a
+                >
               </li>
             </ul>
           </div>
@@ -49,11 +53,9 @@
             *ngIf="item.secondButtonText"
             (click)="this[item.secondButtonAction]()"
             fill="outline"
-            class="slide-button second-button "
-           
+            class="slide-button second-button"
           >
             <img src="assets/IOS.png" class="button-image" />
-           
           </ion-button>
 
           <ion-button
@@ -61,13 +63,8 @@
             (click)="this[item.thirdButtonAction]()"
             fill="outline"
             class="slide-button third-button"
-          
           >
-            <img
-              src="assets/Android.png"
-              class="button-image"
-            />
-           
+            <img src="assets/Android.png" class="button-image" />
           </ion-button>
         </swiper-slide>
       </swiper-container>
@@ -279,11 +276,17 @@
   <br />
 
   <div>
-    <ion-button  *ngIf="showScrollButton" class="scroll-to-top" (click)="scrollToTop()" expand="block" fill="clear" shape="round">
+    <ion-button
+      *ngIf="showScrollButton"
+      class="scroll-to-top"
+      (click)="scrollToTop()"
+      expand="block"
+      fill="clear"
+      shape="round"
+    >
       ↑ Arriba
     </ion-button>
   </div>
-  
 
   <!-- Sección de Contáctanos -->
   <div class="contacto-section">
@@ -341,7 +344,12 @@
               <ion-text>
                 <h4>Redes Sociales</h4>
               </ion-text>
-              <a style="text-decoration: none; color: grey;" target="_blank" href="https://www.facebook.com/GobLerdo">Facebook</a>
+              <a
+                style="text-decoration: none; color: grey"
+                target="_blank"
+                href="https://www.facebook.com/GobLerdo"
+                >Facebook</a
+              >
             </ion-label>
           </div>
         </div>
@@ -427,8 +435,7 @@
       </div>
     </div>
   </div>
- 
-  
+
   <br />
   <app-footer></app-footer>
 </ion-content>

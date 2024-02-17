@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioService } from 'src/app/services/usuario-service.service';
 
 @Component({
   selector: 'app-perfil',
@@ -23,11 +26,20 @@ export class PerfilPage implements OnInit {
 
   mensajeError: string = '';
   mensajeExito: string = '';
+  nombreUsuario: string;
 
-  constructor(private authService: AuthService) {}
+
+  constructor(private authService: AuthService, private alertController: AlertController, private router: Router, private usuarioService: UsuarioService) {}
 
   ngOnInit() {
+    this.usuarioService.usuarioActual$.subscribe(datosUsuario => {
+      if (datosUsuario) {
+        this.nombreUsuario = datosUsuario.LUS_USUARIO;
+      }
+    });
+  
     this.cargarDatosUsuario();
+    
   }
 
   cargarDatosUsuario(): void {
@@ -38,17 +50,17 @@ export class PerfilPage implements OnInit {
 
       this.authService.getDatosUsuario(correoUsuario).subscribe({
         next: (data) => {
-          console.log('Datos del usuario recibidos desde la API:', data);
+          /* console.log('Datos del usuario recibidos desde la API:', data); */
           this.form.controls.usuario.setValue(data.Usuario),
             this.form.controls.correo.setValue(data.Correo),
             this.form.controls.telefono.setValue(data.Telefono),
-            this.form.controls.contrasena.setValue(data.Contrasena);
+           this.form.controls.contrasena.setValue(data.Contrasena);
 
           this.form.patchValue({
             usuario: data.Usuario,
             correo: data.Correo,
             telefono: data.Telefono,
-            contrasena: data.Contrasena,
+            contrasena: data.Contrasena, 
           });
 
           console.log('Formulario actualizado con los datos del usuario');
@@ -61,32 +73,67 @@ export class PerfilPage implements OnInit {
     }
   }
 
-  // En tu componente de perfil
-  actualizarDatosUsuario(): void {
-    const datosUsuario = {
-      correoOriginal: this.form.value.correo, // Asume que el correo original está en el formulario
-      nuevoCorreo: this.form.value.correo, // Puedes ajustar estos nombres según tu formulario
-      nuevoTelefono: this.form.value.telefono,
-      nuevoUsuario: this.form.value.usuario,
-      nuevaContrasena: this.form.value.contrasena,
-    };
-
-    this.authService.actualizarDatosUsuario(datosUsuario).subscribe({
-      next: (respuesta) => {
-        console.log('Datos del usuario actualizados con éxito', respuesta);
-        this.mensajeExito = 'Datos actualizados correctamente.';
-        // Limpiar mensajeError si estaba presente
-        this.mensajeError = '';
-      },
-      error: (error) => {
-        console.error('Error al actualizar los datos del usuario', error);
-        this.mensajeError =
-          'Ocurrió un error al actualizar los datos. Por favor, intenta nuevamente.';
-        // Limpiar mensajeExito si estaba presente
-        this.mensajeExito = '';
-      },
-    });
+  actualizarPerfil(): void {
+    if (this.form.valid) {
+      this.mostrarAlertaConfirmacion().then((confirmado) => {
+        if (confirmado) {
+          const datosUsuario = {
+            LUS_CLAVE: localStorage.getItem('LUS_CLAVE'), 
+            LUS_USUARIO: this.form.value.usuario,
+            LUS_TELEFONO: this.form.value.telefono
+          };
+  
+          console.log('Enviando datos al servidor:', datosUsuario);
+  
+          this.authService.actualizarDatosUsuario(datosUsuario).subscribe({
+            next: (res) => {
+              console.log('Respuesta exitosa del servidor:', res);
+             
+              this.router.navigate(['main/servicios']); 
+            },
+            error: (error) => {
+              console.error('Error en la solicitud:', error);
+            }
+          });
+        } else {
+          console.log('Actualización cancelada por el usuario.');
+        }
+      });
+    } else {
+      console.error('El formulario es inválido.');
+    }
   }
+  
+  async mostrarAlertaConfirmacion(): Promise<boolean> {
+    let confirmado = false;
+  
+    const alerta = await this.alertController.create({
+      header: 'Confirmación',
+      message: '¿Seguro que quieres cambiar los datos?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            confirmado = false;
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            confirmado = true;
+          }
+        }
+      ]
+    });
+  
+    await alerta.present();
+    await alerta.onDidDismiss();
+  
+    return confirmado;
+  }
+
+
 
   ConvertirenMinusculas(control: FormControl) {
     if (control.value.length < 120) {
@@ -95,24 +142,43 @@ export class PerfilPage implements OnInit {
     control.setValue(control.value.toLowerCase().substring(0, 120));
   }
 
-  formatoCelularContacto(control: FormControl) {
-    let telefono = control.value;
-    telefono = telefono.replace(/[^\d]/g, '');
 
-    if (telefono.length === 10) {
-      telefono = `(${telefono.slice(0, 3)})${telefono.slice(
-        3,
-        6
-      )}-${telefono.slice(6)}`;
-    } else if (telefono.length > 10 && telefono.length <= 14) {
-      // Ajustar el formato según la longitud deseada
-      telefono = `(${telefono.slice(0, 3)})${telefono.slice(
-        3,
-        6
-      )}-${telefono.slice(6, 10)}`;
+  formatoCelularContacto(control: FormControl) {
+    if (!control.value) {
+        return;
     }
 
-    // Actualizar el valor del control
-    control.setValue(telefono);
+    let telefono = control.value.toString();
+    // Primero, quitamos todos los caracteres que no sean dígitos para limpiar la entrada
+    telefono = telefono.replace(/\D/g, '');
+
+    if (telefono.length > 10) {
+      // Aquí podrías también decidir cortar el valor a los primeros 10 dígitos
+       telefono = telefono.slice(0, 10);
+      // Y luego aplicar el formato o simplemente devolver sin hacer cambios
+      // Para este ejemplo, simplemente retornaremos sin hacer cambios
+      return;
   }
+
+    // Luego aplicamos el formato deseado según la longitud del número
+    if (telefono.length === 10) {
+        // Formato para números de 10 dígitos: (XXX) XXX-XXXX
+        telefono = `(${telefono.slice(0, 3)}) ${telefono.slice(3, 6)}-${telefono.slice(6)}`;
+    } else if (telefono.length > 10 && telefono.length <= 14) {
+        // Formato extendido para números entre 11 y 14 dígitos, incluyendo código de país
+        telefono = `+${telefono.slice(0, telefono.length - 10)} (${telefono.slice(telefono.length - 10, telefono.length - 7)}) ${telefono.slice(telefono.length - 7, telefono.length - 4)}-${telefono.slice(telefono.length - 4)}`;
+    }
+
+    // Finalmente, actualizamos el valor del control sin emitir un evento de cambio
+    // para evitar un ciclo infinito si esto se está llamando dentro de un valueChanges
+    control.setValue(telefono);
+}
+
+
+  async Cancelar() {
+  
+    this.router.navigate(['main/folio']);
+  }
+
+
 }

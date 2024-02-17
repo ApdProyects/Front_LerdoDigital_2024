@@ -59,6 +59,7 @@
         icon="call-outline"
         [control]="form.controls.telefono"
         type="phone"
+        maxlength="14"
         label="Teléfono: "
         (input)="formatoCelularContacto(form.controls.telefono)" 
       ></app-custom-input>

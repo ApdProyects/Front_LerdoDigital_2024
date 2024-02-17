@@ -9,8 +9,8 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  dominio = 'https://localhost:44334/';
-  //dominio = 'https://apir.grupoapd.mx/';
+  //dominio = 'https://localhost:44334/';
+  dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 
@@ -58,13 +58,16 @@ export class AuthService {
   }
 
   actualizarDatosUsuario(datosUsuario: any): Observable<any> {
+    const params = new HttpParams()
+      .set('LUS_CLAVE', datosUsuario.LUS_CLAVE)
+      .set('LUS_USUARIO', datosUsuario.LUS_USUARIO)
+      .set('LUS_TELEFONO', datosUsuario.LUS_TELEFONO);
     const url = `${this.dominio}api/Ciudadanos/actualizaUsuario`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-      }),
-    };
-    return this.http.put(url, datosUsuario, httpOptions);
+  
+    return this.http.get(url, { params });
   }
+  
+  
 
   forgotPass(telefono: string) {
     let url: string;

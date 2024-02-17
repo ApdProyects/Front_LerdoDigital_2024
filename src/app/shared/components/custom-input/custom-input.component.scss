@@ -18,8 +18,9 @@ ion-item.custom-input {
   /* Set the background color for the entire item */
   /*  --display: flex;
   --flex-wrap: wrap; */
-  --padding-start: 8px;
-  --padding-end: 1px;
+ 
+  --padding-start: 0px;
+  --padding-end: 0px;
   --inner-padding-top: 4px;
   --inner-padding-bottom: 4px;
   min-height: 10px;
@@ -66,6 +67,19 @@ ion-input.custom {
   .auth-form {
     width: 100px;
   }
+}
+
+@media screen and (min-width: 612px) {
+  ion-item.custom-input {
+   
+
+    --padding-start: 3px;
+    --padding-end: 0px;
+    --inner-padding-top: 4px;
+    --inner-padding-bottom: 4px;
+    min-height: 10px;
+  }
+  
 }
 
 /* @media screen and (min-width: 769px) {

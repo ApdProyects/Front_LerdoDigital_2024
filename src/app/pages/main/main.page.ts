@@ -90,7 +90,7 @@ export class MainPage implements OnInit {
 
     this.authService.getDatosUsuario(correoUsuario).subscribe({
       next: (datos) => {
-        console.log('Datos del usuario recibidos desde la API:', datos);
+        /* console.log('Datos del usuario recibidos desde la API:', datos); */
         this.nombreUsuario = datos.Usuario; 
         this.cdr.detectChanges();
 

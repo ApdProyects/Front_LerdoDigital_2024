@@ -200,7 +200,7 @@ ion-button.third-button {
   }
 
   .slide-text h1 {
-    font-size: 6.5rem;
+    font-size: 6.1rem;
   }
   .mobile-only {
     display: none;
@@ -230,7 +230,7 @@ ion-button.third-button {
   }
 
   .second-text {
-    bottom: 68%;
+    bottom: 70%;
     left: 2%;
   }
 
@@ -242,7 +242,7 @@ ion-button.third-button {
   .slide-subtitles {
     position: absolute;
     bottom: 36%;
-    left: -22%;
+    left: -18%;
     right: -14%;
     font-weight: bold;
     font-size: 2.7rem;
@@ -332,6 +332,33 @@ ion-button.third-button {
     vertical-align: middle;
     transition: all 0.3s;
   }
+}
+
+@media screen and (min-width: 612px){
+  .slide-subtitles{
+  font-size: 2.1rem;
+  bottom: 10%;
+  left: 0%;
+  }
+  
+
+ 
+  .second-text {
+    bottom: 68%;
+    left: 2%;
+  }
+
+  .second-text  h1{
+    font-size: 2rem;
+    white-space: pre-line;
+  }
+  .slide-text {
+
+    left: 1.5%;
+    white-space: pre-line;
+  }
+
+ 
 }
 
 /* ================ pensando en ti =============== */
@@ -726,6 +753,14 @@ ion-content {
     margin-left: 60px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .button-contacto {
+margin-left: 30px;
+  }
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   .item-container h4 {

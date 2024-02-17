@@ -1,23 +1,27 @@
-
-ion-footer{
-    --position: sticky;
-    --z-index: 10;
-    --top: 0;
-
+ion-footer {
+  --position: sticky;
+  --z-index: 10;
+  --top: 0;
 }
 
- .custom-footer{
- background-color: #8cbd62;
+.custom-footer {
+  background-color: #8cbd62;
 }
 
-.ion-text-center{
-font-size: 15px;
+.ion-text-center {
+  font-size: 15px;
 }
 
 ion-toolbar {
-    --background: #8cbd62;
-    --color: white;
-    box-shadow: 0 0 50px #8cbd62;
-    border-top: 1px solid #8cbd62;
-    height: 62px;
-   }
+  --background: #8cbd62;
+  --color: white;
+  box-shadow: 0 0 50px #8cbd62;
+  border-top: 1px solid #8cbd62;
+  height: 62px;
+}
+
+@media screen and (max-width: 612px) {
+  .ion-text-center {
+    font-size: 13px;
+  }
+}

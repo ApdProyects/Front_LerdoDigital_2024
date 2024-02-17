@@ -6,7 +6,7 @@
 >
 </app-header>
 <ion-content>
-  <form [formGroup]="form"  class="auth-form">
+  <form [formGroup]="form" class="auth-form">
     <app-logo User="true"></app-logo>
     <h1>
       <b>Datos del Usuario</b>
@@ -14,13 +14,14 @@
 
     <div class="form-container">
       <app-custom-input
-      
         autocomplete="name"
         icon="person-outline"
         [control]="form.controls.usuario"
         type="text"
-        label="Nombre usuario "
+        label="Nombre usuario: "
         maxlength="14"
+        #usuario
+        placeholder="Nuevo usuario"
       ></app-custom-input>
 
       <div
@@ -40,7 +41,7 @@
         icon="mail-outline"
         [control]="form.controls.correo"
         type="email"
-        label="Correo: "
+        label="Correo electrónico: "
         [readonly]="true"
         (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
@@ -63,7 +64,10 @@
         [control]="form.controls.telefono"
         type="phone"
         label="Teléfono: "
+        maxlength="14"
         (input)="formatoCelularContacto(form.controls.telefono)"
+        #telefono
+        placeholder="Nuevo teléfono"
       ></app-custom-input>
 
       <div
@@ -75,7 +79,7 @@
         </div>
       </div>
 
-     <!--  <app-custom-input
+      <!--  <app-custom-input
         icon="lock-closed-outline"
         [control]="form.controls.contrasena"
         type="password"
@@ -91,8 +95,6 @@
         </div>
       </div> -->
 
-      
-
       <ion-grid fixed>
         <ion-row>
           <ion-col size="12" size-md="6">
@@ -101,15 +103,15 @@
               mode="ios"
               class="submit buttons-form"
               type="submit"
-              (click)="actualizarDatosUsuario()"
+              (click)="actualizarPerfil()"
               color="success"
               shape="round"
-              
             >
               Guardar
               <ion-icon slot="end" name="person-add-outline"></ion-icon>
             </ion-button>
           </ion-col>
+
           <ion-col size="12" size-md="6">
             <ion-button
               expand="block"
@@ -118,7 +120,7 @@
               type="submit"
               shape="round"
               color="success"
-            
+              (click)="Cancelar()"
             >
               Cancelar
               <ion-icon
