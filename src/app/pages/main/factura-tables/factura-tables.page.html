@@ -1,14 +1,16 @@
 <ion-content>
-  <app-header shouldShowHorizontalMenu2="true" Salir="true"></app-header>
+  <app-header shouldShowHorizontalMenu2="true" Salir="true" MenuButton="true"></app-header>
 
   <h1 class="ion-text-center"><b>Facturación Lerdo</b></h1>
   <br />
   <ion-searchbar
-    placeholder="Buscar..."
+    placeholder="Buscar RFC..."
+    [(ngModel)]="rfcBuscado"
+    (ionCancel)="buscar(rfcBuscado)"
     showCancelButton="always"
     cancelButtonIcon="search"
     class="searchbar-cancel-button"
-    (ionCancel)="buscar()"
+    (keydown.enter)="buscar(rfcBuscado)"
   ></ion-searchbar>
 
   <div class="table-scroll">
@@ -23,14 +25,21 @@
         <ion-col>SR</ion-col>
         <ion-col></ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>5533</ion-col>
-        <ion-col>23/02/2023</ion-col>
-        <ion-col>sp1232456</ion-col>
-        <ion-col>Jose Antonio Nino Calamaco</ion-col>
-        <ion-col>NICA980410H70</ion-col>
-        <ion-col>500.00</ion-col>
-        <ion-col><ion-radio></ion-radio></ion-col>
+      <ion-row *ngFor="let factura of facturasFiltradas">
+        <ion-col>{{ factura.numero || '-' }}</ion-col>
+        <ion-col>{{ factura.fecha || '-' }}</ion-col>
+        <ion-col>{{ factura.folio || '-' }}</ion-col>
+        <ion-col>{{ factura.nombre || '-' }}</ion-col>
+        <ion-col>{{ factura.rfc || '-' }}</ion-col>
+        <ion-col>${{ factura.importe || '-' }}</ion-col>
+        <ion-col
+          ><ion-radio-group [(ngModel)]="seleccionado" [allowEmptySelection]="true" (ionChange)="seleccionarFactura()">
+            <ion-radio
+              [value]="factura.numero || 'default'"
+              [checked]="seleccionado === factura.numero"
+              color="success">
+            </ion-radio>
+          </ion-radio-group></ion-col>
         <ion-col>
           <ion-button
             fill="solid"
@@ -38,111 +47,90 @@
             color="success"
             class="button-table"
           >
-            <ion-icon name="print-outline"></ion-icon>
+            <ion-icon name="send-outline"></ion-icon>
           </ion-button>
-          <!--  <ion-button
-              expand="block"
-              fill="solid"
-              shape="round"
-              color="danger"
-            >
-              <ion-icon name="trash-outline"></ion-icon>
-            </ion-button> -->
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>Item 1</ion-col>
-        <ion-col>Item 2</ion-col>
-        <ion-col>Item 3</ion-col>
-        <ion-col>Item 4</ion-col>
-        <ion-col>Item 5</ion-col>
-        <ion-col>Item 6</ion-col>
-        <ion-col><ion-radio></ion-radio></ion-col>
-        <ion-col>
+         <!--  <ion-button
+            fill="solid"
+            shape="solid"
+            color="medium"
+            class="button-table"
+          >
+            <ion-icon name="download-outline"></ion-icon>
+          </ion-button>
           <ion-button
             fill="solid"
             shape="solid"
-            color="success"
+            color="danger"
             class="button-table"
           >
-            <ion-icon name="print-outline"></ion-icon>
-          </ion-button>
-          <!--  <ion-button
-                expand="block"
-                fill="solid"
-                shape="round"
-                color="danger"
-              >
-                <ion-icon name="trash-outline"></ion-icon>
-              </ion-button> -->
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>Item 1</ion-col>
-        <ion-col>Item 2</ion-col>
-        <ion-col>Item 3</ion-col>
-        <ion-col>Item 4</ion-col>
-        <ion-col>Item 5</ion-col>
-        <ion-col>Item 6</ion-col>
-        <ion-col><ion-radio></ion-radio></ion-col>
-        <ion-col>
-          <ion-button
-            fill="solid"
-            shape="solid"
-            color="success"
-            class="button-table"
-          >
-            <ion-icon name="print-outline"></ion-icon>
-          </ion-button>
-          <!--  <ion-button
-                expand="block"
-                fill="solid"
-                shape="round"
-                color="danger"
-              >
-                <ion-icon name="trash-outline"></ion-icon>
-              </ion-button> -->
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>Item 1</ion-col>
-        <ion-col>Item 2</ion-col>
-        <ion-col>Item 3</ion-col>
-        <ion-col>Item 4</ion-col>
-        <ion-col>Item 5</ion-col>
-        <ion-col>Item 6</ion-col>
-        <ion-col><ion-radio></ion-radio></ion-col>
-        <ion-col>
-          <ion-button
-            fill="solid"
-            shape="solid"
-            color="success"
-            class="button-table"
-          >
-            <ion-icon name="print-outline"></ion-icon>
-          </ion-button>
-          <!-- <ion-button
-                
-                fill="solid"
-                shape="solid"
-                color="danger"
-                class="button-table"
-              >
-                <ion-icon name="trash-outline"></ion-icon>
-              </ion-button>  -->
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button> -->
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
 
+<div class="card">
+  <ion-card *ngIf="facturaSeleccionada">
+    <ion-card-header>
+      <ion-card-title>Detalles de Factura Seleccionada</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label>Número:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.numero }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fecha:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.fecha }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Folio:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.folio }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nombre:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.nombre }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>RFC:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.rfc }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Importe:</ion-label>
+          <ion-note slot="end">${{ facturaSeleccionada.importe }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>SR:</ion-label>
+          <ion-note slot="end">{{ facturaSeleccionada.sr ? 'Sí' : 'No' }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+
   <div>
     <ion-buttons class="buttonsFacturar">
-      <ion-button fill="solid" shape="round" color="success" class="buttonFac">
+      <ion-button
+        fill="solid"
+        shape="round"
+        color="success"
+        class="buttonFac"
+        size="large"
+      >
         Facturar
       </ion-button>
-      <ion-button fill="solid" shape="round" color="danger" class="buttonFac">
+      <ion-button
+        fill="solid"
+        shape="round"
+        color="danger"
+        class="buttonFac"
+        size="large"
+      >
         Cancelar
       </ion-button>
     </ion-buttons>
   </div>
+  <br>
 </ion-content>

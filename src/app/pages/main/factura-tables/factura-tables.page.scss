@@ -17,6 +17,8 @@
 
   .searchbar-cancel-button {
     margin-right: 0!important;
+    text-transform: uppercase;
+
   }
   
   
@@ -90,7 +92,78 @@
   .table {
     min-width: 800px; /* Ajusta este valor según el ancho mínimo que necesites */
   }
+
+
+ 
+
+  ion-card {
+    --background: #fff; /* Fondo blanco para la tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+
   
+  ion-card-header {
+    --background: #fff;
+    background-color: #e9e9e9; /* Fondo ligeramente diferente para el encabezado */
+    border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
+  }
+  
+  ion-card-title {
+    color: #333; /* Color más oscuro para el título */
+    --background: #fff;
+    font-weight: bold;
+  }
+  
+  ion-label {
+    font-weight: bold; /* Etiquetas en negrita para mejor legibilidad */
+    font-size: 1.2rem;
+    --background: #fff;
+  }
+  
+  ion-note {
+    color: #666; /* Color más suave para los detalles, mejora la legibilidad */
+    font-size: 1rem;
+    --background: #fff;
+  }
+
+  ion-item {
+    --background: #fff;
+  }
+
+  ion-list{
+    background: #fff;
+  }
+  
+
+  /* Estilos específicos para pantallas de escritorio (web) */
+@media (min-width: 768px) {
+    ion-card {
+      --background: #fafafa; /* Un fondo ligeramente diferente para escritorio */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+      border-radius: 12px; /* Bordes más redondeados */
+      margin: 20px; /* Más margen alrededor de la tarjeta */
+      max-width: 800px; /* Limitar el ancho máximo de la tarjeta */
+      margin-left: auto; /* Centrar la tarjeta horizontalmente */
+      margin-right: auto;
+    }
+  
+    ion-card-header {
+      background-color: #e9e9e9; /* Un tono más oscuro para el encabezado */
+    }
+  
+    ion-card-title {
+      color: #222; /* Un color más oscuro para el título */
+    }
+  
+    ion-label {
+      font-weight: 600; /* Hacer las etiquetas un poco más gruesas */
+    }
+  
+    ion-note {
+      color: #444; /* Un color más oscuro para los detalles */
+    }
+  }
   
     
   
@@ -125,9 +198,21 @@
 
     .buttonsFacturar{
         align-items: end;
-        margin-left: 22%;
+        margin-left: 13%;
         margin-top: 25px;
 
+      }
+
+      ion-label {
+        font-weight: bold; /* Etiquetas en negrita para mejor legibilidad */
+        font-size: 1rem;
+        --background: #fff;
+      }
+      
+      ion-note {
+        color: #666; /* Color más suave para los detalles, mejora la legibilidad */
+        font-size: 14px;
+        --background: #fff;
       }
 
       
