@@ -9,6 +9,7 @@ export class LogoComponent  implements OnInit {
   @Input() User!: string;
   @Input() Logo!: string;
   miRutaDeImagen: string = 'assets/icon-dash.png';
+  @Input() Titulo!: string;
 
 
 

@@ -1,0 +1,135 @@
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+  }
+
+  
+  ion-searchbar {
+    --background: white;
+    --border-radius: 22px;
+    width: 25%;
+    height: 3%;
+    left: 1%;
+  }
+
+
+  .searchbar-cancel-button {
+    margin-right: 0!important;
+  }
+  
+  
+  ion-grid.table {
+    --ion-grid-column-padding: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+   
+    margin: 10px;
+    margin-left: 17px;
+  }
+  
+  ion-row.tableRow {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  ion-col {
+    text-align: center;
+    padding: 16px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  ion-row:nth-child(odd) {
+    background-color: #efefef;
+  }
+  
+  ion-row:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  ion-row:first-child.tableRow {
+    background:  /* linear-gradient(to right, #8cbd62 0%, #f7f4ef 100%) */   var(--ion-color-success) ;
+    color: #ffffff;
+    border-radius: 14px 14px 0px 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  ion-row:last-child {
+    color: #fff;
+    border-radius: 0px 0px 14px 14px;
+  }
+
+  ion-button.button-table {
+    --border-radius: 10px;
+  }
+
+  .buttonsFacturar{
+    align-items: end;
+    margin-left: 84%;
+
+  }
+
+  ion-button.buttonFac {
+    border-radius: 35px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la transición del efecto hover */
+  }
+
+  .buttonFac:hover {
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
+  
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table {
+    min-width: 800px; /* Ajusta este valor según el ancho mínimo que necesites */
+  }
+  
+  
+    
+  
+  @media (max-width: 600px) {
+
+    ion-grid.table {
+        --ion-grid-column-padding: 8px;
+        border-radius: 8px;
+        overflow: hidden;
+       
+        margin: 7px;
+        margin-left: 6px;
+      }
+    
+    ion-col {
+      --ion-grid-column-padding: 5px;
+      font-size: 12px;
+    }
+  
+    ion-row:first-child {
+      padding-left: 5px;
+  
+    }
+  
+    ion-searchbar {
+      --background: white;
+      --border-radius: 18px;
+      width: 98%;
+      height: 6%;
+      left: 1%;
+    }
+
+    .buttonsFacturar{
+        align-items: end;
+        margin-left: 22%;
+        margin-top: 25px;
+
+      }
+
+      
+  }
+  

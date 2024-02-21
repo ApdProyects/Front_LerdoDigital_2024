@@ -7,8 +7,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 })
 export class SessionService {
   private nombreUsuarioSource = new BehaviorSubject<string | null>(null);
-  //dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/';
+  dominio = 'https://localhost:44334/';
+  //dominio = 'https://apir.grupoapd.mx/';
 
 
   constructor(private http: HttpClient) { }

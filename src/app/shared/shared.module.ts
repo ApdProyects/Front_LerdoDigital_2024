@@ -10,13 +10,14 @@ import { RouterModule } from '@angular/router';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { InfoFolioComponent } from './components/info-folio/info-folio.component';
 import { InfoCatastroComponent } from './components/info-catastro/info-catastro.component';
+import { TablaFacturaComponent } from './components/tabla-factura/tabla-factura.component';
 
  
 
 
 @NgModule({
-  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent,InfoFolioComponent, InfoCatastroComponent],
-  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent, InfoFolioComponent, InfoCatastroComponent ],
+  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent,InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent],
+  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent, InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent ],
   imports: [
     CommonModule,
     IonicModule,
