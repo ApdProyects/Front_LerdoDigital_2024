@@ -1,5 +1,9 @@
 <ion-content>
-  <app-header shouldShowHorizontalMenu2="true" Salir="true" MenuButton="true"></app-header>
+  <app-header
+    shouldShowHorizontalMenu2="true"
+    Salir="true"
+    MenuButton="true"
+  ></app-header>
 
   <h1 class="ion-text-center"><b>Facturación Lerdo</b></h1>
   <br />
@@ -11,9 +15,11 @@
     cancelButtonIcon="search"
     class="searchbar-cancel-button"
     (keydown.enter)="buscar(rfcBuscado)"
+    *ngIf="!mostrarFormulario"
+    [minlength]="10"
   ></ion-searchbar>
 
-  <div class="table-scroll">
+  <div class="table-scroll"  *ngIf="!mostrarFormulario">
     <ion-grid class="table">
       <ion-row class="tableRow">
         <ion-col>Número</ion-col>
@@ -33,31 +39,38 @@
         <ion-col>{{ factura.rfc || '-' }}</ion-col>
         <ion-col>${{ factura.importe || '-' }}</ion-col>
         <ion-col
-          ><ion-radio-group [(ngModel)]="seleccionado" [allowEmptySelection]="true" (ionChange)="seleccionarFactura()">
+          ><ion-radio-group
+            [(ngModel)]="seleccionado"
+            [allowEmptySelection]="true"
+            (ionChange)="seleccionarSR()"
+          >
             <ion-radio
               [value]="factura.numero || 'default'"
               [checked]="seleccionado === factura.numero"
-              color="success">
-            </ion-radio>
-          </ion-radio-group></ion-col>
+              color="success"
+            >
+            </ion-radio> </ion-radio-group
+        ></ion-col>
         <ion-col>
           <ion-button
             fill="solid"
             shape="solid"
             color="success"
             class="button-table"
+            [disabled]="!seleccionado"
           >
             <ion-icon name="send-outline"></ion-icon>
           </ion-button>
-         <!--  <ion-button
+          <ion-button
             fill="solid"
             shape="solid"
             color="medium"
             class="button-table"
+            [disabled]="!seleccionado"
           >
             <ion-icon name="download-outline"></ion-icon>
           </ion-button>
-          <ion-button
+          <!--  <ion-button
             fill="solid"
             shape="solid"
             color="danger"
@@ -70,67 +83,144 @@
     </ion-grid>
   </div>
 
-<div class="card">
-  <ion-card *ngIf="facturaSeleccionada">
-    <ion-card-header>
-      <ion-card-title>Detalles de Factura Seleccionada</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list lines="full">
-        <ion-item>
-          <ion-label>Número:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.numero }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>Fecha:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.fecha }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>Folio:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.folio }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>Nombre:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.nombre }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>RFC:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.rfc }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>Importe:</ion-label>
-          <ion-note slot="end">${{ facturaSeleccionada.importe }}</ion-note>
-        </ion-item>
-        <ion-item>
-          <ion-label>SR:</ion-label>
-          <ion-note slot="end">{{ facturaSeleccionada.sr ? 'Sí' : 'No' }}</ion-note>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-</div>
-
   <div>
     <ion-buttons class="buttonsFacturar">
-      <ion-button
-        fill="solid"
-        shape="round"
-        color="success"
-        class="buttonFac"
-        size="large"
-      >
-        Facturar
-      </ion-button>
-      <ion-button
+      <!-- <ion-button
         fill="solid"
         shape="round"
         color="danger"
         class="buttonFac"
-        size="large"
+        size="medium"
       >
         Cancelar
+      </ion-button> -->
+      <ion-button
+        *ngIf="!mostrarFormulario"
+        fill="solid"
+        shape="round"
+        color="success"
+        class="buttonFac"
+        (click)="mostrarNuevaFactura() "
+      >
+        Nueva Factura
       </ion-button>
     </ion-buttons>
   </div>
-  <br>
+  <br />
+
+  <!--  <div class="card">
+    <ion-card *ngIf="facturaSeleccionada">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center"
+          >Detalles de Factura Seleccionada</ion-card-title
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label>Número:</ion-label>
+            <ion-note slot="end">{{ facturaSeleccionada.numero }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Fecha:</ion-label>
+            <ion-note slot="end">{{ facturaSeleccionada.fecha }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Folio:</ion-label>
+            <ion-note slot="end">{{ facturaSeleccionada.folio }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nombre:</ion-label>
+            <ion-note slot="end">{{ facturaSeleccionada.nombre }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>RFC:</ion-label>
+            <ion-note slot="end">{{ facturaSeleccionada.rfc }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Importe:</ion-label>
+            <ion-note slot="end">${{ facturaSeleccionada.importe }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>SR:</ion-label>
+            <ion-note slot="end"
+              >{{ facturaSeleccionada.sr ? 'Sí' : 'No' }}</ion-note
+            >
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div> -->
+
+  <div *ngIf="facturaEnProgreso" >
+    <form [formGroup]="form" *ngIf="mostrarFormulario">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Nueva factura</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list class="list-factura">
+            <ion-item>
+              <ion-label position="stacked">Número</ion-label>
+              <ion-input type="text" formControlName="numero"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Fecha</ion-label>
+              <ion-input type="date" formControlName="fecha"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Folio</ion-label>
+              <ion-input type="text" formControlName="folio"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Nombre</ion-label>
+              <ion-input type="text" formControlName="folio"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">RFC</ion-label>
+              <ion-input
+                [control]="form.controls.rfc"
+                type="text"
+                formControlName="rfc"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Importe</ion-label>
+              <ion-input
+                [control]="form.controls.importe"
+                type="number"
+                formControlName="importe"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+        <ion-buttons class="buttonsFacturarGenerar">
+          <ion-button
+          (click)="cancelarFormulario()"
+            fill="solid"
+            shape="round"
+            color="danger"
+            class="buttonFac"
+            size="medium"
+          >
+            Cancelar
+          </ion-button>
+
+          <ion-button
+            fill="solid"
+            shape="round"
+            color="success"
+            class="buttonFac"
+            size="medium"
+            (click)="generarFactura()"
+          >
+            Generar Factura
+          </ion-button>
+        </ion-buttons>
+      </ion-card>
+    </form>
+  </div>
+
+  <br />
 </ion-content>
