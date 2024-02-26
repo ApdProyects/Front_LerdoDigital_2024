@@ -60,7 +60,7 @@ export class AuthPage implements OnInit {
             localStorage.setItem('LRO_CLAVE', res.LRO_CLAVE);
             localStorage.setItem('LUS_CORREO', res.LUS_CORREO);
             localStorage.setItem('LUS_CLAVE', res.LUS_CLAVE);
-            this.sessionService.cargarNombreUsuario(res.LUS_CORREO);
+            this.authService.cargarNombreUsuario(res.LUS_CORREO);
 
             console.log(
               'LRO_CLAVE almacenado:',

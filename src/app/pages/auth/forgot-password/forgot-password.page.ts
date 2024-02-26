@@ -75,17 +75,24 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   formatoCelularContacto(control: FormControl) {
-    let telefono = control.value;
-    // Remover cualquier caracter que no sea un número
-    telefono = telefono.replace(/[^\d]/g, '');
+    if (!control.value) {
+      return;
+  }
 
+  let telefono = control.value.toString();
+  telefono = telefono.replace(/\D/g, '');
+
+  if (telefono.length > 10) {
+     telefono = telefono.slice(0, 10);
+
+    return;
+}
     // Verificar la longitud y formatear
     if (telefono.length === 10) {
-      telefono = `(${telefono.slice(0, 3)})${telefono.slice(3, 6)}-${telefono.slice(6)}`;
-    } else if (telefono.length > 10 && telefono.length <= 14) {
-      // Ajustar el formato según la longitud deseada
-      telefono = `(${telefono.slice(0, 3)})${telefono.slice(3, 6)}-${telefono.slice(6, 10)}`;
-    }
+      telefono = `(${telefono.slice(0, 3)}) ${telefono.slice(3, 6)}-${telefono.slice(6)}`;
+  } else if (telefono.length > 10 && telefono.length <= 14) {
+      telefono = `+${telefono.slice(0, telefono.length - 10)} (${telefono.slice(telefono.length - 10, telefono.length - 7)}) ${telefono.slice(telefono.length - 7, telefono.length - 4)}-${telefono.slice(telefono.length - 4)}`;
+  }
 
     // Actualizar el valor del control
     control.setValue(telefono);

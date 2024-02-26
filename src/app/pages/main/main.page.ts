@@ -52,7 +52,7 @@ export class MainPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.subscription.add(this.sessionService.nombreUsuario$.subscribe(nombre => {
+    this.subscription.add(this.authService.nombreUsuario$.subscribe(nombre => {
       this.nombreUsuario = nombre;
     }));
     this.cargarDatosUsuario();

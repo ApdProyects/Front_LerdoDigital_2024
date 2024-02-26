@@ -15,7 +15,7 @@ export class PerfilPage implements OnInit {
 
   form = new FormGroup({
     usuario: new FormControl('', [Validators.required]),
-    correo: new FormControl('', [Validators.required, Validators.email]),
+    correo: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(18)]),
     telefono: new FormControl('', [
       Validators.required,
       Validators.minLength(10),
@@ -80,6 +80,7 @@ export class PerfilPage implements OnInit {
           const datosUsuario = {
             LUS_CLAVE: localStorage.getItem('LUS_CLAVE'), 
             LUS_USUARIO: this.form.value.usuario,
+            LUS_CORREO: this.form.value.correo,
             LUS_TELEFONO: this.form.value.telefono
           };
   

@@ -16,7 +16,7 @@
         [control]="form.controls.usuario"
         type="text"
         label="Nombre completo: "
-        maxlength="14"
+        [maxlength]="25"
       ></app-custom-input>
 
       <div
@@ -59,7 +59,7 @@
         icon="call-outline"
         [control]="form.controls.telefono"
         type="phone"
-        maxlength="14"
+        [maxlength]="14"
         label="Teléfono: "
         (input)="formatoCelularContacto(form.controls.telefono)" 
       ></app-custom-input>

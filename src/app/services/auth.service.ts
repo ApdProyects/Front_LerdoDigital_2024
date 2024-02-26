@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { register } from 'swiper/element';
 import * as moment from 'moment';
@@ -9,8 +9,9 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  //dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/';
+  private nombreUsuarioSource = new BehaviorSubject<string | null>(null);
+  dominio = 'https://localhost:44334/';
+  //dominio = 'https://apir.grupoapd.mx/';
 
   constructor(private http: HttpClient) {}
 
@@ -52,17 +53,30 @@ export class AuthService {
     return this.http.get(url, { params });
   }
 
-  getDatosUsuario(correo: string): Observable<any> {
+  getDatosUsuario(
+    correo: string,
+  ): Observable<any> {
     const url = `${this.dominio}api/Ciudadanos/obtenerUsuario?correo=${correo}`;
     return this.http.get(url);
+  }
+
+  cargarNombreUsuario(correo: string) {
+    this.getDatosUsuario(correo).subscribe(datos => {
+      this.nombreUsuarioSource.next(datos.Usuario); // Suponiendo que 'Usuario' es la propiedad con el nombre
+    });
+  }
+
+  get nombreUsuario$() {
+    return this.nombreUsuarioSource.asObservable();
   }
 
   actualizarDatosUsuario(datosUsuario: any): Observable<any> {
     const params = new HttpParams()
       .set('LUS_CLAVE', datosUsuario.LUS_CLAVE)
       .set('LUS_USUARIO', datosUsuario.LUS_USUARIO)
-      .set('LUS_TELEFONO', datosUsuario.LUS_TELEFONO);
-    const url = `${this.dominio}api/Ciudadanos/actualizaUsuario`;
+      .set('LUS_TELEFONO', datosUsuario.LUS_TELEFONO)
+       .set('LUS_CORREO', datosUsuario.LUS_CORREO); 
+    const url = `${this.dominio}api/Ciudadanos/actualizarUsuario`;
   
     return this.http.get(url, { params });
   }

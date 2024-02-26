@@ -93,6 +93,7 @@ export class SignUpPage implements OnInit {
 
 
   control.setValue(telefono);
+  
   }
 
   

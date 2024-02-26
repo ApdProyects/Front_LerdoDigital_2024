@@ -42,7 +42,8 @@
         [control]="form.controls.correo"
         type="email"
         label="Correo electrónico: "
-        [readonly]="true"
+        [maxlength]="50"
+        [readonly]="false"
         (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
 
@@ -64,7 +65,7 @@
         [control]="form.controls.telefono"
         type="phone"
         label="Teléfono: "
-        maxlength="14"
+        [maxlength]="14"
         (input)="formatoCelularContacto(form.controls.telefono)"
         #telefono
         placeholder="Nuevo teléfono"

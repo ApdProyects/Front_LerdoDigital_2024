@@ -378,7 +378,7 @@
               type="text"
               [(ngModel)]="form.nombre"
               required
-              maxlength="14"
+              [maxlength]="20"
             ></ion-input>
           </ion-item>
 
@@ -414,7 +414,7 @@
               type="tel"
               pattern="[0-9]{10}"
               [(ngModel)]="form.telefono"
-              maxlength="14"
+              [maxlength]="14"
               required
               (ngModelChange)="form.telefono = formatoCelularContacto(form.telefono)"
             ></ion-input>
