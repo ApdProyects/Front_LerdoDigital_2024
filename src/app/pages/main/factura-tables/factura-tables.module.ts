@@ -9,13 +9,16 @@ import { FacturaTablesPageRoutingModule } from './factura-tables-routing.module'
 import { FacturaTablesPage } from './factura-tables.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     FacturaTablesPageRoutingModule,
-    SharedModule, 
+    SharedModule,
+  
   ],
   declarations: [FacturaTablesPage]
 })

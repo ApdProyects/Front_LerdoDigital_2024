@@ -10,8 +10,9 @@ import * as moment from 'moment';
 })
 export class AuthService {
   private nombreUsuarioSource = new BehaviorSubject<string | null>(null);
-  dominio = 'https://localhost:44334/';
-  //dominio = 'https://apir.grupoapd.mx/';
+  //dominio = 'https://localhost:44334/';
+  dominio = 'https://apir.grupoapd.mx/';
+  //dominio = 'http://192.168.100.14:54153/';
 
   constructor(private http: HttpClient) {}
 
@@ -53,15 +54,13 @@ export class AuthService {
     return this.http.get(url, { params });
   }
 
-  getDatosUsuario(
-    correo: string,
-  ): Observable<any> {
+  getDatosUsuario(correo: string): Observable<any> {
     const url = `${this.dominio}api/Ciudadanos/obtenerUsuario?correo=${correo}`;
     return this.http.get(url);
   }
 
   cargarNombreUsuario(correo: string) {
-    this.getDatosUsuario(correo).subscribe(datos => {
+    this.getDatosUsuario(correo).subscribe((datos) => {
       this.nombreUsuarioSource.next(datos.Usuario); // Suponiendo que 'Usuario' es la propiedad con el nombre
     });
   }
@@ -75,13 +74,11 @@ export class AuthService {
       .set('LUS_CLAVE', datosUsuario.LUS_CLAVE)
       .set('LUS_USUARIO', datosUsuario.LUS_USUARIO)
       .set('LUS_TELEFONO', datosUsuario.LUS_TELEFONO)
-       .set('LUS_CORREO', datosUsuario.LUS_CORREO); 
+      .set('LUS_CORREO', datosUsuario.LUS_CORREO);
     const url = `${this.dominio}api/Ciudadanos/actualizarUsuario`;
-  
+
     return this.http.get(url, { params });
   }
-  
-  
 
   forgotPass(telefono: string) {
     let url: string;
@@ -237,6 +234,42 @@ export class AuthService {
   }
 
   // FACTURACION
+
+  getEnviarFactura(datos: {
+    lus_clave: any;
+    numFactura: any;
+    RFC: string;
+  }): Observable<any> {
+    const url = `${this.dominio}api/Facturacion/EnviarFactura?lus_clave=${datos.lus_clave}&NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        // 'Authorization': token
+      }), // application/x-www-form-urlencoded
+    };
+
+    return this.http.get(url);
+  }
+
+  getDescargarPDF(datos: { numFactura: any; RFC: string }) {
+    const url = `${this.dominio}api/Facturacion/DescargarFacturaPDF?NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
+  
+    return this.http.get(url, { responseType: 'blob' });
+  }
+  
+  getDescargarXML(datos: { numFactura: any; RFC: string }) {
+    const url = `${this.dominio}api/Facturacion/DescargarFacturaXML?NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
+  
+    return this.http.get(url, { responseType: 'blob' });
+  }
+  
+
+  getDatosFacturacion(lus_clave): Observable<any> {
+    const url = `${this.dominio}api/Facturacion/RecuperaFacturasGrid?lus_clave=${lus_clave}`;
+    return this.http.get(url);
+  }
+
   getClienteFacturado(RFC) {
     let url: string;
     url = this.dominio + 'api/Facturacion/Recuperacliente?RFC=' + RFC;
@@ -256,6 +289,7 @@ export class AuthService {
 
     return this.http.get(url);
   }
+
   async postGuardaCliente(
     rrfc,
     rnombre,
@@ -389,17 +423,19 @@ export class AuthService {
     }
   }
   // FIN FACTURACION
-  async getFacturarFolio(rfc, folio, UsoCFDI) {
+  async getFacturarFolio(rfc, folio, UsoCFDI, usuario) {
     debugger;
     let url: string;
     url =
       this.dominio +
-      'api/Facturacion/facturar?RFC=' +
+      'api/Facturacion/facturarnew?RFC=' +
       rfc +
-      '&folio=' +
+      '&folios=' +
       folio +
       '&UsoCFDI=' +
-      UsoCFDI;
+      UsoCFDI +
+      '&usuario=' +
+      usuario;
 
     console.log(url);
     return this.http.get(url);

@@ -24,13 +24,15 @@ ion-list {
 ion-toolbar {
   height: 60px;
   /* Altura predeterminada del ion-toolbar */
-  box-shadow: 4px 0px 16px #8cbd62;
-  --background: #8cbd62;
+  box-shadow: 4px 0px 16px var(--ion-color-medium);
+  --background:  var(--ion-color-medium);
 }
 
 ion-button.button {
   --cursor: pointer;
+
 }
+
 .salir{
   font-size: 42px;
     cursor: pointer;
@@ -61,6 +63,12 @@ ion-button.button {
    display: none;
   }
 
+  
+ion-button.button {
+  --cursor: pointer;
+  margin-bottom: 40px;
+}
+
   ion-toolbar {
     height: 65px;
     /* Permitir que el ion-toolbar ajuste automáticamente su altura */
@@ -68,7 +76,7 @@ ion-button.button {
     /* Cambiar la dirección del flex container a columna */
     align-items: flex-start;
     /* Alinear los elementos del flex container al inicio */
-    box-shadow: 4px 0px 16px #8cbd62;
+    box-shadow: 4px 0px 16px var(--ion-color-medium);
   }
 
   .app-name {
@@ -83,10 +91,11 @@ ion-button.button {
   }
 
   ion-menu-button {
-    font-size: 32px; /* Ajusta el tamaño de la fuente según tus preferencias */
-    height: 65px; /* Establece la altura deseada para el botón */
-    width: 65px; /* Establece el ancho deseado para el botón */
-    margin-top: 1px; /* Ajusta el margen superior según sea necesario */
+    font-size: 32px;
+    height: 65px;
+    width: 65px;
+    /* margin-top: -37px; */
+    margin-bottom: 38px;
   }
 
   .modal-icon {
@@ -130,10 +139,10 @@ ion-back-button {
 }
 
 .log-img {
-  width: 200px; /* Ajusta el ancho de la imagen según tus preferencias */
-  height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
-  display: block; /* Asegura que la imagen sea un bloque para poder centrarla */
-  margin-left: 5%;
+  width: 4.3%;
+  height: auto;
+  display: block;
+  margin-left: 3%;
 }
 
 /* Media query para mostrar el menú solo en pantallas grandes (computadoras) */
@@ -152,9 +161,10 @@ ion-back-button {
   }
 
   .log-img {
-    text-align: right; /* Alinear el texto a la derecha en pantallas pequeñas */
-    margin-left: 35%;
-    width: 150px; /* Ajusta el ancho de la imagen según tus preferencias */
+    text-align: right;
+    margin-left: -6%;
+    width: 122px;
+    margin-top: -12% /* Ajusta el ancho de la imagen según tus preferencias */
   }
 
   ion-list {

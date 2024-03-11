@@ -2,9 +2,6 @@ ion-content {
   --keyboard-offset: 0 !important;
 }
 
-
-
-
 h1 {
   font-weight: bold;
   line-height: 25px;
@@ -15,7 +12,6 @@ h1 {
 h4 {
   line-height: 19px;
 }
-
 
 .card-container {
   text-align: center;
@@ -37,21 +33,16 @@ h4 {
   }
 }
 
-
 .auth-form {
   width: 100%;
   padding: 25px;
 }
 
-
-
-.altaRFC{
+.altaRFC {
   text-align: center;
 }
 
-
 .form-container {
-
   padding: 10px;
   /* Espaciado interno del cuadro */
   border-radius: 10px;
@@ -69,7 +60,7 @@ h4 {
   /* Incluir el padding y el borde en el ancho total */
 }
 
- ion-button.buttons-form{
+ion-button.buttons-form {
   border-radius: 35px;
   --cursor: pointer;
   --padding-top: 0;
@@ -78,14 +69,40 @@ h4 {
   --padding-end: 0;
   font-size: 1em;
   transition: transform 0.3s, box-shadow 0.3s; /* Suaviza la transición del efecto hover */
-
-
 }
 
 ion-button.buttons-form:hover {
   transform: translateY(-2px); /* Eleva ligeramente el botón */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
+}
 
+ion-card {
+  --background: #fff; /* Fondo blanco para la tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+  border-radius: 8px; /* Bordes redondeados */
+  width: 53%;
+  height: 53%;
+  left: 24%;
+  right: auto;
+  margin-top: 3%;
+
+}
+
+ion-card-header {
+  --background: #fff;
+  background-color: #d3d3d3; /* Fondo ligeramente diferente para el encabezado */
+  border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
+}
+
+ion-card-title {
+  color: #333; /* Color más oscuro para el título */
+  --background: #fff;
+  font-weight: bold;
+}
+
+ion-label {
+  font-weight: bold; /* Etiquetas en negrita para mejor legibilidad */
+  font-size: 1.2rem;
 }
 
 ion-item {
@@ -97,12 +114,28 @@ ion-item {
   min-height: 56px;
 }
 
-ion-select{
-  --background: white;
-  
+ion-list {
+  background: #fff;
+}
+.list-factura {
+  border-radius: 8px;
+  padding: 52px;
 }
 
-.action-sheet-container.sc-ion-action-sheet-md{
+/* ion-item {
+  --background: var(--ion-color-step-50, #ffffff);
+  --border-color: var(--ion-color-step-500, rgb(207, 207, 207));
+  --border-radius: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  min-height: 56px;
+} */
+
+ion-select {
+  --background: white;
+}
+
+.action-sheet-container.sc-ion-action-sheet-md {
   --background: white;
 }
 
@@ -110,13 +143,27 @@ ion-select{
   .auth-form {
     width: 100%;
     padding: 10px;
-    
   }
 
+  ion-card {
+    
+    width: 90%;
+    height: 60%;
+    left: 2%;
+    right: auto;
+    margin-top: 8%;
+  
+  }
 
+  .list-factura {
+    border-radius: 8px;
+    padding: 5px;
+    padding-top: 33px;
+
+  }
 
   .form-container {
-    border: 3px solid #e0e0e0;    /* Borde del cuadro */
+    border: 3px solid #e0e0e0; /* Borde del cuadro */
 
     box-shadow: 0 0 20px #ffc16a76;
     /* Sombra del cuadro */
@@ -124,7 +171,6 @@ ion-select{
     /* Espaciado alrededor del cuadro y centrar en la página */
 
     background-color: #e0e0e0a5;
-
 
     padding: 10px;
     /* Espaciado interno del cuadro */
@@ -138,9 +184,7 @@ ion-select{
     /* Incluir el padding y el borde en el ancho total */
   }
 
-
-  .buttons-movil ion-button{
+  .buttons-movil ion-button {
     --border-radius: 30px;
   }
-
 }

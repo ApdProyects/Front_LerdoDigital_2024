@@ -7,11 +7,13 @@
 
 ion-searchbar {
   --background: white;
-  --border-radius: 22px;
+  --border-radius: 10px;
   width: 25%;
   height: 3%;
   left: 1%;
 }
+
+
 
 .searchbar-cancel-button {
   margin-right: 0 !important;
@@ -48,7 +50,7 @@ ion-row:nth-child(even) {
 
 ion-row:first-child.tableRow {
   background:  /* linear-gradient(to right, #8cbd62 0%, #f7f4ef 100%) */ var(
-    --ion-color-success
+    --ion-color-medium
   );
   color: #ffffff;
   border-radius: 14px 14px 0px 0px;
@@ -61,13 +63,39 @@ ion-row:last-child {
   border-radius: 0px 0px 14px 14px;
 }
 
+ion-row.pagination-controls {
+  background: transparent;
+  padding-left: 47px;
+    padding-right: 47px;
+}
+
+ion-button.pagination-button {
+  margin-right: 35px;
+}
+
+ion-button.pagination-button:last-child {
+  margin-right: 0;
+}
+
+.pagination-page-info {
+  /* Estilos específicos para el texto de información de la página */
+}
+
+
+
+.pagination-controls ion-col {
+  background-color: transparent !important; 
+    font-size: 2em;
+}
+
+
 ion-button.button-table {
   --border-radius: 10px;
 }
 
 .buttonsFacturar {
   align-items: end;
-  margin-left: 84%;
+  margin-left: 46%;
 }
 
 ion-button.buttonFac {
@@ -118,8 +146,8 @@ ion-note {
   --background: #fff;
 }
 
-ion-item {
-  --background: #fff;
+ion-item.searchBar {
+  --background: transparent;
 }
 
 ion-list {
@@ -211,9 +239,8 @@ ion-list {
   }
 
   ion-searchbar {
-    --background: white;
-    --border-radius: 18px;
-    width: 98%;
+  
+    width: 100%;
     height: 6%;
     left: 1%;
   }
@@ -241,4 +268,11 @@ ion-list {
     margin-left: 16%;
     margin-bottom: 4%;
   }
+
+  .pagination-controls ion-col {
+    background-color: transparent !important; 
+      font-size: 1.2em;
+  }
+
+
 }

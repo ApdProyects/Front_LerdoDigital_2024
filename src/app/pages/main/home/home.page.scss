@@ -37,7 +37,7 @@
 }
 
 ion-button.slide-button {
-  --border-color: white;
+  --border-color: transparent;
   --background-hover: white;
   border-radius: 42px;
 }
@@ -92,7 +92,7 @@ ul li::before {
   }
 }
 .slide-subtitles a:hover {
-  color: #8cbd62; /* Color al pasar el mouse por encima del enlace */
+  color: var(--ion-color-medium); /* Color al pasar el mouse por encima del enlace */
   font-size: 6rem;
 }
 
@@ -102,8 +102,9 @@ ul li::before {
 
 .ImageSlide {
   position: absolute;
-  bottom: 14%;
-  left: 3%;
+  bottom: 11%;
+  left: 34%;
+
 }
 
 .second-text {
@@ -112,13 +113,14 @@ ul li::before {
 }
 
 .second-text h1 {
-  font-size: 8rem;
+  font-size: 6rem;
   font-style: italic;
 }
 
 .third-text {
-  bottom: 43%;
-  left: 1%;
+
+  bottom: 91%;
+  left: 2%;
 }
 
 .third-text h1 {
@@ -387,7 +389,7 @@ h1 {
   transition: background-color 0.3s;
   /* Agrega una transición suave al color de fondo */
   color: #000;
-  --background: linear-gradient(0deg, #8cbd6275, #8cbd62);
+  --background: linear-gradient(0deg, var(--ion-color-medium-tint), var(--ion-color-medium));
 }
 
 .pensando-card ion-card-content {
@@ -424,7 +426,7 @@ ion-avatar {
   --border-radius: 15px;
   width: 100%;
   height: 230px;
-  box-shadow: 0 0 50px #8cbd62ad;
+  box-shadow: 0 0 50px var(--ion-color-medium-tint);
 }
 
 .imagen-hover:hover {
@@ -489,18 +491,18 @@ ion-grid {
   border-radius: 20px; /* Bordes redondeados si lo deseas */
 }
 .container-background {
-  background-color: #e0e0e0a5; /* Color de fondo gris */
+  background-color: var(--ion-color-medium-tint); /* Color de fondo gris */
   padding: 25px; /* Ajusta el espaciado interno según sea necesario */
   border-radius: 25px; /* Bordes redondeados si lo deseas */
   margin: 15px; /* Agrega margen alrededor del contenedor */
-  box-shadow: 0 0 10px #8cbd62;
+  box-shadow: 0 0 10px var(--ion-color-medium);
   border: 1px solid #f4f4f4;
 }
 
 /* <=================Tramites=================> */
 
 ion-card {
-  --background: linear-gradient(0deg, #8cbd6275, #8cbd62);
+  --background: linear-gradient(0deg, var(--ion-color-medium-tint), var(--ion-color-medium));
   --color: #ffffff;
 }
 
@@ -531,7 +533,7 @@ ion-card-title {
 }
 
 .tramites-card ion-card:hover {
-  background-color: #8cbd62ac;
+  background-color: var(--ion-color-medium);
   transition: background-color 0.3s ease;
   cursor: pointer; /* Cambia el cursor al pasar el cursor sobre la tarjeta */
   --color: #000;
@@ -609,7 +611,7 @@ ion-card-title {
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 10px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 50px #ffc16a76;
+  box-shadow: 0 0 50px var(--ion-color-medium);
   /* Sombra del cuadro */
   max-width: 400px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -617,7 +619,7 @@ ion-card-title {
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color: #e0e0e0a5;
+  background-color: var(--ion-color-medium-tint);
 }
 
 .form-container-contacto {
@@ -627,7 +629,7 @@ ion-card-title {
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 10px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 50px #ffc16a76;
+  box-shadow: 0 0 50px var(--ion-color-medium);
   /* Sombra del cuadro */
   max-width: 400px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -635,7 +637,7 @@ ion-card-title {
   /* Espaciado alrededor del cuadro y centrar en la página */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
-  background-color: #e0e0e0a5;
+  background-color: var(--ion-color-medium-tint);
 }
 
 .form-control {
@@ -662,7 +664,7 @@ ion-item.custom-input {
 
   &:valid,
   &:valid:focus {
-    --border-color: #8a8d8b; /* Cambiar el color del borde cuando el input es válido (success) */
+    --border-color: var(--ion-color-medium); /* Cambiar el color del borde cuando el input es válido (success) */
   }
 }
 

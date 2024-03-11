@@ -14,8 +14,12 @@
           clickable: true,
           dynamicBullets: true
         }"
+      
       >
-
+      <!-- [autoplay]="{
+        delay: 5000, 
+        disableOnInteraction: false
+      }" -->
      <!-- -->
         <swiper-slide *ngFor="let item of images2; let i = index">
           <div>
@@ -41,7 +45,7 @@
           </div>
 
           <ion-button
-            *ngIf="i !== 1 "
+            *ngIf="i !== 1"
             shape="round"
             (click)="this[item.buttonAction]()"
             fill="outline"
@@ -307,7 +311,7 @@
           <div class="item-container">
             <ion-icon
               name="calendar-outline"
-              color="success"
+              color="medium"
               slot="start"
               size="100"
             ></ion-icon>
@@ -323,7 +327,7 @@
           <div class="item-container">
             <ion-icon
               name="call-outline"
-              color="success"
+              color="medium"
               slot="start"
             ></ion-icon>
             <ion-label>
@@ -338,7 +342,7 @@
           <div class="item-container">
             <ion-icon
               name="logo-facebook"
-              color="success"
+              color="medium"
               slot="start"
             ></ion-icon>
             <ion-label>
@@ -368,7 +372,7 @@
             <ion-icon
               slot="start"
               name="person-outline"
-              color="success"
+              color="medium"
             ></ion-icon>
             <ion-input
               label="Nombre"
@@ -386,7 +390,7 @@
             <ion-icon
               slot="start"
               name="mail-outline"
-              color="success"
+              color="medium"
             ></ion-icon>
             <ion-input
               label="Email"
@@ -404,7 +408,7 @@
             <ion-icon
               slot="start"
               name="call-outline"
-              color="success"
+              color="medium"
             ></ion-icon>
             <ion-input
               label="Teléfono"
@@ -426,7 +430,7 @@
             class="button-contacto"
             expand="block"
             mode="ios"
-            color="success"
+            color="light"
             (click)="sendemail()"
           >
             Enviar

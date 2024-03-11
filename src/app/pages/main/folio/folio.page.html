@@ -10,17 +10,19 @@
   <ion-row class="ion-justify-content-center" style="width: 100%">
     <ion-col size-md="8" size-lg="8" size-sm="8">
       <div class="auth-form" *ngIf="isOpenfolio">
-        <div class="form-container">
-          <h1 class="ion-justify-content-center">
+        <ion-card class="">
+          <ion-card-header class="ion-justify-content-center">
             CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
-          </h1>
+          </ion-card-header>
+          <ion-card-content>
+            <br>
           <ion-row class="ion-align-items-center">
             <ion-col>
               <ion-input
                 label="Folio / Clave Catastral"
                 label-placement="floating"
                 style="color: gray"
-                fill="solid"
+                fill="outline"
                 color="success"
                 type="text"
                 [(ngModel)]="folio"
@@ -39,12 +41,13 @@
             expand="block"
             fill="solid"
             shape="round"
-            color="success"
+            color="medium"
             (click)="search()"
             ><strong>Buscar</strong></ion-button
           >
           <ion-text color="primary"></ion-text>
-        </div>
+        </ion-card-content>
+        </ion-card>
       </div>
 
       <!-- ============================================= Consultar folio de pago ============================================================ -->

@@ -53,7 +53,7 @@ export class AuthPage implements OnInit {
             console.log('Usuario no registrado');
             this.mostrarAlertaNoRegistro(
               'Usuario no registrado',
-              'No se encontró una cuenta con estas credenciales. Por favor, verifica tus datos o regístrate.'
+              'No se encontró una cuenta con estas credenciales. Por favor, verifica tus datos o  regístrate.'
             );
           } else if (res.LRO_CLAVE === 2) {
             console.log('Respuesta exitosa');
@@ -118,7 +118,7 @@ export class AuthPage implements OnInit {
     Swal.fire({
       title: 'Bienvenido',
       icon: 'success',
-      timer: 1000,
+      timer: 2000,
       showConfirmButton: false,
     });
     document.body.classList.remove('swal2-height-auto');

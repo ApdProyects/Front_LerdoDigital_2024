@@ -29,15 +29,20 @@
 
 swiper-container {
   --swiper-pagination-bullet-inactive-color: var(--ion-color-step-100, #ffffff);
-  --swiper-pagination-color: var(--ion-color-success, #ffffff);
+  --swiper-pagination-color: var(--ion-color-medium-tint, #ffffff);
   --swiper-pagination-bullet-width: var(--swiper-pagination-bullet-size,27px);
   --swiper-pagination-bullet-height: var(--swiper-pagination-bullet-size,25px);
 
 }
 
 
+/*  body{
+  filter: grayscale(1);
+}
 
-
+iframe{
+  filter: grayscale(0)!important;
+} */
 
 /* Css animations */
 .rotate-in-2-cw {
@@ -133,7 +138,7 @@ swiper-container {
 }
 
 ion-app {
-  --ion-background-color: linear-gradient(to top, #f7f4ef, #8cbd62);
+  --ion-background-color: linear-gradient(to top, #ffffff, var(--ion-color-medium));
 }
 
 ion-alert .alert-wrapper {

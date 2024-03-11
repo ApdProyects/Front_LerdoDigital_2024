@@ -7,19 +7,21 @@
 </app-header>
 <ion-content>
   <form [formGroup]="form" class="auth-form">
-    <app-logo User="true"></app-logo>
-    <h1>
-      <b>Datos del Usuario</b>
-    </h1>
+  
 
-    <div class="form-container">
+   
+    <ion-card >
+
+      <ion-card-header class="ion-text-center"><b>Datos del Usuario</b></ion-card-header>
+      <app-logo User="true" ></app-logo>
+      <ion-card-content>
       <app-custom-input
         autocomplete="name"
         icon="person-outline"
         [control]="form.controls.usuario"
         type="text"
         label="Nombre usuario: "
-        maxlength="14"
+        [maxlength]="50"
         #usuario
         placeholder="Nuevo usuario"
       ></app-custom-input>
@@ -42,7 +44,7 @@
         [control]="form.controls.correo"
         type="email"
         label="Correo electrónico: "
-        [maxlength]="50"
+        [maxlength]="1"
         [readonly]="false"
         (input)="ConvertirenMinusculas(form.controls.correo)"
       ></app-custom-input>
@@ -105,7 +107,7 @@
               class="submit buttons-form"
               type="submit"
               (click)="actualizarPerfil()"
-              color="success"
+              color="medium"
               shape="round"
             >
               Guardar
@@ -120,7 +122,7 @@
               class="submit buttons-form"
               type="submit"
               shape="round"
-              color="success"
+              color="danger"
               (click)="Cancelar()"
             >
               Cancelar
@@ -131,6 +133,7 @@
           ></ion-col>
         </ion-row>
       </ion-grid>
-    </div>
+    </ion-card-content>
+    </ion-card>
   </form>
 </ion-content>

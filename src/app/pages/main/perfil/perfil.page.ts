@@ -42,6 +42,7 @@ export class PerfilPage implements OnInit {
     
   }
 
+  //Esta función intenta recuperar el correo del usuario desde el localStorage. Si lo encuentra, realiza una llamada a un servicio (presumiblemente un servicio de autenticación) para obtener más datos sobre el usuario y luego actualiza un formulario con estos datos. Si no encuentra el correo en localStorage, simplemente registra un mensaje en la consola. La anotación : void después del nombre de la función indica que cargarDatosUsuario no devuelve ningún valor.
   cargarDatosUsuario(): void {
     const correoUsuario = localStorage.getItem('LUS_CORREO');
 
@@ -73,7 +74,9 @@ export class PerfilPage implements OnInit {
     }
   }
 
+  //La función actualizarPerfil() primero verifica si un formulario es válido. Si lo es, muestra una alerta de confirmación al usuario. Si el usuario confirma, la función procede a enviar los datos actualizados del usuario a través de otro servicio (nuevamente, presumiblemente un servicio de autenticación). Al finalizar, ya sea redirige al usuario a otra página o registra un error en la consola si hay un problema con la solicitud. La función está diseñada para controlar el flujo de la actualización del perfil, incluyendo interacciones de usuario y comunicaciones con servicios externos, pero no devuelve ningún valor, lo cual está indicado por el tipo de retorno void.
   actualizarPerfil(): void {
+    debugger;
     if (this.form.valid) {
       this.mostrarAlertaConfirmacion().then((confirmado) => {
         if (confirmado) {
@@ -106,6 +109,7 @@ export class PerfilPage implements OnInit {
   }
   
   async mostrarAlertaConfirmacion(): Promise<boolean> {
+    debugger;
     let confirmado = false;
   
     const alerta = await this.alertController.create({

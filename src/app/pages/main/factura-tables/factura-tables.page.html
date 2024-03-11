@@ -5,68 +5,86 @@
     MenuButton="true"
   ></app-header>
 
-  <h1 class="ion-text-center"><b>Facturación Lerdo</b></h1>
+  <h1 class="ion-text-center"><b>Datos de facturación</b></h1>
   <br />
-  <ion-searchbar
-    placeholder="Buscar RFC..."
-    [(ngModel)]="rfcBuscado"
-    (ionCancel)="buscar(rfcBuscado)"
-    showCancelButton="always"
-    cancelButtonIcon="search"
-    class="searchbar-cancel-button"
-    (keydown.enter)="buscar(rfcBuscado)"
-    *ngIf="!mostrarFormulario"
-    [minlength]="10"
-  ></ion-searchbar>
+  <ion-item lines="none" class="searchBar">
+    <ion-searchbar
+      slot="start"
+      placeholder="Num Factura..."
+      [(ngModel)]="textoBusqueda"
+      (ionChange)="filtrarFacturas(textoBusqueda)"
+      (keyup.enter)="filtrarFacturas(textoBusqueda)"
+       
+      debounce="500">
+    </ion-searchbar>
+    <ion-button
+      slot="start"
+      (click)="buscarFactura()"
+      size="medium"
+      color="light"
+      shape="round">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-item>
 
-  <div class="table-scroll"  *ngIf="!mostrarFormulario">
+  <!-- <div>
+    <ion-buttons class="paginationButtons">
+      <ion-button fill="solid" shape="round" [disabled]="currentPage <= 1" (click)="changePage(currentPage - 1)">
+        Anterior
+      </ion-button>
+      <ion-button fill="solid" shape="round" [disabled]="currentPage >= totalPages" (click)="changePage(currentPage + 1)">
+        Siguiente
+      </ion-button>
+    </ion-buttons>
+  </div> -->
+
+  <div class="table-scroll">
     <ion-grid class="table">
       <ion-row class="tableRow">
-        <ion-col>Número</ion-col>
+        <ion-col>Número Factura</ion-col>
         <ion-col>Fecha</ion-col>
-        <ion-col>Folio</ion-col>
+        <ion-col>Folio Fiscal</ion-col>
         <ion-col>Nombre</ion-col>
         <ion-col>RFC</ion-col>
         <ion-col>Importe</ion-col>
-        <ion-col>SR</ion-col>
         <ion-col></ion-col>
       </ion-row>
-      <ion-row *ngFor="let factura of facturasFiltradas">
-        <ion-col>{{ factura.numero || '-' }}</ion-col>
-        <ion-col>{{ factura.fecha || '-' }}</ion-col>
-        <ion-col>{{ factura.folio || '-' }}</ion-col>
-        <ion-col>{{ factura.nombre || '-' }}</ion-col>
-        <ion-col>{{ factura.rfc || '-' }}</ion-col>
-        <ion-col>${{ factura.importe || '-' }}</ion-col>
-        <ion-col
-          ><ion-radio-group
-            [(ngModel)]="seleccionado"
+      <ion-row *ngFor="let factura of displayedData">
+        <ion-col>{{ factura.NumeroFactura || '-' }}</ion-col>
+        <ion-col>{{ factura.FechaFactura || '-' }}</ion-col>
+        <ion-col>{{ factura.FolioUUIDFactura || '-' }}</ion-col>
+        <ion-col>{{ factura.NombreDeFactura || '-' }}</ion-col>
+        <ion-col>{{ factura.RFCFacturar || '-' }}</ion-col>
+        <ion-col>${{ factura.ImporteDeLaFactura || '-' }}</ion-col>
+        <!-- <ion-col>
+          <ion-radio-group
             [allowEmptySelection]="true"
-            (ionChange)="seleccionarSR()"
+            (ionChange)="toggleSeleccion(factura)"
           >
             <ion-radio
-              [value]="factura.numero || 'default'"
+              [value]="factura.numero"
               [checked]="seleccionado === factura.numero"
               color="success"
             >
             </ion-radio> </ion-radio-group
-        ></ion-col>
+        ></ion-col> -->
         <ion-col>
           <ion-button
             fill="solid"
             shape="solid"
             color="success"
             class="button-table"
-            [disabled]="!seleccionado"
+            (click)="enviarFactura(factura)"
           >
             <ion-icon name="send-outline"></ion-icon>
           </ion-button>
+
           <ion-button
             fill="solid"
             shape="solid"
             color="medium"
             class="button-table"
-            [disabled]="!seleccionado"
+            (click)="descargarFactura(factura)"
           >
             <ion-icon name="download-outline"></ion-icon>
           </ion-button>
@@ -83,6 +101,39 @@
     </ion-grid>
   </div>
 
+  <ion-row class="pagination-controls">
+    <ion-col size="auto" class="ion-align-self-center">
+      <ion-button
+        class="pagination-button"
+        (click)="changePage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+        shape="round"
+        color="medium"
+      >
+        <ion-icon
+          slot="icon-only"
+          name="chevron-back-outline"
+          shape="round"
+        ></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col class="pagination-page-info">
+      Página {{currentPage}} de {{totalPages}}
+    </ion-col>
+    <ion-col size="auto" class="ion-align-self-center">
+      <ion-button
+        class="pagination-button"
+        (click)="changePage(currentPage + 1)"
+        [disabled]="currentPage === totalPages"
+        shape="round"
+        color="medium"
+        ><ion-icon slot="end" slot="icon-only" name="chevron-forward-outline"
+          >Siguiente</ion-icon
+        >
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
   <div>
     <ion-buttons class="buttonsFacturar">
       <!-- <ion-button
@@ -95,12 +146,11 @@
         Cancelar
       </ion-button> -->
       <ion-button
-        *ngIf="!mostrarFormulario"
         fill="solid"
         shape="round"
-        color="success"
+        color="medium"
         class="buttonFac"
-        (click)="mostrarNuevaFactura() "
+        (click)="mostrarNuevaFactura()"
       >
         Nueva Factura
       </ion-button>
@@ -152,7 +202,7 @@
     </ion-card>
   </div> -->
 
-  <div *ngIf="facturaEnProgreso" >
+  <!--  <div *ngIf="facturaEnProgreso" >
     <form [formGroup]="form" *ngIf="mostrarFormulario">
       <ion-card>
         <ion-card-header>
@@ -221,6 +271,6 @@
       </ion-card>
     </form>
   </div>
-
+ -->
   <br />
 </ion-content>

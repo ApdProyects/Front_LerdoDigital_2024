@@ -95,7 +95,7 @@ export class ForgotPasswordPage implements OnInit {
   }
 
     // Actualizar el valor del control
-    control.setValue(telefono);
+    control.setValue(telefono.replace(' ',''));
   }
 
 

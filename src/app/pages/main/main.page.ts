@@ -25,11 +25,10 @@ export class MainPage implements OnInit {
     { title: 'Pagos', url: '/main/folio', icon: 'cash-outline' },
     {
       title: 'Facturación',
-      url: '/main/factura-tables',
+      url: '/main/facturacion',
       icon: 'document-text-outline',
     },
-    { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' },
-    
+     { title: 'Perfil', url: '/main/perfil', icon: 'person-outline' }, 
   ];
 
   activePages: Array<any>;
@@ -38,7 +37,7 @@ export class MainPage implements OnInit {
 
 
   changeMenu(page: string) {
-    if (page === 'folio' || 'factura-tables' || 'perfil') {
+    if (page === 'folio' || 'facturacion' || 'perfil') {
       this.activePages = this.pagesServicios;
       console.log(this.pagesServicios);
     } else {
@@ -61,7 +60,7 @@ export class MainPage implements OnInit {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         // Cambia el menú basado en la ruta
-        if (event.url.includes('/folio') || event.url.includes('/factura-tables')  || event.url.includes('/perfil')) {
+        if (event.url.includes('/folio') || event.url.includes('/facturacion')  || event.url.includes('/perfil') || event.url.includes('/factura-table'))  {
           this.menuService.changeMenu('folio');
         } else {
           this.menuService.changeMenu('default');

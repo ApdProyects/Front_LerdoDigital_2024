@@ -11,506 +11,377 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <br />
-  <div class="auth-form">
-    <h1>
-      <b
-        >FACTURACIÓN LERDO</b
-      >
-    </h1>
-    <br />
 
-    <div class="form-container">
-      <div *ngIf="isOpenfolio">
-        <ion-input
-          label="Ingrese su folio"
-          label-placement="floating"
-          color="success"
-          fill="solid"
-          [(ngModel)]="folio"
-          maxlength="17"
-          onkeyup="this.value = this.value.toUpperCase()"
-        ></ion-input>
-      </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Nueva factura</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="list-factura">
+        <br />
 
-      <br />
+        <div *ngIf="isOpenfolio || isOpenInfoRFC">
+          <p *ngIf="isOpenInfoRFC">
+            Se enviará la información al correo dado de alta en el RFC para su
+            validación.
+          </p>
 
-      <div *ngIf="isOpenfolio || isOpenInfoRFC">
-        <p *ngIf="isOpenInfoRFC">
-          Se enviará la información al correo dado de alta en el RFC para su
-          validación.
-        </p>
-        <ion-label position="stacked"></ion-label>
-        <ion-input
-          type="text"
-          label="Ingrese su RFC"
-          label-placement="floating"
-          color="success"
-          fill="solid"
-          [(ngModel)]="rfc"
-          maxlength="13"
-          onkeyup="this.value = this.value.toUpperCase();"
-        >
-        </ion-input>
-      </div>
-
-      <br />
-
-      <div *ngIf="isOpenfolio">
-        <ion-select
-          label="Uso CFDI"
-          label-placement="floating"
-          fill="solid"
-          expandedIcon="remove"
-          color="success"
-          [(ngModel)]="UsoCFDI"
-        >
-          <ion-select-option value="ADQUISICIÓN DE MERCANCIAS"
-            >ADQUISICIÓN DE MERCANCIAS</ion-select-option
+          <ion-label position="stacked"></ion-label>
+          <ion-input
+            type="text"
+            label="Ingrese su RFC"
+            label-placement="floating"
+            color="success"
+            fill="outline"
+            [(ngModel)]="rfc"
+            maxlength="13"
+            onkeyup="this.value = this.value.toUpperCase();"
           >
-          <ion-select-option value="DEVOLUCIONES, DESCUENTOS O BONIFICACIONES"
-            >DEVOLUCIONES, DESCUENTOS O BONIFICACIONES</ion-select-option
-          >
-          <ion-select-option value="GASTOS EN GENERAL"
-            >GASTOS EN GENERAL</ion-select-option
-          >
-          <ion-select-option value="CONSTRUCCIONES"
-            >CONSTRUCCIONES</ion-select-option
-          >
-          <ion-select-option
-            value="MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES"
-            >MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES</ion-select-option
-          >
-          <ion-select-option value="EQUIPO DE TRANSPORTE"
-            >EQUIPO DE TRANSPORTE</ion-select-option
-          >
-          <ion-select-option value="EQUIPO DE COMPUTO Y ACCESORIOS"
-            >EQUIPO DE COMPUTO Y ACCESORIOS</ion-select-option
-          >
-          <ion-select-option
-            value="DADOS, TROQUELES, MOLDES, MATRICES Y HERRAMENTAL"
-            >DADOS, TROQUELES, MOLDES, MATRICES Y HERRAMENTAL</ion-select-option
-          >
-          <ion-select-option value="COMUNICACIONES TELEFÓNICAS"
-            >COMUNICACIONES TELEFÓNICAS</ion-select-option
-          >
-          <ion-select-option value="COMUNICACIONES SATELITALES"
-            >COMUNICACIONES SATELITALES</ion-select-option
-          >
-          <ion-select-option value="OTRA MAQUINARIA Y EQUIPO"
-            >OTRA MAQUINARIA Y EQUIPO</ion-select-option
-          >
-          <ion-select-option
-            value="HONORARIOS MÉDICOS, DENTALES Y GASTOS HOSPITALARIOS"
-            >HONORARIOS MÉDICOS, DENTALES Y GASTOS
-            HOSPITALARIOS</ion-select-option
-          >
-          <ion-select-option
-            value="GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD"
-            >GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD</ion-select-option
-          >
-          <ion-select-option value="GASTOS FUNERALES"
-            >GASTOS FUNERALES</ion-select-option
-          >
-          <ion-select-option value="DONATIVOS">DONATIVOS</ion-select-option>
-          <ion-select-option
-            value="INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS (CASA HABITACIÓN)"
-            >INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS
-            (CASA HABITACIÓN)</ion-select-option
-          >
-          <ion-select-option value="APORTACIONES VOLUNTARIAS AL SAR"
-            >APORTACIONES VOLUNTARIAS AL SAR</ion-select-option
-          >
-          <ion-select-option value="PRIMAS POR SEGUROS DE GASTOS MÉDICOS"
-            >PRIMAS POR SEGUROS DE GASTOS MÉDICOS</ion-select-option
-          >
-          <ion-select-option
-            value="GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA"
-            >GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA</ion-select-option
-          >
-          <ion-select-option
-            value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
-            >DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE
-            PLANES DE PENSIONES</ion-select-option
-          >
-          <ion-select-option
-            value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
-            >PAGOS POR SERVICIOS EDUCATIVOS (COLEGIATURAS)</ion-select-option
-          >
-          <ion-select-option value="SIN EFECTOS FISCALES"
-            >SIN EFECTOS FISCALES</ion-select-option
-          >
-          <ion-select-option value="POR DEFINIR">POR DEFINIR</ion-select-option>
-        </ion-select>
-      </div>
-      <br />
-      <div *ngIf="isOpencaptura">
-        <div class="form_container">
-          <ion-title *ngIf="isOpencaptura" size="large" color="" class="altaRFC"
-            ><b>ALTA DE RFC</b></ion-title
-          >
-
-          <br />
-
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Nombre</ion-label>
-            <ion-input
-              Nombre=""
-              label-placement="floating"
-              fill="solid"
-              placeholder="Nombre,denominación ó Razón Social"
-              [(ngModel)]="nombre"
-              required
-              onkeyup="this.value = this.value.toUpperCase();"
-            ></ion-input>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Tipo persona</ion-label>
-            <ion-select
-              placeholder="Seleccione"
-              [(ngModel)]="tipo_persona"
-              label-placement="floating"
-              cancelText="Cancelar"
-              fill="solid"
-              expandedIcon="remove"
-              color="success"
-            >
-              <ion-select-option value="F">Fisica</ion-select-option>
-              <ion-select-option value="M">Moral</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <br />
-
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
-            <ion-select
-              placeholder="Seleccione"
-              [(ngModel)]="regimen"
-              cancelText="Cancelar"
-            >
-              <ion-select-option
-                *ngFor="let r of Regimen_fiscal"
-                value="{{r[0]}}"
-                >{{r[2]}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <br />
-
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Dirección</ion-label>
-            <ion-input
-              Nombre=""
-              placeholder="Dirección segun su Constancia Físcal"
-              [(ngModel)]="direccion"
-              onkeyup="this.value = this.value.toUpperCase();"
-            ></ion-input>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Colonia</ion-label>
-            <ion-input
-              Nombre=""
-              placeholder="Colonia según su Constancia Físcal"
-              [(ngModel)]="colonia"
-              onkeyup="this.value = this.value.toUpperCase();"
-            ></ion-input>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Estado</ion-label>
-            <ion-select
-              placeholder="Seleccione"
-              [(ngModel)]="estado"
-              okText="Seleccionar"
-              cancelText="Cancelar"
-              (ngModelChange)="cambioestado()"
-            >
-              <ion-select-option *ngFor="let r of respestado" value="{{r[1]}}"
-                >{{ r[2] }}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Municipio</ion-label>
-            <ion-select
-              placeholder="Seleccione"
-              interface="action-sheet"
-              [(ngModel)]="municipio"
-              okText="Seleccionar"
-              cancelText="Cancelar"
-            >
-              <ion-select-option
-                *ngFor="let r of modmunicipios"
-                value="{{r[2]}}"
-                >{{ r[3] }}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Codigo Postal</ion-label>
-            <ion-input
-              Nombre=""
-              placeholder="Código Postal segun su Constancia Físcal"
-              [(ngModel)]="CP"
-              maxlength="6"
-            ></ion-input>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Correo</ion-label>
-            <ion-input Nombre="" [(ngModel)]="email" required></ion-input>
-          </ion-item>
-          <br />
-          <ion-item *ngIf="isOpencaptura">
-            <ion-label position="stacked">Celular</ion-label>
-            <ion-input
-              Nombre=""
-              [(ngModel)]="celular"
-              required
-              maxlength="10"
-            ></ion-input>
-          </ion-item>
-          <br />
+          </ion-input>
         </div>
-      </div>
 
-      <ion-item *ngIf="isRegimen">
-        <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
-        <ion-select
-          placeholder="Seleccione"
-          [(ngModel)]="regimen"
-          cancelText="Cancelar"
-        >
-          <!-- <ion-select-option value="" style="color: gray;">RÉGIMEN FISCAL</ion-select-option>-->
-          <ion-select-option *ngFor="let r of Regimen_fiscal" value="{{r[0]}}"
-            >{{r[2]}}</ion-select-option
-          >
-        </ion-select>
-        <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
-      </ion-item>
-      <br />
+        <br />
 
-      <ion-grid fixed class="buttons-movil">
-        <ion-row>
-          <ion-col size="12" size-md="6">
-            <ion-button
-            *ngIf="isRegimen"
-            block
-            (click)="guardarcliente_regimen()"
-            class="buttons-form"
-            expand="block"
-            mode="ios"
+        <div *ngIf="isOpenfolio">
+          <ion-select
+            label="Uso CFDI"
+            label-placement="floating"
+            fill="outline"
+            expandedIcon="remove"
             color="success"
-            shape="round"
-              ><b>Guardar Regimen Físcal</b></ion-button
-            ></ion-col
+            [(ngModel)]="UsoCFDI"
           >
-        <ion-col size="12" size-md="6">
-          <ion-button
-            *ngIf="isRegimen"
-            block
-            (click)="cancelar()"
-            class="buttons-form"
-            expand="block"
-            mode="ios"
-            color="success"
-            shape="round"
-            ><b> Cancelar</b>
-          </ion-button>
-          </ion-col
-          ></ion-row
-        >
-      </ion-grid>
-
-      <ion-grid fixed class="buttons-movil">
-        <ion-row>
-          <ion-col size="12" size-md="6"
-            ><ion-button
-              size="medium"
-              block
-              (click)="searchfolio()"
-              *ngIf="isOpenfolio"
-              class="buttons-form"
-              expand="block"
-              mode="ios"
-              color="success"
-              shape="round"
-              ><b>Facturar Folio</b></ion-button
+            <ion-select-option value="ADQUISICIÓN DE MERCANCIAS"
+              >ADQUISICIÓN DE MERCANCIAS</ion-select-option
             >
-          </ion-col>
-          <ion-col size="12" size-md="6"
-            ><ion-button
-              size="medium"
-              (click)="EnviarInfoRFC()"
-              *ngIf="isOpenfolio"
-              class="buttons-form"
-              expand="block"
-              mode="ios"
-              color="success"
-              shape="round"
-              ><b>Validar Información RFC</b></ion-button
+            <ion-select-option value="DEVOLUCIONES, DESCUENTOS O BONIFICACIONES"
+              >DEVOLUCIONES, DESCUENTOS O BONIFICACIONES</ion-select-option
             >
-          </ion-col>
-           <ion-col size="12" size-md="6">
-            <ion-button
-              (click)="accesoDirectoAlFormulario()"
-              *ngIf="isOpenfolio"
-              size="medium"
-              expand="block"
-              mode="ios"
-              color="success"
-              class="buttons-form"
-              shape="round"
-              ><b>Datos Fiscales</b></ion-button
+            <ion-select-option value="GASTOS EN GENERAL"
+              >GASTOS EN GENERAL</ion-select-option
             >
-          </ion-col>  
-        </ion-row>
-      </ion-grid>
+            <ion-select-option value="CONSTRUCCIONES"
+              >CONSTRUCCIONES</ion-select-option
+            >
+            <ion-select-option
+              value="MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES"
+              >MOBILARIO Y EQUIPO DE OFICINA POR INVERSIONES</ion-select-option
+            >
+            <ion-select-option value="EQUIPO DE TRANSPORTE"
+              >EQUIPO DE TRANSPORTE</ion-select-option
+            >
+            <ion-select-option value="EQUIPO DE COMPUTO Y ACCESORIOS"
+              >EQUIPO DE COMPUTO Y ACCESORIOS</ion-select-option
+            >
+            <ion-select-option
+              value="DADOS, TROQUELES, MOLDES, MATRICES Y HERRAMENTAL"
+              >DADOS, TROQUELES, MOLDES, MATRICES Y
+              HERRAMENTAL</ion-select-option
+            >
+            <ion-select-option value="COMUNICACIONES TELEFÓNICAS"
+              >COMUNICACIONES TELEFÓNICAS</ion-select-option
+            >
+            <ion-select-option value="COMUNICACIONES SATELITALES"
+              >COMUNICACIONES SATELITALES</ion-select-option
+            >
+            <ion-select-option value="OTRA MAQUINARIA Y EQUIPO"
+              >OTRA MAQUINARIA Y EQUIPO</ion-select-option
+            >
+            <ion-select-option
+              value="HONORARIOS MÉDICOS, DENTALES Y GASTOS HOSPITALARIOS"
+              >HONORARIOS MÉDICOS, DENTALES Y GASTOS
+              HOSPITALARIOS</ion-select-option
+            >
+            <ion-select-option
+              value="GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD"
+              >GASTOS MÉDICOS POR INCAPACIDAD O DISCAPACIDAD</ion-select-option
+            >
+            <ion-select-option value="GASTOS FUNERALES"
+              >GASTOS FUNERALES</ion-select-option
+            >
+            <ion-select-option value="DONATIVOS">DONATIVOS</ion-select-option>
+            <ion-select-option
+              value="INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS (CASA HABITACIÓN)"
+              >INTERESES REALES EFECTIVAMENTE PAGADOS POR CRÉDITOS HIPOTECARIOS
+              (CASA HABITACIÓN)</ion-select-option
+            >
+            <ion-select-option value="APORTACIONES VOLUNTARIAS AL SAR"
+              >APORTACIONES VOLUNTARIAS AL SAR</ion-select-option
+            >
+            <ion-select-option value="PRIMAS POR SEGUROS DE GASTOS MÉDICOS"
+              >PRIMAS POR SEGUROS DE GASTOS MÉDICOS</ion-select-option
+            >
+            <ion-select-option
+              value="GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA"
+              >GASTOS DE TRANSPORTACIÓN ESCOLAR OBLIGATORIA</ion-select-option
+            >
+            <ion-select-option
+              value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
+              >DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE
+              PLANES DE PENSIONES</ion-select-option
+            >
+            <ion-select-option
+              value="DEPÓSITOS EN CUENTAS PARA EL AHORRO, PRIMAS QUE TENGAN COMO BASE PLANES DE PENSIONES"
+              >PAGOS POR SERVICIOS EDUCATIVOS (COLEGIATURAS)</ion-select-option
+            >
+            <ion-select-option value="SIN EFECTOS FISCALES"
+              >SIN EFECTOS FISCALES</ion-select-option
+            >
+            <ion-select-option value="POR DEFINIR"
+              >POR DEFINIR</ion-select-option
+            >
+          </ion-select>
+        </div>
 
-      <ion-row>
-        <ion-col size="12" size-md="6">
-          <ion-button
-            *ngIf="isOpencaptura"
-            size="medium"
-            block
-            (click)="guardarcliente()"
-            class="buttons-form"
-            expand="block"
-            mode="ios"
+        <br />
+
+        <div *ngIf="isOpenfolio">
+          <ion-input
+            label="Ingrese su folio"
+            label-placement="floating"
             color="success"
-            shape="round"
-            ><ion-icon slot="start" name="person-add-outline"></ion-icon
-            ><b>Guardar</b>
-          </ion-button>
-        </ion-col>
-        <ion-col size="12" size-md="6">
-          <ion-button
-            *ngIf="isOpencaptura"
-            size="medium"
-            block
-            (click)="cancelar()"
-            class="buttons-form"
-            expand="block"
-            mode="ios"
-            color="success"
-            shape="round"
-            ><ion-icon slot="start" name="close-circle-outline"></ion-icon
-            ><b> Cancelar</b>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-
-      <ion-grid fixed class="buttons-movil">
-        <ion-row>
-          <ion-col size="12" size-md="6">
-            <ion-button
-              *ngIf="isOpenInfoRFC"
-              block
-              (click)="enviaInformacion()"
-              expand="block"
-              mode="ios"
-              class="buttons-form"
-              color="success"
-              shape="round"
-              ><ion-icon slot="start" name="send-outline"></ion-icon
-              ><b>Enviar Información</b></ion-button
-            ></ion-col
+            fill="outline"
+            [(ngModel)]="folio"
+            maxlength="255"
+            onkeyup="this.value = this.value.toUpperCase();"
           >
-          <ion-col size="12" size-md="6">
-            <ion-button
-              *ngIf="isOpenInfoRFC"
-              block
-              (click)="cancelar()"
-              expand="block"
-              mode="ios"
-              class="buttons-form"
-              color="success"
-              shape="round"
-              ><ion-icon slot="start" name="close-circle-outline"></ion-icon
-              ><b>Cancelar</b></ion-button
-            ></ion-col
-          >
-        </ion-row>
-      </ion-grid>
+          </ion-input>
+          <ion-buttons slot="start">
+            <ion-button (click)="showFolioF(facturaDePrueba)">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Cargar folio
+            </ion-button>
+          </ion-buttons>
+        </div>
 
-      <ion-card class="card_s" [@openClose]="isOpen ? 'open' : 'closed'">
-        <ion-title size="small" color="primary">Datos de folio</ion-title>
-        <ion-row
-          class="ion-align-items-center mt-3 mb-3"
-          style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
+        <div *ngIf="isOpencaptura">
+          <div class="form_container">
+            <ion-title
+              *ngIf="isOpencaptura"
+              size="large"
+              color=""
+              class="altaRFC"
+              ><b>ALTA DE RFC</b></ion-title
+            >
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Nombre</ion-label>
+              <ion-input
+                Nombre=""
+                label-placement="floating"
+                fill="solid"
+                placeholder="Nombre,denominación ó Razón Social"
+                [(ngModel)]="nombre"
+                required
+                onkeyup="this.value = this.value.toUpperCase();"
+              ></ion-input>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Tipo persona</ion-label>
+              <ion-select
+                placeholder="Seleccione"
+                [(ngModel)]="tipo_persona"
+                label-placement="floating"
+                cancelText="Cancelar"
+                fill="solid"
+                expandedIcon="remove"
+                color="success"
+              >
+                <ion-select-option value="F">Fisica</ion-select-option>
+                <ion-select-option value="M">Moral</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <br />
+
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
+              <ion-select
+                placeholder="Seleccione"
+                [(ngModel)]="regimen"
+                cancelText="Cancelar"
+              >
+                <ion-select-option
+                  *ngFor="let r of Regimen_fiscal"
+                  value="{{r[0]}}"
+                  >{{r[2]}}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+            <br />
+
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Dirección</ion-label>
+              <ion-input
+                Nombre=""
+                placeholder="Dirección segun su Constancia Físcal"
+                [(ngModel)]="direccion"
+                onkeyup="this.value = this.value.toUpperCase();"
+              ></ion-input>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Colonia</ion-label>
+              <ion-input
+                Nombre=""
+                placeholder="Colonia según su Constancia Físcal"
+                [(ngModel)]="colonia"
+                onkeyup="this.value = this.value.toUpperCase();"
+              ></ion-input>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Estado</ion-label>
+              <ion-select
+                placeholder="Seleccione"
+                [(ngModel)]="estado"
+                okText="Seleccionar"
+                cancelText="Cancelar"
+                (ngModelChange)="cambioestado()"
+              >
+                <ion-select-option *ngFor="let r of respestado" value="{{r[1]}}"
+                  >{{ r[2] }}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Municipio</ion-label>
+              <ion-select
+                placeholder="Seleccione"
+                interface="action-sheet"
+                [(ngModel)]="municipio"
+                okText="Seleccionar"
+                cancelText="Cancelar"
+              >
+                <ion-select-option
+                  *ngFor="let r of modmunicipios"
+                  value="{{r[2]}}"
+                  >{{ r[3] }}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Codigo Postal</ion-label>
+              <ion-input
+                Nombre=""
+                placeholder="Código Postal segun su Constancia Físcal"
+                [(ngModel)]="CP"
+                maxlength="6"
+              ></ion-input>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Correo</ion-label>
+              <ion-input Nombre="" [(ngModel)]="email" required></ion-input>
+            </ion-item>
+            <br />
+            <ion-item *ngIf="isOpencaptura">
+              <ion-label position="stacked">Celular</ion-label>
+              <ion-input
+                Nombre=""
+                [(ngModel)]="celular"
+                required
+                maxlength="10"
+              ></ion-input>
+            </ion-item>
+            <br />
+          </div>
+        </div>
+
+        <ion-item *ngIf="isRegimen">
+          <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
+          <ion-select
+            placeholder="Seleccione"
+            [(ngModel)]="regimen"
+            cancelText="Cancelar"
+          >
+            <!-- <ion-select-option value="" style="color: gray;">RÉGIMEN FISCAL</ion-select-option>-->
+            <ion-select-option *ngFor="let r of Regimen_fiscal" value="{{r[0]}}"
+              >{{r[2]}}</ion-select-option
+            >
+          </ion-select>
+          <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
+        </ion-item>
+
+        <br />
+
+        <ion-card class="card_s" [@openClose]="isOpen ? 'open' : 'closed'">
+          <ion-title size="small" color="primary">Datos de folio</ion-title>
+          <ion-row
+            class="ion-align-items-center mt-3 mb-3"
+            style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
             p.dashed {border-style: dashed;"
-        >
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark); font-weight: bold"
-              >SUBTOTAL :</ion-label
-            >
-          </ion-col>
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark)"
-              >{{info.subtotal}}
-            </ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-row
-          class="ion-align-items-center mt-3 mb-3"
-          style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
+          >
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark); font-weight: bold"
+                >SUBTOTAL :</ion-label
+              >
+            </ion-col>
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark)"
+                >{{info.subtotal}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row
+            class="ion-align-items-center mt-3 mb-3"
+            style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
             p.dashed {border-style: dashed;"
-        >
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark); font-weight: bold"
-              >IVA :</ion-label
-            >
-          </ion-col>
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark)"
-              >{{info.iva}}
-            </ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-row
-          class="ion-align-items-center mt-3 mb-3"
-          style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
+          >
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark); font-weight: bold"
+                >IVA :</ion-label
+              >
+            </ion-col>
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark)"
+                >{{info.iva}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row
+            class="ion-align-items-center mt-3 mb-3"
+            style="width:100%;border:0px;border-bottom:3px;border-style: dotted;}
             p.dashed {border-style: dashed;"
-        >
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark); font-weight: bold"
-              >TOTAL :</ion-label
-            >
-          </ion-col>
-          <ion-col>
-            <ion-label
-              position="floating"
-              style="color: var(--ion-apd-grendark)"
-              >{{info.total}}
-            </ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-text size="small" color="primary">
-          <h6>
-            Folio facturado, el comprobante a sido enviado via correo
-            electronico a :<br />
-            <blockquote>correocontribuyente&#64;lerdo.mx</blockquote>
-          </h6>
-        </ion-text>
-        <ion-button size="small" block (click)="close()"
-          >Facturar nuevo folio</ion-button
-        >
-      </ion-card>
+          >
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark); font-weight: bold"
+                >TOTAL :</ion-label
+              >
+            </ion-col>
+            <ion-col>
+              <ion-label
+                position="floating"
+                style="color: var(--ion-apd-grendark)"
+                >{{info.total}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-text size="small" color="primary">
+            <h6>
+              Folio facturado, el comprobante a sido enviado via correo
+              electronico a :<br />
+              <blockquote>correocontribuyente&#64;lerdo.mx</blockquote>
+            </h6>
+          </ion-text>
+          <ion-button size="small" block (click)="close()"
+            >Facturar nuevo folio</ion-button
+          >
+        </ion-card>
 
-      <!-- 
+        <!-- 
       <div class="d-flex-center buttons-form">
         <ion-grid fixed>
           <ion-row>
@@ -537,8 +408,151 @@
           </ion-row>
         </ion-grid>
       </div> -->
-    </div>
-  </div>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid fixed class="buttons-movil">
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-button
+          *ngIf="isRegimen"
+          block
+          (click)="guardarcliente_regimen()"
+          class="buttons-form"
+          expand="block"
+          mode="ios"
+          color="success"
+          shape="round"
+          ><b>Guardar Regimen Físcal</b></ion-button
+        ></ion-col
+      >
+      <ion-col size="12" size-md="6">
+        <ion-button
+          *ngIf="isRegimen"
+          block
+          (click)="cancelar()"
+          class="buttons-form"
+          expand="block"
+          mode="ios"
+          color="success"
+          shape="round"
+          ><b> Cancelar</b>
+        </ion-button>
+      </ion-col></ion-row
+    >
+  </ion-grid>
+
+  <ion-grid fixed class="buttons-movil">
+    <ion-row>
+      <ion-col size="12" size-md="6"
+        ><ion-button
+          size="medium"
+          block
+          (click)="searchfolio()"
+          *ngIf="isOpenfolio"
+          class="buttons-form"
+          expand="block"
+          mode="ios"
+          color="light"
+          shape="round"
+          ><b>Facturar Folio</b></ion-button
+        >
+      </ion-col>
+      <ion-col size="12" size-md="6"
+        ><ion-button
+          size="medium"
+          (click)="EnviarInfoRFC()"
+          *ngIf="isOpenfolio"
+          class="buttons-form"
+          expand="block"
+          mode="ios"
+          color="medium"
+          shape="round"
+          ><b>Validar Información RFC</b></ion-button
+        >
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-button
+          (click)="accesoDirectoAlFormulario()"
+          *ngIf="isOpenfolio"
+          size="medium"
+          expand="block"
+          mode="ios"
+          color="medium"
+          class="buttons-form"
+          shape="round"
+          ><b>Datos Fiscales</b></ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row>
+    <ion-col size="12" size-md="6">
+      <ion-button
+        *ngIf="isOpencaptura"
+        size="medium"
+        block
+        (click)="guardarcliente()"
+        class="buttons-form"
+        expand="block"
+        mode="ios"
+        color="medium"
+        shape="round"
+        ><ion-icon slot="start" name="person-add-outline"></ion-icon
+        ><b>Guardar</b>
+      </ion-button>
+    </ion-col>
+    <ion-col size="12" size-md="6">
+      <ion-button
+        *ngIf="isOpencaptura"
+        size="medium"
+        block
+        (click)="cancelar()"
+        class="buttons-form"
+        expand="block"
+        mode="ios"
+        color="danger"
+        shape="round"
+        ><ion-icon slot="start" name="close-circle-outline"></ion-icon
+        ><b> Cancelar</b>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid fixed class="buttons-movil">
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-button
+          *ngIf="isOpenInfoRFC"
+          block
+          (click)="enviaInformacion()"
+          expand="block"
+          mode="ios"
+          class="buttons-form"
+          color="medium"
+          shape="round"
+          ><ion-icon slot="start" name="send-outline"></ion-icon
+          ><b>Enviar Información</b></ion-button
+        ></ion-col
+      >
+      <ion-col size="12" size-md="6">
+        <ion-button
+          *ngIf="isOpenInfoRFC"
+          block
+          (click)="cancelar()"
+          expand="block"
+          mode="ios"
+          class="buttons-form"
+          color="danger"
+          shape="round"
+          ><ion-icon slot="start" name="close-circle-outline"></ion-icon
+          ><b>Cancelar</b></ion-button
+        ></ion-col
+      >
+    </ion-row>
+  </ion-grid>
 
   <br />
 </ion-content>

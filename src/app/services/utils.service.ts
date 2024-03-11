@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ModalController, ModalOptions } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
+
+  private folioSource = new BehaviorSubject<string>('');
+
+  currentFolio = this.folioSource.asObservable();
+
 
   constructor(
     private modalController: ModalController
@@ -18,6 +24,11 @@ export class UtilsService {
 dismissModal(){
   return this.modalController.dismiss()
 }
+
+changeFolio(folio: string) {
+  this.folioSource.next(folio);
+}
+
 }
 
 

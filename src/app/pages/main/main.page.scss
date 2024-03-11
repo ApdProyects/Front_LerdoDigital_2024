@@ -1,11 +1,11 @@
 ion-menu::part(backdrop) {
-  background-color: linear-gradient(to  left, #8cbd6277, #8cbd62);
+  background-color: linear-gradient(to  left, #b0b0b0, #d1d1d1);
 }
 
 ion-menu::part(container) {
   border-radius: 0 20px 20px 0;
 
-  box-shadow: 4px 0px 16px #8cbd62;
+  box-shadow: 4px 0px 16px #d1d1d1;
 }
 
 .icon-log-out {
@@ -15,12 +15,12 @@ ion-menu::part(container) {
 
 ion-content{
   --keyboard-offset: 0 !important;
-  --background: linear-gradient(to  left, #8cbd6277, #8cbd62);
+  --background: linear-gradient(to  left, #b0b0b0, #d1d1d1);
   --padding-top: 20px;
 }
 
 ion-toolbar{
-  --background: linear-gradient(to  left, #8cbd6277, #8cbd62);
+  --background: linear-gradient(to  left, #b0b0b0, #d1d1d1);
 
 }
 
@@ -33,7 +33,7 @@ ion-title.menuH{
 ion-item {
   font-size: 14px;
   color: #e8f7ff;
-  --background:linear-gradient(to  left, #8cbd6277, #8cbd62);
+  --background:linear-gradient(to  left, #b0b0b0, #d1d1d1);
 
   ion-icon {
     color: #e8f7ff;
@@ -41,7 +41,7 @@ ion-item {
 
   &.active {
     color: white;
-    --background: linear-gradient(to  left, #8cbd6277, #8cbd62);
+    --background: linear-gradient(to  left, #b0b0b0, #d1d1d1);
     ion-icon {
       color: white;
     }

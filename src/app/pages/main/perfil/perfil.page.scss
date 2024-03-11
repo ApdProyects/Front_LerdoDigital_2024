@@ -1,86 +1,107 @@
-
-
 .auth-form {
-    width: 100%;
-    padding: 25px;
-    
-h1 {
+  width: 100%;
+  padding: 25px;
+
+  h1 {
     font-weight: bold;
     line-height: 25px;
     text-align: center;
     margin-top: 15px;
-    color: #fff;
+    color: #6d6d6d;
   }
-  }
+}
 
-  .form-container {
+ion-card {
+  --background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 53%;
+  height: 53%;
+  left: 24%;
+  right: auto;
+  margin-top: 3%;
+  padding: 0%;
+}
 
-    padding: 10px;
-    /* Espaciado interno del cuadro */
-    border-radius: 10px;
-    /* Bordes redondeados del cuadro */
-  
-    max-width: 600px;
-    /* Ancho máximo del cuadro */
-    margin: auto;
-    /* Centrar el cuadro en la página */
-    width: 100%;
-    /* Hacer que el cuadro ocupe el 100% del ancho disponible */
-    box-sizing: border-box;
-    /* Incluir el padding y el borde en el ancho total */
-  }
+ion-card-header {
+  font-size: 2.5em;
+  background-color: #d3d3d3; /* Fondo ligeramente diferente para el encabezado */
+  border-bottom: 2px solid #d3d3d3; /* Línea divisoria sutil */
+}
 
-  .safe-p-bottom{
-    padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
-    padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
+ion-card-title {
+  color: #333; /* Color más oscuro para el título */
+
+  font-weight: bold;
+}
+
+// .form-container {
+
+//   padding: 10px;
+//   /* Espaciado interno del cuadro */
+//   border-radius: 10px;
+//   /* Bordes redondeados del cuadro */
+
+//   max-width: 600px;
+//   /* Ancho máximo del cuadro */
+//   margin: auto;
+//   /* Centrar el cuadro en la página */
+//   width: 100%;
+//   /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+//   box-sizing: border-box;
+//   /* Incluir el padding y el borde en el ancho total */
+// }
+
+.safe-p-bottom {
+  padding-bottom: constant(safe-area-inset-bottom); // for ios 13+
+  padding-bottom: env(safe-area-inset-bottom); // for previous ios versions
 }
 
 .submit {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .empty {
-    text-align: center;
-    padding: 60px;
-    opacity: 30%;
+  text-align: center;
+  padding: 60px;
+  opacity: 30%;
 
-    ion-icon {
-        font-size: 100px;
-    }
+  ion-icon {
+    font-size: 100px;
+  }
 }
 
 .d-flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .custom-input {
-    --border-color: #e0e0e0;
-    --border-radius: 15px;
-    --border-style: solid;
-    --border-width: 1px;
-    margin: 20px 0;
+  --border-color: #e0e0e0;
+  --border-radius: 15px;
+  --border-style: solid;
+  --border-width: 1px;
+  margin: 20px 0;
 
-    ion-label {
-        position: relative;
-        bottom: 90px;
-    }
+  ion-label {
+    position: relative;
+    bottom: 90px;
+  }
 
-    .eye-icon {
-        position: relative;
-        top: 13px;
-    }
+  .eye-icon {
+    position: relative;
+    top: 13px;
+  }
 }
 
 .validators {
-    color: var(--ion-color-danger);
-    font-size: 13px;
-    text-align: center;
+  color: var(--ion-color-danger);
+  font-size: 13px;
+  text-align: center;
 }
 
-ion-button.buttons-form{
+ion-button.buttons-form {
   border-radius: 35px;
   --cursor: pointer;
   --padding-top: 0;
@@ -88,51 +109,52 @@ ion-button.buttons-form{
   --padding-start: 0;
   --padding-end: 0;
   font-size: 1em;
-  transition: transform 0.3s, box-shadow 0.3s;}
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-  
 ion-button.buttons-form:hover {
   transform: translateY(-2px); /* Eleva ligeramente el botón */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
-
 }
 
-
 @media screen and (max-width: 767px) {
-    .auth-form {
-      width: 100%;
-      padding: 10px;
-      
-    }
-  
-  
-  
-    .form-container {
-      border: 3px solid #e0e0e0;    /* Borde del cuadro */
-  
-      box-shadow: 0 0 20px #ffc16a76;
-
-      margin-left: -4px;
-      /* Sombra del cuadro */
-      margin: 2px auto;
-      /* Espaciado alrededor del cuadro y centrar en la página */
-  
-      background-color: #e0e0e0a5;
-  
-  
-      padding: 4px;
-      border-radius: 10px;
-      max-width: 100%;
+  .auth-form {
     width: 100%;
-      /* Hacer que el cuadro ocupe el 100% del ancho disponible */
-      box-sizing: border-box;
-      /* Incluir el padding y el borde en el ancho total */
-    }
-  
-  
-    .buttons-movil ion-button{
-      --border-radius: 30px;
-    }
-  
+    padding: 10px;
   }
+
+  // .form-container {
+  //   border: 3px solid #e0e0e0;    /* Borde del cuadro */
+
+  //   box-shadow: 0 0 20px #ffc16a76;
+
+  //   margin-left: -4px;
+  //   /* Sombra del cuadro */
+  //   margin: 2px auto;
+  //   /* Espaciado alrededor del cuadro y centrar en la página */
+
+  //   background-color: #e0e0e0a5;
+
+  //   padding: 4px;
+  //   border-radius: 10px;
+  //   max-width: 100%;
+  // width: 100%;
+  //   /* Hacer que el cuadro ocupe el 100% del ancho disponible */
+  //   box-sizing: border-box;
+  //   /* Incluir el padding y el borde en el ancho total */
+  // }
+
+  .buttons-movil ion-button {
+    --border-radius: 30px;
+  }
+
+  ion-card {
   
+    width: 100%;
+    height: 52%;
+    left: -2.5%;
+    right: auto;
+    margin-top: 8%;
+    padding:0%
+  }
+}

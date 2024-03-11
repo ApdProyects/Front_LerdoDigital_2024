@@ -58,7 +58,7 @@ ion-button {
 .auth-form {
     width: 100%;
     text-align: center;
-    padding: 3%;
+    padding: 1%;
 }
 
 .product-item {
@@ -96,7 +96,8 @@ ion-button {
 
 @media (min-width: 769px) {
     .auth-form {
-        width: 500px;
+        width: 40%;
+
     }
 
     .add-update-modal {

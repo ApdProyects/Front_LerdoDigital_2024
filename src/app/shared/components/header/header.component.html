@@ -29,7 +29,7 @@
 
     <!-- Título de la aplicación -->
     <div class="log-img rotate-in-2-cw">
-      <ion-img *ngIf="Logo" src="../assets/logo2Lerdo.png"></ion-img>
+      <ion-img *ngIf="Logo" src="../assets/logo-L.png"></ion-img>
     </div>
 
     <ion-button
@@ -63,12 +63,11 @@
     </div>
 
     <div *ngIf="shouldShowHorizontalMenu2" class="horizontal-menu" slot="end">
-      <a [routerLink]="['/main/perfil']" routerLinkActive="active">Bienvenido&nbsp;&nbsp;{{ nombreUsuario }}</a> 
+     <a [routerLink]="['/main/perfil']" routerLinkActive="active">Bienvenido&nbsp;&nbsp;{{ nombreUsuario }}</a>  
       <a [routerLink]="['/main/folio']" routerLinkActive="active">Pagos</a>
-      <a [routerLink]="['/main/factura-tables']" routerLinkActive="active"
+      <a [routerLink]="['/main/facturacion']" routerLinkActive="active"
         >Facturación</a
       >
-  
     </div>
 
     <!-- Botón de menú -->

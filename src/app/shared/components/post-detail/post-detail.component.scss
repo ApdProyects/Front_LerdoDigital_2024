@@ -2,11 +2,11 @@
 
 img {
   border-radius: 10px;
-  border: 3px solid #8cbd62;
+  border: 3px solid --ion-color-medium-tint;
 
 
   &.selected {
-    border: 2px solid #8cbd62;
+    border: 2px solid --ion-color-medium-tint;
   }
 }
 
@@ -30,7 +30,7 @@ h1 {
 
 ion-item.prompt-item {
   --border-width: 8px;
-  --border-color: #8cbd62;
+  --border-color: --ion-color-medium-tint;
   --border-style: solid;
   --border-radius: 100px;
   --box-shadow: 0 0 50px margin: 1px white;
@@ -53,7 +53,7 @@ ion-item.prompt-item {
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 20px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px #8cbd62;
+  box-shadow: 0 0 10px --ion-color-medium-tint;
   /* Sombra del cuadro */
   max-width: 500px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -94,7 +94,7 @@ ion-item.prompt-item {
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px #8cbd62;
+    box-shadow: 0 0 10px --ion-color-medium-tint;
     /* Sombra del cuadro */
     max-width: 320px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -108,11 +108,11 @@ ion-item.prompt-item {
   }
   img {
     border-radius: 10px;
-    border: 3px solid #8cbd62;
+    border: 3px solid var(--ion-color-medium-tint);
   
   
     &.selected {
-      border: 5px solid #8cbd62;
+      border: 5px solid --ion-color-medium-tint;
     }
   }
 

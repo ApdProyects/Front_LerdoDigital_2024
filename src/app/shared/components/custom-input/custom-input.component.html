@@ -1,5 +1,5 @@
 <ion-item class="custom-input " lines="none" >
-  <ion-icon  *ngIf="icon" slot="start" [name]="icon" color="success"></ion-icon>
+  <ion-icon  *ngIf="icon" slot="start" [name]="icon" color="medium"></ion-icon>
 <ion-input 
 [type]="type" 
 [autocomplete]='autocomplete'
@@ -8,14 +8,14 @@
 label-placement="floating"
 class="custom"
 [readonly]="readonly"
-[attr.maxlength]="maxlength"
+[maxlength]="maxlength"
 >
 </ion-input>
 
 <ion-button *ngIf="isPassword" (click)="showOrHidePassword()" slot="end" fill="clear" 
 mode="ios"    shape="round">
 
-  <ion-icon slot="icon-only" [name]="hide ? 'eye-outline': 'eye-off-outline'" color="success" class=""></ion-icon>
+  <ion-icon slot="icon-only" [name]="hide ? 'eye-outline': 'eye-off-outline'" color="medium" class=""></ion-icon>
 </ion-button>
 
 </ion-item>

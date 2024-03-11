@@ -33,11 +33,11 @@ const routes: Routes = [
       {
         path: 'perfil',
         loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-      },
-      {
+      }, 
+       {
         path: 'factura-tables',
         loadChildren: () => import('./factura-tables/factura-tables.module').then( m => m.FacturaTablesPageModule)
-      },
+      }, 
     ]
   },
   {

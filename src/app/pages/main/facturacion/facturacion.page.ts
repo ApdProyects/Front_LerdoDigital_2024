@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   AlertController,
   IonicSafeString,
   LoadingController,
+  ModalController,
   NavController,
   Platform,
   ToastController,
 } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { Factura } from 'src/app/models/Factura.model';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { TablaFacturaComponent } from 'src/app/shared/components/tabla-factura/tabla-factura.component';
 import {
   animate,
   state,
@@ -20,6 +25,7 @@ import {
 } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-facturacion',
@@ -50,6 +56,7 @@ import Swal from 'sweetalert2';
 export class FacturacionPage implements OnInit {
   respuesta: any;
   resp_confirmacion: any;
+  foliosFacturas: string[] = [''];
   folio: any = '';
   folioacortado: any = '';
   folioDescription: any = [];
@@ -82,17 +89,22 @@ export class FacturacionPage implements OnInit {
   modmunicipios = [];
   Regimen_fiscal = [];
   isRegimen: boolean;
+facturaDePrueba: Factura;
+subscription: Subscription;
+  usuario: any;
 
   constructor(
     private utilsSvc: UtilsService,
     private authService: AuthService,
     private AlertController: AlertController,
+    public modalController: ModalController,
     public LoadingController: LoadingController,
     private _route: ActivatedRoute,
     private http: HttpClient,
     public NavCtrl: NavController,
     private platform: Platform,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private router: Router 
   ) {}
 
   async ngOnInit() {
@@ -112,7 +124,7 @@ export class FacturacionPage implements OnInit {
         this.folio = '';
       }
     });
-     debugger; 
+    /*  debugger; */ 
     this.respuesta = await this.authService.recuperaestados();
 
     await this.respuesta.forEach((element) => {
@@ -127,16 +139,44 @@ export class FacturacionPage implements OnInit {
 
     this.respuesta = await this.authService.get_regimen_fiscal();
     await this.respuesta.forEach((element) => {
-       debugger; 
+       /* debugger; */ 
       this.Regimen_fiscal = element;
       console.log(this.Regimen_fiscal);
     });
 
 
+    const facturaDePrueba: Factura = {
+      folio: '',
+    };
+
+    this.subscription = this.utilsSvc.currentFolio.subscribe(folio => {
+      this.folio = folio;
+    });
+
   
   }
+
+  ngOnDestroy() {
+    // No olvides desuscribirte para evitar fugas de memoria
+    this.subscription.unsubscribe();
+  }
+  
+
+  async showFolioF(FolioF: Factura) {
+    await this.utilsSvc.presentModal({
+      component: TablaFacturaComponent,
+      componentProps: { FolioF },
+      cssClass: 'modal-full-size',
+    });
+  }
+
+
+  agregarFolio() {
+    this.foliosFacturas.push('');
+  }
+
   async searchfolio() {
-    /* debugger; */
+    debugger; 
     var cliente: any;
     var folio_resp: any;
     this.res = [];
@@ -163,20 +203,6 @@ export class FacturacionPage implements OnInit {
       return;
     }
 
-    if (this.folio === '') {
-      Swal.fire({
-        title: 'LERDO DIGITAL',
-        text: 'Favor de llenar el campo Folio',
-        icon: 'warning', // Puedes cambiar el ícono según necesites
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
-        },
-      });
-      document.body.classList.remove('swal2-height-auto');
-      loading.dismiss();
-      return;
-    }
 
     /* if (this.folio.length !== 16 || this.folio.length)
     { 
@@ -190,6 +216,11 @@ export class FacturacionPage implements OnInit {
       loading.dismiss();
       return;
     }*/
+
+    const folio = this.folio.replace(/\s/g,'').split(',');
+    console.log('Folios a enviar:', folio);
+     this.usuario = localStorage.getItem('LUS_CLAVE'); // Obtiene el usuario de localStorage
+
 
     if (this.rfc.length < 12 || this.rfc.length > 13) {
       Swal.fire({
@@ -207,34 +238,38 @@ export class FacturacionPage implements OnInit {
     }
 
     this.respuesta = await this.authService.getClienteFacturado(this.rfc);
-    /* debugger; */
+    debugger; 
     await this.respuesta.forEach((element) => {
       cliente = element;
     });
-    this.respuesta = await this.authService.getFolioFacturado(this.folio);
 
+ /*     this.respuesta = await this.authService.getFolioFacturado(this.folio);
     await this.respuesta.forEach((element) => {
       folio_resp = element;
     });
+ */
+
     this.respuesta = await this.authService.getClienteregimen(this.rfc);
     /* debugger; */
     await this.respuesta.forEach((element) => {
       regimen_cliente = element;
     });
-    if (folio_resp.codigo <= 0) {
-      Swal.fire({
-        title: 'LERDO DIGITAL',
-        text: 'El folio ingresado no existe',
-        icon: 'error', // Puedes cambiar el ícono según necesites
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
-        },
-      });
-      document.body.classList.remove('swal2-height-auto');
-      loading.dismiss();
-      return;
-    }
+
+
+    // if (folio_resp.codigo <= 0) {
+    //   Swal.fire({
+    //     title: 'LERDO DIGITAL',
+    //     text: 'El folio ingresado no existe',
+    //     icon: 'error', // Puedes cambiar el ícono según necesites
+    //     confirmButtonText: 'Aceptar',
+    //     customClass: {
+    //       popup: 'alertDanger', // Aquí puedes aplicar tus clases CSS personalizadas
+    //     },
+    //   });
+    //   document.body.classList.remove('swal2-height-auto');
+    //   loading.dismiss();
+    //   return;
+    // }
 
     if (cliente.codigo <= 0) {
       Swal.fire({
@@ -277,12 +312,13 @@ export class FacturacionPage implements OnInit {
       return;
     }
 
-    /*  debugger; */
+      debugger; 
     // this.respuesta = await this.DataService.getFacturar(this.rfc,this.folio);
     this.respuesta = await this.authService.getFacturarFolio(
       this.rfc,
       this.folio,
-      this.UsoCFDI
+      this.UsoCFDI,
+      this.usuario
     );
     console.table(this.respuesta)
 
@@ -322,9 +358,10 @@ export class FacturacionPage implements OnInit {
     loading.dismiss();
   }
   async accesoDirectoAlFormulario() {
-    this.isOpenfolio = false;
+    this.router.navigate(['main/factura-tables']);
+  /*   this.isOpenfolio = false;
     this.isOpencaptura = true;
-    this.isOpenInfoRFC = false;
+    this.isOpenInfoRFC = false; */
   }
 
   async guardarcliente() {
