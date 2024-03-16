@@ -9,12 +9,15 @@
         #swiper
         (afterinit)="SwiperReady()"
         (slidechange)="swiperSlideChanged($event)"
-        [loop]="true"
+        [loop]="false"
         [pagination]="{
           clickable: true,
           dynamicBullets: true
         }"
-      
+      [autoplay]="{
+        delay: 4000, 
+        disableOnInteraction: false
+      }" 
       >
       <!-- [autoplay]="{
         delay: 5000, 

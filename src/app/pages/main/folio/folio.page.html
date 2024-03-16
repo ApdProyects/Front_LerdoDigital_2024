@@ -325,10 +325,10 @@
                 <ion-button
                   (click)="close()"
                   class="ion-text-center"
-                  expand="block"
+                  
                   fill="solid"
                   shape="round"
-                  color="success"
+                  color="medium"
                   ><b><ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
                   Regresar</b></ion-button
                 >
@@ -339,10 +339,10 @@
                   *ngIf="info.estatus !== 'COBRADA'"
                   (click)="pagar()"
                   class="ion-text-center"
-                  expand="block"
+                 
                   fill="solid"
                   shape="round"
-                  color="success"
+                  color="medium"
                   ><ion-icon name="cash-outline" style="color: white"></ion-icon
                   >&nbsp;<b>pagar</b></ion-button
                 >
@@ -387,7 +387,7 @@
                 expand="block"
                 fill="solid"
                 shape="round"
-                color="success"
+                color="medium"
                 (click)="confirmarpago()"
                 >Finalizar pago</ion-button
               >
@@ -400,7 +400,7 @@
                 expand="block"
                 fill="solid"
                 shape="round"
-                color="success"
+                color="medium"
                 [routerLink]="['/main/facturacion']"
                 >Facturar pago</ion-button
               >
@@ -518,7 +518,7 @@
                   expand="block"
                   fill="solid"
                   shape="round"
-                  color="success"
+                  color="medium"
                   ><ion-icon name="arrow-back-outline"></ion-icon>
                   <b>Regresar</b></ion-button
                 >
@@ -529,7 +529,7 @@
                   *ngIf="importepredial > 0"
                   (click)="pagar()"
                   class="ion-text-center"
-                  color="success"
+                  color="medium"
                   expand="block"
                   shape="round"
                   ><ion-icon name="cash-outline"></ion-icon

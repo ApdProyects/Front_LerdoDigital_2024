@@ -2,11 +2,11 @@
 
 img {
   border-radius: 10px;
-  border: 3px solid --ion-color-medium-tint;
+  border: 3px solid --ion-color-medium;
 
 
   &.selected {
-    border: 2px solid --ion-color-medium-tint;
+    border: 2px solid --ion-color-medium;
   }
 }
 
@@ -30,7 +30,7 @@ h1 {
 
 ion-item.prompt-item {
   --border-width: 8px;
-  --border-color: --ion-color-medium-tint;
+  --border-color: --ion-color-medium;
   --border-style: solid;
   --border-radius: 100px;
   --box-shadow: 0 0 50px margin: 1px white;
@@ -53,7 +53,7 @@ ion-item.prompt-item {
   /* Ajusta el espaciado interno del cuadro según sea necesario */
   border-radius: 20px;
   /* Bordes redondeados del cuadro */
-  box-shadow: 0 0 10px --ion-color-medium-tint;
+  box-shadow: 0 0 10px --ion-color-medium;
   /* Sombra del cuadro */
   max-width: 500px;
   /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -88,13 +88,13 @@ ion-item.prompt-item {
     align-items: center;
     justify-content: center;
 
-    border: 3px solid var(--ion-color-success);
+    border: 3px solid var(--ion-color-medium);
     /* Borde del cuadro */
     padding: 10x;
     /* Ajusta el espaciado interno del cuadro según sea necesario */
     border-radius: 20px;
     /* Bordes redondeados del cuadro */
-    box-shadow: 0 0 10px --ion-color-medium-tint;
+    box-shadow: 0 0 10px --ion-color-medium;
     /* Sombra del cuadro */
     max-width: 320px;
     /* Ajusta el ancho máximo del cuadro según sea necesario */
@@ -108,11 +108,11 @@ ion-item.prompt-item {
   }
   img {
     border-radius: 10px;
-    border: 3px solid var(--ion-color-medium-tint);
+    border: 3px solid var(--ion-color-medium);
   
   
     &.selected {
-      border: 5px solid --ion-color-medium-tint;
+      border: 5px solid --ion-color-medium;
     }
   }
 

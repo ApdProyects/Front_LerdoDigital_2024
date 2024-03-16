@@ -86,7 +86,7 @@ h3 {
   justify-content: center;
   padding: 68px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 193, 106, 0.462745098);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.463);
   max-width: 643px;
   height: 385px;
   margin: 0px auto;
@@ -100,7 +100,7 @@ h3 {
   border: 1px solid #fff7ec;
   padding: 40px;
   border-radius: 50px;
-  box-shadow: 0 0 20px rgba(255, 193, 106, 0.462745098);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.463);
   max-width: 940px;
   min-height: 460px;
   margin: 10px auto;
@@ -128,7 +128,7 @@ h3 {
   border: 1px solid #fff7ec;
   padding: 68px;
   border-radius: 50px;
-  box-shadow: 0 0 20px rgba(255, 193, 106, 0.462745098);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.463);
   max-width: 940px;
   min-height: 400px;
   margin: 125px auto;
@@ -201,10 +201,39 @@ ion-button.buttons-form:hover {
 }
 
 @media screen and (max-width: 767px) {
+  ion-card {
+    width: 100%;
+    height: auto;
+    left: -3%;
+    margin-top: 0%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  ion-card-header {
+    --background: #fff;
+    background-color: #d3d3d3; /* Fondo ligeramente diferente para el encabezado */
+    border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
+    align-items: center;
+    font-size: 1.2em;
+  }
+
+  ion-card-title {
+    color: #333; /* Color más oscuro para el título */
+    --background: #fff;
+    font-weight: bold;
+  }
+
+  .ion-align-items-center {
+    align-items: center !important;
+    width: 95%;
+    margin-left: 2%;
+  }
+
   .auth-form {
     width: 100%;
     text-align: center;
-    padding: 15px;
+    padding: 5px;
   }
 
   .form-container {

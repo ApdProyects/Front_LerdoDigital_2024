@@ -119,9 +119,10 @@ ion-toolbar::part(container) {
   color: #fff;
   padding: 10px 20px;
   border-radius: 25px;
-  transition: background-color 0.3s ease; /* Agregar una transición suave para el cambio de color */
-  font-weight: bold; /* Agregar negrita al texto */
-  margin-right: 10px; /* Agrega un espacio a la derecha de cada botón */
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: -12px;
 }
 
 .horizontal-menu a:hover,
@@ -139,10 +140,12 @@ ion-back-button {
 }
 
 .log-img {
-  width: 4.3%;
+  width: 6%;
   height: auto;
   display: block;
   margin-left: 3%;
+  margin-top: -1%;
+
 }
 
 /* Media query para mostrar el menú solo en pantallas grandes (computadoras) */
