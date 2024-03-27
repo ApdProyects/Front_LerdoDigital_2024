@@ -107,6 +107,9 @@
         <div *ngIf="form.controls.confirmarContrasena.errors?.['required']">
           La contraseña es requerida
         </div>
+          <div *ngIf="form.controls.confirmarContrasena.errors?.['noMatch']">
+        Las contraseñas no coinciden
+      </div> 
       </div>
 
       <ion-button

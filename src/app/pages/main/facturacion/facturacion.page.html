@@ -6,7 +6,6 @@
   Salir="true"
 >
 </app-header>
-
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -17,7 +16,7 @@
     <ion-card-header>
       <ion-card-title class="ion-text-center">Nueva factura</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content class="contenido-scrollable">
       <ion-list class="list-factura">
         <br />
 
@@ -155,15 +154,9 @@
           </ion-buttons>
         </div>
 
+        <!-- Nueva Factura -->
+        <div class="table-scroll">
         <div *ngIf="isOpencaptura">
-          <div class="form_container">
-            <ion-title
-              *ngIf="isOpencaptura"
-              size="large"
-              color=""
-              class="altaRFC"
-              ><b>ALTA DE RFC</b></ion-title
-            >
             <br />
             <ion-item *ngIf="isOpencaptura">
               <ion-label position="stacked">Nombre</ion-label>
@@ -305,6 +298,8 @@
           </ion-select>
           <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
         </ion-item>
+
+     
 
         <br />
 
@@ -489,14 +484,14 @@
     </ion-row>
   </ion-grid>
 
+  <ion-grid fixed>
   <ion-row>
-    <ion-col size="12" size-md="6">
+    <ion-col size="12" size-lg="12" class="buttons-form-container">
       <ion-button
         *ngIf="isOpencaptura"
         size="medium"
         block
         (click)="guardarcliente()"
-        class="buttons-form"
         expand="block"
         mode="ios"
         color="medium"
@@ -504,14 +499,11 @@
         ><ion-icon slot="start" name="person-add-outline"></ion-icon
         ><b>Guardar</b>
       </ion-button>
-    </ion-col>
-    <ion-col size="12" size-md="6">
       <ion-button
         *ngIf="isOpencaptura"
         size="medium"
         block
-        (click)="cancelar()"
-        class="buttons-form"
+        [routerLink]="['/main/facturacion2']"
         expand="block"
         mode="ios"
         color="danger"
@@ -521,6 +513,8 @@
       </ion-button>
     </ion-col>
   </ion-row>
+</ion-grid>
+
 
   <ion-grid fixed class="buttons-movil">
     <ion-row>
@@ -546,7 +540,7 @@
           expand="block"
           mode="ios"
           class="buttons-form"
-          color="danger"
+          color="success"
           shape="round"
           ><ion-icon slot="start" name="close-circle-outline"></ion-icon
           ><b>Cancelar</b></ion-button

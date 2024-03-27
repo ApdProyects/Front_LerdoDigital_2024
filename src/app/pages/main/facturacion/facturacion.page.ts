@@ -116,6 +116,7 @@ subscription: Subscription;
     console.log(this.folioDescription); */
 
     //this.isOpencaptura = true;
+    this.accesoDirectoAlFormulario();
     this._route.params.subscribe((params) => {
       this.folio = params['FOLIO'];
       if (this.folio != '') {
@@ -174,6 +175,8 @@ subscription: Subscription;
   agregarFolio() {
     this.foliosFacturas.push('');
   }
+
+
 
   async searchfolio() {
     debugger; 
@@ -314,13 +317,13 @@ subscription: Subscription;
 
       debugger; 
     // this.respuesta = await this.DataService.getFacturar(this.rfc,this.folio);
-    this.respuesta = await this.authService.getFacturarFolio(
-      this.rfc,
-      this.folio,
-      this.UsoCFDI,
-      this.usuario
-    );
-    console.table(this.respuesta)
+    // this.respuesta = await this.authService.getFacturarFolio(
+    //   this.rfc,
+    //   this.folio,
+    //   this.UsoCFDI,
+    //   this.usuario
+    // );
+    // console.table(this.respuesta)
 
     await this.respuesta.forEach(async (element) => {
       console.log(element.objetoError);
@@ -358,10 +361,10 @@ subscription: Subscription;
     loading.dismiss();
   }
   async accesoDirectoAlFormulario() {
-    this.router.navigate(['main/factura-tables']);
-  /*   this.isOpenfolio = false;
-    this.isOpencaptura = true;
-    this.isOpenInfoRFC = false; */
+    // this.router.navigate(['main/factura-tables']);
+      this.isOpenfolio = false;
+      this.isOpencaptura = true;
+      this.isOpenInfoRFC = false;
   }
 
   async guardarcliente() {
@@ -504,19 +507,19 @@ subscription: Subscription;
       return;
     }
 
-    this.respuesta = await this.authService.getGuardaCliente(
-      this.rfc,
-      this.nombre,
-      this.tipo_persona,
-      this.direccion,
-      this.colonia,
-      this.CP,
-      this.email,
-      this.celular,
-      this.estado,
-      this.municipio,
-      this.regimen
-    );
+    // this.respuesta = await this.authService.getGuardaCliente(
+    //   this.rfc,
+    //   this.nombre,
+    //   this.tipo_persona,
+    //   this.direccion,
+    //   this.colonia,
+    //   this.CP,
+    //   this.email,
+    //   this.celular,
+    //   this.estado,
+    //   this.municipio,
+    //   this.regimen
+    // );
 
     await this.respuesta.forEach((element) => {
       respuesta = element;
@@ -536,14 +539,17 @@ subscription: Subscription;
       // Mostrar alerta de SweetAlert
       Swal.fire({
         title: 'LERDO DIGITAL',
-        text: respuesta.mensaje,
+        text: respuesta.mensaje, // Asumiendo que respuesta.mensaje contiene el mensaje de éxito
         icon: 'success',
         confirmButtonText: 'Aceptar',
         customClass: {
           popup: 'alertDanger',
         },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/facturacion2']); // Asegúrate de que la ruta es correcta según tu configuración de rutas en Angular
+        }
       });
-      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
       return;
     } else if (respuesta.codigo <= 0) {

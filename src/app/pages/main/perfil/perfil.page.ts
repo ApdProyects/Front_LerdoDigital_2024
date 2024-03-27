@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario-service.service';
+import { CustomValidators } from 'src/app/utils/custom-validators';
 
 @Component({
   selector: 'app-perfil',
@@ -22,6 +23,7 @@ export class PerfilPage implements OnInit {
       Validators.maxLength(14),
     ]),
     contrasena: new FormControl('', [Validators.required]),
+    newContrasena: new FormControl(''),
   });
 
   mensajeError: string = '';
@@ -29,7 +31,7 @@ export class PerfilPage implements OnInit {
   nombreUsuario: string;
 
 
-  constructor(private authService: AuthService, private alertController: AlertController, private router: Router, private usuarioService: UsuarioService) {}
+  constructor(private authService: AuthService, private alertController: AlertController, private router: Router, private usuarioService: UsuarioService ) {}
 
   ngOnInit() {
     this.usuarioService.usuarioActual$.subscribe(datosUsuario => {
@@ -39,8 +41,17 @@ export class PerfilPage implements OnInit {
     });
   
     this.cargarDatosUsuario();
-    
+    // this.confirmPasswordValidator();
   }
+
+  // confirmPasswordValidator(){
+  //   this.form.controls.confirmContrasena.setValidators([
+  //     Validators.required,
+  //     CustomValidators.matchValues(this.form.controls.contrasena)
+  //   ])
+
+  //   this.form.controls.confirmContrasena.updateValueAndValidity();
+  // }
 
   //Esta función intenta recuperar el correo del usuario desde el localStorage. Si lo encuentra, realiza una llamada a un servicio (presumiblemente un servicio de autenticación) para obtener más datos sobre el usuario y luego actualiza un formulario con estos datos. Si no encuentra el correo en localStorage, simplemente registra un mensaje en la consola. La anotación : void después del nombre de la función indica que cargarDatosUsuario no devuelve ningún valor.
   cargarDatosUsuario(): void {
@@ -55,13 +66,13 @@ export class PerfilPage implements OnInit {
           this.form.controls.usuario.setValue(data.Usuario),
             this.form.controls.correo.setValue(data.Correo),
             this.form.controls.telefono.setValue(data.Telefono),
-           this.form.controls.contrasena.setValue(data.Contrasena);
+          //  this.form.controls.contrasena.setValue(data.Contrasena);
 
           this.form.patchValue({
             usuario: data.Usuario,
             correo: data.Correo,
             telefono: data.Telefono,
-            contrasena: data.Contrasena, 
+            // contrasena: data.Contrasena, 
           });
 
           console.log('Formulario actualizado con los datos del usuario');
@@ -84,7 +95,10 @@ export class PerfilPage implements OnInit {
             LUS_CLAVE: localStorage.getItem('LUS_CLAVE'), 
             LUS_USUARIO: this.form.value.usuario,
             LUS_CORREO: this.form.value.correo,
-            LUS_TELEFONO: this.form.value.telefono
+            LUS_TELEFONO: this.form.value.telefono,
+            OLD_PASS: this.form.value.contrasena,
+            NEW_PASS: this.form.value.newContrasena
+
           };
   
           console.log('Enviando datos al servidor:', datosUsuario);

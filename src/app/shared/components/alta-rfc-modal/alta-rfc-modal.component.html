@@ -1,0 +1,133 @@
+<app-header isModal="isModal"></app-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Alta RFC</ion-card-title>
+    </ion-card-header>
+    <div class="scrollable-content">
+       <!-- Nueva factura -->
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input
+              Nombre=""
+              label-placement="floating"
+              fill="solid"
+              placeholder="Nombre,denominación ó Razón Social"
+              required
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Tipo persona</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+             
+              label-placement="floating"
+              cancelText="Cancelar"
+              fill="solid"
+              expandedIcon="remove"
+              color="success"
+            >
+              <ion-select-option value="F">Fisica</ion-select-option>
+              <ion-select-option value="M">Moral</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <br />
+
+          <ion-item >
+            <ion-label position="stacked">RÉGIMEN FISCAL</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+           
+              cancelText="Cancelar"
+            >
+              <ion-select-option
+                ></ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br />
+
+          <ion-item>
+            <ion-label position="stacked">Dirección</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Dirección segun su Constancia Físcal"
+ 
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Colonia</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Colonia según su Constancia Físcal"
+   
+              onkeyup="this.value = this.value.toUpperCase();"
+            ></ion-input>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Estado</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+
+              okText="Seleccionar"
+              cancelText="Cancelar"
+
+            >
+              <ion-select-option 
+                ></ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Municipio</ion-label>
+            <ion-select
+              placeholder="Seleccione"
+              interface="action-sheet"
+
+              okText="Seleccionar"
+              cancelText="Cancelar"
+            >
+              <ion-select-option
+            
+              
+                ></ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Codigo Postal</ion-label>
+            <ion-input
+              Nombre=""
+              placeholder="Código Postal segun su Constancia Físcal"
+         
+              maxlength="6"
+            ></ion-input>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Correo</ion-label>
+            <ion-input Nombre=""  required></ion-input>
+          </ion-item>
+          <br />
+          <ion-item >
+            <ion-label position="stacked">Celular</ion-label>
+            <ion-input
+              Nombre=""
+             
+              required
+              maxlength="10"
+            ></ion-input>
+          </ion-item>
+          <br />
+        </div>
+  </ion-card>
+</ion-content>

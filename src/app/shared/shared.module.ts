@@ -11,13 +11,14 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 import { InfoFolioComponent } from './components/info-folio/info-folio.component';
 import { InfoCatastroComponent } from './components/info-catastro/info-catastro.component';
 import { TablaFacturaComponent } from './components/tabla-factura/tabla-factura.component';
+import { AltaRfcModalComponent } from './components/alta-rfc-modal/alta-rfc-modal.component';
 
  
 
 
 @NgModule({
-  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent,InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent],
-  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent, InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent ],
+  declarations: [HeaderComponent, CustomInputComponent, LogoComponent, FooterComponent, PostDetailComponent,InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent, AltaRfcModalComponent],
+  exports: [HeaderComponent, CustomInputComponent, LogoComponent, ReactiveFormsModule, FooterComponent, PostDetailComponent, InfoFolioComponent, InfoCatastroComponent,TablaFacturaComponent, AltaRfcModalComponent ],
   imports: [
     CommonModule,
     IonicModule,

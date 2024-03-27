@@ -5,7 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { PhoneCleanupService } from 'src/app/services/phone-cleanup.service';
 import Swal from 'sweetalert2';
-
+import { CustomValidators } from 'src/app/utils/custom-validators';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class SignUpPage implements OnInit {
   form = new FormGroup({
     correo: new FormControl('', [Validators.required, Validators.email] ),
     contrasena: new FormControl('', [Validators.required]),
-    confirmarContrasena: new FormControl('', [Validators.required]),
+    confirmarContrasena: new FormControl(''),
     usuario: new FormControl('', [Validators.required, Validators.minLength(4)]),
     telefono: new FormControl('',[Validators.required,
       Validators.minLength(10), Validators.maxLength(14)
@@ -29,10 +29,23 @@ export class SignUpPage implements OnInit {
   constructor(private authService: AuthService,
     private alertController: AlertController,
     public router: Router,
-    private phoneCleanupService: PhoneCleanupService
+    private phoneCleanupService: PhoneCleanupService, 
+    
     ) { }
 
   ngOnInit() {
+    this.confirmPasswordValidator();
+  }
+  
+
+  
+   confirmPasswordValidator(){
+  this.form.controls.confirmarContrasena.setValidators([
+     Validators.required,
+       CustomValidators.matchValues(this.form.controls.contrasena)
+     ])
+
+    this.form.controls.confirmarContrasena.updateValueAndValidity();
   }
   
   submit() {

@@ -54,18 +54,18 @@ export class HomePage implements OnInit {
       text: 'Paga tus servicios',
       subtitles: ['Predial', 'Vialidad', 'Parquímetros'],
     },
-      {
-      image: 'assets/fondoLerdo3.jpg',
-      ImageSlide: 'assets/movil.png',
-      text: 'Disponible en:',
-    /*   buttonText: ' Conoce más',
-      buttonAction: 'goConocenos', */
-      secondButtonText: 'Descargar IOS',
-      secondButtonAction: 'IOS',
-      thirdButtonText: 'Descargar Android',
-      thirdButtonAction: 'Android'
+    //   {
+    //   image: 'assets/fondoLerdo3.jpg',
+    //   ImageSlide: 'assets/movil.png',
+    //   text: 'Disponible en:',
+    // /*   buttonText: ' Conoce más',
+    //   buttonAction: 'goConocenos', */
+    //   secondButtonText: 'Descargar IOS',
+    //   secondButtonAction: 'IOS',
+    //   thirdButtonText: 'Descargar Android',
+    //   thirdButtonAction: 'Android'
       
-    },  
+    // },  
     {
       image: 'assets/fondoLerdo4.jpg',
       text: 'Contáctanos',

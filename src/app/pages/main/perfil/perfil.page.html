@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <!--  <app-custom-input
+        <app-custom-input
         icon="lock-closed-outline"
         [control]="form.controls.contrasena"
         type="password"
@@ -96,7 +96,26 @@
         <div *ngIf="form.controls.contrasena.errors?.['required']">
           La contraseña es requerida
         </div>
+      </div> 
+
+      <app-custom-input
+      icon="checkmark-circle-outline"
+      [control]="form.controls.newContrasena"
+      type="password"
+      label="Nueva contraseña: "
+    ></app-custom-input>
+
+    <div
+      class="validators"
+      *ngIf="form.controls.newContrasena.errors && form.controls.contrasena.dirty"
+    >
+      <div *ngIf="form.controls.confirmContrasena.errors?.['required']">
+        La contraseña es requerida
+      </div>
+      <!-- <div *ngIf="form.controls.confirmContrasena.errors?.['noMatch']">
+        Las contraseñas no coinciden
       </div> -->
+    </div> 
 
       <ion-grid fixed>
         <ion-row>

@@ -1,0 +1,162 @@
+ion-card {
+    --background: #fff; /* Fondo blanco para la tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 53%;
+    height: 85%;
+    left: 24%;
+    right: auto;
+    margin-top: 0%;
+    max-height: 100%;
+  }
+  
+  ion-card-header {
+    --background: #fff;
+    background-color: #d3d3d3; /* Fondo ligeramente diferente para el encabezado */
+    border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
+  }
+  
+  ion-card-title {
+    color: #333; /* Color más oscuro para el título */
+    --background: #fff;
+    font-weight: bold;
+  }
+
+  ion-card-content ion-item {
+    margin-bottom: 15px; /* Ajusta este valor según sea necesario */
+  }
+  
+  ion-label {
+    font-weight: bold; /* Etiquetas en negrita para mejor legibilidad */
+    font-size: 1.2rem;
+  }
+  
+  ion-item {
+    --background: var(--ion-color-step-50, #ffffff);
+    --border-color: var(--ion-color-step-500, rgb(207, 207, 207));
+    --border-radius: 4px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    min-height: 56px;
+  }
+  
+  ion-list {
+    background: #fff;
+  }
+  .list-factura {
+    border-radius: 8px;
+    padding: 52px;
+  }
+
+  ion-select {
+    --background: white;
+  }
+  .scrollable-container {
+    max-height: 327px;
+    overflow-y: auto;
+  }
+
+  .folio-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .folio-input ion-input {
+    flex-grow: 1;
+  }
+
+  
+  .buttons-movil ion-button {
+    --border-radius: 30px;
+
+  }
+
+  ion-button.buttons-form {
+    border-radius: 35px;
+    --cursor: pointer;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 1em;
+    transition: transform 0.3s, box-shadow 0.3s; 
+    width: 28em;
+    margin-left: 3em;
+  }
+  
+  ion-button.buttons-form:hover {
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra para efecto de relieve */
+  }
+
+  .no-padding ion-col {
+    padding-left: 0%;
+    padding-right: 0;
+  }
+     
+  .noFolio{
+    margin-left: 28%;
+    font-size: 2em;
+  }
+  .scrollable-content {
+    height: 90%;
+    overflow-y: auto;
+  }
+  
+
+  @media screen and (max-width: 767px) {
+    .auth-form {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    ion-card {
+    
+      width: 90%;
+      height: 50%;
+      left: 2%;
+      right: auto;
+      margin-top: 8%;
+    
+    }
+  
+    .list-factura {
+        border-radius: 8px;
+        padding: 33px;
+        padding-top: 33px
+  
+    }
+
+    ion-card {
+        --background: #fff; /* Fondo blanco para la tarjeta */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+        border-radius: 8px; /* Bordes redondeados */
+        width: 90%;
+        height: 67%;
+        left: 2%;
+        right: auto;
+        margin-top: 8%;
+      
+      }
+      ion-button.buttons-form {
+        border-radius: 35px;
+        --cursor: pointer;
+        --padding-top: 0;
+        --padding-bottom: 0;
+        --padding-start: 0;
+        --padding-end: 0;
+        font-size: 1em;
+        transition: transform 0.3s, box-shadow 0.3s; 
+        width: 20em;
+        margin-left: 1em
+      }
+      
+      .noFolio{
+        margin-left: 16%;
+      }
+      
+  .no-padding ion-col {
+    left: 0%;
+    margin: 1%;
+  }
+}

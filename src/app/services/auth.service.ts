@@ -74,7 +74,9 @@ export class AuthService {
       .set('LUS_CLAVE', datosUsuario.LUS_CLAVE)
       .set('LUS_USUARIO', datosUsuario.LUS_USUARIO)
       .set('LUS_TELEFONO', datosUsuario.LUS_TELEFONO)
-      .set('LUS_CORREO', datosUsuario.LUS_CORREO);
+      .set('LUS_CORREO', datosUsuario.LUS_CORREO)
+      .set('OLD_PASS', datosUsuario.OLD_PASS)
+      .set('NEW_PASS', datosUsuario.NEW_PASS);
     const url = `${this.dominio}api/Ciudadanos/actualizarUsuario`;
 
     return this.http.get(url, { params });
@@ -235,12 +237,57 @@ export class AuthService {
 
   // FACTURACION
 
+  recuperarDatosFiscales(RFC: string): Observable<any> {
+    const url = `${this.dominio}api/Facturacion/RecuperarDatosFiscales?RFC=${RFC}`;
+    return this.http.get(url);
+  }
+
+  recuperaFolioGrid(folioGrid: string): Observable<any> {
+    const url = `${this.dominio}api/Facturacion/Recupera_folio_grid?Folio=${folioGrid}`;
+    return this.http.get(url);
+  }
+
+  formasPagoGet(): Observable<any> {
+    const url = `${this.dominio}api/Facturacion/FORMASPAGO`;
+    return this.http.get<any[]>(url);
+  }
+
+  getFacturarFolio(datos: {
+    rfc: any,
+    foliosConcatenados: any,
+    UsoCFDI: string,
+    Usuario: string,
+    NOMBRE_FISCAL: string,
+    CP: string,
+    regimen: string,
+    direccion: string,
+    formaPagoSeleccionada: any,
+    metodoPagoSeleccionado: string
+  }): Observable<any> {
+    // Construye los parámetros de la URL
+    let params = new HttpParams()
+      .set('RFC', datos.rfc)
+      .set('folios', datos.foliosConcatenados)
+      .set('UsoCFDI', datos.UsoCFDI)
+      .set('usuario', datos.Usuario)
+      .set('Nombre_FISCAL', datos.NOMBRE_FISCAL)
+      .set('CP_FISCAL', datos.CP)
+      .set('Regimen_fiscal', datos.regimen)
+      .set('Direccion_FISCAL', datos.direccion)
+      .set('Forma_Pago', datos.formaPagoSeleccionada)
+      .set('MetodoPago', datos.metodoPagoSeleccionado);
+
+    // Realiza la petición GET con los parámetros
+    return this.http.get(`${this.dominio}api/Facturacion/facturarnew`, { params });
+  }
+
+
   getEnviarFactura(datos: {
     lus_clave: any;
     numFactura: any;
     RFC: string;
   }): Observable<any> {
-    const url = `${this.dominio}api/Facturacion/EnviarFactura?lus_clave=${datos.lus_clave}&NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
+    const url = `${this.dominio}api/Facturacion/EnviarFactura?luz_clave=${datos.lus_clave}&NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -254,16 +301,15 @@ export class AuthService {
 
   getDescargarPDF(datos: { numFactura: any; RFC: string }) {
     const url = `${this.dominio}api/Facturacion/DescargarFacturaPDF?NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
-  
+
     return this.http.get(url, { responseType: 'blob' });
   }
-  
+
   getDescargarXML(datos: { numFactura: any; RFC: string }) {
     const url = `${this.dominio}api/Facturacion/DescargarFacturaXML?NumFactura=${datos.numFactura}&RFC=${datos.RFC}`;
-  
+
     return this.http.get(url, { responseType: 'blob' });
   }
-  
 
   getDatosFacturacion(lus_clave): Observable<any> {
     const url = `${this.dominio}api/Facturacion/RecuperaFacturasGrid?lus_clave=${lus_clave}`;
@@ -329,47 +375,7 @@ export class AuthService {
       throw await error;
     }
   }
-  async getGuardaCliente(
-    rrfc,
-    rnombre,
-    rtipo_persona,
-    rdireccion,
-    rcolonia,
-    rCP,
-    remail,
-    rcelular,
-    restado,
-    rmunicipio,
-    regimen
-  ) {
-    let url: string;
-    url =
-      this.dominio +
-      'api/Facturacion/guardacliente?RFC=' +
-      rrfc +
-      '&nombre=' +
-      rnombre +
-      '&tipopersona=' +
-      rtipo_persona +
-      '&direccion=' +
-      rdireccion +
-      '&colonia=' +
-      rcolonia +
-      '&CP=' +
-      rCP +
-      '&email=' +
-      remail +
-      '&celular=' +
-      rcelular +
-      '&estado=' +
-      restado +
-      '&municipio=' +
-      rmunicipio +
-      '&regimen=' +
-      regimen;
 
-    return this.http.get(url);
-  }
   async getGuardaCliente_regimen(rrfc, regimen) {
     let url: string;
     url =
@@ -423,23 +429,6 @@ export class AuthService {
     }
   }
   // FIN FACTURACION
-  async getFacturarFolio(rfc, folio, UsoCFDI, usuario) {
-    debugger;
-    let url: string;
-    url =
-      this.dominio +
-      'api/Facturacion/facturarnew?RFC=' +
-      rfc +
-      '&folios=' +
-      folio +
-      '&UsoCFDI=' +
-      UsoCFDI +
-      '&usuario=' +
-      usuario;
-
-    console.log(url);
-    return this.http.get(url);
-  }
 
   getmanual() {
     let url: string;

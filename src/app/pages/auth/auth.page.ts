@@ -60,6 +60,7 @@ export class AuthPage implements OnInit {
             localStorage.setItem('LRO_CLAVE', res.LRO_CLAVE);
             localStorage.setItem('LUS_CORREO', res.LUS_CORREO);
             localStorage.setItem('LUS_CLAVE', res.LUS_CLAVE);
+            localStorage.setItem('ULTIMO_RFC', res.ULTIMO_RFC);
             this.authService.cargarNombreUsuario(res.LUS_CORREO);
 
             console.log(
@@ -73,6 +74,10 @@ export class AuthPage implements OnInit {
             console.log(
               'LUS_CLAVE almacenado:',
               localStorage.getItem('LUS_CLAVE')
+            );
+            console.log(
+              'ULTIMO_RFC almacenado:',
+              localStorage.getItem('ULTIMO_RFC')
             );
             
 

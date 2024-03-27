@@ -58,6 +58,8 @@ h4 {
   /* Hacer que el cuadro ocupe el 100% del ancho disponible */
   box-sizing: border-box;
   /* Incluir el padding y el borde en el ancho total */
+
+
 }
 
 ion-button.buttons-form {
@@ -77,15 +79,20 @@ ion-button.buttons-form:hover {
 }
 
 ion-card {
-  --background: #fff; /* Fondo blanco para la tarjeta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
-  border-radius: 8px; /* Bordes redondeados */
+  --background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   width: 53%;
-  height: 53%;
+  height: 67%;
   left: 24%;
   right: auto;
   margin-top: 3%;
+  overflow: hidden; /* Asegura que el contenido que excede el tamaño del card no se muestre fuera de él */
+}
 
+.contenido-scrollable {
+  max-height: 88%; /* Ajusta esto según la altura de tu ion-card para permitir espacio para el encabezado/título del card, etc. */
+  overflow-y: auto; /* Habilita el scroll vertical */
 }
 
 ion-card-header {
@@ -119,7 +126,7 @@ ion-list {
 }
 .list-factura {
   border-radius: 8px;
-  padding: 52px;
+  padding: 5px;
 }
 
 /* ion-item {
@@ -132,11 +139,21 @@ ion-list {
 } */
 
 ion-select {
-  --background: white;
+  --background: transparent;
 }
 
 .action-sheet-container.sc-ion-action-sheet-md {
   --background: white;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.buttons-form-container ion-button {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 767px) {
@@ -146,19 +163,19 @@ ion-select {
   }
 
   ion-card {
-    
     width: 90%;
     height: 60%;
     left: 2%;
     right: auto;
     margin-top: 8%;
-  
+   max-width: 100%;
+   max-height: 100%;
   }
 
   .list-factura {
     border-radius: 8px;
     padding: 5px;
-    padding-top: 33px;
+    padding-top: 0px;
 
   }
 
@@ -182,6 +199,7 @@ ion-select {
     /* Hacer que el cuadro ocupe el 100% del ancho disponible */
     box-sizing: border-box;
     /* Incluir el padding y el borde en el ancho total */
+    
   }
 
   .buttons-movil ion-button {

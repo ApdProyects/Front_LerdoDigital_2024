@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { forkJoin } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AlertController, LoadingController, isPlatform } from '@ionic/angular';
+import { Filesystem, Directory } from '@capacitor/filesystem';
 
 @Component({
   selector: 'app-factura-tables',
@@ -36,10 +38,17 @@ export class FacturaTablesPage implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private alertController: AlertController,
+    private loadingController: LoadingController
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando facturas...',
+      spinner: 'crescent', // Opcional: especifica el tipo de animación del spinner.
+    });
+    await loading.present(); // Muestra el indicador de carga.
     this.facturasFiltradas = Array.from({ length: 1 }, () => ({
       numero: '-', // Proporciona un valor predeterminado
       fecha: '',
@@ -57,13 +66,13 @@ export class FacturaTablesPage implements OnInit {
   }
 
   cargarDatosFacturacion(): void {
-    const lus_clave = '4600'; // Asumiendo que '4600' es un valor de ejemplo para la demostración
+    const lus_clave = localStorage.getItem('LUS_CLAVE');
 
     if (lus_clave) {
       console.log('Lus_clave obtenido:', lus_clave);
 
       this.authService.getDatosFacturacion(lus_clave).subscribe({
-        next: (response) => {
+        next: async (response) => {
           console.log('Respuesta completa de la API:', response);
 
           if (response.ListaFacturas && response.ListaFacturas.length > 0) {
@@ -74,6 +83,8 @@ export class FacturaTablesPage implements OnInit {
             this.calculateTotalPages(); // Recalcula el total de páginas basado en los nuevos datos
             this.currentPage = 1; // Opcionalmente, restablece a la primera página
             this.displayedData = this.getPagedData(); // Actualiza los datos mostrados en la tabla
+            await this.loadingController.dismiss();
+
           } else {
             console.log('No se encontraron facturas en la respuesta');
             this.facturasFiltradas = []; // Limpia la variable si no hay facturas
@@ -81,11 +92,12 @@ export class FacturaTablesPage implements OnInit {
           this.calculateTotalPages(); // Asegúrate de llamar a esto fuera del if para manejar también el caso de lista vacía
           this.displayedData = this.getPagedData();
         },
-        error: (error) => {
+        error: async (error) => {
           console.error('Error al obtener datos de la API', error);
           this.facturasFiltradas = []; // Limpia en caso de error
           this.calculateTotalPages(); // Recalcula las páginas incluso si hay un error
           this.displayedData = this.getPagedData();
+          await this.loadingController.dismiss();
         },
       });
     } else {
@@ -93,6 +105,8 @@ export class FacturaTablesPage implements OnInit {
       this.facturasFiltradas = []; // Manejo cuando lus_clave no está disponible
       this.calculateTotalPages(); // Asegúrate de actualizar la paginación y los datos mostrados incluso si no hay datos
       this.displayedData = this.getPagedData();
+      this.loadingController.dismiss();
+
     }
   }
 
@@ -100,7 +114,7 @@ export class FacturaTablesPage implements OnInit {
     if (!this.listaOriginalFacturas) {
       this.listaOriginalFacturas = [...this.facturasFiltradas];
     }
-  
+
     if (valorBusqueda && valorBusqueda.trim() !== '') {
       this.displayedData = this.listaOriginalFacturas.filter((factura) => {
         return factura.NumeroFactura.toString().includes(valorBusqueda);
@@ -110,7 +124,6 @@ export class FacturaTablesPage implements OnInit {
       this.displayedData = [...this.listaOriginalFacturas];
     }
   }
-  
 
   toggleSeleccion(facturaSeleccionada: any) {
     // Verificar si el usuario está deseleccionando la factura actualmente seleccionada
@@ -196,23 +209,45 @@ export class FacturaTablesPage implements OnInit {
   }
 
   async enviarFactura(factura: any) {
-    console.log('Enviando factura:', factura);
+    // Muestra el indicador de carga
+    const loading = await this.loadingController.create({
+      message: 'Enviando factura...',
+    });
+    await loading.present();
+
     const datosUsuario = {
-      lus_clave: localStorage.getItem('LUS_CLAVE') || 'valor_por_defecto', // Por si acaso LUS_CLAVE no está definido
+      lus_clave: localStorage.getItem('LUS_CLAVE') || 'valor_por_defecto',
       numFactura: factura.NumeroFactura,
       RFC: factura.RFCFacturar,
     };
 
-    console.log('Enviando datos al servidor:', datosUsuario);
-
+    // Simula una operación asíncrona como el envío de datos al servidor
     this.authService.getEnviarFactura(datosUsuario).subscribe({
-      next: (res) => {
-        console.log('Respuesta exitosa del servidor:', res);
-        // Aquí podrías, por ejemplo, mostrar un mensaje de éxito al usuario
+      next: async (res) => {
+        // Primero, cierra el indicador de carga
+        await loading.dismiss();
+
+        // Luego muestra el alerta de éxito
+        const alert = await this.alertController.create({
+          header: 'Éxito',
+          message: 'Correo enviado exitosamente.',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
       },
-      error: (error) => {
-        console.error('Error en la solicitud:', error);
-        // Aquí podrías, por ejemplo, mostrar un mensaje de error al usuario
+      error: async (error) => {
+        // Cierra el indicador de carga en caso de error
+        await loading.dismiss();
+
+        // Muestra el alerta de error
+        const alert = await this.alertController.create({
+          header: 'Error',
+          message: 'Error al enviar el correo. Por favor, intenta de nuevo.',
+          buttons: ['OK'],
+        });
+
+        await alert.present();
       },
     });
   }
@@ -245,13 +280,59 @@ export class FacturaTablesPage implements OnInit {
     });
   }
   descargarArchivo(data: Blob, nombreArchivo: string) {
-    const url = window.URL.createObjectURL(data);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = nombreArchivo;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
+    if (isPlatform('hybrid')) {
+      const reader = new FileReader();
+      reader.readAsDataURL(data);
+      reader.onloadend = async () => {
+        const base64 = reader.result as string;
+        // Asegúrate de obtener la parte correcta de la cadena base64 para los datos del archivo
+        const base64Data = base64.split(',')[1];
+        try {
+          await Filesystem.writeFile({
+            path: nombreArchivo,
+            data: base64Data,
+            directory: Directory.Documents,
+          });
+          console.log('Archivo guardado en el dispositivo:', nombreArchivo);
+          // Mostrar alerta de éxito
+          this.presentAlert(
+            'Descarga completa',
+            `El archivo ${nombreArchivo} ha sido guardado en Documentos.`
+          );
+        } catch (e) {
+          console.error('Error al guardar el archivo:', e);
+          // Mostrar alerta de error
+          this.presentAlert('Error', 'No se pudo guardar el archivo.');
+        }
+      };
+      reader.onerror = (error) => {
+        // Manejar errores de FileReader
+        console.error('Error al leer el archivo:', error);
+        this.presentAlert(
+          'Error',
+          'Error al procesar el archivo para su descarga.'
+        );
+      };
+      reader.readAsDataURL(data);
+    } else {
+      // Para navegadores web, sigue el proceso normal
+      const url = window.URL.createObjectURL(data);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = nombreArchivo;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+  }
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 }

@@ -83,7 +83,11 @@ const routes: Routes = [
   {
     path: 'factura-tables',
     loadChildren: () => import('./factura-tables/factura-tables.module').then( m => m.FacturaTablesPageModule)
+  },  {
+    path: 'facturacion2',
+    loadChildren: () => import('./facturacion2/facturacion2.module').then( m => m.Facturacion2PageModule)
   },
+
 
 
 
