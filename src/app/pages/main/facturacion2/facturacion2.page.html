@@ -20,7 +20,7 @@
               <ion-row>
                 <ion-col size-md="8" size="12">
                   <ion-label position="stacked"></ion-label>
-                  <div >
+                  <div>
                     <ion-input
                       type="text"
                       label="Ingrese su RFC"
@@ -54,17 +54,19 @@
                 <ion-col size="12" sizeLg="6"
                   ><ion-input
                     type="text"
+                    minlength="2"
                     label="Nombre"
                     label-placement="floating"
                     color="success"
                     fill="outline"
                     [(ngModel)]="nombre"
                     (keyup)="nombre = nombre.toUpperCase()"
-
                   ></ion-input
                 ></ion-col>
                 <ion-col size="12" sizeLg="2"
                   ><ion-input
+                    maxlength="5"
+                    minlength="5"
                     type="text"
                     label="Codigo Postal"
                     label-placement="floating"
@@ -72,12 +74,13 @@
                     fill="outline"
                     [(ngModel)]="CP"
                     (keyup)="CP = CP.toUpperCase()"
-
                   ></ion-input
                 ></ion-col>
                 <ion-col size="12" sizeLg="2"
                   ><ion-input
                     type="text"
+                    maxlength="3"
+                    minlength="3"
                     label="Regimen Fiscal"
                     label-placement="floating"
                     color="success"
@@ -108,7 +111,7 @@
             <ion-grid fixed>
               <ion-row>
                 <ion-col size-md="12">
-                  <div >
+                  <div>
                     <ion-select
                       label="Uso CFDI"
                       label-placement="floating"
@@ -211,17 +214,17 @@
               </ion-row>
             </ion-grid>
 
-            
             <ion-grid fixed>
               <ion-row>
                 <ion-col size-md="8" size="12">
-                  <div >
+                  <div>
                     <ion-input
                       label="Ingrese su folio"
                       label-placement="floating"
                       color="success"
                       fill="outline"
-                      maxlength="255"
+                      maxlength="17"
+                      
                       [(ngModel)]="folio"
                       onkeyup="this.value = this.value.toUpperCase();"
                     >
@@ -254,43 +257,68 @@
               <ion-col class="tableCol">Importe</ion-col>
               <ion-col class="tableCol"></ion-col>
             </ion-row>
-            <ion-row *ngFor="let factura of displayedData; let i = index" >
-              <ion-col size="auto" class="tableCol">{{ i + 1 }}</ion-col>
-              <ion-col class="tableCol">{{ factura.Folio || '-' }}</ion-col>
-              <ion-col class="tableCol">{{ factura.Descripcion_Folio || '-' }}</ion-col>
-              <ion-col class="tableCol">$&nbsp;{{ factura.Importe_Folio || '-' }}</ion-col>
-              
-              <ion-col class="tableCol">
-                <ion-button expand="block"
-                size="small"
-                fill="clear"
-                shape="round"
-                color="danger"
-                fill="outline" (click)="eliminarFolio(i)">
-                  Eliminar
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid> 
+            <ng-container *ngIf="displayedData.length; else noData">
+              <ion-row *ngFor="let factura of displayedData; let i = index">
+                <ion-col size="auto" class="tableCol">{{ i + 1 }}</ion-col>
+                <ion-col class="tableCol">{{ factura.Folio || '-' }}</ion-col>
+                <ion-col class="tableCol">{{ factura.Descripcion_Folio || '-' }}</ion-col>
+                <ion-col class="tableCol">$&nbsp;{{ factura.Importe_Folio || '-' }}</ion-col>
+                <ion-col class="tableCol">
+                  <ion-button
+                    expand="block"
+                    size="small"
+                    fill="clear"
+                    shape="round"
+                    color="danger"
+                    fill="outline"
+                    (click)="eliminarFolio(i)"
+                  >
+                    Eliminar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ng-container>
+            <ng-template #noData>
+              <ion-row>
+                <ion-col class="tableCol" size="12">
+                  No hay folio
+                </ion-col>
+              </ion-row>
+            </ng-template>
+          </ion-grid>
         </div>
         
+
         <ion-grid>
           <ion-row class="ion-align-items-start responsive-row">
             <ion-col class="order-mobile-3"> </ion-col>
 
             <ion-col size="12" sizeLg="3" class="order-mobile-1">
-              <ion-select label="Forma Pago" label-placement="floating" fill="outline" expandedIcon="remove" color="success" [(ngModel)]="formaPagoSeleccionada">
+              <ion-select
+                label="Forma Pago"
+                label-placement="floating"
+                fill="outline"
+                expandedIcon="remove"
+                color="success"
+                [(ngModel)]="formaPagoSeleccionada"
+              >
                 <!-- Utiliza 'FFP_CLAVE_NOMBRE' como valor y 'FFP_DESCRIPCION' como etiqueta -->
-                <ion-select-option *ngFor="let formaPago of formasPago" [value]="formaPago.FFP_CLAVE_NOMBRE">
+                <ion-select-option
+                  *ngFor="let formaPago of formasPago"
+                  [value]="formaPago.FFP_CLAVE_NOMBRE"
+                >
                   {{ formaPago.FFP_DESCRIPCION }}
                 </ion-select-option>
               </ion-select>
             </ion-col>
-            
-          
+
             <ion-col size="12" sizeLg="3" class="order-mobile-2">
               <div class="titulo-pago">Método de Pago</div>
-              <ion-radio-group [(ngModel)]="metodoPagoSeleccionado" [allowEmptySelection]="true" class="ion-justify-content-center">
+              <ion-radio-group
+                [(ngModel)]="metodoPagoSeleccionado"
+                [allowEmptySelection]="true"
+                class="ion-justify-content-center"
+              >
                 <ion-item class="button-radio" lines="none">
                   <ion-label>Pago en sola ex</ion-label>
                   <ion-radio slot="start" value="PUE"></ion-radio>
@@ -301,9 +329,8 @@
                 </ion-item>
               </ion-radio-group>
             </ion-col>
-            
 
-            <ion-col class="order-mobile-0  texto-derecha">
+            <ion-col class="order-mobile-0 texto-derecha">
               Subtotal: ${{ subtotal | number:'1.2-2' }} <br />
               IVA: ${{ iva | number:'1.2-2' }}<br />
               Total: ${{ total | number:'1.2-2' }}<br />
@@ -315,7 +342,6 @@
             <br />
           </ion-row>
         </ion-grid>
-
 
         <!-- Nueva factura -->
         <div class="table-scroll">
@@ -469,8 +495,6 @@
           </ion-select>
           <!-- <span class="input-group-text" id="basic-addon1"><ion-icon name="create-sharp"></ion-icon></span>   -->
         </ion-item>
-
-       
 
         <!-- <ion-grid fixed>
           <ion-row class="ion-align-items-start">

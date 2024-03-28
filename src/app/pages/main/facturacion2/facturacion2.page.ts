@@ -33,7 +33,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { AltaRfcModalComponent } from 'src/app/shared/components/alta-rfc-modal/alta-rfc-modal.component';
 
-
 @Component({
   selector: 'app-facturacion2',
   templateUrl: './facturacion2.page.html',
@@ -131,6 +130,11 @@ export class Facturacion2Page implements OnInit {
   ) {}
 
   async ngOnInit() {
+    const loading = await this.LoadingController.create({
+      message: 'Cargando facturas...',
+      spinner: 'crescent', // Opcional: especifica el tipo de animación del spinner.
+    });
+    await loading.present();
     this.subscription = this.utilsSvc.currentFolio.subscribe((folio) => {
       this.folio = folio;
     });
@@ -156,7 +160,7 @@ export class Facturacion2Page implements OnInit {
     this.foliosFacturas.push('');
   }
 
-  cargarDatosUsuario(): void {
+  async cargarDatosUsuario() {
     const rfc = localStorage.getItem('ULTIMO_RFC');
     if (rfc) {
       // Si existe un RFC en localStorage, actualiza el modelo vinculado al ion-input
@@ -165,21 +169,25 @@ export class Facturacion2Page implements OnInit {
     } else {
       console.log('No se encontró el RFC del usuario en localStorage.');
     }
+    await this.LoadingController.dismiss();
   }
-
 
   async recuperarDatos() {
     if (this.rfc) {
       this.authService.recuperarDatosFiscales(this.rfc).subscribe({
-        next: (datos) => {
+        next: async (datos) => {
           // Verifica si los datos fiscales indican un RFC no existente
-          if (datos.NOMBRE_FISCAL === 'NO INGRESADO' || datos.CP_FISCAL === '--' || datos.REGIMEN_FISCAL === '--' || datos.DIRECCION_FISCAL === '--') {
+          if (
+            datos.NOMBRE_FISCAL === 'NO INGRESADO' ||
+            datos.CP_FISCAL === '--' ||
+            datos.REGIMEN_FISCAL === '--' ||
+            datos.DIRECCION_FISCAL === '--'
+          ) {
             console.log('RFC no encontrado, mostrando formulario de alta.');
-            //this.isOpencaptura = true; 
-         
-              this.router.navigate(['main/facturacion']);
-                
-            
+
+            //this.isOpencaptura = true;
+
+            this.router.navigate(['main/facturacion']);
           } else {
             // Si los datos fiscales son válidos, actualiza las propiedades del componente
             this.nombre = datos.NOMBRE_FISCAL;
@@ -187,7 +195,7 @@ export class Facturacion2Page implements OnInit {
             this.regimen = datos.REGIMEN_FISCAL;
             this.direccion = datos.DIRECCION_FISCAL;
             console.log('Datos fiscales recuperados:', datos);
-  
+
             this.router.navigate(['/facturacion2']);
           }
         },
@@ -197,6 +205,12 @@ export class Facturacion2Page implements OnInit {
         },
       });
     } else {
+      const alert = await this.AlertController.create({
+        header: 'Error',
+        message: 'RFC no proporcionado.',
+        buttons: ['OK'],
+      });
+      await alert.present();
       console.error('Error: RFC no proporcionado.');
     }
   }
@@ -205,10 +219,10 @@ export class Facturacion2Page implements OnInit {
     const modal = await this.modalController.create({
       component: AltaRfcModalComponent,
       // Puedes pasar datos al modal si es necesario
-      componentProps: { rfc: this.rfc }
+      componentProps: { rfc: this.rfc },
     });
     await modal.present();
-  
+
     // Opcionalmente, maneja el retorno de datos del modal al cerrarse
     const { data } = await modal.onWillDismiss();
     if (data) {
@@ -216,47 +230,75 @@ export class Facturacion2Page implements OnInit {
       console.log(data);
     }
   }
-  
 
   async recuperarFolio() {
     if (this.folio) {
-      this.authService.recuperaFolioGrid(this.folio).subscribe({
-        next: (datos) => {
-          // Verifica si el mensaje indica que el folio ya fue facturado
-          if (datos.MENSAJE && datos.MENSAJE.includes('ya fue facturado')) {
-            this.mostrarAlertaFolioPagado(datos.MENSAJE);
-          } else {
-            this.displayedData.push({
-              Folio: this.folio,
-              Descripcion_Folio: datos.Descripcion_Folio,
-              Importe_Folio: datos.Importe_Folio,
-            });
-            console.log(datos);
-            this.calcularTotales();
-          }
-          this.folio = ''; // Limpiar el campo de folio
-        },
-        error: (error) => {
-          console.error('Error al recuperar los datos fiscales:', error);
-          // Aquí podrías manejar errores de la petición, como problemas de conexión
-        },
-      });
+      const folioLength = this.folio.length;
+      if ([11, 13, 16, 17].includes(folioLength)) {
+        this.authService.recuperaFolioGrid(this.folio).subscribe({
+          next: async (datos) => {
+            // Verifica si el mensaje indica que el folio ya fue facturado
+            if (datos.MENSAJE) {
+              if (datos.MENSAJE.includes('ya fue facturado')) {
+                await this.mostrarAlerta('Aviso', datos.MENSAJE);
+              } else if (datos.MENSAJE.includes('no registrado en ingresos')) {
+                // Aquí manejas el caso específico cuando el folio no es válido
+                await this.mostrarAlerta('Folio no válido', datos.MENSAJE);
+              }
+            } else {
+              this.displayedData.push({
+                Folio: this.folio,
+                Descripcion_Folio: datos.Descripcion_Folio,
+                Importe_Folio: datos.Importe_Folio,
+              });
+              console.log(datos);
+              this.calcularTotales();
+            }
+            this.folio = ''; // Limpiar el campo de folio
+          },
+          error: async (error) => {
+            console.error('Error al recuperar los datos fiscales:', error);
+            // Manejar errores de la petición
+          },
+        });
+      } else {
+        const alert = await this.AlertController.create({
+          header: 'Error',
+          message: 'Folio no valido',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
     } else {
+      const alert = await this.AlertController.create({
+        header: 'Error',
+        message: 'Folio no proporcionado.',
+        buttons: ['OK'],
+      });
+      await alert.present();
       console.error('Error: Folio no proporcionado.');
     }
   }
-  
+
+  // Función genérica para mostrar alertas
+  async mostrarAlerta(header, mensaje) {
+    const alert = await this.AlertController.create({
+      header: header,
+      message: mensaje,
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+
   async mostrarAlertaFolioPagado(mensaje: string) {
     const alert = await this.AlertController.create({
       header: 'Folio Facturado',
       message: mensaje,
-      buttons: ['OK']
+      buttons: ['OK'],
     });
-  
+
     await alert.present();
   }
-  
-
 
   eliminarFolio(index: number) {
     this.displayedData.splice(index, 1);
@@ -275,7 +317,6 @@ export class Facturacion2Page implements OnInit {
   cargarFormasPago() {
     this.authService.formasPagoGet().subscribe({
       next: (data) => {
-        // Acceder directamente a la propiedad 'ListaFormaPago' del objeto de respuesta
         this.formasPago = data.ListaFormaPago;
         console.log(this.formasPago);
       },
@@ -285,13 +326,22 @@ export class Facturacion2Page implements OnInit {
     });
   }
 
+  recargarComponente() {
+    let urlActual = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([urlActual]);
+    });
+  }
+
   //PPD
   //PUE
 
   async facturar() {
     const datosParaEnviar = {
       rfc: this.rfc,
-      foliosConcatenados: this.displayedData.map(factura => factura.Folio).join(', '),
+      foliosConcatenados: this.displayedData
+        .map((factura) => factura.Folio)
+        .join(', '),
       UsoCFDI: this.UsoCFDI,
       Usuario: localStorage.getItem('LUS_CLAVE'),
       NOMBRE_FISCAL: this.nombre,
@@ -299,54 +349,118 @@ export class Facturacion2Page implements OnInit {
       regimen: this.regimen,
       direccion: this.direccion,
       formaPagoSeleccionada: this.formaPagoSeleccionada,
-      metodoPagoSeleccionado: this.metodoPagoSeleccionado
+      metodoPagoSeleccionado: this.metodoPagoSeleccionado,
     };
-  
-    console.log('Enviando datos del formulario:', datosParaEnviar);
 
-    const loading = await this.LoadingController.create({
-      message: 'Facturando...', // Puedes personalizar este mensaje
-    });
-    await loading.present(); // Muestra el indicador de carga
+    let errores: any = 0 ;
 
-    this.authService.getFacturarFolio(datosParaEnviar).subscribe({
-      next: async (response) => {
-        await loading.dismiss();
-        if (response.codigo && response.codigo !== 0) { 
-          console.error('Error al enviar los datos de facturación:', response.mensaje);
+    if(datosParaEnviar.NOMBRE_FISCAL == '' || datosParaEnviar.rfc == '' ||  datosParaEnviar.CP == '' ||  datosParaEnviar.regimen == ''){
+      const alert = await this.AlertController.create({
+        message: 'Falta cargar datos fiscales',
+        // buttons: ['OK'],
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              location.reload(); // Recarga el componente
+            },
+          },
+        ],
+        
+      });
+      await alert.present();
+      errores = 1
+    }
+
+    if (datosParaEnviar.foliosConcatenados.length <= 2) {
+      const alert = await this.AlertController.create({
+        message: ' Ingresa un folio para facturar.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+      errores = 1
+    } 
+
+    if(datosParaEnviar.formaPagoSeleccionada == undefined){
+      const alert = await this.AlertController.create({
+        message: 'Selecciona una forma de pago',
+        buttons: ['OK'],
+      });
+      await alert.present();
+      errores = 1
+    }
+
+    if(datosParaEnviar.metodoPagoSeleccionado == ''){
+      const alert = await this.AlertController.create({
+        message: 'Selecciona un metodo de pago',
+        buttons: ['OK'],
+      });
+      await alert.present();
+      errores = 1
+    }
+
+    if(errores == 0 ){
+      console.log('Enviando datos del formulario:', datosParaEnviar);
+
+      const loading = await this.LoadingController.create({
+        message: 'Facturando...', 
+      });
+      await loading.present(); 
+
+      this.authService.getFacturarFolio(datosParaEnviar).subscribe({
+        next: async (response) => {
+          await loading.dismiss();
+          if (response.codigo && response.codigo !== 0) {
+            console.error(
+              'Error al enviar los datos de facturación:',
+              response.mensajeList
+            );
+
+            const alert = await this.AlertController.create({
+              message: response.mensaje || ' Por favor, intente nuevamente.',
+              buttons: ['OK'],
+            });
+            await alert.present();
+          } else {
+            console.log('Respuesta del servidor:', response);
+            // Muestra una alerta de éxito
+            const alert = await this.AlertController.create({
+              header: 'Éxito',
+              message: 'La facturación se ha realizado correctamente.',
+              buttons: [
+                {
+                  text: 'OK',
+                  handler: () => {
+                    location.reload(); // Recarga el componente
+                  },
+                },
+              ],
+            });
+            await alert.present();
+          }
+        },
+        error: async (error) => {
+          console.error('Error al enviar los datos de facturación:', error);
+          await loading.dismiss();
           // Muestra una alerta de error
+          let mensajeError =
+            'Error al enviar los datos de facturación. Por favor, intente nuevamente.';
+
+          // Verifica si hay mensajes de error específicos en 'mensajeList' y los concatena.
+          if (error.error.mensajeList && error.error.mensaje.length > 0) {
+            const erroresListados = error.error.mensaje.join(' '); // Une todos los mensajes con un espacio.
+            mensajeError = `${error.error.mensaje} ${erroresListados}`;
+          }
           const alert = await this.AlertController.create({
-           
-            message: response.mensaje || 'Error no identificado. Por favor, intente nuevamente.',
-            buttons: ['OK']
+            header: 'Error',
+            message: error.error.mensaje || 'Por favor, intente nuevamente.',
+            buttons: ['OK'],
           });
           await alert.present();
-        } else {
-          console.log('Respuesta del servidor:', response);
-          // Muestra una alerta de éxito
-          const alert = await this.AlertController.create({
-            header: 'Éxito',
-            message: 'La facturación se ha realizado correctamente.',
-            buttons: ['OK']
-          });
-          await alert.present();
-        }
-      },
-      error: async (error) => {
-        console.error('Error al enviar los datos de facturación:', error);
-        await loading.dismiss();
-        // Muestra una alerta de error
-        const alert = await this.AlertController.create({
-          header: 'Error',
-          message: 'Error al enviar los datos de facturación. ' + (error.error.mensaje || 'Por favor, intente nuevamente.'),
-          buttons: ['OK']
-        });
-        await alert.present();
-      }
-    });
+        },
+      });
+    }
   }
-  
-  
 
   async salir() {
     await this.NavCtrl.navigateRoot('/index');
@@ -408,7 +522,7 @@ export class Facturacion2Page implements OnInit {
   }
 
   async doRefresh(event: any) {
-    if (this.platform.is('mobile')) {
+    if (this.platform.is('mobile') || 'web') {
       setTimeout(async () => {
         // Aquí es donde reiniciarás tu operación como si estuvieras empezando de nuevo.
         // Por ejemplo, limpiar las variables del formulario, restablecer los estados, etc.
