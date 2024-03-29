@@ -32,6 +32,7 @@ import {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { AltaRfcModalComponent } from 'src/app/shared/components/alta-rfc-modal/alta-rfc-modal.component';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-facturacion2',
@@ -231,6 +232,7 @@ export class Facturacion2Page implements OnInit {
     }
   }
 
+
   async recuperarFolio() {
     if (this.folio) {
       const folioLength = this.folio.length;
@@ -238,13 +240,15 @@ export class Facturacion2Page implements OnInit {
         this.authService.recuperaFolioGrid(this.folio).subscribe({
           next: async (datos) => {
             // Verifica si el mensaje indica que el folio ya fue facturado
-            if (datos.MENSAJE) {
-              if (datos.MENSAJE.includes('ya fue facturado')) {
-                await this.mostrarAlerta('Aviso', datos.MENSAJE);
-              } else if (datos.MENSAJE.includes('no registrado en ingresos')) {
-                // Aquí manejas el caso específico cuando el folio no es válido
-                await this.mostrarAlerta('Folio no válido', datos.MENSAJE);
-              }
+            if (datos.MENSAJE != '' || datos.MENSAJE == null) {
+              // if (datos.MENSAJE.includes('ya fue facturado')) {
+              //   await this.mostrarAlerta('Aviso', datos.MENSAJE);
+              // } else if (datos.MENSAJE.includes('no registrado en ingresos')) {
+              //   // Aquí manejas el caso específico cuando el folio no es válido
+              //   await this.mostrarAlerta('Folio no válido', datos.MENSAJE);
+              // } else if ()
+              await this.mostrarAlerta('', datos.MENSAJE);
+
             } else {
               this.displayedData.push({
                 Folio: this.folio,
@@ -254,7 +258,7 @@ export class Facturacion2Page implements OnInit {
               console.log(datos);
               this.calcularTotales();
             }
-            this.folio = ''; // Limpiar el campo de folio
+            this.folio = ''; 
           },
           error: async (error) => {
             console.error('Error al recuperar los datos fiscales:', error);
@@ -328,7 +332,7 @@ export class Facturacion2Page implements OnInit {
 
   recargarComponente() {
     let urlActual = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigateByUrl('./facturacion2', { skipLocationChange: true }).then(() => {
       this.router.navigate([urlActual]);
     });
   }
@@ -357,15 +361,15 @@ export class Facturacion2Page implements OnInit {
     if(datosParaEnviar.NOMBRE_FISCAL == '' || datosParaEnviar.rfc == '' ||  datosParaEnviar.CP == '' ||  datosParaEnviar.regimen == ''){
       const alert = await this.AlertController.create({
         message: 'Falta cargar datos fiscales',
-        // buttons: ['OK'],
         buttons: [
           {
             text: 'OK',
             handler: () => {
-              location.reload(); // Recarga el componente
+              window.location.reload(); 
             },
           },
         ],
+       
         
       });
       await alert.present();
@@ -407,40 +411,11 @@ export class Facturacion2Page implements OnInit {
       });
       await loading.present(); 
 
-      this.authService.getFacturarFolio(datosParaEnviar).subscribe({
-        next: async (response) => {
-          await loading.dismiss();
-          if (response.codigo && response.codigo !== 0) {
-            console.error(
-              'Error al enviar los datos de facturación:',
-              response.mensajeList
-            );
-
-            const alert = await this.AlertController.create({
-              message: response.mensaje || ' Por favor, intente nuevamente.',
-              buttons: ['OK'],
-            });
-            await alert.present();
-          } else {
-            console.log('Respuesta del servidor:', response);
-            // Muestra una alerta de éxito
-            const alert = await this.AlertController.create({
-              header: 'Éxito',
-              message: 'La facturación se ha realizado correctamente.',
-              buttons: [
-                {
-                  text: 'OK',
-                  handler: () => {
-                    location.reload(); // Recarga el componente
-                  },
-                },
-              ],
-            });
-            await alert.present();
-          }
-        },
-        error: async (error) => {
-          console.error('Error al enviar los datos de facturación:', error);
+      this.authService.getFacturarFolio(datosParaEnviar)
+      .pipe(
+        catchError(
+          async (error)=>{
+            console.error('Error al enviar los datos de facturación:', error);
           await loading.dismiss();
           // Muestra una alerta de error
           let mensajeError =
@@ -457,8 +432,63 @@ export class Facturacion2Page implements OnInit {
             buttons: ['OK'],
           });
           await alert.present();
-        },
-      });
+            return error;
+          }
+        )
+      )
+      .subscribe(
+        async (response:any)=>{
+
+          // debugger;
+          if (response.codigo  === 0) {
+            await loading.dismiss();
+            console.error(
+              'Error al enviar los datos de facturación:',
+              response.mensajeList
+            );
+
+            const alert = await this.AlertController.create({
+              message: response.mensaje || ' Por favor, intente nuevamente.',
+              buttons: [  {
+                text: 'OK',
+                handler: async() => {
+                  await alert.dismiss();
+                  setTimeout(() => {
+                    // window.location.reload();
+                  }, 100);
+                },
+              },],
+            });
+            await alert.present();
+
+            return 1;
+          }
+
+          if(response.codigo === 1){
+
+            await loading.dismiss();
+            console.log('Respuesta del servidor:', response);
+         
+            // Muestra una alerta de éxito
+            const alert = await this.AlertController.create({
+              header: 'Éxito',
+              message: 'La facturación se ha realizado correctamente.',
+              buttons: [
+                {
+                  text: 'OK',
+                  handler: async() => {
+                    await alert.dismiss();
+                    window.location.reload();
+                  },
+                },
+              ],
+            });
+            await alert.present();
+            return 1;
+          }
+        }
+      );
+
     }
   }
 

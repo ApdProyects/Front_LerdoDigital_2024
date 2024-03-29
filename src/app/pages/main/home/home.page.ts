@@ -52,7 +52,7 @@ export class HomePage implements OnInit {
     {
       image: 'assets/fondoLerdo2.jpg',
       text: 'Paga tus servicios',
-      subtitles: ['Predial', 'Vialidad', 'Parquímetros'],
+      subtitles: ['Predial', 'Vialidad', ] //['Parquímetros'],
     },
     //   {
     //   image: 'assets/fondoLerdo3.jpg',

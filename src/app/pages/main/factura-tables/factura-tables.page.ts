@@ -160,7 +160,7 @@ export class FacturaTablesPage implements OnInit {
   }
 
   mostrarNuevaFactura() {
-    this.router.navigate(['main/facturacion']);
+    this.router.navigate(['main/facturacion2']);
     /*     this.mostrarFormulario = true;
     this.facturaEnProgreso = {
       numero: '',

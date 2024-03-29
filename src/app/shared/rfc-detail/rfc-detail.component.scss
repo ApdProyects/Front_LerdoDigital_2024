@@ -1,0 +1,56 @@
+.rfc-container{
+  background-color: #0f959c22;
+  margin-top: 5%;
+}
+
+
+ion-content{
+    --keyboard-offset: 0 !important;
+  }
+  
+
+.auth-form {
+  width: 150%;
+  padding: 20px;
+
+
+}
+
+
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #f4f4f4;
+  /* Borde del cuadro */
+  padding: 20px;
+  /* Ajusta el espaciado interno del cuadro según sea necesario */
+  border-radius: 10px;
+  /* Bordes redondeados del cuadro */
+  box-shadow: 0 0 10px #f4f4f4;
+  /* Sombra del cuadro */
+  max-width: 300px;
+  /* Ajusta el ancho máximo del cuadro según sea necesario */
+  margin: 110px auto;
+  /* Espaciado alrededor del cuadro y centrar en la página */
+  box-sizing: border-box;
+  /* Incluir el padding y el borde en el ancho total */
+  background-color: #e0e0e0;
+
+}
+
+@media screen and (max-width: 767px) {
+  .auth-form {
+    width: 100%;
+ 
+    padding: 20px;
+  }
+
+  .form-container {
+    max-width: 300px;
+
+
+  }
+}

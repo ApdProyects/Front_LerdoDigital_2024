@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881937334135",
+    "project_id": "lerdo-digital",
+    "storage_bucket": "lerdo-digital.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881937334135:android:5e389fcf3ea3161df72b72",
+        "android_client_info": {
+          "package_name": "lerdodigital.lerdodigital"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjuF2U02fY3Lt9cWUtbLYfcSUo-nK65j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
