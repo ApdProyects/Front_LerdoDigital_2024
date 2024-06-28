@@ -1,11 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
+
 import {
   AlertController,
   IonicSafeString,
@@ -16,19 +12,14 @@ import {
   ToastController,
   IonicModule,
 } from '@ionic/angular';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Factura } from 'src/app/models/Factura.model';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { TablaFacturaComponent } from 'src/app/shared/components/tabla-factura/tabla-factura.component';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition, trigger, } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { AltaRfcModalComponent } from 'src/app/shared/components/alta-rfc-modal/alta-rfc-modal.component';
@@ -60,6 +51,7 @@ import { catchError } from 'rxjs/operators';
     ]),
   ],
 })
+
 export class Facturacion2Page implements OnInit {
   respuesta: any;
   resp_confirmacion: any;
@@ -142,6 +134,21 @@ export class Facturacion2Page implements OnInit {
 
     this.cargarDatosUsuario();
     this.cargarFormasPago();
+    
+    /*
+      Hola amigo, que tal soy fernando martinez, 
+      un placer habalr con tigo, este fragmento solo es para deciete hola y recomendarte que dejes algo para la historia
+      yo apoye en gran medida a que la facturacion funcionara, por eso deje mi firma aqui xd 
+      si en algun punto pasa a otro deb o algo pues te recomiendo hacer lo mismo 
+
+      Saludos y que grande :D
+        
+    */
+    console.log("***************************************************************************");
+    console.log("     DEV BY Ing. Arnulfo Fernando Martinez Rosales (BACK-END / FRONT-END)  ");
+    console.log("       DEV BY Ing. José Antonio Niño Calamaco (FRONT-END)                  ");
+    console.log("                     2024                                                  ");
+    console.log("***************************************************************************");
   }
 
   ngOnDestroy() {
@@ -268,7 +275,7 @@ export class Facturacion2Page implements OnInit {
       } else {
         const alert = await this.AlertController.create({
           header: 'Error',
-          message: 'Folio no valido',
+          message: 'Folio no valido, Verifica el que aparece en la parte inferior del Recibo.',
           buttons: ['OK'],
         });
         await alert.present();
@@ -358,7 +365,7 @@ export class Facturacion2Page implements OnInit {
 
     let errores: any = 0 ;
 
-    if(datosParaEnviar.NOMBRE_FISCAL == '' || datosParaEnviar.rfc == '' ||  datosParaEnviar.CP == '' ||  datosParaEnviar.regimen == ''){
+    if(datosParaEnviar.NOMBRE_FISCAL.trim() == '' || datosParaEnviar.rfc.trim()  == '' ||  datosParaEnviar.CP.trim()  == '' ||  datosParaEnviar.regimen.trim()  == ''){
       const alert = await this.AlertController.create({
         message: 'Falta cargar datos fiscales',
         buttons: [
@@ -394,7 +401,7 @@ export class Facturacion2Page implements OnInit {
       errores = 1
     }
 
-    if(datosParaEnviar.metodoPagoSeleccionado == ''){
+    if(datosParaEnviar.metodoPagoSeleccionado.trim()  == ''){
       const alert = await this.AlertController.create({
         message: 'Selecciona un metodo de pago',
         buttons: ['OK'],

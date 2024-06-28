@@ -24,8 +24,8 @@ ion-list {
 ion-toolbar {
   height: 60px;
   /* Altura predeterminada del ion-toolbar */
-  box-shadow: 4px 0px 16px var(--ion-color-medium);
-  --background:  var(--ion-color-medium);
+  box-shadow: 4px 0px 16px var(--ion-color-success);
+  --background:  var(--ion-color-success);
 }
 
 ion-button.button {
@@ -76,7 +76,7 @@ ion-button.button {
     /* Cambiar la dirección del flex container a columna */
     align-items: flex-start;
     /* Alinear los elementos del flex container al inicio */
-    box-shadow: 4px 0px 16px var(--ion-color-medium);
+    box-shadow: 4px 0px 16px var(--ion-color-success);
   }
 
   .app-name {
@@ -127,7 +127,7 @@ ion-toolbar::part(container) {
 
 .horizontal-menu a:hover,
 .horizontal-menu a.active {
-  background-color: #ddd; /* Define el color de fondo para el hover y cuando está activo */
+  background-color: #36AD56;//; //#ddd; /* Define el color de fondo para el hover y cuando está activo */
 }
 
 ion-menu-button {

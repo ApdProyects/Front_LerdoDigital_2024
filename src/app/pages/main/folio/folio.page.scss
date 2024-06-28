@@ -24,7 +24,7 @@ ion-card {
 
 ion-card-header {
   --background: #fff;
-  background-color: #d3d3d3; /* Fondo ligeramente diferente para el encabezado */
+  background-color: var(--ion-color-success); //#d3d3d3; /* Fondo ligeramente diferente para el encabezado */
   border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
   align-items: center;
   font-size: 1.5em;
@@ -216,10 +216,11 @@ ion-button.buttons-form:hover {
     border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
     align-items: center;
     font-size: 1.2em;
+    color: #ffffff;
   }
 
   ion-card-title {
-    color: #333; /* Color más oscuro para el título */
+    color:#FFFFFF; //#333; /* Color más oscuro para el título */
     --background: #fff;
     font-weight: bold;
   }

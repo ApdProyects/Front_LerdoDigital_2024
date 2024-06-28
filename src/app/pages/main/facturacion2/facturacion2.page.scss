@@ -8,6 +8,10 @@
 //   height: 90%;
 //    overflow-y: auto;
 //  }
+button-center{
+  justify-content: center;
+  align-items: center;
+}
 
 ion-card {
   --background: #fff; /* Fondo blanco para la tarjeta */
@@ -19,7 +23,7 @@ ion-card {
 
 ion-card-header {
   --background: #fff;
-  background-color: #e9e9e9; /* Fondo ligeramente diferente para el encabezado */
+  background-color: var(--ion-color-success) ;//#e9e9e9; /* Fondo ligeramente diferente para el encabezado */
   border-bottom: 2px solid #e0e0e0; /* Línea divisoria sutil */
 }
 
@@ -87,9 +91,7 @@ ion-row:nth-child(even).tableRow {
 }
 
 ion-row:first-child.tableRow {
-  background:  /* linear-gradient(to right, #8cbd62 0%, #f7f4ef 100%) */ var(
-    --ion-color-medium
-  );
+  background: var(--ion-color-success);
   color: #ffffff;
   border-radius: 14px 14px 0px 0px;
   font-weight: bold;
@@ -106,7 +108,6 @@ ion-row:last-child.tableRow {
 .table-scroll-vertical {
   max-height: 250px; /* Ajusta este valor basado en la altura de tus filas */
   overflow-y: auto; /* Habilita el desplazamiento vertical */
-  
   .table {
     min-width: 700px; /* Ajusta este valor según el ancho mínimo que necesites */
   }
@@ -131,6 +132,10 @@ ion-row:last-child.tableRow {
 
 .texto-derecha {
   text-align: right;
+}
+
+.texto-izquierda {
+  text-align: left;
 }
 
 @media screen and (max-width: 767px) {

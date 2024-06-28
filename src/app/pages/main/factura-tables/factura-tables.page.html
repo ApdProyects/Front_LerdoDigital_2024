@@ -1,28 +1,13 @@
 <ion-content>
-  <app-header
-    shouldShowHorizontalMenu2="true"
-    Salir="true"
-    MenuButton="true"
-  ></app-header>
+  <app-header shouldShowHorizontalMenu2="true" Salir="true" MenuButton="true"></app-header>
 
-  <h1 class="ion-text-center"><b>Datos de facturación</b></h1>
+  <h1 class="ion-text-center"><b>VER FACTURAS</b></h1>
   <br />
   <ion-item lines="none" class="searchBar">
-    <ion-searchbar
-      slot="start"
-      placeholder="Num Factura..."
-      [(ngModel)]="textoBusqueda"
-      (ionChange)="filtrarFacturas(textoBusqueda)"
-      (keyup.enter)="filtrarFacturas(textoBusqueda)"
-       
-      debounce="500">
+    <ion-searchbar slot="start" placeholder="NÚMERO DE FACTURAS..." [(ngModel)]="textoBusqueda"
+      (ionChange)="filtrarFacturas(textoBusqueda)" (keyup.enter)="filtrarFacturas(textoBusqueda)" debounce="500">
     </ion-searchbar>
-    <ion-button
-      slot="start"
-      (click)="buscarFactura()"
-      size="medium"
-      color="light"
-      shape="round">
+    <ion-button slot="start" (click)="buscarFactura()" size="medium" color="secondary" shape="round">
       <ion-icon name="search"></ion-icon>
     </ion-button>
   </ion-item>
@@ -69,23 +54,12 @@
             </ion-radio> </ion-radio-group
         ></ion-col> -->
         <ion-col>
-          <ion-button
-            fill="solid"
-            shape="solid"
-            color="light"
-            class="button-table"
-            (click)="enviarFactura(factura)"
-          >
+          <ion-button fill="solid" shape="solid" color="secondary" class="button-table" (click)="enviarFactura(factura)">
             <ion-icon name="send-outline"></ion-icon>
           </ion-button>
 
-          <ion-button
-            fill="solid"
-            shape="solid"
-            color="medium"
-            class="button-table"
-            (click)="descargarFactura(factura)"
-          >
+          <ion-button fill="solid" shape="solid" color="success" class="button-table"
+            (click)="descargarFactura(factura)">
             <ion-icon name="download-outline"></ion-icon>
           </ion-button>
           <!--  <ion-button
@@ -103,33 +77,18 @@
 
   <ion-row class="pagination-controls">
     <ion-col size="auto" class="ion-align-self-center">
-      <ion-button
-        class="pagination-button"
-        (click)="changePage(currentPage - 1)"
-        [disabled]="currentPage === 1"
-        shape="round"
-        color="medium"
-      >
-        <ion-icon
-          slot="icon-only"
-          name="chevron-back-outline"
-          shape="round"
-        ></ion-icon>
+      <ion-button class="pagination-button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"
+                  shape="round" color="success">
+        <ion-icon slot="icon-only" name="chevron-back-outline" shape="round"></ion-icon>
       </ion-button>
     </ion-col>
     <ion-col class="pagination-page-info">
-      Página {{currentPage}} de {{totalPages}}
+      PÁGINA {{currentPage}} DE {{totalPages}}
     </ion-col>
     <ion-col size="auto" class="ion-align-self-center">
-      <ion-button
-        class="pagination-button"
-        (click)="changePage(currentPage + 1)"
-        [disabled]="currentPage === totalPages"
-        shape="round"
-        color="medium"
-        ><ion-icon slot="end" slot="icon-only" name="chevron-forward-outline"
-          >Siguiente</ion-icon
-        >
+      <ion-button class="pagination-button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"
+                  shape="round" color="success">
+        <ion-icon slot="end" slot="icon-only" name="chevron-forward-outline">Siguiente</ion-icon>
       </ion-button>
     </ion-col>
   </ion-row>
@@ -145,14 +104,8 @@
       >
         Cancelar
       </ion-button> -->
-      <ion-button
-        fill="solid"
-        shape="round"
-        color="medium"
-        class="buttonFac"
-        (click)="mostrarNuevaFactura()"
-      >
-        Nueva Factura
+      <ion-button fill="solid" shape="round" color="primary" class="buttonFac" (click)="mostrarNuevaFactura()">
+        NUEVA FACTURA
       </ion-button>
     </ion-buttons>
   </div>

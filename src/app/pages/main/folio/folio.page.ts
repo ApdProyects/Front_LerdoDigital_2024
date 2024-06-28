@@ -11,13 +11,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { InfoFolioComponent } from 'src/app/shared/components/info-folio/info-folio.component';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import * as moment from 'moment';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition,trigger,} from '@angular/animations';
 import Swal from 'sweetalert2';
 import { MenuService } from 'src/app/services/menu.service';
 
@@ -48,9 +42,7 @@ import { MenuService } from 'src/app/services/menu.service';
   ],
 })
 export class FolioPage implements OnInit {
-
-
-
+  
 
   miEstilo = { background: 'transparent' };
   consultaFolio: any;
@@ -177,8 +169,10 @@ export class FolioPage implements OnInit {
      private menuService: MenuService
   ) {}
 
-  ngOnInit() {this.clearInput(),  this.menuService.changeMenu('folio');;
-}
+  ngOnInit() {
+    this.clearInput(),  
+    this.menuService.changeMenu('folio');;
+  }
   
   async AlertP() {
     const alert = await this.alertController.create({
@@ -205,7 +199,8 @@ export class FolioPage implements OnInit {
     });
 
     await loading.present();
-    if (this.folio.length < 14) {
+    debugger;
+    if (this.folio.length < 14 && this.folio.includes('-') == true ) {
       await this.getfoliocatastro();
       await loading.dismiss();
       return;
@@ -385,9 +380,7 @@ export class FolioPage implements OnInit {
       this.alert('Error', 'Ingrese datos para continuar');
       return;
     }
-
     this.searchv = true;
-
     this.getInfoFolio();
   }
 
@@ -402,6 +395,7 @@ export class FolioPage implements OnInit {
     this.isOpenCatastro = false;
     this.isOpenPago = true;
   }
+
   async confirmarpago() {
     this.searchv = false;
     this.isOpen = false;
@@ -410,6 +404,7 @@ export class FolioPage implements OnInit {
     this.folio = '';
     this.foliosubs = '';
   }
+
   async close() {
     this.searchv = false;
     this.isOpen = false;
@@ -583,7 +578,6 @@ export class FolioPage implements OnInit {
     else if (folioCatas.length > 9) {
       folioCatas = folioCatas;
     }
-
     return folioCatas;
   }
 

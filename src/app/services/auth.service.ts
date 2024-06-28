@@ -11,8 +11,8 @@ import * as moment from 'moment';
 export class AuthService {
   private nombreUsuarioSource = new BehaviorSubject<string | null>(null);
   //dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/';
-  //dominio = 'http://192.168.100.14:54153/';
+  dominio = 'https://apir.grupoapd.mx/'; // servidor real
+  //  dominio = 'https://localhost:44334/' ; // servidor local host
 
   constructor(private http: HttpClient) {}
 
@@ -376,6 +376,62 @@ export class AuthService {
     }
   }
 
+  async getGuardaCliente(
+    rrfc,
+    rnombre,
+    rtipo_persona,
+    rdireccion,
+    rcolonia,
+    rCP,
+    remail,
+    rcelular,
+    restado,
+    rmunicipio,
+    rregimen
+  ) {
+    debugger;
+    const data = {
+      RFC: rrfc,
+      nombre: rnombre,
+      tipo_persona: rtipo_persona,
+      direccion: rdireccion,
+      colonia: rcolonia,
+      CP: rCP,
+      email: remail,
+      celular: rcelular,
+      estado:restado,
+      municipio:rmunicipio,
+      regimen:rregimen
+    };
+
+    const url =
+      this.dominio + 
+      'api/Facturacion/guardacliente?'+
+      'RFC='+ data.RFC +'&'+
+      'nombre=' +data.nombre +'&'+
+      'tipopersona=' +data.tipo_persona +'&'+
+      'direccion=' +data.direccion +'&'+ 
+      'colonia=' +data.colonia +'&'+ 
+      'CP=' +data.CP +'&'+ 
+      'email=' +data.email +'&'+ 
+      'celular=' +data.celular +'&'+ 
+      'estado=' +data.estado +'&'+ 
+      'municipio=' +data.municipio +'&'+ 
+      'regimen=' +data.regimen
+    ;
+    
+    try {
+      console.log(url);
+      console.log(data);
+      
+      return await this.http.get(url);
+
+      
+    } catch (error) {
+      throw await error;
+    }
+  }
+  
   async getGuardaCliente_regimen(rrfc, regimen) {
     let url: string;
     url =

@@ -1,53 +1,30 @@
 <app-header Salir="true" title="" shouldShowHorizontalMenu2="true" MenuButton="true">
 </app-header>
 
-
-
-
 <!-- ============================================= Consultar folio de pago o clave catastral   ============================================= -->
-
 <ion-content class="ion-justify-content-center .d-flex-center">
 
   <ion-row class="ion-justify-content-center" style="width: 100%">
     <ion-col size-md="8" size-lg="8" size-sm="8">
       <div class="auth-form" *ngIf="isOpenfolio">
         <ion-card class="">
-          <ion-card-header class="ion-justify-content-center">
+          <ion-card-header class="ion-justify-content-center" style="color: white;">
             CONSULTAR FOLIO DE PAGO O CLAVE CATASTRAL
           </ion-card-header>
           <ion-card-content>
             <br>
-          <ion-row class="ion-align-items-center">
-            <ion-col>
-              <ion-input
-                label="Folio / Clave Catastral"
-                label-placement="floating"
-                style="color: gray"
-                fill="outline"
-                color="success"
-                type="text"
-                [(ngModel)]="folio"
-                required
-                [disabled]="searchv==true"
-                (ngModelChange)="handleModelChange($event)"
-                (ionFocus)="clearInput()"
-                maxlength="14"
-              ></ion-input>
-            </ion-col>
-          </ion-row>
-          <br />
-          <ion-button
-            *ngIf="searchv==false"
-            class="ion-text-center buttons-form"
-            expand="block"
-            fill="solid"
-            shape="round"
-            color="medium"
-            (click)="search()"
-            ><strong>Buscar</strong></ion-button
-          >
-          <ion-text color="primary"></ion-text>
-        </ion-card-content>
+            <ion-row class="ion-align-items-center">
+              <ion-col>
+                <ion-input label="Folio / Clave Catastral" label-placement="floating" fill="outline"
+                  color="success" type="text" [(ngModel)]="folio" required [disabled]="searchv===true"
+                  (ngModelChange)="handleModelChange($event)" (ionFocus)="clearInput()" maxlength="14"></ion-input>
+              </ion-col>
+            </ion-row>
+            <br />
+            <ion-button *ngIf="searchv===false" class="ion-text-center buttons-form" expand="block" fill="solid"
+              shape="round" color="primary" (click)="search()"><strong>Buscar</strong></ion-button>
+            <ion-text color="primary"></ion-text>
+          </ion-card-content>
         </ion-card>
       </div>
 
@@ -63,32 +40,12 @@
               <b>Ingrese su codigo de vericifacion enviado por SMS.</b>
             </h3>
             <ion-label position="floating">Codigo:</ion-label>
-            <ion-input
-              type="text"
-              [(ngModel)]="codigoVerificacion"
-              required
-            ></ion-input>
+            <ion-input type="text" [(ngModel)]="codigoVerificacion" required></ion-input>
           </ion-item>
-          <ion-button
-            class="ion-text-center"
-            shape="round"
-            color="colorapd"
-            size="large"
-            strong="true"
-            style="padding-top: 10px; padding-bottom: 10px"
-            (click)="ValidarCodigo()"
-            >&nbsp;Validar codigo</ion-button
-          >
-          <ion-button
-            class="ion-text-center"
-            shape="round"
-            color="colorapd"
-            size="large"
-            strong="true"
-            style="padding-top: 10px; padding-bottom: 10px"
-            (click)="close()"
-            >&nbsp;Cancelar</ion-button
-          >
+          <ion-button class="ion-text-center" shape="round" color="colorapd" size="large" strong="true"
+              tyle="padding-top: 10px; padding-bottom: 10px" (click)="ValidarCodigo()">&nbsp;Validar codigo</ion-button>
+          <ion-button class="ion-text-center" shape="round" color="colorapd" size="large" strong="true"
+            style="padding-top: 10px; padding-bottom: 10px" (click)="close()">&nbsp;Cancelar</ion-button>
           <ion-text color="success"></ion-text>
         </div>
       </div>
@@ -97,117 +54,94 @@
 
       <div [@openClose]="isOpen ? 'open' : 'closed'">
         <div class="form-container-folio" mode="md" *ngIf="isOpen">
-          <ion-row class="ion-align-items-center" *ngIf="info.fecha!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.fecha!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >FOLIO :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">FOLIO :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{consultaFolio}}</ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.fecha!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.fecha!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >FECHA :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">FECHA :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{info.fecha}} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.nombre!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.nombre!==''">
             <ion-col>
-              <ion-label position="floating" class="" style="font-weight: bold"
-                >NOMBRE :</ion-label
-              >
+              <ion-label position="floating" class="" style="font-weight: bold">NOMBRE :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{info.nombre}} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.garantia!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.garantia!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >GARANTÍA :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">GARANTÍA :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{ info.garantia }} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.municipio!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.municipio!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >MUNICIPIO :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">MUNICIPIO :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{ info.municipio }} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.estado!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.estado!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >ESTADO :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">ESTADO :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{ info.estado }} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.direccion!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.direccion!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >DIRECCIÓN :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">DIRECCIÓN :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{ info.direccion }} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.colonia!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.colonia!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >COLONIA :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">COLONIA :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{info.colonia}} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row class="ion-align-items-center" *ngIf="info.municipio!=''">
+          <ion-row class="ion-align-items-center" *ngIf="info.municipio!==''">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >MUNICIPIO :</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">MUNICIPIO :</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{info.municipio}} </ion-label>
             </ion-col>
           </ion-row>
 
-          <ion-row
-            class="ion-align-items-center mt-2 mb-2"
-            style="width:90%;border:0px;border-bottom:2px;border-style: dotted;}
-                                                                   p.dashed {border-style: dashed;"
-          >
+          <ion-row class="ion-align-items-center mt-2 mb-2" style="width:90%;border:0px;border-bottom:2px;border-style: dotted;}
+                                                                   p.dashed {border-style: dashed;">
             <ion-col> </ion-col>
           </ion-row>
           <ion-row class="ion-align-items-center" *ngFor="let item of data">
             <ion-col>
-              <ion-label position="floating" style="font-weight: bold"
-                >DETALLE:</ion-label
-              >
+              <ion-label position="floating" style="font-weight: bold">DETALLE:</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{item[18]}} </ion-label>
@@ -241,13 +175,11 @@
           </ion-row> -->
           <br />
           <ion-row class="ion-align-items-center mt-4">
-            <ion-col
-              style="
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
                   <ion-label style="font-weight: bold">SUBTOTAL :</ion-label>
@@ -260,17 +192,12 @@
             </ion-col>
           </ion-row>
 
-          <ion-row
-            class="ion-align-items-center mt-4"
-            *ngIf="info.descuento!=''"
-          >
-            <ion-col
-              style="
+          <ion-row class="ion-align-items-center mt-4" *ngIf="info.descuento!=''">
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
                   <ion-label style="font-weight: bold">DESCUENTO :</ion-label>
@@ -283,13 +210,11 @@
           </ion-row>
 
           <ion-row class="ion-align-items-center">
-            <ion-col
-              style="
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
                   <ion-label style="font-weight: bold">IMPORTE :</ion-label>
@@ -323,37 +248,19 @@
               >  -->
 
               <ion-col size="6">
-                <ion-button
-                  (click)="close()"
-                  class="ion-text-center"
-                  
-                  fill="solid"
-                  shape="round"
-                  color="medium"
-                  ><b><ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
-                  Regresar</b></ion-button
-                >
+                <ion-button (click)="close()" class="ion-text-center" fill="solid" shape="round"
+                    color="danger"><b><ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
+                    Regresar</b></ion-button>
               </ion-col>
 
               <ion-col size="6">
-                <ion-button
-                  *ngIf="info.estatus !== 'COBRADA'"
-                  (click)="pagar()"
-                  class="ion-text-center"
-                 
-                  fill="solid"
-                  shape="round"
-                  color="medium"
-                  ><ion-icon name="cash-outline" style="color: white"></ion-icon
-                  >&nbsp;<b>pagar</b></ion-button
-                >
+                <ion-button *ngIf="info.estatus !== 'COBRADA'" (click)="pagar()" class="ion-text-center" fill="solid"
+                  shape="round" color="primary"><ion-icon name="cash-outline"
+                  style="color: white"></ion-icon>&nbsp;<b>pagar</b></ion-button>
 
-             <!--    <ion-button (click)="sendmail()" expand="block" data-desc="Reenviar recibo de pago" style="height: 50px;" color="secondary"><ion-icon color="primary" name="paper-plane-outline" style="height: 50px; width: 50px;"></ion-icon>&nbsp;<b>Enviar Recibo</b></ion-button> -->
+                <!--    <ion-button (click)="sendmail()" expand="block" data-desc="Reenviar recibo de pago" style="height: 50px;" color="secondary"><ion-icon color="primary" name="paper-plane-outline" style="height: 50px; width: 50px;"></ion-icon>&nbsp;<b>Enviar Recibo</b></ion-button> -->
 
-                <h3
-                  *ngIf="info.estatus == 'COBRADA'"
-                  color="primary"
-                >
+                <h3 *ngIf="info.estatus === 'COBRADA'" color="primary">
                   <b>ESTE FOLIO YA SE ENCUENTRA PAGADO.</b>
                 </h3>
               </ion-col>
@@ -365,46 +272,25 @@
 
       <!-- ============ pago ==============  -->
       <div class="form-container-pago" *ngIf="isOpenPago">
-        <h1 class="ion-text-center">
+        <h1 class="ion-text-center" style="color: black; width: 100%; ">
           <b>INGRESAR FORMA DE PAGO</b>
         </h1>
         <ion-text color="primary"></ion-text>
 
         <div [ngStyle]="miEstilo">
-          <iframe
-            [src]="url"
-            class="mi-iframe"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
+          <iframe [src]="url" class="mi-iframe" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <ion-grid fixed>
           <ion-row>
             <ion-col size="6">
-              <ion-button
-                *ngIf="searchv==false"
-                class="ion-text-center"
-                expand="block"
-                fill="solid"
-                shape="round"
-                color="medium"
-                (click)="confirmarpago()"
-                >Finalizar pago</ion-button
-              >
+              <ion-button *ngIf="searchv===false" class="ion-text-center" expand="block" fill="solid" shape="round"
+                color="danger" (click)="confirmarpago()">Finalizar pago</ion-button>
             </ion-col>
 
             <ion-col size="6">
-              <ion-button
-                *ngIf="searchv==false"
-                class="ion-text-center"
-                expand="block"
-                fill="solid"
-                shape="round"
-                color="medium"
-                [routerLink]="['/main/facturacion2']"
-                >Facturar pago</ion-button
-              >
+              <ion-button *ngIf="searchv===false" class="ion-text-center" expand="block" fill="solid" shape="round"
+                color="success" [routerLink]="['/main/facturacion2']">Facturar pago</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -413,16 +299,10 @@
       <!-- =========================================== catastro  ======================================================== -->
 
       <div [@openClose]="isOpenCatastro ? 'open' : 'closed'">
-        <div
-          class="form-container-folio-catastro"
-          mode="md"
-          *ngIf="isOpenCatastro"
-        >
+        <div class="form-container-folio-catastro" mode="md" *ngIf="isOpenCatastro">
           <ion-row class="ion-align-items-center">
             <ion-col>
-              <ion-label position="floating" class="bold-label"
-                >CLAVE CATASTRAL:</ion-label
-              >
+              <ion-label position="floating" class="bold-label">CLAVE CATASTRAL:</ion-label>
             </ion-col>
             <ion-col>
               <ion-label position="floating">{{ folio }}</ion-label>
@@ -431,13 +311,10 @@
 
           <ion-row class="ion-align-items-center custom-row">
             <ion-col>
-              <ion-label position="floating" class="label-title"
-                >NOMBRE DEL CONTRIBUYENTE:</ion-label
-              >
+              <ion-label position="floating" class="label-title">NOMBRE DEL CONTRIBUYENTE:</ion-label>
             </ion-col>
             <ion-col>
-              <ion-label position="floating" class="label-content"
-                >{{ infoCatastro.contribuyente }}
+              <ion-label position="floating" class="label-content">{{ infoCatastro.contribuyente }}
               </ion-label>
               <br />
             </ion-col>
@@ -447,18 +324,14 @@
           <br />
 
           <ion-row class="ion-align-items-center mt-4">
-            <ion-col
-              style="
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
-                  <ion-label style="font-weight: bold"
-                    >SUBTOTAL:</ion-label
-                  >
+                  <ion-label style="font-weight: bold">SUBTOTAL:</ion-label>
                 </div>
                 <div class="resultado">
                   <ion-label>{{ infoCatastro.Subtotal }}</ion-label>
@@ -468,18 +341,14 @@
           </ion-row>
 
           <ion-row class="ion-align-items-center mt-4">
-            <ion-col
-              style="
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
-                  <ion-label style="font-weight: bold"
-                    >{{ textDescuento }}:</ion-label
-                  >
+                  <ion-label style="font-weight: bold">{{ textDescuento }}:</ion-label>
                 </div>
                 <div class="resultado">
                   <ion-label>{{ infoCatastro.Descuentos }}</ion-label>
@@ -489,18 +358,14 @@
           </ion-row>
 
           <ion-row class="ion-align-items-center">
-            <ion-col
-              style="
+            <ion-col style="
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-              "
-            >
+              ">
               <div class="cantidad-container">
                 <div class="label-container">
-                  <ion-label style="font-weight: bold"
-                    >IMPORTE:</ion-label
-                  >
+                  <ion-label style="font-weight: bold">IMPORTE:</ion-label>
                 </div>
                 <div class="resultado">
                   <ion-label>{{ infoCatastro.Total }}</ion-label>
@@ -513,36 +378,18 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button
-                  (click)="close()"
-                  class="ion-text-center"
-                  expand="block"
-                  fill="solid"
-                  shape="round"
-                  color="medium"
-                  ><ion-icon name="arrow-back-outline"></ion-icon>
-                  <b>Regresar</b></ion-button
-                >
+                <ion-button (click)="close()" class="ion-text-center" expand="block" fill="solid" shape="round"
+                  color="medium"><ion-icon name="arrow-back-outline"></ion-icon>
+                  <b>Regresar</b></ion-button>
               </ion-col>
 
               <ion-col size="6">
-                <ion-button
-                  *ngIf="importepredial > 0"
-                  (click)="pagar()"
-                  class="ion-text-center"
-                  color="medium"
-                  expand="block"
-                  shape="round"
-                  ><ion-icon name="cash-outline"></ion-icon
-                  >&nbsp;<b>Pagar</b></ion-button
-                >
+                <ion-button *ngIf="importepredial > 0" (click)="pagar()" class="ion-text-center" color="medium"
+                  expand="block" shape="round"><ion-icon name="cash-outline"></ion-icon>&nbsp;<b>Pagar</b></ion-button>
 
                 <!--  <ion-button (click)="sendmail()" expand="block" data-desc="Reenviar recibo de pago" style="height: 50px;" color="secondary"><ion-icon color="primary" name="paper-plane-outline" style="height: 50px; width: 50px;"></ion-icon>&nbsp;<b>Enviar Recibo</b></ion-button> -->
 
-                <h3
-                  *ngIf="importepredial < 1"
-              
-                >
+                <h3 *ngIf="importepredial < 1">
                   <b>ESTA CLAVE CATASTRAL YA SE ENCUENTRA PAGADA.</b>
                 </h3>
               </ion-col>
@@ -746,21 +593,15 @@
         </ion-card-content>
       </ion-card> -->
 
-      <ion-row
-        class="ion-align-items-center ion-justify-content-center"
-        [ngStyle]="{'display':'none'}"
-        style="overflow: hidden"
-      >
+      <ion-row class="ion-align-items-center ion-justify-content-center" [ngStyle]="{'display':'none'}"
+        style="overflow: hidden">
         <ion-card>
-          <svg
-            id="barcode"
-            style="
+          <svg id="barcode" style="
               position: relative;
               float: left;
               width: 200px;
               margin-left: calc(50% - 152px);
-            "
-          ></svg>
+            "></svg>
         </ion-card>
       </ion-row>
     </ion-col>

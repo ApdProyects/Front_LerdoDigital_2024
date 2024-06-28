@@ -117,6 +117,7 @@ export class FacturaTablesPage implements OnInit {
 
     if (valorBusqueda && valorBusqueda.trim() !== '') {
       this.displayedData = this.listaOriginalFacturas.filter((factura) => {
+
         return factura.NumeroFactura.toString().includes(valorBusqueda);
       });
     } else {

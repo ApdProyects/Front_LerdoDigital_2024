@@ -7,12 +7,9 @@
 </app-header>
 <ion-content>
   <form [formGroup]="form" class="auth-form">
-  
-
-   
     <ion-card >
 
-      <ion-card-header class="ion-text-center"><b>Datos del Usuario</b></ion-card-header>
+      <ion-card-header class="ion-text-center"><b style="color: white;">Datos del Usuario</b></ion-card-header>
       <app-logo User="true" ></app-logo>
       <ion-card-content>
       <app-custom-input
@@ -126,7 +123,7 @@
               class="submit buttons-form"
               type="submit"
               (click)="actualizarPerfil()"
-              color="medium"
+              color="primary"
               shape="round"
             >
               Guardar

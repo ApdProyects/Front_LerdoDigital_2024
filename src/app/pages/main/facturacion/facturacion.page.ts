@@ -89,8 +89,8 @@ export class FacturacionPage implements OnInit {
   modmunicipios = [];
   Regimen_fiscal = [];
   isRegimen: boolean;
-facturaDePrueba: Factura;
-subscription: Subscription;
+  facturaDePrueba: Factura;
+  subscription: Subscription;
   usuario: any;
 
   constructor(
@@ -145,7 +145,6 @@ subscription: Subscription;
       console.log(this.Regimen_fiscal);
     });
 
-
     const facturaDePrueba: Factura = {
       folio: '',
     };
@@ -154,15 +153,11 @@ subscription: Subscription;
       this.folio = folio;
     });
 
-  
   }
-
   ngOnDestroy() {
     // No olvides desuscribirte para evitar fugas de memoria
     this.subscription.unsubscribe();
   }
-  
-
   async showFolioF(FolioF: Factura) {
     await this.utilsSvc.presentModal({
       component: TablaFacturaComponent,
@@ -170,14 +165,9 @@ subscription: Subscription;
       cssClass: 'modal-full-size',
     });
   }
-
-
   agregarFolio() {
     this.foliosFacturas.push('');
   }
-
-
-
   async searchfolio() {
     debugger; 
     var cliente: any;
@@ -374,8 +364,27 @@ subscription: Subscription;
       message: 'Cargando...',
     });
     await loading.present();
+    debugger;
+    // if( 1 === 1 ){
+    //   Swal.fire({
+    //     title: 'LERDO DIGITAL',
+    //     text: 'mandar a pagina facturacion 2 ',
+    //     icon: 'warning',
+    //     confirmButtonText: 'Aceptar',
+    //     customClass: {
+    //       popup: 'alertDanger',
+    //     },
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+    //       this.router.navigate(['main/facturacion2']); // Asegúrate de que la ruta es correcta según tu configuración de rutas en Angular
+    //     }
+    //   });
+    //   document.body.classList.remove('swal2-height-auto');
+    //   await loading.dismiss();
+    //   return;
+    // }
 
-    if (this.rfc === '') {
+    if (this.rfc.trim() === '') {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Favor de llenar el campo rfc',
@@ -390,7 +399,7 @@ subscription: Subscription;
       return;
     }
 
-    if (this.nombre === '') {
+    if (this.nombre.trim() === '') {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Favor de llenar el campo nombre',
@@ -405,7 +414,7 @@ subscription: Subscription;
       return;
     }
 
-    if (this.email === '') {
+    if (this.email.trim() === '') {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Favor de llenar el campo correo',
@@ -420,7 +429,7 @@ subscription: Subscription;
       return;
     }
 
-    if (this.celular === '') {
+    if (this.celular.trim() === '') {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Favor de llenar el campo telefono',
@@ -435,11 +444,7 @@ subscription: Subscription;
       return;
     }
 
-    if (
-      this.regimen === '' ||
-      this.regimen === '0' ||
-      this.regimen === undefined
-    ) {
+    if (this.regimen.trim() === '' || this.regimen === '0' || this.regimen === undefined) {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Aun no selecciona su Regimen Fiscal, Favor de rectificar',
@@ -454,7 +459,7 @@ subscription: Subscription;
       return;
     }
 
-    if (this.CP === '' || this.CP === ' ' || this.CP === undefined) {
+    if (this.CP.trim() === '' || this.CP === undefined) {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Aun no ingresa su Código Postal, Favor de rectificar',
@@ -469,11 +474,7 @@ subscription: Subscription;
       return;
     }
 
-    if (
-      this.colonia === '' ||
-      this.colonia === ' ' ||
-      this.colonia === undefined
-    ) {
+    if (this.colonia.trim() === '' || this.colonia === undefined) {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Aun no ingresa la Colonia, Favor de rectificar',
@@ -488,11 +489,7 @@ subscription: Subscription;
       return;
     }
 
-    if (
-      this.direccion === '' ||
-      this.direccion === ' ' ||
-      this.direccion === undefined
-    ) {
+    if ( this.direccion.trim() === '' || this.direccion === undefined ) {
       Swal.fire({
         title: 'LERDO DIGITAL',
         text: 'Aun no ingresa su Dirección, Favor de rectificar',
@@ -507,19 +504,19 @@ subscription: Subscription;
       return;
     }
 
-    // this.respuesta = await this.authService.getGuardaCliente(
-    //   this.rfc,
-    //   this.nombre,
-    //   this.tipo_persona,
-    //   this.direccion,
-    //   this.colonia,
-    //   this.CP,
-    //   this.email,
-    //   this.celular,
-    //   this.estado,
-    //   this.municipio,
-    //   this.regimen
-    // );
+    this.respuesta = await this.authService.getGuardaCliente(
+      this.rfc,
+      this.nombre,
+      this.tipo_persona,
+      this.direccion,
+      this.colonia,
+      this.CP,
+      this.email,
+      this.celular,
+      this.estado,
+      this.municipio,
+      this.regimen
+    );
 
     await this.respuesta.forEach((element) => {
       respuesta = element;
@@ -530,12 +527,14 @@ subscription: Subscription;
       this.nombre = '';
       this.tipo_persona = '';
       // ... (resto de las variables)
+      // this.isOpen = false;
+      // this.isOpenfolio = true;
+      // this.isOpencaptura = false;
+      // this.isOpenInfoRFC = false;
 
-      this.isOpen = false;
-      this.isOpenfolio = true;
-      this.isOpencaptura = false;
-      this.isOpenInfoRFC = false;
+      localStorage.setItem('ULTIMO_RFC', this.rfc); // guardamos el rfc que se acaba de generar en el local storage.
 
+      debugger;
       // Mostrar alerta de SweetAlert
       Swal.fire({
         title: 'LERDO DIGITAL',
@@ -547,10 +546,13 @@ subscription: Subscription;
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          this.router.navigate(['/facturacion2']); // Asegúrate de que la ruta es correcta según tu configuración de rutas en Angular
+          this.router.navigate(['main/facturacion2']); // Asegúrate de que la ruta es correcta según tu configuración de rutas en Angular
         }
       });
+
+      document.body.classList.remove('swal2-height-auto');
       await loading.dismiss();
+      
       return;
     } else if (respuesta.codigo <= 0) {
       console.log(respuesta.objetoError);
@@ -702,7 +704,6 @@ subscription: Subscription;
       loading.dismiss();
     }
   }
-
   async ayuda() {
     const loading = await this.LoadingController.create({
       cssClass: 'my-custom-class',
@@ -757,7 +758,6 @@ subscription: Subscription;
     document.body.classList.remove('swal2-height-auto');
     loading.dismiss();
   }    
-
   async guardarcliente_regimen() {
     var respuesta: any;
     if (this.regimen === '' || this.regimen === '0' || this.regimen === undefined) {

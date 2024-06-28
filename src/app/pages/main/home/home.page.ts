@@ -71,6 +71,11 @@ export class HomePage implements OnInit {
       text: 'Contáctanos',
       buttonText: ' Conoce más',
       buttonAction: 'goContactanos',
+    },{
+      image: 'assets/fondoLerdo4.jpg',
+      text: 'Contáctanos 2',
+      buttonText: ' Conoce más',
+      buttonAction: 'goContactanos',
     },
   ];
 
@@ -128,7 +133,22 @@ export class HomePage implements OnInit {
     console.log('Índice actual de la diapositiva: ', currentIndex);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+     /*
+      Hola amigo, que tal soy fernando martinez, 
+      un placer habalr con tigo, este fragmento solo es para deciete hola y recomendarte que dejes algo para la historia
+      yo apoye en gran medida a que la facturacion funcionara, por eso deje mi firma aqui xd 
+      si en algun punto pasa a otro deb o algo pues te recomiendo hacer lo mismo 
+
+      Saludos y que grande :D
+        
+    */
+      console.log("***************************************************************************");
+      console.log("     DEV BY Ing. Arnulfo Fernando Martinez Rosales (BACK-END / FRONT-END)  ");
+      console.log("       DEV BY Ing. José Antonio Niño Calamaco (FRONT-END)                  ");
+      console.log("                     2024                                                  ");
+      console.log("***************************************************************************");
+  }
 
   ionViewWillEnter() {
     this.getPosts();

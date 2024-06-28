@@ -48,8 +48,7 @@ export class ForgotPasswordPage implements OnInit {
     console.log(this.phoneCleanupService)
 
 
-    this.respuesta = await this.authService.getecupera(cleanPhoneNumber
-     );
+    this.respuesta = await this.authService.getecupera(cleanPhoneNumber);
     console.log(this.respuesta);
     await this.respuesta.forEach(async (element) => {
       this.ban = false;

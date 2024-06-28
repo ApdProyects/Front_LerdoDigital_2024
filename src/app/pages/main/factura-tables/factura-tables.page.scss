@@ -48,9 +48,7 @@ ion-row:nth-child(even) {
 }
 
 ion-row:first-child.tableRow {
-  background:  /* linear-gradient(to right, #8cbd62 0%, #f7f4ef 100%) */ var(
-    --ion-color-medium
-  );
+  background: var(--ion-color-success);
   color: #ffffff;
   border-radius: 14px 14px 0px 0px;
   font-weight: bold;

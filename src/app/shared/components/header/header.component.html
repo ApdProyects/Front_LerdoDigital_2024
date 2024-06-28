@@ -55,22 +55,19 @@
     <!-- Menú de navegación horizontal en el lado derecho -->
     <div *ngIf="shouldShowHorizontalMenu" class="horizontal-menu" slot="end">
       <a [routerLink]="['/main/home']" routerLinkActive="active">Inicio</a>
-      <a [routerLink]="['/main/servicios']" routerLinkActive="active"
-        >Servicios</a
-      >
+      <a [routerLink]="['/main/servicios']" routerLinkActive="active">Servicios</a>
       <a (click)="goContactanos()" style="cursor: pointer">Contáctanos</a>
+      <p style="color: white;"><strong>Descarga el Apk</strong></p>
+      <a href="https://lerdosapal.mx/apk_release/LERDO_DIGITAL.apk" download> Android! <ion-icon name="logo-android"></ion-icon> </a>
+      <!-- <a href="" download=""> IOS! <ion-icon name="logo-apple"></ion-icon> </a> -->
       <!-- ... más enlaces según sea necesario -->
     </div>
 
     <div *ngIf="shouldShowHorizontalMenu2" class="horizontal-menu" slot="end">
      <a [routerLink]="['/main/perfil']" routerLinkActive="active">Bienvenido&nbsp;&nbsp;{{ nombreUsuario }}</a>  
       <a [routerLink]="['/main/folio']" routerLinkActive="active">Pagos</a>
-      <a [routerLink]="['/main/facturacion2']" routerLinkActive="active"
-        >Facturación</a
-      >
-      <a [routerLink]="['/main/factura-tables']" routerLinkActive="active"
-      >Ver Facturas</a
-    >
+      <a [routerLink]="['/main/facturacion2']" routerLinkActive="active">Facturación</a>
+      <a [routerLink]="['/main/factura-tables']" routerLinkActive="active">Ver Facturas</a>
     </div>
 
     <!-- Botón de menú -->
