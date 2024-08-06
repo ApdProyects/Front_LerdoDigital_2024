@@ -485,7 +485,17 @@ export class Facturacion2Page implements OnInit {
                   text: 'OK',
                   handler: async() => {
                     await alert.dismiss();
+                    debugger;
                     window.location.reload();
+                    // /* LIMPIAMOS LOS CAMPOS */
+                    // this.nombre = "";
+                    // this.CP = ""
+                    // this.regimen = "";
+                    // this.direccion = "";
+                    // this.displayedData = [];
+                    // this.calcularTotales();
+                    // debugger;
+                    // this.router.navigate(['/facturacion2'])
                   },
                 },
               ],

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\main",
+    "\\src\\app\\pages\\main\\folio"
   ],
+  "SelectedNode": "\\src\\app\\pages\\main\\folio\\folio.page.html",
   "PreviewInSolutionExplorer": false
 }

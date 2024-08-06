@@ -10,9 +10,12 @@ import * as moment from 'moment';
 })
 export class AuthService {
   private nombreUsuarioSource = new BehaviorSubject<string | null>(null);
-  //dominio = 'https://localhost:44334/';
-  dominio = 'https://apir.grupoapd.mx/'; // servidor real
-  //  dominio = 'https://localhost:44334/' ; // servidor local host
+  // dominio = 'https://localhost:44334/';
+  // dominio = 'https://apir.grupoapd.mx/';     // servidor VPS real
+  // dominio = 'http://148.230.154.229:8084/';  // servidor Vialidad Real 
+  dominio = 'https://apdone.mx/';     // servidor Multipagos Real
+  
+  //  dominio = 'https://localhost:44334/' ;    // servidor local host
 
   constructor(private http: HttpClient) {}
 

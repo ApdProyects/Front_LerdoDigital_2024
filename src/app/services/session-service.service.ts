@@ -7,9 +7,11 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 })
 export class SessionService {
  /*  private nombreUsuarioSource = new BehaviorSubject<string | null>(null); */
-  dominio = 'https://localhost:44334/';
-  //dominio = 'https://apir.grupoapd.mx/';
-
+  //dominio = 'https://localhost:44334/'; // Entorno local
+  
+  //dominio = 'https://apir.grupoapd.mx/';      // Servidor VPS 
+  // dominio = 'http://148.230.154.229:8084/';  // servidor Vialidad Real 
+  dominio = 'https://148.230.154.230:443/';     // servidor Multipagos Real
 
   constructor(private http: HttpClient) { }
 
